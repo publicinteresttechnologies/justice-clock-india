@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { AdSlot } from "@/components/AdSlot";
 import { CaveatBox } from "@/components/CaveatBox";
 import { ConfidenceBadge } from "@/components/ConfidenceBadge";
 import { MetricCard } from "@/components/MetricCard";
@@ -42,6 +43,8 @@ export default async function JudgeDetailPage({ params }: PageProps) {
           confidence={profile.confidence}
         />
       </section>
+
+      <AdSlot slotName="judge-after-summary" />
 
       <MetricCard
         title="Median Case-Age Gap"
