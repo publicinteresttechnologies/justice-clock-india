@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "validate:data": "tsx scripts/validate-data.ts",
+    "compute:metrics": "tsx scripts/compute-metrics.ts"
   },
   "dependencies": {
     "next": "latest",
@@ -23,6 +25,7 @@
     "eslint-config-next": "latest",
     "postcss": "latest",
     "tailwindcss": "^3.4.17",
+    "tsx": "latest",
     "typescript": "latest"
   }
 }
