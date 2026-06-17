@@ -4,7 +4,7 @@ const items = [
   { href: "/", label: "Clock" },
   { href: "/case-types", label: "Case Types" },
   { href: "/judges", label: "Judges" },
-  { href: "/sources", label: "Data" },
+  { href: "/data", label: "Data" },
 ];
 
 export function BottomNav() {
