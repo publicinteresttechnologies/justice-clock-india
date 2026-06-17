@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AdSlot } from "@/components/AdSlot";
 import { DataCard } from "@/components/DataCard";
 import { MetricCard } from "@/components/MetricCard";
 import { SampleDataWarning } from "@/components/SampleDataWarning";
@@ -43,6 +44,8 @@ export default function HomePage() {
           sourceHref={courtClock.sourceUrl}
         />
       </section>
+
+      <AdSlot slotName="home-after-clock" />
 
       <section className="grid gap-3">
         <Link href="/case-types">
