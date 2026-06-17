@@ -1,41 +1,81 @@
+import { notFound } from "next/navigation";
+import { CaveatBox } from "@/components/CaveatBox";
+import { ConfidenceBadge } from "@/components/ConfidenceBadge";
+import { MetricCard } from "@/components/MetricCard";
+import { SampleDataWarning } from "@/components/SampleDataWarning";
+import { SectionHeader } from "@/components/SectionHeader";
+import { formatYears, getJudgeBySlug } from "@/lib/data";
+
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-function titleFromSlug(slug: string) {
-  return slug
-    .split("-")
-    .map((word) => word[0]?.toUpperCase() + word.slice(1))
-    .join(" ");
-}
+export default async function JudgeDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const profile = getJudgeBySlug(slug);
 
-export default function JudgeDetailPage({ params }: PageProps) {
-  const title = titleFromSlug(params.slug);
+  if (!profile) notFound();
 
   return (
     <div className="space-y-5">
-      <header>
-        <p className="text-xs font-bold uppercase tracking-[0.24em] text-amber-700">
-          Public Judgment Profile
-        </p>
-        <h1 className="mt-2 text-3xl font-black tracking-tight">{title}</h1>
-        <p className="mt-2 text-sm leading-6 text-slate-700">
-          This is not a performance rating. It is a public metadata profile
-          based on available judgment records.
-        </p>
-      </header>
+      <SectionHeader
+        eyebrow="Public Judgment Profile"
+        title={profile.judgeName}
+        description="A generated metadata profile based on available judgment records."
+      />
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-        <p className="text-sm font-semibold text-slate-500">
-          Bench-Associated Judgments
-        </p>
-        <p className="mt-2 text-5xl font-black tracking-tight">Sample</p>
-        <p className="mt-3 text-sm leading-6 text-slate-600">
-          Bench-associated metrics are not direct blame metrics.
-        </p>
+      {profile.sample ? <SampleDataWarning /> : null}
+
+      <section className="grid gap-3 sm:grid-cols-2">
+        <MetricCard
+          title="Authored Judgments"
+          value={String(profile.authoredJudgments)}
+          context="Judgment records where this name is listed as author."
+          confidence={profile.confidence}
+        />
+        <MetricCard
+          title="Bench Records"
+          value={String(profile.benchAssociatedJudgments)}
+          context="Judgment records where this name appears on the bench."
+          confidence={profile.confidence}
+        />
       </section>
+
+      <MetricCard
+        title="Median Case-Age Gap"
+        value={formatYears(profile.medianCaseAgeYears)}
+        context="Approximate gap from case/diary year to judgment year across associated records."
+        confidence={profile.confidence}
+        sourceLabel={profile.sources[0]?.name ?? "Generated data"}
+        sourceHref={profile.sources[0]?.url}
+      />
+
+      <section className="grid gap-3 sm:grid-cols-2">
+        <MetricCard title="Cases Older Than 5 Years" value={String(profile.casesOlderThan5Years)} confidence={profile.confidence} />
+        <MetricCard title="Cases Older Than 10 Years" value={String(profile.casesOlderThan10Years)} confidence={profile.confidence} />
+        <MetricCard title="Oldest Case Age" value={formatYears(profile.oldestCaseAgeYears)} confidence={profile.confidence} />
+      </section>
+
+      <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <div className="flex items-center justify-between gap-3">
+          <h2 className="font-black">Case-type mix</h2>
+          <ConfidenceBadge level={profile.confidence} />
+        </div>
+        <div className="mt-3 space-y-2">
+          {profile.caseTypeMix.map((item) => (
+            <div key={item.caseType} className="flex justify-between gap-3 text-sm">
+              <span className="text-slate-700">{item.caseType}</span>
+              <span className="font-semibold">{item.count} · {item.percentage}%</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <CaveatBox title="Attribution warning">
+        {profile.attributionWarning} {profile.caveat}
+      </CaveatBox>
     </div>
   );
 }
