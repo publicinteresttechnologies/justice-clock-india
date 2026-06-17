@@ -1,48 +1,43 @@
 import Link from "next/link";
-
-const sampleCaseTypes = [
-  "SLP Civil",
-  "SLP Criminal",
-  "Criminal Appeal",
-  "Civil Appeal",
-  "Writ Petition",
-];
+import { ConfidenceBadge } from "@/components/ConfidenceBadge";
+import { SampleDataWarning } from "@/components/SampleDataWarning";
+import { SectionHeader } from "@/components/SectionHeader";
+import { caseTypes, formatYears } from "@/lib/data";
 
 export default function CaseTypesPage() {
+  const hasSampleData = caseTypes.some((caseType) => caseType.sample);
+
   return (
     <div className="space-y-5">
-      <header>
-        <p className="text-xs font-bold uppercase tracking-[0.24em] text-amber-700">
-          Case Types
-        </p>
-        <h1 className="mt-2 text-3xl font-black tracking-tight">
-          Time to Justice by Case Type
-        </h1>
-        <p className="mt-2 text-sm leading-6 text-slate-700">
-          Approximate case-age-to-judgment timelines. Sample layout only.
-        </p>
-      </header>
+      <SectionHeader
+        eyebrow="Case Types"
+        title="Time to Justice by Case Type"
+        description="Approximate case-age-to-judgment timelines from generated judgment metadata."
+      />
+
+      {hasSampleData ? <SampleDataWarning /> : null}
 
       <div className="grid gap-3">
-        {sampleCaseTypes.map((caseType) => {
-          const slug = caseType.toLowerCase().replaceAll(" ", "-");
-
-          return (
-            <Link
-              key={caseType}
-              href={`/case-types/${slug}`}
-              className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
-            >
-              <p className="font-bold">{caseType}</p>
-              <p className="mt-1 text-sm text-slate-600">
-                Median delay: Sample
-              </p>
-              <p className="mt-2 text-xs font-semibold text-amber-700">
-                Confidence: Sample
-              </p>
-            </Link>
-          );
-        })}
+        {caseTypes.map((caseType) => (
+          <Link
+            key={caseType.slug}
+            href={`/case-types/${caseType.slug}`}
+            className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+          >
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="font-bold">{caseType.caseType}</p>
+                <p className="mt-1 text-sm text-slate-600">
+                  Median gap: {formatYears(caseType.medianCaseAgeYears)}
+                </p>
+                <p className="mt-1 text-xs text-slate-500">
+                  Sample size: {caseType.sampleSize}
+                </p>
+              </div>
+              <ConfidenceBadge level={caseType.confidence} />
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );
