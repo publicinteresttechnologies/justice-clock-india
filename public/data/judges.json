@@ -1,0 +1,95 @@
+[
+  {
+    "slug": "sample-judge-a",
+    "judgeName": "Sample Judge A",
+    "authoredJudgments": 1,
+    "benchAssociatedJudgments": 2,
+    "judgmentsByYear": [{ "year": 2026, "count": 2 }],
+    "caseTypeMix": [
+      { "caseType": "Civil Appeal", "count": 1, "percentage": 50 },
+      { "caseType": "Writ Petition", "count": 1, "percentage": 50 }
+    ],
+    "subjectMix": [
+      { "subject": "civil", "count": 1, "percentage": 25 },
+      { "subject": "property", "count": 1, "percentage": 25 },
+      { "subject": "constitutional", "count": 1, "percentage": 25 },
+      { "subject": "government", "count": 1, "percentage": 25 }
+    ],
+    "benchSizeProfile": [
+      { "benchSize": "2-judge", "count": 1 },
+      { "benchSize": "3-judge", "count": 1 }
+    ],
+    "medianCaseAgeYears": 9,
+    "casesOlderThan5Years": 2,
+    "casesOlderThan10Years": 1,
+    "oldestCaseAgeYears": 12,
+    "confidence": "experimental",
+    "attributionWarning": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "caveat": "Bench-associated metrics are not direct blame metrics. Case-age figures are approximate unless exact filing-to-disposal data is available.",
+    "sources": [{ "name": "Sample Judgment Metadata" }],
+    "sample": true
+  },
+  {
+    "slug": "sample-judge-b",
+    "judgeName": "Sample Judge B",
+    "authoredJudgments": 1,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": [{ "year": 2026, "count": 3 }],
+    "caseTypeMix": [
+      { "caseType": "Civil Appeal", "count": 1, "percentage": 33.3 },
+      { "caseType": "Criminal Appeal", "count": 1, "percentage": 33.3 },
+      { "caseType": "Writ Petition", "count": 1, "percentage": 33.3 }
+    ],
+    "subjectMix": [
+      { "subject": "civil", "count": 1, "percentage": 16.7 },
+      { "subject": "property", "count": 1, "percentage": 16.7 },
+      { "subject": "criminal", "count": 1, "percentage": 16.7 },
+      { "subject": "liberty", "count": 1, "percentage": 16.7 },
+      { "subject": "constitutional", "count": 1, "percentage": 16.7 },
+      { "subject": "government", "count": 1, "percentage": 16.7 }
+    ],
+    "benchSizeProfile": [
+      { "benchSize": "2-judge", "count": 2 },
+      { "benchSize": "3-judge", "count": 1 }
+    ],
+    "medianCaseAgeYears": 8,
+    "casesOlderThan5Years": 3,
+    "casesOlderThan10Years": 1,
+    "oldestCaseAgeYears": 12,
+    "confidence": "experimental",
+    "attributionWarning": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "caveat": "Bench-associated metrics are not direct blame metrics. Case-age figures are approximate unless exact filing-to-disposal data is available.",
+    "sources": [{ "name": "Sample Judgment Metadata" }],
+    "sample": true
+  },
+  {
+    "slug": "sample-judge-c",
+    "judgeName": "Sample Judge C",
+    "authoredJudgments": 1,
+    "benchAssociatedJudgments": 2,
+    "judgmentsByYear": [{ "year": 2026, "count": 2 }],
+    "caseTypeMix": [
+      { "caseType": "Criminal Appeal", "count": 1, "percentage": 50 },
+      { "caseType": "Writ Petition", "count": 1, "percentage": 50 }
+    ],
+    "subjectMix": [
+      { "subject": "criminal", "count": 1, "percentage": 25 },
+      { "subject": "liberty", "count": 1, "percentage": 25 },
+      { "subject": "constitutional", "count": 1, "percentage": 25 },
+      { "subject": "government", "count": 1, "percentage": 25 }
+    ],
+    "benchSizeProfile": [
+      { "benchSize": "2-judge", "count": 1 },
+      { "benchSize": "3-judge", "count": 1 }
+    ],
+    "medianCaseAgeYears": 10,
+    "casesOlderThan5Years": 2,
+    "casesOlderThan10Years": 1,
+    "oldestCaseAgeYears": 12,
+    "confidence": "experimental",
+    "attributionWarning": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "caveat": "Bench-associated metrics are not direct blame metrics. Case-age figures are approximate unless exact filing-to-disposal data is available.",
+    "sources": [{ "name": "Sample Judgment Metadata" }],
+    "sample": true
+  }
+]
