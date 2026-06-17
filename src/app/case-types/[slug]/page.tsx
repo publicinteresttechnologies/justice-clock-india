@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { AdSlot } from "@/components/AdSlot";
 import { CaveatBox } from "@/components/CaveatBox";
 import { ConfidenceBadge } from "@/components/ConfidenceBadge";
 import { MetricCard } from "@/components/MetricCard";
@@ -36,6 +37,8 @@ export default async function CaseTypeDetailPage({ params }: PageProps) {
         sourceLabel={caseType.sources[0]?.name ?? "Generated data"}
         sourceHref={caseType.sources[0]?.url}
       />
+
+      <AdSlot slotName="case-type-after-answer" />
 
       <section className="grid gap-3 sm:grid-cols-2">
         <MetricCard title="25th Percentile" value={formatYears(caseType.p25CaseAgeYears)} confidence={caseType.confidence} />
