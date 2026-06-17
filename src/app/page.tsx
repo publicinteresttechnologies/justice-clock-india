@@ -1,61 +1,68 @@
 import Link from "next/link";
+import { DataCard } from "@/components/DataCard";
+import { MetricCard } from "@/components/MetricCard";
+import { SampleDataWarning } from "@/components/SampleDataWarning";
+import { SectionHeader } from "@/components/SectionHeader";
 
 export default function HomePage() {
   return (
     <div className="space-y-6">
-      <header className="space-y-2">
-        <p className="text-xs font-bold uppercase tracking-[0.24em] text-amber-700">
-          Justice Clock India
-        </p>
-        <h1 className="text-4xl font-black tracking-tight text-slate-950">
-          How long does justice take?
-        </h1>
-        <p className="text-base leading-7 text-slate-700">
-          A mobile-first public data tracker for Supreme Court pendency,
-          case-type delay, and public judgment profiles.
-        </p>
-      </header>
+      <SectionHeader
+        eyebrow="Justice Clock India"
+        title="How long does justice take?"
+        description="A mobile-first public data tracker for Supreme Court pendency, case-type delay, and public judgment profiles."
+      />
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-        <p className="text-sm font-semibold text-slate-500">
-          Supreme Court Pending Cases
-        </p>
-        <p className="mt-2 text-5xl font-black tracking-tight">Sample</p>
-        <p className="mt-3 text-sm leading-6 text-slate-600">
-          Sample data mode. Replace with official/generated data before public
-          launch.
-        </p>
+      <SampleDataWarning />
+
+      <MetricCard
+        title="Supreme Court Pending Cases"
+        value="92,313"
+        context="Sample placeholder for the court-level Justice Clock. Replace with official/generated data before public launch."
+        confidence="experimental"
+        sourceLabel="Sample"
+      />
+
+      <section className="grid gap-3 sm:grid-cols-2">
+        <MetricCard
+          title="Instituted This Month"
+          value="6,638"
+          context="Sample monthly institution count."
+          confidence="experimental"
+          sourceLabel="Sample"
+        />
+        <MetricCard
+          title="Disposed This Month"
+          value="4,735"
+          context="Sample monthly disposal count."
+          confidence="experimental"
+          sourceLabel="Sample"
+        />
       </section>
 
       <section className="grid gap-3">
-        <Link
-          href="/case-types"
-          className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
-        >
-          <p className="font-bold">Case-Type Time to Justice</p>
-          <p className="mt-1 text-sm text-slate-600">
-            See approximate case-age-to-judgment timelines by case type.
-          </p>
+        <Link href="/case-types">
+          <DataCard
+            eyebrow="Product 2"
+            title="Case-Type Time to Justice"
+            description="See approximate case-age-to-judgment timelines by case type."
+          />
         </Link>
 
-        <Link
-          href="/judges"
-          className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
-        >
-          <p className="font-bold">Public Judge Profiles</p>
-          <p className="mt-1 text-sm text-slate-600">
-            Judgment metadata profiles, not performance ratings.
-          </p>
+        <Link href="/judges">
+          <DataCard
+            eyebrow="Product 3"
+            title="Public Judge Profiles"
+            description="Judgment metadata profiles, not performance ratings."
+          />
         </Link>
 
-        <Link
-          href="/methodology"
-          className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
-        >
-          <p className="font-bold">Methodology</p>
-          <p className="mt-1 text-sm text-slate-600">
-            How metrics, confidence labels, and caveats work.
-          </p>
+        <Link href="/methodology">
+          <DataCard
+            eyebrow="Trust layer"
+            title="Methodology"
+            description="How metrics, confidence labels, and caveats work."
+          />
         </Link>
       </section>
     </div>
