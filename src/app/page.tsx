@@ -3,6 +3,7 @@ import { DataCard } from "@/components/DataCard";
 import { MetricCard } from "@/components/MetricCard";
 import { SampleDataWarning } from "@/components/SampleDataWarning";
 import { SectionHeader } from "@/components/SectionHeader";
+import { caseTypes, courtClock, formatNumber, judges } from "@/lib/data";
 
 export default function HomePage() {
   return (
@@ -13,37 +14,40 @@ export default function HomePage() {
         description="A mobile-first public data tracker for Supreme Court pendency, case-type delay, and public judgment profiles."
       />
 
-      <SampleDataWarning />
+      {courtClock.sample ? <SampleDataWarning /> : null}
 
       <MetricCard
         title="Supreme Court Pending Cases"
-        value="92,313"
-        context="Sample placeholder for the court-level Justice Clock. Replace with official/generated data before public launch."
-        confidence="experimental"
-        sourceLabel="Sample"
+        value={formatNumber(courtClock.totalPending)}
+        context={`Reporting period: ${courtClock.reportingPeriod}`}
+        confidence={courtClock.confidence}
+        sourceLabel={courtClock.sourceName}
+        sourceHref={courtClock.sourceUrl}
       />
 
       <section className="grid gap-3 sm:grid-cols-2">
         <MetricCard
           title="Instituted This Month"
-          value="6,638"
-          context="Sample monthly institution count."
-          confidence="experimental"
-          sourceLabel="Sample"
+          value={formatNumber(courtClock.institutedThisMonth)}
+          context="New matters entering the court-level snapshot."
+          confidence={courtClock.confidence}
+          sourceLabel={courtClock.sourceName}
+          sourceHref={courtClock.sourceUrl}
         />
         <MetricCard
           title="Disposed This Month"
-          value="4,735"
-          context="Sample monthly disposal count."
-          confidence="experimental"
-          sourceLabel="Sample"
+          value={formatNumber(courtClock.disposedThisMonth)}
+          context={`Clearance rate: ${courtClock.clearanceRate ?? "—"}%`}
+          confidence={courtClock.confidence}
+          sourceLabel={courtClock.sourceName}
+          sourceHref={courtClock.sourceUrl}
         />
       </section>
 
       <section className="grid gap-3">
         <Link href="/case-types">
           <DataCard
-            eyebrow="Product 2"
+            eyebrow={`${caseTypes.length} tracked types`}
             title="Case-Type Time to Justice"
             description="See approximate case-age-to-judgment timelines by case type."
           />
@@ -51,7 +55,7 @@ export default function HomePage() {
 
         <Link href="/judges">
           <DataCard
-            eyebrow="Product 3"
+            eyebrow={`${judges.length} public profiles`}
             title="Public Judge Profiles"
             description="Judgment metadata profiles, not performance ratings."
           />
