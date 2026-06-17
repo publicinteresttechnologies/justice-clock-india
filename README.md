@@ -56,9 +56,22 @@ npm run compute:metrics
 Generated files are written to:
 
 ```txt
+public/data/justice-clock-data.json
 public/data/court-clock.json
 public/data/case-types.json
 public/data/judges.json
+```
+
+The app reads from the bundled dataset at:
+
+```txt
+/data/justice-clock-data.json
+```
+
+The visible data hub is available at:
+
+```txt
+/data
 ```
 
 ## CI
