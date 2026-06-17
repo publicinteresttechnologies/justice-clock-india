@@ -13,7 +13,10 @@ function envSlotKey(slotName: string) {
 export function AdSlot({ slotName, className = "", format = "banner" }: AdSlotProps) {
   const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
   const slot = process.env[envSlotKey(slotName)];
-  const isConfigured = Boolean(client && slot);
+
+  if (!client || !slot) {
+    return null;
+  }
 
   return (
     <aside
@@ -26,19 +29,13 @@ export function AdSlot({ slotName, className = "", format = "banner" }: AdSlotPr
         Advertisement
       </p>
 
-      {isConfigured ? (
-        <ins
-          className="adsbygoogle block min-h-24 w-full"
-          data-ad-client={client}
-          data-ad-slot={slot}
-          data-ad-format={format === "multiplex" ? "autorelaxed" : "auto"}
-          data-full-width-responsive="true"
-        />
-      ) : (
-        <div className="flex min-h-24 items-center justify-center rounded-xl bg-slate-50 text-xs text-slate-400">
-          Ad slot: {slotName}
-        </div>
-      )}
+      <ins
+        className="adsbygoogle block min-h-24 w-full"
+        data-ad-client={client}
+        data-ad-slot={slot}
+        data-ad-format={format === "multiplex" ? "autorelaxed" : "auto"}
+        data-full-width-responsive="true"
+      />
     </aside>
   );
 }
