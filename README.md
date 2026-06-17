@@ -46,15 +46,39 @@ Open:
 http://localhost:3000
 ```
 
+## Data pipeline
+
+```bash
+npm run validate:data
+npm run compute:metrics
+```
+
+Generated files are written to:
+
+```txt
+public/data/court-clock.json
+public/data/case-types.json
+public/data/judges.json
+```
+
+## CI
+
+GitHub Actions runs the following checks on every push to `main`:
+
+```bash
+npm install
+npm run validate:data
+npm run compute:metrics
+npm run build
+```
+
 ## Current status
 
-This is the initial mobile-first scaffold. It uses sample placeholders only. Do not publish sample data as real data.
+This is a sample-data MVP scaffold. Do not publish sample data as real data.
 
 ## Next build steps
 
-1. Add reusable metric, source, caveat, and confidence components.
-2. Add Zod schemas for court snapshots and judgment records.
-3. Add seed data.
-4. Add metric computation scripts.
-5. Replace placeholders with generated JSON data.
-6. Add ad-slot infrastructure only after the primary product pages are stable.
+1. Replace sample court snapshot with official/generated data.
+2. Replace sample judgment records with real judgment metadata.
+3. Add real ingestion scripts for local JSON/CSV.
+4. Deploy to Vercel after CI passes.
