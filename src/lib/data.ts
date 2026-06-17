@@ -1,15 +1,38 @@
-import courtClockRaw from "../../public/data/court-clock.json";
-import caseTypesRaw from "../../public/data/case-types.json";
-import judgesRaw from "../../public/data/judges.json";
-import type { CaseTypeMetric, ConfidenceLevel, CourtSnapshot, JudgeProfile } from "./schemas";
+import justiceClockDataRaw from "../../public/data/justice-clock-data.json";
+import type {
+  CaseTypeMetric,
+  ConfidenceLevel,
+  CourtSnapshot,
+  JudgeProfile,
+  JudgmentRecord,
+} from "./schemas";
 
 type CourtClock = CourtSnapshot & {
   clearanceRate: number | null;
 };
 
-export const courtClock = courtClockRaw as CourtClock;
-export const caseTypes = caseTypesRaw as CaseTypeMetric[];
-export const judges = judgesRaw as JudgeProfile[];
+type JusticeClockDataset = {
+  metadata: {
+    project: string;
+    title: string;
+    generatedAt: string;
+    sample: boolean;
+    status: string;
+    warning: string;
+    files: Record<string, string>;
+  };
+  courtClock: CourtClock;
+  caseTypes: CaseTypeMetric[];
+  judges: JudgeProfile[];
+  judgments: JudgmentRecord[];
+};
+
+export const justiceClockData = justiceClockDataRaw as JusticeClockDataset;
+export const courtClock = justiceClockData.courtClock;
+export const caseTypes = justiceClockData.caseTypes;
+export const judges = justiceClockData.judges;
+export const judgments = justiceClockData.judgments;
+export const dataMetadata = justiceClockData.metadata;
 
 export function getCaseTypeBySlug(slug: string) {
   return caseTypes.find((caseType) => caseType.slug === slug) ?? null;
