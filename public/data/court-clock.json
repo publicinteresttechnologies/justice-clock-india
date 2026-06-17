@@ -1,0 +1,33 @@
+{
+  "sourceName": "Sample Court Snapshot",
+  "sourceUrl": "https://example.com/sample-court-snapshot",
+  "capturedAt": "2026-06-17T00:00:00.000Z",
+  "reportingPeriod": "Sample month",
+  "totalPending": 92313,
+  "civilPending": 68120,
+  "criminalPending": 24193,
+  "institutedThisMonth": 6638,
+  "disposedThisMonth": 4735,
+  "oldCasesDisposedThisMonth": 128,
+  "coramPending": [
+    {
+      "benchSize": "2-judge",
+      "pending": 81000
+    },
+    {
+      "benchSize": "3-judge",
+      "pending": 7200
+    },
+    {
+      "benchSize": "5+ judge",
+      "pending": 4113
+    }
+  ],
+  "confidence": "experimental",
+  "notes": [
+    "Sample data only.",
+    "Replace with official/generated data before public launch."
+  ],
+  "sample": true,
+  "clearanceRate": 71.3
+}
