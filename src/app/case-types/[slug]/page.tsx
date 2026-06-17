@@ -1,40 +1,60 @@
+import { notFound } from "next/navigation";
+import { CaveatBox } from "@/components/CaveatBox";
+import { ConfidenceBadge } from "@/components/ConfidenceBadge";
+import { MetricCard } from "@/components/MetricCard";
+import { SampleDataWarning } from "@/components/SampleDataWarning";
+import { SectionHeader } from "@/components/SectionHeader";
+import { getCaseTypeBySlug, formatYears } from "@/lib/data";
+
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-function titleFromSlug(slug: string) {
-  return slug
-    .split("-")
-    .map((word) => word[0]?.toUpperCase() + word.slice(1))
-    .join(" ");
-}
+export default async function CaseTypeDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const caseType = getCaseTypeBySlug(slug);
 
-export default function CaseTypeDetailPage({ params }: PageProps) {
-  const title = titleFromSlug(params.slug);
+  if (!caseType) notFound();
 
   return (
     <div className="space-y-5">
-      <header>
-        <p className="text-xs font-bold uppercase tracking-[0.24em] text-amber-700">
-          Case Type
-        </p>
-        <h1 className="mt-2 text-3xl font-black tracking-tight">{title}</h1>
-        <p className="mt-2 text-sm leading-6 text-slate-700">
-          Approximate case-age-to-judgment profile.
-        </p>
-      </header>
+      <SectionHeader
+        eyebrow="Case Type"
+        title={caseType.caseType}
+        description="Approximate case-age-to-judgment profile from generated judgment metadata."
+      />
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-        <p className="text-sm font-semibold text-slate-500">
-          Median Time to Judgment
-        </p>
-        <p className="mt-2 text-5xl font-black tracking-tight">Sample</p>
-        <p className="mt-3 text-sm leading-6 text-slate-600">
-          This measures the gap between case/diary year and judgment year where
-          exact filing-to-disposal dates are not available. It is an
-          approximation, not a prediction for your case.
+      {caseType.sample ? <SampleDataWarning /> : null}
+
+      <MetricCard
+        title="Median Time to Judgment"
+        value={formatYears(caseType.medianCaseAgeYears)}
+        context={`Based on ${caseType.sampleSize} judgment record${caseType.sampleSize === 1 ? "" : "s"}.`}
+        confidence={caseType.confidence}
+        sourceLabel={caseType.sources[0]?.name ?? "Generated data"}
+        sourceHref={caseType.sources[0]?.url}
+      />
+
+      <section className="grid gap-3 sm:grid-cols-2">
+        <MetricCard title="25th Percentile" value={formatYears(caseType.p25CaseAgeYears)} confidence={caseType.confidence} />
+        <MetricCard title="75th Percentile" value={formatYears(caseType.p75CaseAgeYears)} confidence={caseType.confidence} />
+        <MetricCard title="90th Percentile" value={formatYears(caseType.p90CaseAgeYears)} confidence={caseType.confidence} />
+        <MetricCard title="Oldest Case Age" value={formatYears(caseType.oldestCaseAgeYears)} confidence={caseType.confidence} />
+      </section>
+
+      <CaveatBox title="What this means">
+        {caseType.caveat}
+      </CaveatBox>
+
+      <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <div className="flex items-center justify-between gap-3">
+          <h2 className="font-black">Data confidence</h2>
+          <ConfidenceBadge level={caseType.confidence} />
+        </div>
+        <p className="mt-2 text-sm leading-6 text-slate-600">
+          This page is generated from structured judgment metadata. Replace sample records with official/generated data before launch.
         </p>
       </section>
     </div>
