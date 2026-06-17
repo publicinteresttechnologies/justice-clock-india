@@ -1,42 +1,43 @@
 import Link from "next/link";
-
-const sampleJudges = ["Sample Judge A", "Sample Judge B", "Sample Judge C"];
+import { ConfidenceBadge } from "@/components/ConfidenceBadge";
+import { SampleDataWarning } from "@/components/SampleDataWarning";
+import { SectionHeader } from "@/components/SectionHeader";
+import { formatYears, judges } from "@/lib/data";
 
 export default function JudgesPage() {
+  const hasSampleData = judges.some((item) => item.sample);
+
   return (
     <div className="space-y-5">
-      <header>
-        <p className="text-xs font-bold uppercase tracking-[0.24em] text-amber-700">
-          Judges
-        </p>
-        <h1 className="mt-2 text-3xl font-black tracking-tight">
-          Public Judgment Profiles
-        </h1>
-        <p className="mt-2 text-sm leading-6 text-slate-700">
-          Metadata profiles only. These are not performance ratings.
-        </p>
-      </header>
+      <SectionHeader
+        eyebrow="Judges"
+        title="Public Judgment Profiles"
+        description="Metadata profiles generated from judgment records."
+      />
+
+      {hasSampleData ? <SampleDataWarning /> : null}
 
       <div className="grid gap-3">
-        {sampleJudges.map((judge) => {
-          const slug = judge.toLowerCase().replaceAll(" ", "-");
-
-          return (
-            <Link
-              key={judge}
-              href={`/judges/${slug}`}
-              className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
-            >
-              <p className="font-bold">{judge}</p>
-              <p className="mt-1 text-sm text-slate-600">
-                Authored judgments: Sample
-              </p>
-              <p className="mt-2 text-xs font-semibold text-amber-700">
-                Not a performance rating
-              </p>
-            </Link>
-          );
-        })}
+        {judges.map((item) => (
+          <Link
+            key={item.slug}
+            href={`/judges/${item.slug}`}
+            className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+          >
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="font-bold">{item.judgeName}</p>
+                <p className="mt-1 text-sm text-slate-600">
+                  Authored: {item.authoredJudgments} · Bench records: {item.benchAssociatedJudgments}
+                </p>
+                <p className="mt-1 text-xs text-slate-500">
+                  Median case-age gap: {formatYears(item.medianCaseAgeYears)}
+                </p>
+              </div>
+              <ConfidenceBadge level={item.confidence} />
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );
