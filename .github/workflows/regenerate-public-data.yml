@@ -61,7 +61,15 @@ jobs:
             }
             const records = JSON.parse(await download(sourceJsonUrl));
             if (!Array.isArray(records)) throw new Error('Expected judgments JSON array');
-            const normalized = records.filter((record) => record && record.sourceName === 'IMLJD open dataset' && record.sample === false);
+            const normalized = records
+              .filter((record) => record && record.sourceName === 'IMLJD open dataset' && record.sample === false)
+              .map((record) => ({
+                ...record,
+                judges: Array.isArray(record.judges) ? record.judges.join('; ') : record.judges,
+                subjectTags: Array.isArray(record.subjectTags) ? record.subjectTags.join('; ') : record.subjectTags,
+                benchSize: Number(record.benchSize) > 0 ? record.benchSize : '',
+                sample: 'false',
+              }));
             if (normalized.length < 1000) throw new Error(`Expected at least 1000 imported IMLJD records, got ${normalized.length}`);
             fs.mkdirSync(path.dirname(outPath), { recursive: true });
             const csv = [headers.join(','), ...normalized.map((record) => headers.map((header) => csvEscape(record[header])).join(','))].join('\n') + '\n';
