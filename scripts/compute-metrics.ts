@@ -11,6 +11,10 @@ async function writeJson(filePath: string, data: unknown) {
   await writeFile(filePath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
 }
 
+function relativePath(root: string, sourcePath: string) {
+  return sourcePath.replace(`${root}/`, "");
+}
+
 async function main() {
   const root = process.cwd();
   const outputDir = path.join(root, "public/data");
@@ -25,26 +29,45 @@ async function main() {
   const caseTypes = buildCaseTypeMetrics(judgments);
   const judges = buildJudgeProfiles(judgments);
   const sample = courtSource.sourceType === "sample" || judgmentSource.sourceType === "sample" || courtSnapshot.sample || judgments.some((judgment) => judgment.sample);
+  const publicLaunchReady = courtSource.sourceType === "import" && judgmentSource.sourceType === "import" && !sample && judgments.length > 0;
 
   const bundledDataset = {
     metadata: {
       project: "Justice Clock India",
-      title: "Supreme Court Time to Justice Tracker",
+      title: "Supreme Court of India Time to Justice Tracker",
       generatedAt: new Date().toISOString(),
       sample,
       status: sample ? "sample-data" : "generated-data",
+      publicLaunchReady,
       warning: sample
-        ? "This bundled dataset contains sample records and must not be presented as official court data."
-        : "Generated from configured source files.",
-      inputs: {
-        courtSnapshot: courtSource.sourcePath.replace(`${root}/`, ""),
-        judgments: judgmentSource.sourcePath.replace(`${root}/`, ""),
+        ? "This bundled dataset contains sample records and must not be presented as official Supreme Court data."
+        : "Generated from configured Supreme Court source files.",
+      scope: {
+        court: "Supreme Court of India",
+        includesHighCourts: false,
+        includesDistrictCourts: false,
+      },
+      sources: {
+        courtSnapshot: {
+          mode: courtSource.sourceType,
+          path: relativePath(root, courtSource.sourcePath),
+        },
+        judgments: {
+          mode: judgmentSource.sourceType,
+          path: relativePath(root, judgmentSource.sourcePath),
+        },
+      },
+      counts: {
+        judgmentRecords: judgments.length,
+        caseTypes: caseTypes.length,
+        judgeProfiles: judges.length,
       },
       files: {
+        bundledDataset: "/data/justice-clock-data.json",
         courtClock: "/data/court-clock.json",
         caseTypes: "/data/case-types.json",
         judges: "/data/judges.json",
-        bundledDataset: "/data/justice-clock-data.json",
+        judgments: "/data/judgments.json",
       },
     },
     courtClock,
@@ -58,13 +81,15 @@ async function main() {
   await writeJson(path.join(outputDir, "court-clock.json"), courtClock);
   await writeJson(path.join(outputDir, "case-types.json"), caseTypes);
   await writeJson(path.join(outputDir, "judges.json"), judges);
+  await writeJson(path.join(outputDir, "judgments.json"), judgments);
   await writeJson(path.join(outputDir, "justice-clock-data.json"), bundledDataset);
 
-  console.log(`Loaded court snapshot from ${courtSource.sourcePath.replace(`${root}/`, "")}`);
-  console.log(`Loaded judgments from ${judgmentSource.sourcePath.replace(`${root}/`, "")}`);
+  console.log(`Loaded court snapshot from ${relativePath(root, courtSource.sourcePath)}`);
+  console.log(`Loaded judgments from ${relativePath(root, judgmentSource.sourcePath)}`);
   console.log("Generated public/data/court-clock.json");
   console.log("Generated public/data/case-types.json");
   console.log("Generated public/data/judges.json");
+  console.log("Generated public/data/judgments.json");
   console.log("Generated public/data/justice-clock-data.json");
 }
 
