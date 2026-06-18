@@ -46,6 +46,9 @@ export default function AboutPage() {
         <Link href="/data" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-800">
           See data
         </Link>
+        <Link href="/launch-checklist" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-800">
+          Launch checklist
+        </Link>
       </div>
     </div>
   );
