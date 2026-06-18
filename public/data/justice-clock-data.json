@@ -1,247 +1,39 @@
 {
   "metadata": {
     "project": "Justice Clock India",
-    "title": "Supreme Court Time to Justice Tracker",
-    "generatedAt": "2026-06-17T21:15:00.000Z",
-    "sample": true,
-    "status": "sample-data",
-    "warning": "This bundled dataset contains sample records and must not be presented as official court data.",
-    "files": {
-      "courtClock": "/data/court-clock.json",
-      "caseTypes": "/data/case-types.json",
-      "judges": "/data/judges.json",
-      "judgments": "data/seed/judgments.sample.json"
+    "title": "Supreme Court Justice Clock",
+    "generatedAt": "2026-06-19T00:00:00.000Z",
+    "sample": false,
+    "status": "court-clock-interim-import",
+    "publicLaunchReady": false,
+    "warning": "The clock uses an interim imported pendency figure. Missing fields are intentionally omitted rather than estimated.",
+    "sources": {
+      "courtSnapshot": {
+        "mode": "import",
+        "path": "data/imports/court-snapshot.json"
+      }
+    },
+    "counts": {
+      "judgmentRecords": 0,
+      "caseTypes": 0,
+      "judgeProfiles": 0
     }
   },
   "courtClock": {
-    "sourceName": "Sample Court Snapshot",
-    "sourceUrl": "https://example.com/sample-court-snapshot",
-    "capturedAt": "2026-06-17T00:00:00.000Z",
-    "reportingPeriod": "Sample month",
-    "totalPending": 92313,
-    "civilPending": 68120,
-    "criminalPending": 24193,
-    "institutedThisMonth": 6638,
-    "disposedThisMonth": 4735,
-    "oldCasesDisposedThisMonth": 128,
-    "coramPending": [
-      { "benchSize": "2-judge", "pending": 81000 },
-      { "benchSize": "3-judge", "pending": 7200 },
-      { "benchSize": "5+ judge", "pending": 4113 }
-    ],
-    "confidence": "experimental",
+    "sourceName": "Union Law Ministry figure reported in Parliament / press",
+    "sourceUrl": "https://timesofindia.indiatimes.com/city/chandigarh/over-7l-cases-pending-in-himachal-pradesh-courts-rs-told/articleshow/125773337.cms",
+    "capturedAt": "2026-06-18T00:00:00.000Z",
+    "reportingPeriod": "As of 2025-12-01",
+    "totalPending": 90694,
+    "confidence": "medium",
     "notes": [
-      "Sample data only.",
-      "Replace with official/generated data before public launch."
+      "This is an interim Supreme Court-wide pendency snapshot, not a complete official live ingestion.",
+      "Civil/criminal split, monthly institution, monthly disposal, clearance rate, and old-case buckets were not available from this source and are intentionally omitted rather than estimated."
     ],
-    "sample": true,
-    "clearanceRate": 71.3
+    "sample": false,
+    "clearanceRate": null
   },
-  "caseTypes": [
-    {
-      "slug": "civil-appeal",
-      "caseType": "Civil Appeal",
-      "sampleSize": 1,
-      "medianCaseAgeYears": 6,
-      "p25CaseAgeYears": 6,
-      "p75CaseAgeYears": 6,
-      "p90CaseAgeYears": 6,
-      "oldestCaseAgeYears": 6,
-      "judgmentsByYear": [{ "year": 2026, "count": 1 }],
-      "confidence": "experimental",
-      "caveat": "This measures the gap between case/diary year and judgment year where exact filing-to-disposal dates are not available. It is an approximation, not a prediction for your case.",
-      "sources": [{ "name": "Sample Judgment Metadata" }],
-      "sample": true
-    },
-    {
-      "slug": "criminal-appeal",
-      "caseType": "Criminal Appeal",
-      "sampleSize": 1,
-      "medianCaseAgeYears": 8,
-      "p25CaseAgeYears": 8,
-      "p75CaseAgeYears": 8,
-      "p90CaseAgeYears": 8,
-      "oldestCaseAgeYears": 8,
-      "judgmentsByYear": [{ "year": 2026, "count": 1 }],
-      "confidence": "experimental",
-      "caveat": "This measures the gap between case/diary year and judgment year where exact filing-to-disposal dates are not available. It is an approximation, not a prediction for your case.",
-      "sources": [{ "name": "Sample Judgment Metadata" }],
-      "sample": true
-    },
-    {
-      "slug": "writ-petition",
-      "caseType": "Writ Petition",
-      "sampleSize": 1,
-      "medianCaseAgeYears": 12,
-      "p25CaseAgeYears": 12,
-      "p75CaseAgeYears": 12,
-      "p90CaseAgeYears": 12,
-      "oldestCaseAgeYears": 12,
-      "judgmentsByYear": [{ "year": 2026, "count": 1 }],
-      "confidence": "experimental",
-      "caveat": "This measures the gap between case/diary year and judgment year where exact filing-to-disposal dates are not available. It is an approximation, not a prediction for your case.",
-      "sources": [{ "name": "Sample Judgment Metadata" }],
-      "sample": true
-    }
-  ],
-  "judges": [
-    {
-      "slug": "sample-judge-a",
-      "judgeName": "Sample Judge A",
-      "authoredJudgments": 1,
-      "benchAssociatedJudgments": 2,
-      "judgmentsByYear": [{ "year": 2026, "count": 2 }],
-      "caseTypeMix": [
-        { "caseType": "Civil Appeal", "count": 1, "percentage": 50 },
-        { "caseType": "Writ Petition", "count": 1, "percentage": 50 }
-      ],
-      "subjectMix": [
-        { "subject": "civil", "count": 1, "percentage": 25 },
-        { "subject": "property", "count": 1, "percentage": 25 },
-        { "subject": "constitutional", "count": 1, "percentage": 25 },
-        { "subject": "government", "count": 1, "percentage": 25 }
-      ],
-      "benchSizeProfile": [
-        { "benchSize": "2-judge", "count": 1 },
-        { "benchSize": "3-judge", "count": 1 }
-      ],
-      "medianCaseAgeYears": 9,
-      "casesOlderThan5Years": 2,
-      "casesOlderThan10Years": 1,
-      "oldestCaseAgeYears": 12,
-      "confidence": "experimental",
-      "attributionWarning": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
-      "caveat": "Bench-associated metrics are not direct blame metrics. Case-age figures are approximate unless exact filing-to-disposal data is available.",
-      "sources": [{ "name": "Sample Judgment Metadata" }],
-      "sample": true
-    },
-    {
-      "slug": "sample-judge-b",
-      "judgeName": "Sample Judge B",
-      "authoredJudgments": 1,
-      "benchAssociatedJudgments": 3,
-      "judgmentsByYear": [{ "year": 2026, "count": 3 }],
-      "caseTypeMix": [
-        { "caseType": "Civil Appeal", "count": 1, "percentage": 33.3 },
-        { "caseType": "Criminal Appeal", "count": 1, "percentage": 33.3 },
-        { "caseType": "Writ Petition", "count": 1, "percentage": 33.3 }
-      ],
-      "subjectMix": [
-        { "subject": "civil", "count": 1, "percentage": 16.7 },
-        { "subject": "property", "count": 1, "percentage": 16.7 },
-        { "subject": "criminal", "count": 1, "percentage": 16.7 },
-        { "subject": "liberty", "count": 1, "percentage": 16.7 },
-        { "subject": "constitutional", "count": 1, "percentage": 16.7 },
-        { "subject": "government", "count": 1, "percentage": 16.7 }
-      ],
-      "benchSizeProfile": [
-        { "benchSize": "2-judge", "count": 2 },
-        { "benchSize": "3-judge", "count": 1 }
-      ],
-      "medianCaseAgeYears": 8,
-      "casesOlderThan5Years": 3,
-      "casesOlderThan10Years": 1,
-      "oldestCaseAgeYears": 12,
-      "confidence": "experimental",
-      "attributionWarning": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
-      "caveat": "Bench-associated metrics are not direct blame metrics. Case-age figures are approximate unless exact filing-to-disposal data is available.",
-      "sources": [{ "name": "Sample Judgment Metadata" }],
-      "sample": true
-    },
-    {
-      "slug": "sample-judge-c",
-      "judgeName": "Sample Judge C",
-      "authoredJudgments": 1,
-      "benchAssociatedJudgments": 2,
-      "judgmentsByYear": [{ "year": 2026, "count": 2 }],
-      "caseTypeMix": [
-        { "caseType": "Criminal Appeal", "count": 1, "percentage": 50 },
-        { "caseType": "Writ Petition", "count": 1, "percentage": 50 }
-      ],
-      "subjectMix": [
-        { "subject": "criminal", "count": 1, "percentage": 25 },
-        { "subject": "liberty", "count": 1, "percentage": 25 },
-        { "subject": "constitutional", "count": 1, "percentage": 25 },
-        { "subject": "government", "count": 1, "percentage": 25 }
-      ],
-      "benchSizeProfile": [
-        { "benchSize": "2-judge", "count": 1 },
-        { "benchSize": "3-judge", "count": 1 }
-      ],
-      "medianCaseAgeYears": 10,
-      "casesOlderThan5Years": 2,
-      "casesOlderThan10Years": 1,
-      "oldestCaseAgeYears": 12,
-      "confidence": "experimental",
-      "attributionWarning": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
-      "caveat": "Bench-associated metrics are not direct blame metrics. Case-age figures are approximate unless exact filing-to-disposal data is available.",
-      "sources": [{ "name": "Sample Judgment Metadata" }],
-      "sample": true
-    }
-  ],
-  "judgments": [
-    {
-      "id": "sample-judgment-001",
-      "caseTitle": "Sample Party A v. Sample Party B",
-      "caseNumber": "C.A. No. 1/2026",
-      "diaryNumber": "1001/2020",
-      "diaryYear": 2020,
-      "caseType": "Civil Appeal",
-      "caseYear": 2021,
-      "decisionDate": "2026-03-15",
-      "judgmentDate": "2026-03-15",
-      "uploadDate": "2026-03-16",
-      "disposalNature": "Disposed",
-      "judges": ["Sample Judge A", "Sample Judge B"],
-      "authoringJudge": "Sample Judge A",
-      "benchSize": 2,
-      "subjectTags": ["civil", "property"],
-      "sourceName": "Sample Judgment Metadata",
-      "sourceUrl": "https://example.com/sample-judgment-001",
-      "confidence": "experimental",
-      "sample": true
-    },
-    {
-      "id": "sample-judgment-002",
-      "caseTitle": "Sample Accused v. Sample State",
-      "caseNumber": "Crl.A. No. 2/2026",
-      "diaryNumber": "2002/2018",
-      "diaryYear": 2018,
-      "caseType": "Criminal Appeal",
-      "caseYear": 2019,
-      "decisionDate": "2026-04-20",
-      "judgmentDate": "2026-04-20",
-      "uploadDate": "2026-04-21",
-      "disposalNature": "Disposed",
-      "judges": ["Sample Judge B", "Sample Judge C"],
-      "authoringJudge": "Sample Judge C",
-      "benchSize": 2,
-      "subjectTags": ["criminal", "liberty"],
-      "sourceName": "Sample Judgment Metadata",
-      "sourceUrl": "https://example.com/sample-judgment-002",
-      "confidence": "experimental",
-      "sample": true
-    },
-    {
-      "id": "sample-judgment-003",
-      "caseTitle": "Sample Petitioner v. Union Sample",
-      "caseNumber": "W.P.(C) No. 3/2026",
-      "diaryNumber": "3003/2014",
-      "diaryYear": 2014,
-      "caseType": "Writ Petition",
-      "caseYear": 2015,
-      "decisionDate": "2026-05-10",
-      "judgmentDate": "2026-05-10",
-      "uploadDate": "2026-05-11",
-      "disposalNature": "Disposed",
-      "judges": ["Sample Judge A", "Sample Judge B", "Sample Judge C"],
-      "authoringJudge": "Sample Judge B",
-      "benchSize": 3,
-      "subjectTags": ["constitutional", "government"],
-      "sourceName": "Sample Judgment Metadata",
-      "sourceUrl": "https://example.com/sample-judgment-003",
-      "confidence": "experimental",
-      "sample": true
-    }
-  ]
+  "caseTypes": [],
+  "judges": [],
+  "judgments": []
 }
