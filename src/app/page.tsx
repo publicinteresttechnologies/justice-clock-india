@@ -31,7 +31,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {dataMetadata.sample ? <SampleDataWarning /> : null}
+      {courtClock.sample ? <SampleDataWarning /> : null}
 
       <section className="rounded-3xl border border-amber-200 bg-amber-50 p-5 shadow-sm">
         <p className="text-xs font-black uppercase tracking-[0.2em] text-amber-700">Source status</p>
