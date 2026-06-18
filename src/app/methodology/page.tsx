@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CaveatBox } from "@/components/CaveatBox";
 import { SectionHeader } from "@/components/SectionHeader";
 
@@ -86,6 +87,10 @@ export default function MethodologyPage() {
           <li>It will not present sample or inferred records as official court data.</li>
         </ul>
       </section>
+
+      <Link href="/launch-checklist" className="inline-flex rounded-full bg-slate-950 px-4 py-2 text-sm font-bold text-white">
+        Open launch checklist
+      </Link>
     </div>
   );
 }
