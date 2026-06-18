@@ -1,20 +1,11 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
-import {
-  courtSnapshotSchema,
-  judgmentRecordSchema,
-  type JudgmentRecord,
-} from "../src/lib/schemas";
 import {
   buildCaseTypeMetrics,
   buildCourtClock,
   buildJudgeProfiles,
 } from "../src/lib/metrics";
-
-async function readJson<T>(filePath: string): Promise<T> {
-  const raw = await readFile(filePath, "utf8");
-  return JSON.parse(raw) as T;
-}
+import { loadCourtSnapshot, loadJudgments } from "./lib/source-data";
 
 async function writeJson(filePath: string, data: unknown) {
   await writeFile(filePath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
@@ -22,25 +13,18 @@ async function writeJson(filePath: string, data: unknown) {
 
 async function main() {
   const root = process.cwd();
-  const courtPath = path.join(root, "data/seed/court-snapshot.sample.json");
-  const judgmentsPath = path.join(root, "data/seed/judgments.sample.json");
   const outputDir = path.join(root, "public/data");
 
-  const courtSnapshot = courtSnapshotSchema.parse(await readJson<unknown>(courtPath));
-  const judgmentInput = await readJson<unknown>(judgmentsPath);
+  const courtSource = await loadCourtSnapshot(root);
+  const judgmentSource = await loadJudgments(root);
 
-  if (!Array.isArray(judgmentInput)) {
-    throw new Error("Judgments seed file must be an array.");
-  }
-
-  const judgments: JudgmentRecord[] = judgmentInput.map((record) =>
-    judgmentRecordSchema.parse(record),
-  );
+  const courtSnapshot = courtSource.data;
+  const judgments = judgmentSource.data;
 
   const courtClock = buildCourtClock(courtSnapshot);
   const caseTypes = buildCaseTypeMetrics(judgments);
   const judges = buildJudgeProfiles(judgments);
-  const sample = courtSnapshot.sample || judgments.some((judgment) => judgment.sample);
+  const sample = courtSource.sourceType === "sample" || judgmentSource.sourceType === "sample" || courtSnapshot.sample || judgments.some((judgment) => judgment.sample);
 
   const bundledDataset = {
     metadata: {
@@ -52,11 +36,15 @@ async function main() {
       warning: sample
         ? "This bundled dataset contains sample records and must not be presented as official court data."
         : "Generated from configured source files.",
+      inputs: {
+        courtSnapshot: courtSource.sourcePath.replace(`${root}/`, ""),
+        judgments: judgmentSource.sourcePath.replace(`${root}/`, ""),
+      },
       files: {
         courtClock: "/data/court-clock.json",
         caseTypes: "/data/case-types.json",
         judges: "/data/judges.json",
-        judgments: "data/seed/judgments.sample.json",
+        bundledDataset: "/data/justice-clock-data.json",
       },
     },
     courtClock,
@@ -72,6 +60,8 @@ async function main() {
   await writeJson(path.join(outputDir, "judges.json"), judges);
   await writeJson(path.join(outputDir, "justice-clock-data.json"), bundledDataset);
 
+  console.log(`Loaded court snapshot from ${courtSource.sourcePath.replace(`${root}/`, "")}`);
+  console.log(`Loaded judgments from ${judgmentSource.sourcePath.replace(`${root}/`, "")}`);
   console.log("Generated public/data/court-clock.json");
   console.log("Generated public/data/case-types.json");
   console.log("Generated public/data/judges.json");
