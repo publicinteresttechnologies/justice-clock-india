@@ -9,10 +9,12 @@ import type {
 
 type CourtClock = CourtSnapshot & {
   clearanceRate: number | null;
+  casesOlderThan5Years?: number;
+  casesOlderThan10Years?: number;
 };
 
 type JusticeClockDataset = {
-  metadata: Record<string, any>;
+  metadata: Record<string, unknown>;
   courtClock: CourtClock;
   caseTypes: CaseTypeMetric[];
   judges: JudgeProfile[];
