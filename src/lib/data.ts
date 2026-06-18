@@ -12,15 +12,7 @@ type CourtClock = CourtSnapshot & {
 };
 
 type JusticeClockDataset = {
-  metadata: {
-    project: string;
-    title: string;
-    generatedAt: string;
-    sample: boolean;
-    status: string;
-    warning: string;
-    files: Record<string, string>;
-  };
+  metadata: Record<string, any>;
   courtClock: CourtClock;
   caseTypes: CaseTypeMetric[];
   judges: JudgeProfile[];
@@ -50,6 +42,10 @@ export function formatYears(value: number | null | undefined) {
 export function formatNumber(value: number | null | undefined) {
   if (value === null || value === undefined) return "—";
   return new Intl.NumberFormat("en-IN").format(value);
+}
+
+export function formatSourceMode(value?: string) {
+  return value === "import" ? "Import" : "Sample";
 }
 
 export function confidenceOrExperimental(value?: ConfidenceLevel) {
