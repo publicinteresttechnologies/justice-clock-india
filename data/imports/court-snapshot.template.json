@@ -1,0 +1,20 @@
+{
+  "sourceName": "Official court clock source name",
+  "sourceUrl": "https://example.com/source",
+  "capturedAt": "2026-06-17T00:00:00.000Z",
+  "reportingPeriod": "June 2026",
+  "totalPending": 0,
+  "civilPending": 0,
+  "criminalPending": 0,
+  "institutedThisMonth": 0,
+  "disposedThisMonth": 0,
+  "oldCasesDisposedThisMonth": 0,
+  "coramPending": [
+    { "benchSize": "2-judge", "pending": 0 },
+    { "benchSize": "3-judge", "pending": 0 },
+    { "benchSize": "5+ judge", "pending": 0 }
+  ],
+  "confidence": "medium-high",
+  "notes": ["Replace this template with real captured data."],
+  "sample": false
+}
