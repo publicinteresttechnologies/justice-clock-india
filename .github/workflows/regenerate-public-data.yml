@@ -28,133 +28,49 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Import IMLJD Supreme Court records
+      - name: Restore IMLJD Supreme Court judgment import
         shell: bash
         run: |
           node <<'NODE'
-          const fs = require('fs');
-          const path = require('path');
-          const https = require('https');
-          const { URL } = require('url');
-          const sourceUrl = 'https://raw.githubusercontent.com/joyboseroy/imljd/main/data/parquet/sc_enriched.csv';
-          const fallbackUrl = 'https://github.com/joyboseroy/imljd/raw/main/data/parquet/sc_enriched.csv';
-          const repoUrl = 'https://github.com/joyboseroy/imljd';
-          const outPath = path.join('data', 'imports', 'judgments.csv');
-          const rawDir = path.join('data', 'raw', 'imljd');
-          const rawPath = path.join(rawDir, 'sc_enriched.csv');
-          const headers = ['id','caseTitle','caseNumber','diaryNumber','diaryYear','caseType','caseYear','decisionDate','judgmentDate','uploadDate','disposalNature','judges','authoringJudge','benchSize','subjectTags','sourceName','sourceUrl','confidence','sample'];
-          function download(url) {
-            return new Promise((resolve, reject) => {
-              const request = https.get(url, { headers: { 'User-Agent': 'justice-clock-india-data-import' } }, (response) => {
-                if ([301,302,303,307,308].includes(response.statusCode || 0) && response.headers.location) {
-                  const nextUrl = new URL(response.headers.location, url).toString();
-                  response.resume();
-                  resolve(download(nextUrl));
-                  return;
-                }
-                if ((response.statusCode || 0) >= 400) {
-                  response.resume();
-                  reject(new Error(`Download failed ${response.statusCode} for ${url}`));
-                  return;
-                }
-                const chunks = [];
-                response.on('data', (chunk) => chunks.push(chunk));
-                response.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
+          (async () => {
+            const fs = require('fs');
+            const path = require('path');
+            const https = require('https');
+            const sourceJsonUrl = 'https://justice-clock-india.vercel.app/data/judgments.json';
+            const outPath = path.join('data', 'imports', 'judgments.csv');
+            const headers = ['id','caseTitle','caseNumber','diaryNumber','diaryYear','caseType','caseYear','decisionDate','judgmentDate','uploadDate','disposalNature','judges','authoringJudge','benchSize','subjectTags','sourceName','sourceUrl','confidence','sample'];
+            function download(url) {
+              return new Promise((resolve, reject) => {
+                const request = https.get(url, { headers: { 'User-Agent': 'justice-clock-india-data-import' } }, (response) => {
+                  if ((response.statusCode || 0) >= 400) {
+                    response.resume();
+                    reject(new Error(`Download failed ${response.statusCode} for ${url}`));
+                    return;
+                  }
+                  const chunks = [];
+                  response.on('data', (chunk) => chunks.push(chunk));
+                  response.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
+                });
+                request.on('error', reject);
+                request.setTimeout(120000, () => request.destroy(new Error(`Timed out downloading ${url}`)));
               });
-              request.on('error', reject);
-              request.setTimeout(120000, () => request.destroy(new Error(`Timed out downloading ${url}`)));
-            });
-          }
-          function parseCsv(text) {
-            const rows = [];
-            let row = [];
-            let field = '';
-            let quoted = false;
-            for (let i = 0; i < text.length; i += 1) {
-              const ch = text[i];
-              const next = text[i + 1];
-              if (quoted) {
-                if (ch === '"' && next === '"') { field += '"'; i += 1; }
-                else if (ch === '"') { quoted = false; }
-                else { field += ch; }
-              } else if (ch === '"') { quoted = true; }
-              else if (ch === ',') { row.push(field); field = ''; }
-              else if (ch === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
-              else if (ch !== '\r') { field += ch; }
             }
-            if (field.length || row.length) { row.push(field); rows.push(row); }
-            const header = rows.shift().map((value) => value.trim());
-            return rows.filter((values) => values.some((value) => value.trim())).map((values) => Object.fromEntries(header.map((key, index) => [key, values[index] || ''])));
-          }
-          function csvEscape(value) {
-            const text = value == null ? '' : String(value);
-            return /[",\r\n]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
-          }
-          function pick(record, names) {
-            for (const name of names) {
-              if (record[name] && String(record[name]).trim()) return String(record[name]).trim();
+            function csvEscape(value) {
+              const text = value == null ? '' : String(value);
+              return /[",\r\n]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
             }
-            return '';
-          }
-          function normalizeDate(value) {
-            const text = String(value || '').trim();
-            if (!text) return '';
-            const direct = text.match(/^(\d{4})-(\d{2})-(\d{2})/);
-            if (direct) return direct[0];
-            const dmy = text.match(/^(\d{1,2})[-/](\d{1,2})[-/](\d{4})$/);
-            if (dmy) {
-              const [, d, m, y] = dmy;
-              return `${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`;
-            }
-            return text;
-          }
-          function splitTags(value) {
-            return String(value || '').split(/[;|,]/).map((part) => part.trim().toLowerCase()).filter(Boolean);
-          }
-          const downloaded = await download(sourceUrl).catch(async () => download(fallbackUrl));
-          fs.mkdirSync(rawDir, { recursive: true });
-          fs.writeFileSync(rawPath, downloaded);
-          const records = parseCsv(downloaded);
-          const normalized = [];
-          for (const record of records) {
-            const title = pick(record, ['title', 'case_title', 'caseTitle']);
-            const decisionDate = normalizeDate(pick(record, ['decision_date', 'judgment_date', 'date']));
-            const caseId = pick(record, ['case_id', 'id']) || `${title}-${decisionDate}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-            if (!title || !decisionDate || !caseId) continue;
-            const court = pick(record, ['court', 'court_name', 'courtName']).toLowerCase();
-            if (court && !court.includes('supreme')) continue;
-            const statutes = splitTags(pick(record, ['statutes', 'acts', 'act', 'labels', 'label']));
-            const tags = [...new Set(['supreme court', 'imljd', 'matrimonial', ...statutes])];
-            const judges = pick(record, ['judges', 'judge', 'bench', 'coram']).replace(/\s*[|,]\s*/g, '; ');
-            const authoringJudge = pick(record, ['author_judge', 'authoring_judge', 'authoringJudge']);
-            const benchSize = judges ? String(judges.split(';').map((value) => value.trim()).filter(Boolean).length) : '';
-            normalized.push({
-              id: `imljd-${caseId}`,
-              caseTitle: title,
-              caseNumber: pick(record, ['case_number', 'caseNumber', 'case_no']),
-              diaryNumber: pick(record, ['diary_number', 'diaryNumber']),
-              diaryYear: pick(record, ['diary_year', 'diaryYear']),
-              caseType: pick(record, ['case_type', 'caseType']) || 'Supreme Court judgment',
-              caseYear: pick(record, ['year', 'case_year', 'caseYear']) || decisionDate.slice(0, 4),
-              decisionDate,
-              judgmentDate: decisionDate,
-              uploadDate: normalizeDate(pick(record, ['upload_date', 'uploadDate'])),
-              disposalNature: pick(record, ['disposal_nature', 'outcome']),
-              judges,
-              authoringJudge,
-              benchSize,
-              subjectTags: tags.join('; '),
-              sourceName: 'IMLJD open dataset',
-              sourceUrl: pick(record, ['source_url', 'sourceUrl', 'judgment_url', 'url']) || repoUrl,
-              confidence: 'medium',
-              sample: 'false',
-            });
-          }
-          if (normalized.length < 1000) throw new Error(`Expected at least 1000 Supreme Court IMLJD records, got ${normalized.length}`);
-          fs.mkdirSync(path.dirname(outPath), { recursive: true });
-          const csv = [headers.join(','), ...normalized.map((record) => headers.map((header) => csvEscape(record[header])).join(','))].join('\n') + '\n';
-          fs.writeFileSync(outPath, csv);
-          console.log(`Wrote ${normalized.length} IMLJD Supreme Court records to ${outPath}`);
+            const records = JSON.parse(await download(sourceJsonUrl));
+            if (!Array.isArray(records)) throw new Error('Expected judgments JSON array');
+            const normalized = records.filter((record) => record && record.sourceName === 'IMLJD open dataset' && record.sample === false);
+            if (normalized.length < 1000) throw new Error(`Expected at least 1000 imported IMLJD records, got ${normalized.length}`);
+            fs.mkdirSync(path.dirname(outPath), { recursive: true });
+            const csv = [headers.join(','), ...normalized.map((record) => headers.map((header) => csvEscape(record[header])).join(','))].join('\n') + '\n';
+            fs.writeFileSync(outPath, csv);
+            console.log(`Wrote ${normalized.length} IMLJD Supreme Court records to ${outPath}`);
+          })().catch((error) => {
+            console.error(error);
+            process.exit(1);
+          });
           NODE
 
       - name: Generate public data and build
