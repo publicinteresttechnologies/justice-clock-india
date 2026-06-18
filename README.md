@@ -46,7 +46,41 @@ Open:
 http://localhost:3000
 ```
 
+## Data imports
+
+The app now supports importable source data.
+
+Optional real-data files:
+
+```txt
+data/imports/court-snapshot.json
+data/imports/judgments.json
+data/imports/judgments.csv
+```
+
+If these files exist, the pipeline uses them. If not, it falls back to sample files in `data/seed`.
+
+Templates:
+
+```txt
+data/imports/court-snapshot.template.json
+data/imports/judgments.template.csv
+```
+
+CSV list fields use semicolons:
+
+```txt
+judges: Justice A; Justice B
+subjectTags: civil; property
+```
+
 ## Data pipeline
+
+```bash
+npm run data:build
+```
+
+Equivalent to:
 
 ```bash
 npm run validate:data
@@ -87,11 +121,11 @@ npm run build
 
 ## Current status
 
-This is a sample-data MVP scaffold. Do not publish sample data as real data.
+This is a complete MVP shell with a real import pipeline, but it still falls back to sample data until verified Supreme Court records are added to `data/imports`.
 
 ## Next build steps
 
-1. Replace sample court snapshot with official/generated data.
-2. Replace sample judgment records with real judgment metadata.
-3. Add real ingestion scripts for local JSON/CSV.
-4. Deploy to Vercel after CI passes.
+1. Add verified Supreme Court judgment records to `data/imports/judgments.csv` or `data/imports/judgments.json`.
+2. Add official court snapshot data to `data/imports/court-snapshot.json`.
+3. Run `npm run data:build`.
+4. Review `/data`, `/case-types`, and `/judges` before public launch.
