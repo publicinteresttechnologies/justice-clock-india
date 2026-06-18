@@ -13,8 +13,17 @@ type CourtClock = CourtSnapshot & {
   casesOlderThan10Years?: number;
 };
 
+type DatasetMetadata = Record<string, unknown> & {
+  sources?: {
+    courtSnapshot?: {
+      mode?: string;
+      path?: string;
+    };
+  };
+};
+
 type JusticeClockDataset = {
-  metadata: Record<string, unknown>;
+  metadata: DatasetMetadata;
   courtClock: CourtClock;
   caseTypes: CaseTypeMetric[];
   judges: JudgeProfile[];
