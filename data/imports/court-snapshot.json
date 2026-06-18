@@ -1,15 +1,27 @@
 {
-  "sourceName": "Rajya Sabha / Union Law Ministry figures reported by The Times of India",
+  "sourceName": "Union Law Ministry figure reported in Parliament / press",
   "sourceUrl": "https://timesofindia.indiatimes.com/city/chandigarh/over-7l-cases-pending-in-himachal-pradesh-courts-rs-told/articleshow/125773337.cms",
   "capturedAt": "2026-06-18T00:00:00.000Z",
   "reportingPeriod": "As of 2025-12-01",
   "totalPending": 90694,
   "confidence": "medium",
+  "extractionStatus": "imported-interim",
+  "extractionMethod": "manual_import_from_reported_union_law_ministry_figure",
+  "fieldConfidence": {
+    "totalPending": "reported figure",
+    "civilPending": "missing from source",
+    "criminalPending": "missing from source",
+    "institutedThisMonth": "missing from source",
+    "disposedThisMonth": "missing from source",
+    "clearanceRate": "not calculated because institution/disposal are missing",
+    "casesOlderThan5Years": "missing from source",
+    "casesOlderThan10Years": "missing from source"
+  },
   "notes": [
-    "Imported as an interim Supreme Court-wide pendency snapshot.",
+    "This is an interim Supreme Court-wide pendency snapshot, not a complete official live ingestion.",
     "The source reports Union Law Minister / Rajya Sabha figures and states that the Supreme Court had 90,694 pending cases as of 2025-12-01.",
-    "Civil/criminal split, monthly institution, monthly disposal, and coram-wise pendency were not available from this source and are intentionally omitted rather than estimated.",
-    "Replace with official Supreme Court of India or NJDG structured data when available."
+    "Civil/criminal split, monthly institution, monthly disposal, clearance rate, and old-case buckets were not available from this source and are intentionally omitted rather than estimated.",
+    "Replace this with official Supreme Court of India or NJDG structured data when a verified source URL is available."
   ],
   "sample": false
 }
