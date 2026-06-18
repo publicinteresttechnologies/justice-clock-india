@@ -1,0 +1,2 @@
+id,caseTitle,caseNumber,diaryNumber,diaryYear,caseType,caseYear,decisionDate,judgmentDate,uploadDate,disposalNature,judges,authoringJudge,benchSize,subjectTags,sourceName,sourceUrl,confidence,sample
+example-001,"Example Party v. Example State","C.A. No. 1/2026",1001/2020,2020,Civil Appeal,2021,2026-03-15,2026-03-15,2026-03-16,Disposed,"Justice A; Justice B",Justice A,2,"civil; property",Imported Judgment Metadata,https://example.com/judgment,medium,false
