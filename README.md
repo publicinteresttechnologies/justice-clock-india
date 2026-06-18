@@ -1,42 +1,35 @@
 # Justice Clock India
 
-Supreme Court Time to Justice Tracker.
+A dedicated Supreme Court Justice Clock product.
 
-Justice Clock India is a mobile-first public data website for tracking Supreme Court pendency, case-type delay, and public judgment metadata profiles.
+The public dashboard shows a daily timestamped Supreme Court pendency snapshot with source links, confidence labels, and missing fields displayed honestly.
 
-## Product pillars
+## Current product
 
-1. **Supreme Court Justice Clock**
-   - pending cases
-   - civil/criminal split
-   - institution and disposal movement
-   - clearance rate
-   - old-case movement
+The homepage now focuses on the Supreme Court Justice Clock only:
 
-2. **Case-Type Time to Justice**
-   - approximate case-age-to-judgment timelines
-   - case-type comparison
-   - confidence labels
+- total pending cases
+- civil pending cases, when available
+- criminal pending cases, when available
+- institution this month, when available
+- disposal this month, when available
+- clearance rate, calculated only when institution/disposal are present
+- cases older than 5 years, when available
+- cases older than 10 years, when available
+- source name and source link
+- reporting period
+- capture timestamp
+- extraction/import notes
 
-3. **Judge Public Judgment Profiles**
-   - authored judgments
-   - bench-associated judgments
-   - case-type mix
-   - old-case involvement
-   - no judge ranking at launch
+## Hard rule
 
-## Important disclaimer
-
-Justice Clock India is an independent public data project. It is not an official Supreme Court website and does not provide legal advice.
-
-Judge pages are public metadata profiles, not performance ratings. Case-age metrics are bench-associated unless explicitly marked as authored or direct.
-
-Where exact filing-to-disposal dates are unavailable, time-to-justice metrics use case year or diary year as an approximation.
+The product must not invent unavailable court metrics. Missing fields must render as missing.
 
 ## Local setup
 
 ```bash
 npm install
+npm run data:build
 npm run dev
 ```
 
@@ -46,32 +39,42 @@ Open:
 http://localhost:3000
 ```
 
-## Data imports
+## Snapshot update
 
-The app now supports importable source data.
-
-Optional real-data files:
+The court snapshot lives here:
 
 ```txt
 data/imports/court-snapshot.json
-data/imports/judgments.json
-data/imports/judgments.csv
 ```
 
-If these files exist, the pipeline uses them. If not, it falls back to sample files in `data/seed`.
+Manual update command:
 
-Templates:
-
-```txt
-data/imports/court-snapshot.template.json
-data/imports/judgments.template.csv
+```bash
+SOURCE_NAME="Official source name" \
+SOURCE_URL="https://official-source-url" \
+REPORTING_PERIOD="As of 2026-06-19" \
+TOTAL_PENDING="90694" \
+npm run snapshot:update
 ```
 
-CSV list fields use semicolons:
+Optional fields:
 
 ```txt
-judges: Justice A; Justice B
-subjectTags: civil; property
+CIVIL_PENDING
+CRIMINAL_PENDING
+INSTITUTED_THIS_MONTH
+DISPOSED_THIS_MONTH
+CASES_OLDER_THAN_5_YEARS
+CASES_OLDER_THAN_10_YEARS
+CONFIDENCE
+SNAPSHOT_NOTE
+```
+
+Then rebuild:
+
+```bash
+npm run data:build
+npm run build
 ```
 
 ## Data pipeline
@@ -96,36 +99,7 @@ public/data/case-types.json
 public/data/judges.json
 ```
 
-The app reads from the bundled dataset at:
-
-```txt
-/data/justice-clock-data.json
-```
-
-The visible data hub is available at:
-
-```txt
-/data
-```
-
-## CI
-
-GitHub Actions runs the following checks on every push to `main`:
-
-```bash
-npm install
-npm run validate:data
-npm run compute:metrics
-npm run build
-```
-
 ## Current status
 
-This is a complete MVP shell with a real import pipeline, but it still falls back to sample data until verified Supreme Court records are added to `data/imports`.
+The app is wired as a real product shell with an import pipeline. The current Supreme Court pending figure is an interim imported snapshot, not a complete live official ingestion. Missing fields are intentionally omitted rather than estimated.
 
-## Next build steps
-
-1. Add verified Supreme Court judgment records to `data/imports/judgments.csv` or `data/imports/judgments.json`.
-2. Add official court snapshot data to `data/imports/court-snapshot.json`.
-3. Run `npm run data:build`.
-4. Review `/data`, `/case-types`, and `/judges` before public launch.
