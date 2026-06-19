@@ -1,146 +1,125 @@
-import Link from "next/link";
-import { MetricCard } from "@/components/MetricCard";
-import { SampleDataWarning } from "@/components/SampleDataWarning";
 import { courtClock, dataMetadata, formatNumber } from "@/lib/data";
 
-function fieldContext(value: number | null | undefined, available: string, missing: string) {
-  return value === null || value === undefined ? missing : available;
+function formatDateTime(value?: string) {
+  if (!value) return "Missing";
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return value;
+  return new Intl.DateTimeFormat("en-GB", {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "UTC",
+  }).format(parsed);
+}
+
+function valueStatus(value: number | null | undefined) {
+  return value === null || value === undefined ? "Missing from current source" : formatNumber(value);
 }
 
 export default function HomePage() {
   const sourceMode = dataMetadata?.sources?.courtSnapshot?.mode ?? "unknown";
   const sourcePath = dataMetadata?.sources?.courtSnapshot?.path ?? "unknown";
+  const missingFields = [
+    ["Civil pending", courtClock.civilPending],
+    ["Criminal pending", courtClock.criminalPending],
+    ["Instituted this month", courtClock.institutedThisMonth],
+    ["Disposed this month", courtClock.disposedThisMonth],
+    ["Clearance rate", courtClock.clearanceRate],
+    ["Cases older than 5 years", courtClock.casesOlderThan5Years],
+    ["Cases older than 10 years", courtClock.casesOlderThan10Years],
+  ].filter(([, value]) => value === null || value === undefined);
 
   return (
-    <div className="space-y-7">
-      <section className="rounded-[2rem] bg-slate-950 p-6 text-white shadow-sm">
-        <p className="text-xs font-black uppercase tracking-[0.25em] text-amber-300">Supreme Court Justice Clock</p>
-        <h1 className="mt-4 text-4xl font-black leading-tight tracking-tight">
-          Daily public snapshot of Supreme Court pendency and disposal indicators.
+    <main className="mx-auto flex min-h-screen w-full max-w-3xl flex-col justify-center px-4 py-8 text-slate-950">
+      <section className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
+        <p className="text-xs font-black uppercase tracking-[0.24em] text-slate-500">Justice Clock India</p>
+        <h1 className="mt-4 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+          How backed up is the Supreme Court of India right now?
         </h1>
-        <p className="mt-4 text-base leading-7 text-slate-200">
-          Source-linked court metrics with missing fields shown openly. No judge ranking, no court verdict, no invented numbers.
+        <p className="mt-4 text-sm leading-6 text-slate-600 sm:text-base">
+          A source-linked public snapshot of Supreme Court pendency. Missing fields are shown as missing, not estimated.
         </p>
-        <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/data" className="rounded-full bg-white px-4 py-2 text-sm font-black text-slate-950">
-            Inspect source data
-          </Link>
-          <Link href="/methodology" className="rounded-full border border-white/30 px-4 py-2 text-sm font-black text-white">
-            Methodology
-          </Link>
+
+        <div className="mt-8 rounded-[1.75rem] bg-slate-950 p-6 text-white sm:p-8">
+          <p className="text-xs font-black uppercase tracking-[0.22em] text-amber-300">Total pending cases</p>
+          <p className="mt-4 text-6xl font-black tracking-tight sm:text-7xl">{formatNumber(courtClock.totalPending)}</p>
+          <p className="mt-4 text-sm leading-6 text-slate-300">
+            Reporting period: <strong className="text-white">{courtClock.reportingPeriod}</strong>
+          </p>
         </div>
-      </section>
 
-      {courtClock.sample ? <SampleDataWarning /> : null}
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-4">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Source</p>
+            <p className="mt-2 text-base font-black">{courtClock.sourceName}</p>
+            {courtClock.sourceUrl ? (
+              <a className="mt-3 inline-block text-sm font-bold underline" href={courtClock.sourceUrl}>
+                Open source link
+              </a>
+            ) : (
+              <p className="mt-3 text-sm text-slate-600">Source link missing.</p>
+            )}
+          </div>
 
-      <section className="rounded-3xl border border-amber-200 bg-amber-50 p-5 shadow-sm">
-        <p className="text-xs font-black uppercase tracking-[0.2em] text-amber-700">Source status</p>
-        <h2 className="mt-2 text-2xl font-black text-slate-950">{courtClock.sourceName}</h2>
-        <p className="mt-3 text-sm leading-6 text-slate-700">
-          Reporting period: <strong>{courtClock.reportingPeriod}</strong>. Captured at: <strong>{courtClock.capturedAt}</strong>.
-          Data mode: <strong>{sourceMode}</strong>. Source file: <strong>{sourcePath}</strong>.
-        </p>
-        {courtClock.sourceUrl ? (
-          <a href={courtClock.sourceUrl} className="mt-4 inline-flex rounded-full bg-slate-950 px-4 py-2 text-sm font-bold text-white">
-            Open source
-          </a>
-        ) : null}
-      </section>
+          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-4">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Capture</p>
+            <p className="mt-2 text-base font-black">{formatDateTime(courtClock.capturedAt)}</p>
+            <p className="mt-3 text-sm text-slate-600">Confidence: <strong>{courtClock.confidence}</strong></p>
+          </div>
+        </div>
 
-      <section className="grid gap-3">
-        <MetricCard
-          title="Total pending"
-          value={formatNumber(courtClock.totalPending)}
-          context={`Reporting period: ${courtClock.reportingPeriod}`}
-          confidence={courtClock.confidence}
-          sourceLabel={courtClock.sourceName}
-          sourceHref={courtClock.sourceUrl}
-        />
-
-        <section className="grid gap-3 sm:grid-cols-2">
-          <MetricCard
-            title="Civil pending"
-            value={formatNumber(courtClock.civilPending)}
-            context={fieldContext(courtClock.civilPending, "Civil pendency available from the source.", "Civil/criminal split is not available from the current source.")}
-            confidence={courtClock.confidence}
-            sourceLabel={courtClock.sourceName}
-            sourceHref={courtClock.sourceUrl}
-          />
-          <MetricCard
-            title="Criminal pending"
-            value={formatNumber(courtClock.criminalPending)}
-            context={fieldContext(courtClock.criminalPending, "Criminal pendency available from the source.", "Civil/criminal split is not available from the current source.")}
-            confidence={courtClock.confidence}
-            sourceLabel={courtClock.sourceName}
-            sourceHref={courtClock.sourceUrl}
-          />
+        <section className="mt-6 rounded-3xl border border-slate-200 bg-white p-4">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Missing fields</p>
+          {missingFields.length ? (
+            <ul className="mt-3 grid gap-2 text-sm leading-6 text-slate-700 sm:grid-cols-2">
+              {missingFields.map(([label]) => (
+                <li key={String(label)}>• {label}: missing from current source</li>
+              ))}
+            </ul>
+          ) : (
+            <p className="mt-3 text-sm text-slate-700">No configured court-clock fields are missing.</p>
+          )}
         </section>
 
-        <section className="grid gap-3 sm:grid-cols-3">
-          <MetricCard
-            title="Institution this month"
-            value={formatNumber(courtClock.institutedThisMonth)}
-            context={fieldContext(courtClock.institutedThisMonth, "Monthly institution figure available.", "Monthly institution figure is missing from the current source.")}
-            confidence={courtClock.confidence}
-            sourceLabel={courtClock.sourceName}
-            sourceHref={courtClock.sourceUrl}
-          />
-          <MetricCard
-            title="Disposal this month"
-            value={formatNumber(courtClock.disposedThisMonth)}
-            context={fieldContext(courtClock.disposedThisMonth, "Monthly disposal figure available.", "Monthly disposal figure is missing from the current source.")}
-            confidence={courtClock.confidence}
-            sourceLabel={courtClock.sourceName}
-            sourceHref={courtClock.sourceUrl}
-          />
-          <MetricCard
-            title="Clearance rate"
-            value={courtClock.clearanceRate === null ? "—" : `${courtClock.clearanceRate}%`}
-            context={courtClock.clearanceRate === null ? "Not calculated because institution/disposal figures are missing." : "Disposed ÷ instituted for the reporting period."}
-            confidence={courtClock.confidence}
-            sourceLabel={courtClock.sourceName}
-            sourceHref={courtClock.sourceUrl}
-          />
+        <section className="mt-6 rounded-3xl border border-slate-200 bg-slate-50 p-4">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Available fields</p>
+          <dl className="mt-3 grid gap-3 text-sm sm:grid-cols-2">
+            <div>
+              <dt className="font-bold">Civil pending</dt>
+              <dd className="text-slate-700">{valueStatus(courtClock.civilPending)}</dd>
+            </div>
+            <div>
+              <dt className="font-bold">Criminal pending</dt>
+              <dd className="text-slate-700">{valueStatus(courtClock.criminalPending)}</dd>
+            </div>
+            <div>
+              <dt className="font-bold">Institution this month</dt>
+              <dd className="text-slate-700">{valueStatus(courtClock.institutedThisMonth)}</dd>
+            </div>
+            <div>
+              <dt className="font-bold">Disposal this month</dt>
+              <dd className="text-slate-700">{valueStatus(courtClock.disposedThisMonth)}</dd>
+            </div>
+          </dl>
         </section>
 
-        <section className="grid gap-3 sm:grid-cols-2">
-          <MetricCard
-            title="Cases older than 5 years"
-            value={formatNumber(courtClock.casesOlderThan5Years)}
-            context={fieldContext(courtClock.casesOlderThan5Years, "Old-case bucket available.", "5-year old-case bucket is missing from the current source.")}
-            confidence={courtClock.confidence}
-            sourceLabel={courtClock.sourceName}
-            sourceHref={courtClock.sourceUrl}
-          />
-          <MetricCard
-            title="Cases older than 10 years"
-            value={formatNumber(courtClock.casesOlderThan10Years)}
-            context={fieldContext(courtClock.casesOlderThan10Years, "Old-case bucket available.", "10-year old-case bucket is missing from the current source.")}
-            confidence={courtClock.confidence}
-            sourceLabel={courtClock.sourceName}
-            sourceHref={courtClock.sourceUrl}
-          />
+        <section className="mt-6 rounded-3xl border border-amber-200 bg-amber-50 p-4">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Methodology</p>
+          <p className="mt-3 text-sm leading-6 text-slate-700">
+            This page displays the configured Supreme Court court-clock snapshot from the existing data pipeline. It does not estimate missing values. The current snapshot uses <strong>{sourceMode}</strong> mode from <strong>{sourcePath}</strong>.
+          </p>
+          {courtClock.notes?.length ? (
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-slate-700">
+              {courtClock.notes.map((note) => (
+                <li key={note}>{note}</li>
+              ))}
+            </ul>
+          ) : null}
         </section>
+
+        <footer className="mt-6 text-xs leading-5 text-slate-500">
+          No judge rankings. No predictions. No claim of completeness beyond the fields shown on this page.
+        </footer>
       </section>
-
-      {courtClock.notes?.length ? (
-        <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Extraction notes</p>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
-            {courtClock.notes.map((note) => (
-              <li key={note}>{note}</li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Product boundary</p>
-        <h2 className="mt-2 text-2xl font-black text-slate-950">Clock first. No scorecard.</h2>
-        <p className="mt-3 text-sm leading-6 text-slate-700">
-          This build only displays Supreme Court pendency/disposal indicators from configured source data. Case-type pages and judge metadata remain secondary and must not be treated as rankings or findings.
-        </p>
-      </section>
-    </div>
+    </main>
   );
 }
