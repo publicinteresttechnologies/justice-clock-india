@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { BottomNav } from "@/components/BottomNav";
+
+const title = "Justice Clock India — Supreme Court backlog snapshot";
+const description = "A source-linked public snapshot of how backed up the Supreme Court of India is right now.";
 
 export const metadata: Metadata = {
-  title: "Justice Clock India",
-  description: "Supreme Court time to justice tracker.",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({
@@ -15,12 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="min-h-screen bg-stone-50 text-slate-950">
-          <main className="mx-auto min-h-screen w-full max-w-3xl px-4 pb-24 pt-5">
-            {children}
-          </main>
-          <BottomNav />
-        </div>
+        <div className="min-h-screen bg-stone-50 text-slate-950">{children}</div>
       </body>
     </html>
   );
