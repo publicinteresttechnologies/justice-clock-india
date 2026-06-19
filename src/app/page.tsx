@@ -24,8 +24,6 @@ export default function HomePage() {
     ["Instituted this month", courtClock.institutedThisMonth],
     ["Disposed this month", courtClock.disposedThisMonth],
     ["Clearance rate", courtClock.clearanceRate],
-    ["Cases older than 5 years", courtClock.casesOlderThan5Years],
-    ["Cases older than 10 years", courtClock.casesOlderThan10Years],
   ].filter(([, value]) => value === null || value === undefined);
 
   return (
