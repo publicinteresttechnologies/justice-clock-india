@@ -1,0 +1,161 @@
+name: Import Supreme Court judgment metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/import-sc-judgments.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  import-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: python -m pip install --upgrade boto3 pandas pyarrow
+
+      - name: Import Supreme Court metadata from public S3
+        run: |
+          python <<'PY'
+          import csv
+          import io
+          import os
+          import re
+          from pathlib import Path
+
+          import boto3
+          import pandas as pd
+          from botocore import UNSIGNED
+          from botocore.config import Config
+
+          BUCKET = "indian-supreme-court-judgments"
+          YEARS = range(2000, 2025)
+          OUT = Path("data/imports/judgments.csv")
+          OUT.parent.mkdir(parents=True, exist_ok=True)
+
+          columns = [
+              "id", "caseTitle", "caseNumber", "diaryNumber", "diaryYear",
+              "caseType", "caseYear", "decisionDate", "judgmentDate", "uploadDate",
+              "disposalNature", "judges", "authoringJudge", "benchSize",
+              "subjectTags", "sourceName", "sourceUrl", "confidence", "sample"
+          ]
+
+          client = boto3.client("s3", region_name="ap-south-1", config=Config(signature_version=UNSIGNED))
+          frames = []
+          for year in YEARS:
+              key = f"metadata/parquet/year={year}/metadata.parquet"
+              try:
+                  obj = client.get_object(Bucket=BUCKET, Key=key)
+                  df = pd.read_parquet(io.BytesIO(obj["Body"].read()))
+                  df["_source_year"] = year
+                  frames.append(df)
+                  print(f"Loaded {year}: {len(df)} records")
+              except Exception as exc:
+                  print(f"Skipped {year}: {exc}")
+
+          if not frames:
+              raise SystemExit("No Supreme Court metadata loaded")
+
+          data = pd.concat(frames, ignore_index=True)
+          print(f"Total raw records: {len(data)}")
+
+          def val(row, *names):
+              for name in names:
+                  if name in row and pd.notna(row[name]) and str(row[name]).strip():
+                      return str(row[name]).strip()
+              return ""
+
+          def date_only(text):
+              text = str(text or "").strip()
+              match = re.match(r"^(\d{4}-\d{2}-\d{2})", text)
+              if match:
+                  return match.group(1)
+              parsed = pd.to_datetime(text, errors="coerce")
+              if pd.isna(parsed):
+                  return ""
+              return parsed.strftime("%Y-%m-%d")
+
+          def clean_number(value):
+              text = str(value or "").strip()
+              return text if text and text.lower() != "nan" else ""
+
+          rows = []
+          for _, row in data.iterrows():
+              title = val(row, "title")
+              decision_date = date_only(val(row, "decision_date"))
+              if not title or not decision_date:
+                  continue
+
+              case_id = val(row, "case_id", "cnr") or f"sc-{len(rows)+1}"
+              year = val(row, "year", "_source_year") or decision_date[:4]
+              case_number = val(row, "case_no_clean", "cnr", "citation")
+              judges = val(row, "judge", "judges", "bench", "coram")
+              author = val(row, "author_judge", "authoring_judge", "author")
+              citation = val(row, "citation", "nc_display")
+              record_path = val(row, "path")
+              source_url = "https://registry.opendata.aws/indian-court-judgments/"
+              tags = ["supreme court", "aws open data", "public judgment metadata"]
+              if citation:
+                  tags.append(citation)
+
+              rows.append({
+                  "id": f"sc-aws-{case_id}",
+                  "caseTitle": title,
+                  "caseNumber": case_number,
+                  "diaryNumber": "",
+                  "diaryYear": "",
+                  "caseType": "supreme-court-judgment",
+                  "caseYear": clean_number(year),
+                  "decisionDate": decision_date,
+                  "judgmentDate": decision_date,
+                  "uploadDate": "",
+                  "disposalNature": val(row, "disposal_nature", "disposal_nature_clean"),
+                  "judges": judges,
+                  "authoringJudge": author,
+                  "benchSize": "",
+                  "subjectTags": "; ".join(tags),
+                  "sourceName": "AWS Open Data Supreme Court judgments metadata",
+                  "sourceUrl": source_url,
+                  "confidence": "medium-high",
+                  "sample": "false",
+              })
+
+          if not rows:
+              raise SystemExit("No valid rows normalized")
+
+          with OUT.open("w", newline="", encoding="utf-8") as handle:
+              writer = csv.DictWriter(handle, fieldnames=columns)
+              writer.writeheader()
+              writer.writerows(rows)
+
+          print(f"Wrote {len(rows)} records to {OUT}")
+          PY
+
+      - name: Install Node dependencies
+        run: npm install
+
+      - name: Build data and app
+        run: |
+          npm run data:build
+          npm run build
+
+      - name: Commit generated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/imports/judgments.csv public/data/*.json
+          git commit -m "Import Supreme Court judgment metadata" || echo "No data changes to commit"
+          git push
