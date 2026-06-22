@@ -18,8 +18,15 @@ type DatasetMetadata = Record<string, unknown> & {
   sample?: boolean;
   status?: string;
   warning?: string;
+  scope?: {
+    court?: string;
+  };
   sources?: {
     courtSnapshot?: {
+      mode?: string;
+      path?: string;
+    };
+    judgments?: {
       mode?: string;
       path?: string;
     };
