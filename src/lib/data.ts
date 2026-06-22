@@ -42,9 +42,9 @@ type DatasetMetadata = Record<string, unknown> & {
     judgments?: string;
   };
   counts?: {
-    judgmentRecords?: number;
-    caseTypes?: number;
-    judgeProfiles?: number;
+    judgmentRecords: number;
+    caseTypes: number;
+    judgeProfiles: number;
   };
   sources?: {
     courtSnapshot?: SourceMetadata;
