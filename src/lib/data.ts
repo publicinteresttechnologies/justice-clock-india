@@ -13,23 +13,42 @@ type CourtClock = CourtSnapshot & {
   casesOlderThan10Years?: number;
 };
 
+type SourceMetadata = {
+  mode?: string;
+  path?: string;
+};
+
 type DatasetMetadata = Record<string, unknown> & {
   generatedAt: string;
   sample?: boolean;
   status?: string;
   warning?: string;
+  publicLaunchReady?: boolean;
   scope?: {
     court?: string;
   };
+  datasetScope?: {
+    name?: string;
+    court?: string;
+    coverage?: string;
+    years?: string;
+    fullCourtCoverage?: boolean;
+  };
+  files?: {
+    bundledDataset?: string;
+    courtClock?: string;
+    caseTypes?: string;
+    judges?: string;
+    judgments?: string;
+  };
+  counts?: {
+    judgmentRecords?: number;
+    caseTypes?: number;
+    judgeProfiles?: number;
+  };
   sources?: {
-    courtSnapshot?: {
-      mode?: string;
-      path?: string;
-    };
-    judgments?: {
-      mode?: string;
-      path?: string;
-    };
+    courtSnapshot?: SourceMetadata;
+    judgments?: SourceMetadata;
   };
 };
 
