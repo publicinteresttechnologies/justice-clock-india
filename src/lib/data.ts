@@ -14,6 +14,10 @@ type CourtClock = CourtSnapshot & {
 };
 
 type DatasetMetadata = Record<string, unknown> & {
+  generatedAt: string;
+  sample?: boolean;
+  status?: string;
+  warning?: string;
   sources?: {
     courtSnapshot?: {
       mode?: string;
