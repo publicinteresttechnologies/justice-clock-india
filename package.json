@@ -10,9 +10,10 @@
     "start": "next start",
     "lint": "next lint",
     "snapshot:update": "tsx scripts/update-court-snapshot.ts",
+    "import:imljd": "tsx scripts/import-imljd.ts",
     "validate:data": "tsx scripts/validate-data.ts",
     "compute:metrics": "tsx scripts/compute-metrics.ts",
-    "data:build": "npm run validate:data && npm run compute:metrics"
+    "data:build": "npm run import:imljd && npm run validate:data && npm run compute:metrics"
   },
   "dependencies": {
     "next": "16.0.10",
