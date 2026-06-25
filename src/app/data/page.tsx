@@ -1,193 +1,142 @@
 import Link from "next/link";
 import { CaveatBox } from "@/components/CaveatBox";
-import { ConfidenceBadge } from "@/components/ConfidenceBadge";
 import { DataCard } from "@/components/DataCard";
+import { JudgmentExplorer } from "@/components/JudgmentExplorer";
+import { MetricCard } from "@/components/MetricCard";
 import { SampleDataWarning } from "@/components/SampleDataWarning";
 import { SectionHeader } from "@/components/SectionHeader";
-import {
-  caseTypes,
-  courtClock,
-  dataMetadata,
-  formatNumber,
-  formatYears,
-  judges,
-  judgments,
-} from "@/lib/data";
+import { dataMetadata, judgments } from "@/lib/data";
+import { formatNumber } from "@/lib/format";
 
-const publicFiles = [
-  {
-    title: "Bundled dataset",
-    href: "/data/justice-clock-data.json",
-    description: "Court clock, case-type metrics, judge profiles, and judgment records in one JSON file.",
-  },
-  {
-    title: "Court clock",
-    href: "/data/court-clock.json",
-    description: "Snapshot-level court pendency and disposal figures.",
-  },
-  {
-    title: "Case types",
-    href: "/data/case-types.json",
-    description: "Case-type-level approximate case-age-to-judgment metrics.",
-  },
-  {
-    title: "Judges",
-    href: "/data/judges.json",
-    description: "Public metadata profiles for judges appearing in the judgment records.",
-  },
-];
+function sourceLabel(mode: "import" | "sample") {
+  return mode === "import" ? "Import" : "Sample";
+}
 
 export default function DataPage() {
+  const courtIsSample = dataMetadata.sources.courtSnapshot.mode === "sample";
+  const judgmentsAreSample = dataMetadata.sources.judgments.mode === "sample";
+
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <SectionHeader
-        eyebrow="Data"
-        title="All data together"
-        description="A single place for the court clock snapshot, case-type metrics, judge metadata profiles, and underlying judgment records."
+        description="Current generated metrics, source status, and public JSON files."
+        title="Data"
       />
 
-      {dataMetadata.sample ? <SampleDataWarning /> : null}
+      {(courtIsSample || judgmentsAreSample) ? <SampleDataWarning /> : null}
 
-      <CaveatBox title="Public-data caution">
-        This page currently exposes the project structure and sample-data pipeline. It should not be presented as official Supreme Court data until the sample records are replaced with verified sources.
-      </CaveatBox>
+      {!dataMetadata.publicLaunchReady ? (
+        <CaveatBox>
+          This build is not public-launch ready because one or more data sources
+          are still sample-mode.
+        </CaveatBox>
+      ) : null}
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Dataset bundle</p>
-        <h2 className="mt-2 text-2xl font-black text-slate-950">Justice Clock Data</h2>
-        <p className="mt-2 text-sm leading-6 text-slate-600">{dataMetadata.warning}</p>
-        <div className="mt-4 grid gap-3 text-sm sm:grid-cols-2">
-          <div className="rounded-2xl bg-slate-50 p-4">
-            <p className="text-xs font-bold uppercase tracking-wide text-slate-400">Status</p>
-            <p className="mt-1 font-bold text-slate-900">{dataMetadata.status}</p>
+      <DataCard title="Current Source Status">
+        <div className="space-y-4">
+          <div>
+            <p className="text-sm font-medium text-slate-600">
+              Court snapshot source
+            </p>
+            <p className="text-lg font-semibold capitalize text-slate-950">
+              {sourceLabel(dataMetadata.sources.courtSnapshot.mode)}
+            </p>
+            <p className="text-sm text-slate-600">
+              {dataMetadata.sources.courtSnapshot.path}
+            </p>
           </div>
-          <div className="rounded-2xl bg-slate-50 p-4">
-            <p className="text-xs font-bold uppercase tracking-wide text-slate-400">Generated</p>
-            <p className="mt-1 font-bold text-slate-900">{new Date(dataMetadata.generatedAt).toLocaleString("en-GB")}</p>
+          <div>
+            <p className="text-sm font-medium text-slate-600">
+              Judgment records source
+            </p>
+            <p className="text-lg font-semibold capitalize text-slate-950">
+              {sourceLabel(dataMetadata.sources.judgments.mode)}
+            </p>
+            <p className="text-sm text-slate-600">
+              {dataMetadata.sources.judgments.path}
+            </p>
           </div>
         </div>
-        <a
-          href="/data/justice-clock-data.json"
-          className="mt-4 inline-flex rounded-full bg-slate-950 px-4 py-2 text-sm font-bold text-white"
-        >
-          Open bundled JSON
-        </a>
-      </section>
+      </DataCard>
 
-      <section className="grid gap-3 sm:grid-cols-2">
-        <DataCard
-          eyebrow="Court snapshot"
-          title={formatNumber(courtClock.totalPending)}
-          description="Total pending cases in the current court-clock snapshot."
-        />
-        <DataCard
-          eyebrow="Judgment records"
-          title={formatNumber(judgments.length)}
-          description="Underlying judgment records currently in the dataset."
-        />
-        <DataCard
-          eyebrow="Case types"
-          title={formatNumber(caseTypes.length)}
-          description="Case-type metric groups generated from judgment records."
-        />
-        <DataCard
-          eyebrow="Judge profiles"
-          title={formatNumber(judges.length)}
-          description="Public judge metadata profiles generated from judgment records."
-        />
-      </section>
+      <DataCard title="Scope">
+        <p className="text-sm leading-6 text-slate-700">
+          This build is scoped to Supreme Court of India court snapshot data and
+          Supreme Court judgment metadata only.
+        </p>
+      </DataCard>
 
-      <section className="space-y-3">
-        <h2 className="text-xl font-black text-slate-950">Public JSON files</h2>
-        <div className="grid gap-3">
-          {publicFiles.map((file) => (
-            <a
-              key={file.href}
-              href={file.href}
-              className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-slate-300"
-            >
-              <p className="font-black text-slate-950">{file.title}</p>
-              <p className="mt-1 text-sm text-slate-600">{file.description}</p>
-              <p className="mt-2 break-all font-mono text-xs text-slate-400">{file.href}</p>
+      {dataMetadata.datasetScope ? (
+        <DataCard title="Dataset Scope">
+          <div className="space-y-2 text-sm leading-6 text-slate-700">
+            <p className="font-semibold text-slate-950">
+              {dataMetadata.datasetScope.name}
+            </p>
+            <p>Court: {dataMetadata.datasetScope.court}</p>
+            <p>Coverage: {dataMetadata.datasetScope.coverage}</p>
+            <p>Years: {dataMetadata.datasetScope.years}</p>
+            <p>
+              Full Supreme Court coverage:{" "}
+              {dataMetadata.datasetScope.fullCourtCoverage ? "Yes" : "No"}
+            </p>
+          </div>
+        </DataCard>
+      ) : null}
+
+      <div className="grid grid-cols-2 gap-3">
+        <MetricCard
+          label="Judgment records"
+          value={formatNumber(dataMetadata.counts.judgmentRecords)}
+        />
+        <MetricCard label="Case types" value={dataMetadata.counts.caseTypes} />
+        <MetricCard
+          label="Judge profiles"
+          value={dataMetadata.counts.judgeProfiles}
+        />
+        <MetricCard
+          label="Sample mode"
+          tone={dataMetadata.sample ? "danger" : "positive"}
+          value={dataMetadata.sample ? "On" : "Off"}
+        />
+        <MetricCard
+          label="Public launch"
+          tone={dataMetadata.publicLaunchReady ? "positive" : "warning"}
+          value={dataMetadata.publicLaunchReady ? "Yes" : "No"}
+        />
+      </div>
+
+      <DataCard title="Public JSON Bundle">
+        <div className="space-y-2 text-sm font-semibold text-amber-900">
+          {Object.entries(dataMetadata.files).map(([label, href]) => (
+            <a className="block" href={href} key={label}>
+              {label}: {href}
             </a>
           ))}
         </div>
-      </section>
+        <p className="mt-4 text-xs leading-5 text-slate-500">
+          Generated {new Date(dataMetadata.generatedAt).toLocaleString("en-IN")}.
+        </p>
+      </DataCard>
 
       <section className="space-y-3">
-        <h2 className="text-xl font-black text-slate-950">Case-type metrics</h2>
-        <div className="space-y-3">
-          {caseTypes.map((caseType) => (
-            <Link
-              key={caseType.slug}
-              href={`/case-types/${caseType.slug}`}
-              className="block rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-slate-300"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="font-black text-slate-950">{caseType.caseType}</p>
-                  <p className="mt-1 text-sm text-slate-600">Sample size: {formatNumber(caseType.sampleSize)}</p>
-                </div>
-                <ConfidenceBadge level={caseType.confidence} />
-              </div>
-              <p className="mt-3 text-sm font-semibold text-slate-800">
-                Median case-age-to-judgment gap: {formatYears(caseType.medianCaseAgeYears)}
-              </p>
-            </Link>
-          ))}
-        </div>
+        <SectionHeader
+          description="Search case title, judge name, or case type and filter by bench size or year."
+          title="Judgment Records"
+        />
+        <JudgmentExplorer judgments={judgments} />
       </section>
 
-      <section className="space-y-3">
-        <h2 className="text-xl font-black text-slate-950">Judge metadata profiles</h2>
-        <div className="space-y-3">
-          {judges.map((judge) => (
-            <Link
-              key={judge.slug}
-              href={`/judges/${judge.slug}`}
-              className="block rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-slate-300"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="font-black text-slate-950">{judge.judgeName}</p>
-                  <p className="mt-1 text-sm text-slate-600">
-                    Authored: {formatNumber(judge.authoredJudgments)} · Bench records: {formatNumber(judge.benchAssociatedJudgments)}
-                  </p>
-                </div>
-                <ConfidenceBadge level={judge.confidence} />
-              </div>
-              <p className="mt-3 text-sm font-semibold text-slate-800">
-                Median case-age gap: {formatYears(judge.medianCaseAgeYears)}
-              </p>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <CaveatBox>
+        Generated metrics use conservative language: approximate
+        case-age-to-judgment gap, bench-associated metrics, public judgment
+        metadata profiles, and source confidence.
+      </CaveatBox>
 
-      <section className="space-y-3">
-        <h2 className="text-xl font-black text-slate-950">Judgment records</h2>
-        <div className="space-y-3">
-          {judgments.map((judgment) => (
-            <article key={judgment.id} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="font-black text-slate-950">{judgment.caseTitle}</p>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-slate-400">{judgment.caseNumber}</p>
-                </div>
-                <ConfidenceBadge level={judgment.confidence} />
-              </div>
-              <div className="mt-4 grid gap-2 text-sm text-slate-700 sm:grid-cols-2">
-                <p><span className="font-bold">Case type:</span> {judgment.caseType}</p>
-                <p><span className="font-bold">Judgment date:</span> {judgment.judgmentDate}</p>
-                <p><span className="font-bold">Diary year:</span> {judgment.diaryYear ?? "—"}</p>
-                <p><span className="font-bold">Bench size:</span> {judgment.benchSize}</p>
-                <p className="sm:col-span-2"><span className="font-bold">Bench:</span> {judgment.judges.join(", ")}</p>
-                <p className="sm:col-span-2"><span className="font-bold">Author:</span> {judgment.authoringJudge ?? "Not recorded"}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+      <DataCard title="Launch Readiness">
+        <Link className="text-sm font-semibold text-amber-900" href="/launch-checklist">
+          Open launch checklist
+        </Link>
+      </DataCard>
     </div>
   );
 }
