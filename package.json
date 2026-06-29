@@ -11,9 +11,10 @@
     "lint": "next lint",
     "snapshot:update": "tsx scripts/update-court-snapshot.ts",
     "import:imljd": "tsx scripts/import-imljd.ts",
+    "import:sc-metadata": "python3 scripts/import-sc-metadata.py --start-year 2000 --end-year 2024",
     "validate:data": "tsx scripts/validate-data.ts",
     "compute:metrics": "tsx scripts/compute-metrics.ts",
-    "data:build": "npm run import:imljd && npm run validate:data && npm run compute:metrics"
+    "data:build": "npm run validate:data && npm run compute:metrics"
   },
   "dependencies": {
     "next": "16.0.10",
