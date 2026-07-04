@@ -5,16 +5,15 @@ import { JudgmentExplorer } from "@/components/JudgmentExplorer";
 import { MetricCard } from "@/components/MetricCard";
 import { SampleDataWarning } from "@/components/SampleDataWarning";
 import { SectionHeader } from "@/components/SectionHeader";
-import { dataMetadata, judgments } from "@/lib/data";
-import { formatNumber } from "@/lib/format";
+import { dataMetadata, formatNumber, judgments } from "@/lib/data";
 
 function sourceLabel(mode: "import" | "sample") {
   return mode === "import" ? "Import" : "Sample";
 }
 
 export default function DataPage() {
-  const courtIsSample = dataMetadata.sources.courtSnapshot.mode === "sample";
-  const judgmentsAreSample = dataMetadata.sources.judgments.mode === "sample";
+  const courtIsSample = dataMetadata.sources?.courtSnapshot?.mode === "sample";
+  const judgmentsAreSample = dataMetadata.sources?.judgments?.mode === "sample";
 
   return (
     <div className="space-y-6">
@@ -39,10 +38,10 @@ export default function DataPage() {
               Court snapshot source
             </p>
             <p className="text-lg font-semibold capitalize text-slate-950">
-              {sourceLabel(dataMetadata.sources.courtSnapshot.mode)}
+              {sourceLabel(dataMetadata.sources?.courtSnapshot?.mode === "import" ? "import" : "sample")}
             </p>
             <p className="text-sm text-slate-600">
-              {dataMetadata.sources.courtSnapshot.path}
+              {dataMetadata.sources?.courtSnapshot?.path ?? "Not available"}
             </p>
           </div>
           <div>
@@ -50,10 +49,10 @@ export default function DataPage() {
               Judgment records source
             </p>
             <p className="text-lg font-semibold capitalize text-slate-950">
-              {sourceLabel(dataMetadata.sources.judgments.mode)}
+              {sourceLabel(dataMetadata.sources?.judgments?.mode === "import" ? "import" : "sample")}
             </p>
             <p className="text-sm text-slate-600">
-              {dataMetadata.sources.judgments.path}
+              {dataMetadata.sources?.judgments?.path ?? "Not available"}
             </p>
           </div>
         </div>
@@ -86,12 +85,12 @@ export default function DataPage() {
       <div className="grid grid-cols-2 gap-3">
         <MetricCard
           label="Judgment records"
-          value={formatNumber(dataMetadata.counts.judgmentRecords)}
+          value={formatNumber(dataMetadata.counts?.judgmentRecords)}
         />
-        <MetricCard label="Case types" value={dataMetadata.counts.caseTypes} />
+        <MetricCard label="Case types" value={formatNumber(dataMetadata.counts?.caseTypes)} />
         <MetricCard
           label="Judge profiles"
-          value={dataMetadata.counts.judgeProfiles}
+          value={formatNumber(dataMetadata.counts?.judgeProfiles)}
         />
         <MetricCard
           label="Sample mode"
@@ -105,18 +104,20 @@ export default function DataPage() {
         />
       </div>
 
-      <DataCard title="Public JSON Bundle">
-        <div className="space-y-2 text-sm font-semibold text-amber-900">
-          {Object.entries(dataMetadata.files).map(([label, href]) => (
-            <a className="block" href={href} key={label}>
-              {label}: {href}
-            </a>
-          ))}
-        </div>
-        <p className="mt-4 text-xs leading-5 text-slate-500">
-          Generated {new Date(dataMetadata.generatedAt).toLocaleString("en-IN")}.
-        </p>
-      </DataCard>
+      {dataMetadata.files ? (
+        <DataCard title="Public JSON Bundle">
+          <div className="space-y-2 text-sm font-semibold text-amber-900">
+            {Object.entries(dataMetadata.files).map(([label, href]) => (
+              <a className="block" href={href} key={label}>
+                {label}: {href}
+              </a>
+            ))}
+          </div>
+          <p className="mt-4 text-xs leading-5 text-slate-500">
+            Generated {new Date(dataMetadata.generatedAt).toLocaleString("en-IN")}.
+          </p>
+        </DataCard>
+      ) : null}
 
       <section className="space-y-3">
         <SectionHeader
