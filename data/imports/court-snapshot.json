@@ -9,9 +9,12 @@
   "institutedThisMonth": 0,
   "disposedThisMonth": 0,
   "oldCasesDisposedThisMonth": 0,
-  "coramPending": {
-    "Not available in source": 90694
-  },
+  "coramPending": [
+    {
+      "benchSize": "Not available in source",
+      "pending": 90694
+    }
+  ],
   "confidence": "medium",
   "notes": [
     "Supreme Court of India total pendency captured from the National Judicial Data Grid Supreme Court dashboard.",
