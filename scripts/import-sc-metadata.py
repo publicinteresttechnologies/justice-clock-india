@@ -21,7 +21,6 @@ from urllib.request import urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 IMPORT_CSV = ROOT / "data" / "imports" / "judgments.csv"
-RESEARCH_CSV = ROOT / "data" / "research" / "sc-judgments-2000-2024.csv"
 SUMMARY_JSON = ROOT / "data" / "research" / "sc-corpus-summary.json"
 PUBLIC_SUMMARY_JSON = ROOT / "public" / "data" / "sc-corpus-summary.json"
 SOURCE_URL = (
@@ -55,10 +54,14 @@ CSV_HEADERS = [
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--from-year", type=int, default=2000)
-    parser.add_argument("--to-year", type=int, default=2024)
-    parser.add_argument("--min-records", type=int, default=1000)
+    parser.add_argument("--start-year", "--from-year", dest="start_year", type=int, default=1950)
+    parser.add_argument("--end-year", "--to-year", dest="end_year", type=int, default=2024)
+    parser.add_argument("--fail-under", "--min-records", dest="min_records", type=int, default=30000)
     return parser.parse_args()
+
+
+def research_csv_path(start_year: int, end_year: int) -> Path:
+    return ROOT / "data" / "research" / f"sc-judgments-{start_year}-{end_year}.csv"
 
 
 def require_pyarrow():
@@ -142,8 +145,8 @@ def normalize(row: dict) -> dict | None:
 
     case_year = first_text(row, "year", "case_year")
     if not case_year:
-        case_year = re.search(r"\b(19[5-9]\d|20\d{2})\b", case_number or title)
-        case_year = case_year.group(1) if case_year else decision_date[:4]
+        case_year_match = re.search(r"\b(19[5-9]\d|20\d{2})\b", case_number or title)
+        case_year = case_year_match.group(1) if case_year_match else decision_date[:4]
 
     source_path = first_text(row, "path", "source_path")
     source_url = first_text(row, "metadata_url", "source_url") or SOURCE_URL.format(
@@ -184,12 +187,17 @@ def write_csv(path: Path, records: list[dict], headers: list[str]) -> None:
 
 def main() -> None:
     args = parse_args()
+    if args.end_year < args.start_year:
+        raise SystemExit("end year must be greater than or equal to start year")
+
     pd = require_pyarrow()
     records: list[dict] = []
+    raw_rows_by_year: dict[str, int] = {}
 
-    for year in range(args.from_year, args.to_year + 1):
+    for year in range(args.start_year, args.end_year + 1):
         path = download_parquet(year)
         frame = pd.read_parquet(path)
+        raw_rows_by_year[str(year)] = len(frame)
         for row in frame.to_dict(orient="records"):
             record = normalize(row)
             if record:
@@ -203,10 +211,11 @@ def main() -> None:
             f"Only {len(records)} usable Supreme Court records loaded; expected at least {args.min_records}."
         )
 
+    research_csv = research_csv_path(args.start_year, args.end_year)
     write_csv(IMPORT_CSV, records, CSV_HEADERS)
     research_headers = CSV_HEADERS + ["sourcePath"]
     research_records = [{**record, "sourcePath": record.get("_sourcePath", "")} for record in records]
-    write_csv(RESEARCH_CSV, research_records, research_headers)
+    write_csv(research_csv, research_records, research_headers)
 
     summary = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
@@ -214,10 +223,14 @@ def main() -> None:
         "sourceUrl": "https://indian-supreme-court-judgments.s3.amazonaws.com/",
         "court": "Supreme Court of India",
         "records": len(records),
-        "years": f"{args.from_year}-{args.to_year}",
+        "years": f"{args.start_year}-{args.end_year}",
+        "researchCsv": str(research_csv.relative_to(ROOT)),
+        "appCsv": str(IMPORT_CSV.relative_to(ROOT)),
+        "rawRowsByYear": raw_rows_by_year,
         "notes": [
             "This is public judgment metadata, not a live court service.",
             "PDFs and tar archives are not committed to the app repository.",
+            "Full judgment text should be fetched later only for targeted research questions.",
         ],
     }
     SUMMARY_JSON.parent.mkdir(parents=True, exist_ok=True)
@@ -225,6 +238,7 @@ def main() -> None:
     SUMMARY_JSON.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     PUBLIC_SUMMARY_JSON.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     print(f"OK: wrote {len(records)} Supreme Court records to {IMPORT_CSV}")
+    print(f"OK: wrote research CSV to {research_csv}")
 
 
 if __name__ == "__main__":
