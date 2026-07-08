@@ -1,0 +1,18 @@
+[
+  {
+    "sourceName": "National Judicial Data Grid - Supreme Court of India dashboard",
+    "sourceUrl": "https://njdg.ecourts.gov.in/scnjdg/",
+    "proves": "Court snapshot fields for pendency, institution, disposal, old-case disposal, and bench-size distribution.",
+    "doesNotProve": "Individual case timelines, legal outcomes, or responsibility for delay.",
+    "confidence": "medium",
+    "lastUpdated": "2026-06-18T00:00:00.000Z"
+  },
+  {
+    "sourceName": "IMLJD open dataset",
+    "sourceUrl": "https://github.com/joyboseroy/imljd",
+    "proves": "Public judgment metadata used to generate case-type and bench-associated metrics.",
+    "doesNotProve": "Official judgment counts, official authorship, final attribution, or legal conclusions.",
+    "confidence": "medium",
+    "lastUpdated": "Generated from data/imports judgment files."
+  }
+]

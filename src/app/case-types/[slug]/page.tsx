@@ -2,83 +2,118 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CaveatBox } from "@/components/CaveatBox";
 import { ConfidenceBadge } from "@/components/ConfidenceBadge";
+import { DataCard } from "@/components/DataCard";
+import { KeyValueList } from "@/components/KeyValueList";
 import { MetricCard } from "@/components/MetricCard";
-import { SampleDataWarning } from "@/components/SampleDataWarning";
-import { getCaseTypeBySlug, formatNumber, formatYears } from "@/lib/data";
+import { ProfileDisclaimer } from "@/components/ProfileDisclaimer";
+import { SimpleBarChart } from "@/components/SimpleBarChart";
+import { SourceBadge } from "@/components/SourceBadge";
+import { caseTypes } from "@/lib/data";
+import { formatYears } from "@/lib/format";
 
-type PageProps = {
-  params: Promise<{
-    slug: string;
-  }>;
+type CaseTypePageProps = {
+  params: Promise<{ slug: string }>;
 };
 
-export default async function CaseTypeDetailPage({ params }: PageProps) {
-  const { slug } = await params;
-  const caseType = getCaseTypeBySlug(slug);
+export function generateStaticParams() {
+  return caseTypes.map((item) => ({ slug: item.slug }));
+}
 
-  if (!caseType) notFound();
+export default async function CaseTypePage({ params }: CaseTypePageProps) {
+  const { slug } = await params;
+  const item = caseTypes.find((caseType) => caseType.slug === slug);
+
+  if (!item) {
+    notFound();
+  }
+
+  const related = caseTypes
+    .filter((caseType) => caseType.slug !== item.slug)
+    .slice(0, 3);
 
   return (
-    <div className="space-y-7">
-      <section className="rounded-[2rem] bg-slate-950 p-6 text-white shadow-sm">
-        <p className="text-xs font-black uppercase tracking-[0.25em] text-amber-300">Case type</p>
-        <h1 className="mt-4 text-4xl font-black leading-tight tracking-tight">{caseType.caseType}</h1>
-        <p className="mt-4 text-base leading-7 text-slate-200">
-          Approximate case-age-to-judgment profile generated from structured judgment records.
-        </p>
-        <div className="mt-5 flex items-center gap-3">
-          <ConfidenceBadge level={caseType.confidence} />
-          <span className="text-xs font-bold uppercase tracking-wide text-slate-300">{formatNumber(caseType.sampleSize)} records</span>
-        </div>
+    <div className="space-y-6">
+      <section className="space-y-3">
+        <h1 className="text-3xl font-semibold tracking-normal text-slate-950">
+          {item.caseType}
+        </h1>
+        <ConfidenceBadge level={item.confidence} />
       </section>
-
-      {caseType.sample ? <SampleDataWarning /> : null}
 
       <MetricCard
-        title="Median approximate case-age-to-judgment gap"
-        value={formatYears(caseType.medianCaseAgeYears)}
-        context={`Based on ${formatNumber(caseType.sampleSize)} judgment record${caseType.sampleSize === 1 ? "" : "s"}.`}
-        confidence={caseType.confidence}
-        sourceLabel={caseType.sources[0]?.name ?? "Generated data"}
-        sourceHref={caseType.sources[0]?.url}
+        label="Median approximate case-age-to-judgment"
+        tone="warning"
+        value={formatYears(item.medianCaseAgeYears)}
       />
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Distribution</p>
-        <h2 className="mt-2 text-2xl font-black text-slate-950">How the records spread out</h2>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          <MetricCard title="25th percentile" value={formatYears(caseType.p25CaseAgeYears)} confidence={caseType.confidence} />
-          <MetricCard title="75th percentile" value={formatYears(caseType.p75CaseAgeYears)} confidence={caseType.confidence} />
-          <MetricCard title="90th percentile" value={formatYears(caseType.p90CaseAgeYears)} confidence={caseType.confidence} />
-          <MetricCard title="Oldest case-age gap" value={formatYears(caseType.oldestCaseAgeYears)} confidence={caseType.confidence} />
-        </div>
-      </section>
+      <ProfileDisclaimer />
 
-      <CaveatBox title="What this means">
-        {caseType.caveat}
+      <div className="grid grid-cols-2 gap-3">
+        <MetricCard label="P25" value={formatYears(item.p25CaseAgeYears)} />
+        <MetricCard label="P75" value={formatYears(item.p75CaseAgeYears)} />
+        <MetricCard label="P90" value={formatYears(item.p90CaseAgeYears)} />
+        <MetricCard
+          label="Oldest sample"
+          value={formatYears(item.oldestCaseAgeYears)}
+        />
+      </div>
+
+      <MetricCard label="Sample size" value={item.sampleSize} />
+
+      <DataCard title="Judgments by Year">
+        <KeyValueList items={item.judgmentsByYear} />
+      </DataCard>
+
+      <DataCard title="Judgment Timeline">
+        <SimpleBarChart
+          data={Object.entries(item.judgmentsByYear).map(([label, value]) => ({
+            label,
+            value,
+          }))}
+        />
+      </DataCard>
+
+      <DataCard title="Approximate Gap Distribution">
+        <SimpleBarChart
+          data={[
+            { label: "P25", value: item.p25CaseAgeYears ?? 0 },
+            { label: "Median", value: item.medianCaseAgeYears ?? 0 },
+            { label: "P75", value: item.p75CaseAgeYears ?? 0 },
+            { label: "P90", value: item.p90CaseAgeYears ?? 0 },
+          ]}
+          valueLabel={(value) => formatYears(value)}
+        />
+      </DataCard>
+
+      <div className="flex flex-wrap gap-2">
+        {item.sources.map((source) => (
+          <SourceBadge
+            key={source.sourceUrl}
+            name={source.sourceName}
+            url={source.sourceUrl ?? undefined}
+          />
+        ))}
+      </div>
+
+      <CaveatBox>
+        This measures the gap between case/diary year and judgment year where
+        exact filing-to-disposal dates are not available. It is an
+        approximation, not a prediction for your case.
       </CaveatBox>
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-        <div className="flex items-center justify-between gap-3">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Judgments by year</p>
-            <h2 className="mt-2 text-2xl font-black text-slate-950">Decision-year coverage</h2>
-          </div>
-          <ConfidenceBadge level={caseType.confidence} />
-        </div>
-        <div className="mt-4 space-y-2">
-          {caseType.judgmentsByYear.map((item) => (
-            <div key={item.year} className="flex items-center justify-between rounded-2xl bg-slate-50 px-4 py-3 text-sm">
-              <span className="font-bold text-slate-800">{item.year}</span>
-              <span className="text-slate-600">{formatNumber(item.count)} judgment record{item.count === 1 ? "" : "s"}</span>
-            </div>
+      <DataCard title="Related Case Types">
+        <div className="space-y-2">
+          {related.map((caseType) => (
+            <Link
+              className="block text-sm font-semibold text-amber-900"
+              href={`/case-types/${caseType.slug}`}
+              key={caseType.slug}
+            >
+              {caseType.caseType}
+            </Link>
           ))}
         </div>
-      </section>
-
-      <Link href="/case-types" className="inline-flex rounded-full bg-slate-950 px-4 py-2 text-sm font-bold text-white">
-        Back to case types
-      </Link>
+      </DataCard>
     </div>
   );
 }

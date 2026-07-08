@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { BottomNav } from "@/components/BottomNav";
 import "./globals.css";
 
-const title = "Justice Clock India — Supreme Court backlog snapshot";
-const description = "A source-linked public snapshot of how backed up the Supreme Court of India is right now.";
-
 export const metadata: Metadata = {
-  title,
-  description,
-  openGraph: {
-    title,
-    description,
-    type: "website",
+  metadataBase: new URL("https://justiceclockindia.org"),
+  title: {
+    default: "Justice Clock India",
+    template: "%s | Justice Clock India",
   },
-  twitter: {
-    card: "summary",
-    title,
-    description,
+  description: "A mobile-first public data website for Justice Clock India.",
+  applicationName: "Justice Clock India",
+  keywords: ["justice", "courts", "India", "public data"],
+  openGraph: {
+    title: "Justice Clock India",
+    description: "A mobile-first public data website for Justice Clock India.",
+    siteName: "Justice Clock India",
+    type: "website",
   },
 };
 
@@ -27,7 +28,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="min-h-screen bg-stone-50 text-slate-950">{children}</div>
+        <div className="mx-auto flex min-h-screen w-full max-w-screen-sm flex-col bg-[#f8f5ee]">
+          <header className="sticky top-0 z-10 border-b border-slate-200 bg-[#f8f5ee]/95 px-4 py-4 backdrop-blur">
+            <Link
+              href="/"
+              className="text-lg font-semibold tracking-normal text-slate-950"
+            >
+              Justice Clock India
+            </Link>
+          </header>
+
+          <main className="flex-1 px-4 py-6 pb-24">{children}</main>
+
+          <BottomNav />
+        </div>
       </body>
     </html>
   );

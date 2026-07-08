@@ -1,95 +1,6262 @@
 [
   {
-    "slug": "sample-judge-a",
-    "judgeName": "Sample Judge A",
-    "authoredJudgments": 1,
-    "benchAssociatedJudgments": 2,
-    "judgmentsByYear": [{ "year": 2026, "count": 2 }],
-    "caseTypeMix": [
-      { "caseType": "Civil Appeal", "count": 1, "percentage": 50 },
-      { "caseType": "Writ Petition", "count": 1, "percentage": 50 }
-    ],
-    "subjectMix": [
-      { "subject": "civil", "count": 1, "percentage": 25 },
-      { "subject": "property", "count": 1, "percentage": 25 },
-      { "subject": "constitutional", "count": 1, "percentage": 25 },
-      { "subject": "government", "count": 1, "percentage": 25 }
-    ],
-    "benchSizeProfile": [
-      { "benchSize": "2-judge", "count": 1 },
-      { "benchSize": "3-judge", "count": 1 }
-    ],
-    "medianCaseAgeYears": 9,
-    "casesOlderThan5Years": 2,
-    "casesOlderThan10Years": 1,
-    "oldestCaseAgeYears": 12,
-    "confidence": "experimental",
-    "attributionWarning": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
-    "caveat": "Bench-associated metrics are not direct blame metrics. Case-age figures are approximate unless exact filing-to-disposal data is available.",
-    "sources": [{ "name": "Sample Judgment Metadata" }],
-    "sample": true
+    "slug": "a-k-ganguly",
+    "judgeName": "A.K. GANGULY",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 5,
+    "judgmentsByYear": {
+      "2009": 2,
+      "2011": 2,
+      "2012": 1
+    },
+    "caseTypeMix": {
+      "quash": 4,
+      "appeal": 1
+    },
+    "subjectMix": {
+      "matrimonial": 5,
+      "imljd": 5,
+      "supreme court": 5,
+      "quashed": 4,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 2,
+      "1 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
   },
   {
-    "slug": "sample-judge-b",
-    "judgeName": "Sample Judge B",
-    "authoredJudgments": 1,
+    "slug": "a-k-mathur",
+    "judgeName": "A.K. MATHUR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 5,
+    "judgmentsByYear": {
+      "2005": 1,
+      "2007": 3,
+      "2008": 1
+    },
+    "caseTypeMix": {
+      "quash": 5
+    },
+    "subjectMix": {
+      "matrimonial": 5,
+      "imljd": 5,
+      "supreme court": 5,
+      "dowry prohibition act": 1,
+      "settled": 2,
+      "quashed": 2,
+      "partly_quashed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 3,
+      "1 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "a-k-patnaik",
+    "judgeName": "A.K. PATNAIK",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 19,
+    "judgmentsByYear": {
+      "2010": 1,
+      "2012": 2,
+      "2013": 15,
+      "2014": 1
+    },
+    "caseTypeMix": {
+      "quash": 3,
+      "appeal": 16
+    },
+    "subjectMix": {
+      "matrimonial": 19,
+      "imljd": 19,
+      "supreme court": 19,
+      "quashed": 2,
+      "partly_allowed": 2,
+      "ipc 498a": 9,
+      "allowed": 8,
+      "dismissed": 4,
+      "unknown": 1,
+      "dowry prohibition act": 1,
+      "disposed": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 2,
+      "1 judge bench": 17
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "a-k-sikri",
+    "judgeName": "A.K. SIKRI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 19,
+    "judgmentsByYear": {
+      "2013": 1,
+      "2016": 3,
+      "2017": 6,
+      "2018": 7,
+      "2019": 2
+    },
+    "caseTypeMix": {
+      "maintenance": 2,
+      "quash": 12,
+      "appeal": 4,
+      "bail": 1
+    },
+    "subjectMix": {
+      "matrimonial": 19,
+      "imljd": 19,
+      "supreme court": 19,
+      "crpc 125": 1,
+      "dismissed": 8,
+      "quashed": 6,
+      "dv act": 2,
+      "allowed": 2,
+      "disposed": 1,
+      "settled": 2,
+      "ipc 498a": 1,
+      "dowry prohibition act": 1,
+      "crpc 482": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 3,
+      "1 judge bench": 16
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "a-m-khanwilkar",
+    "judgeName": "A.M. KHANWILKAR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 4,
+    "judgmentsByYear": {
+      "2017": 1,
+      "2018": 1,
+      "2020": 1,
+      "2022": 1
+    },
+    "caseTypeMix": {
+      "quash": 3,
+      "other": 1
+    },
+    "subjectMix": {
+      "matrimonial": 4,
+      "imljd": 4,
+      "supreme court": 4,
+      "settled": 2,
+      "quashed": 1,
+      "directions": 1
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 3,
+      "1 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "a-s-anand",
+    "judgeName": "A.S. ANAND",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 1,
+    "judgmentsByYear": {
+      "2001": 1
+    },
+    "caseTypeMix": {
+      "appeal": 1
+    },
+    "subjectMix": {
+      "matrimonial": 1,
+      "imljd": 1,
+      "supreme court": 1,
+      "partly_allowed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "a-s-bopanna",
+    "judgeName": "A.S. BOPANNA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 2,
+    "judgmentsByYear": {
+      "2023": 2
+    },
+    "caseTypeMix": {
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 2,
+      "imljd": 2,
+      "supreme court": 2,
+      "crpc 482": 1,
+      "quashed": 2
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "abhay-manohar-sapre",
+    "judgeName": "ABHAY MANOHAR SAPRE",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 23,
+    "judgmentsByYear": {
+      "2014": 1,
+      "2016": 2,
+      "2018": 9,
+      "2019": 11
+    },
+    "caseTypeMix": {
+      "appeal": 4,
+      "quash": 18,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 23,
+      "imljd": 23,
+      "supreme court": 23,
+      "ipc 498a": 8,
+      "dismissed": 4,
+      "settled": 1,
+      "quashed": 10,
+      "dowry prohibition act": 3,
+      "leave_granted": 4,
+      "ipc 304b": 2,
+      "allowed": 2,
+      "crpc 482": 1,
+      "unknown": 1,
+      "disposed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 4,
+      "1 judge bench": 19
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "abhay-s-oka",
+    "judgeName": "ABHAY S. OKA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 12,
+    "judgmentsByYear": {
+      "2022": 1,
+      "2023": 3,
+      "2024": 8
+    },
+    "caseTypeMix": {
+      "other": 1,
+      "appeal": 2,
+      "quash": 9
+    },
+    "subjectMix": {
+      "matrimonial": 12,
+      "imljd": 12,
+      "supreme court": 12,
+      "directions": 2,
+      "ipc 498a": 1,
+      "ipc 304b": 1,
+      "allowed": 2,
+      "quashed": 5,
+      "partly_quashed": 2,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 1,
+      "1 judge bench": 10,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "adarsh-kumar-goel",
+    "judgeName": "ADARSH KUMAR GOEL",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 9,
+    "judgmentsByYear": {
+      "2017": 7,
+      "2018": 2
+    },
+    "caseTypeMix": {
+      "quash": 5,
+      "other": 1,
+      "maintenance": 1,
+      "appeal": 2
+    },
+    "subjectMix": {
+      "matrimonial": 9,
+      "imljd": 9,
+      "supreme court": 9,
+      "quashed": 3,
+      "disposed": 2,
+      "dismissed": 1,
+      "hindu marriage act": 1,
+      "allowed": 1,
+      "settled": 1,
+      "ipc 498a": 2,
+      "directions": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 8
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "aftab-alam",
+    "judgeName": "AFTAB ALAM",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 10,
+    "judgmentsByYear": {
+      "2008": 2,
+      "2010": 1,
+      "2011": 3,
+      "2012": 1,
+      "2013": 3
+    },
+    "caseTypeMix": {
+      "quash": 5,
+      "maintenance": 1,
+      "other": 1,
+      "appeal": 3
+    },
+    "subjectMix": {
+      "matrimonial": 10,
+      "imljd": 10,
+      "supreme court": 10,
+      "partly_quashed": 1,
+      "dismissed": 5,
+      "hindu marriage act": 2,
+      "partly_allowed": 1,
+      "ipc 498a": 2,
+      "quashed": 2,
+      "dowry prohibition act": 1,
+      "disposed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 4,
+      "1 judge bench": 6
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "ahsanuddin-amanullah",
+    "judgeName": "AHSANUDDIN AMANULLAH",
+    "authoredJudgments": 0,
     "benchAssociatedJudgments": 3,
-    "judgmentsByYear": [{ "year": 2026, "count": 3 }],
-    "caseTypeMix": [
-      { "caseType": "Civil Appeal", "count": 1, "percentage": 33.3 },
-      { "caseType": "Criminal Appeal", "count": 1, "percentage": 33.3 },
-      { "caseType": "Writ Petition", "count": 1, "percentage": 33.3 }
-    ],
-    "subjectMix": [
-      { "subject": "civil", "count": 1, "percentage": 16.7 },
-      { "subject": "property", "count": 1, "percentage": 16.7 },
-      { "subject": "criminal", "count": 1, "percentage": 16.7 },
-      { "subject": "liberty", "count": 1, "percentage": 16.7 },
-      { "subject": "constitutional", "count": 1, "percentage": 16.7 },
-      { "subject": "government", "count": 1, "percentage": 16.7 }
-    ],
-    "benchSizeProfile": [
-      { "benchSize": "2-judge", "count": 2 },
-      { "benchSize": "3-judge", "count": 1 }
-    ],
-    "medianCaseAgeYears": 8,
-    "casesOlderThan5Years": 3,
-    "casesOlderThan10Years": 1,
-    "oldestCaseAgeYears": 12,
-    "confidence": "experimental",
-    "attributionWarning": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
-    "caveat": "Bench-associated metrics are not direct blame metrics. Case-age figures are approximate unless exact filing-to-disposal data is available.",
-    "sources": [{ "name": "Sample Judgment Metadata" }],
-    "sample": true
+    "judgmentsByYear": {
+      "2023": 1,
+      "2024": 2
+    },
+    "caseTypeMix": {
+      "quash": 3
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "settled": 1,
+      "quashed": 2
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
   },
   {
-    "slug": "sample-judge-c",
-    "judgeName": "Sample Judge C",
-    "authoredJudgments": 1,
+    "slug": "ajay-prakash-misra",
+    "judgeName": "AJAY PRAKASH MISRA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 5,
+    "judgmentsByYear": {
+      "2000": 2,
+      "2001": 3
+    },
+    "caseTypeMix": {
+      "quash": 4,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 5,
+      "imljd": 5,
+      "supreme court": 5,
+      "quashed": 3,
+      "unknown": 1,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 5
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "ajay-rastogi",
+    "judgeName": "AJAY RASTOGI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 7,
+    "judgmentsByYear": {
+      "2019": 1,
+      "2022": 2,
+      "2023": 4
+    },
+    "caseTypeMix": {
+      "quash": 4,
+      "maintenance": 1,
+      "appeal": 2
+    },
+    "subjectMix": {
+      "matrimonial": 7,
+      "imljd": 7,
+      "supreme court": 7,
+      "reference_answered": 1,
+      "dismissed": 1,
+      "quashed": 2,
+      "allowed": 1,
+      "settled": 1,
+      "ipc 498a": 1,
+      "partly_allowed": 1
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 1,
+      "1 judge bench": 6
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "altamas-kabir",
+    "judgeName": "ALTAMAS KABIR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 30,
+    "judgmentsByYear": {
+      "2008": 9,
+      "2009": 5,
+      "2010": 10,
+      "2011": 4,
+      "2012": 2
+    },
+    "caseTypeMix": {
+      "maintenance": 2,
+      "quash": 18,
+      "appeal": 6,
+      "other": 3,
+      "conviction": 1
+    },
+    "subjectMix": {
+      "matrimonial": 30,
+      "imljd": 30,
+      "supreme court": 30,
+      "dismissed": 10,
+      "settled": 3,
+      "disposed": 4,
+      "quashed": 9,
+      "crpc 482": 1,
+      "crpc 125": 1,
+      "allowed": 4,
+      "ipc 498a": 3,
+      "dowry prohibition act": 1,
+      "hindu marriage act": 1,
+      "dv act": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 29,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "amitava-roy",
+    "judgeName": "AMITAVA ROY",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2017": 2,
+      "2018": 1
+    },
+    "caseTypeMix": {
+      "quash": 3
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "settled": 2,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 2,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "anil-r-dave",
+    "judgeName": "ANIL R. DAVE",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 15,
+    "judgmentsByYear": {
+      "2011": 5,
+      "2013": 2,
+      "2014": 1,
+      "2015": 3,
+      "2016": 4
+    },
+    "caseTypeMix": {
+      "quash": 11,
+      "appeal": 4
+    },
+    "subjectMix": {
+      "matrimonial": 15,
+      "imljd": 15,
+      "supreme court": 15,
+      "settled": 2,
+      "quashed": 5,
+      "dismissed": 2,
+      "allowed": 4,
+      "partly_quashed": 1,
+      "hindu marriage act": 1,
+      "directions": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 5,
+      "1 judge bench": 10
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "aniruddha-bose",
+    "judgeName": "ANIRUDDHA BOSE",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2021": 1,
+      "2023": 2
+    },
+    "caseTypeMix": {
+      "quash": 3
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "quashed": 2,
+      "ipc 498a": 1,
+      "dowry prohibition act": 1,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "ar-lakshmanan",
+    "judgeName": "AR. LAKSHMANAN",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 9,
+    "judgmentsByYear": {
+      "2004": 2,
+      "2006": 3,
+      "2007": 4
+    },
+    "caseTypeMix": {
+      "appeal": 5,
+      "quash": 4
+    },
+    "subjectMix": {
+      "matrimonial": 9,
+      "imljd": 9,
+      "supreme court": 9,
+      "allowed": 2,
+      "disposed": 1,
+      "dowry prohibition act": 1,
+      "dismissed": 3,
+      "quashed": 3,
+      "hindu marriage act": 2
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 3,
+      "1 judge bench": 6
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "aravind-kumar",
+    "judgeName": "ARAVIND KUMAR",
+    "authoredJudgments": 0,
     "benchAssociatedJudgments": 2,
-    "judgmentsByYear": [{ "year": 2026, "count": 2 }],
-    "caseTypeMix": [
-      { "caseType": "Criminal Appeal", "count": 1, "percentage": 50 },
-      { "caseType": "Writ Petition", "count": 1, "percentage": 50 }
-    ],
-    "subjectMix": [
-      { "subject": "criminal", "count": 1, "percentage": 25 },
-      { "subject": "liberty", "count": 1, "percentage": 25 },
-      { "subject": "constitutional", "count": 1, "percentage": 25 },
-      { "subject": "government", "count": 1, "percentage": 25 }
-    ],
-    "benchSizeProfile": [
-      { "benchSize": "2-judge", "count": 1 },
-      { "benchSize": "3-judge", "count": 1 }
-    ],
-    "medianCaseAgeYears": 10,
-    "casesOlderThan5Years": 2,
-    "casesOlderThan10Years": 1,
-    "oldestCaseAgeYears": 12,
-    "confidence": "experimental",
-    "attributionWarning": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
-    "caveat": "Bench-associated metrics are not direct blame metrics. Case-age figures are approximate unless exact filing-to-disposal data is available.",
-    "sources": [{ "name": "Sample Judgment Metadata" }],
-    "sample": true
+    "judgmentsByYear": {
+      "2023": 1,
+      "2024": 1
+    },
+    "caseTypeMix": {
+      "maintenance": 1,
+      "quash": 1
+    },
+    "subjectMix": {
+      "matrimonial": 2,
+      "imljd": 2,
+      "supreme court": 2,
+      "disposed": 1,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "arijit-pasayat",
+    "judgeName": "ARIJIT PASAYAT",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 148,
+    "judgmentsByYear": {
+      "2002": 2,
+      "2004": 11,
+      "2005": 11,
+      "2006": 8,
+      "2007": 23,
+      "2008": 48,
+      "2009": 45
+    },
+    "caseTypeMix": {
+      "quash": 67,
+      "appeal": 61,
+      "other": 10,
+      "maintenance": 7,
+      "bail": 2,
+      "anticipatory_bail": 1
+    },
+    "subjectMix": {
+      "matrimonial": 148,
+      "imljd": 148,
+      "supreme court": 148,
+      "leave_granted": 1,
+      "dismissed": 27,
+      "quashed": 40,
+      "settled": 9,
+      "ipc 304b": 9,
+      "disposed": 27,
+      "ipc 498a": 32,
+      "dowry prohibition act": 11,
+      "allowed": 28,
+      "partly_quashed": 4,
+      "unknown": 2,
+      "partly_allowed": 10,
+      "hindu marriage act": 2,
+      "crpc 482": 3
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 1,
+      "2 judge bench": 5,
+      "1 judge bench": 142
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "arun-kumar",
+    "judgeName": "ARUN KUMAR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 1,
+    "judgmentsByYear": {
+      "2004": 1
+    },
+    "caseTypeMix": {
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 1,
+      "imljd": 1,
+      "supreme court": 1,
+      "disposed": 1
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "arun-mishra",
+    "judgeName": "ARUN MISHRA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 16,
+    "judgmentsByYear": {
+      "2016": 1,
+      "2017": 2,
+      "2018": 5,
+      "2019": 4,
+      "2020": 4
+    },
+    "caseTypeMix": {
+      "quash": 14,
+      "maintenance": 1,
+      "bail": 1
+    },
+    "subjectMix": {
+      "matrimonial": 16,
+      "imljd": 16,
+      "supreme court": 16,
+      "reference_answered": 1,
+      "quashed": 6,
+      "settled": 5,
+      "allowed": 2,
+      "dismissed": 2,
+      "ipc 498a": 1,
+      "ipc 304b": 1,
+      "dowry prohibition act": 1
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 2,
+      "1 judge bench": 12,
+      "2 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "ashok-bhan",
+    "judgeName": "ASHOK BHAN",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 8,
+    "judgmentsByYear": {
+      "2004": 2,
+      "2005": 1,
+      "2006": 3,
+      "2007": 1,
+      "2008": 1
+    },
+    "caseTypeMix": {
+      "maintenance": 1,
+      "appeal": 3,
+      "quash": 4
+    },
+    "subjectMix": {
+      "matrimonial": 8,
+      "imljd": 8,
+      "supreme court": 8,
+      "disposed": 1,
+      "hindu marriage act": 1,
+      "dismissed": 1,
+      "allowed": 2,
+      "quashed": 2,
+      "ipc 498a": 1,
+      "partly_quashed": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 1,
+      "1 judge bench": 7
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "ashok-bhushan",
+    "judgeName": "ASHOK BHUSHAN",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 13,
+    "judgmentsByYear": {
+      "2017": 1,
+      "2019": 4,
+      "2020": 7,
+      "2021": 1
+    },
+    "caseTypeMix": {
+      "quash": 9,
+      "appeal": 3,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 13,
+      "imljd": 13,
+      "supreme court": 13,
+      "dismissed": 6,
+      "ipc 498a": 1,
+      "dowry prohibition act": 1,
+      "settled": 4,
+      "quashed": 3,
+      "dv act": 1,
+      "crpc 125": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 2,
+      "1 judge bench": 11
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "b-sudershan-reddy",
+    "judgeName": "B. SUDERSHAN REDDY",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 7,
+    "judgmentsByYear": {
+      "2009": 1,
+      "2010": 3,
+      "2011": 3
+    },
+    "caseTypeMix": {
+      "maintenance": 1,
+      "appeal": 3,
+      "quash": 3
+    },
+    "subjectMix": {
+      "matrimonial": 7,
+      "imljd": 7,
+      "supreme court": 7,
+      "crpc 125": 1,
+      "allowed": 2,
+      "settled": 1,
+      "ipc 498a": 1,
+      "dismissed": 4
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 6,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "b-n-agrawal",
+    "judgeName": "B.N. AGRAWAL",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 4,
+    "judgmentsByYear": {
+      "2006": 1,
+      "2007": 1,
+      "2008": 1,
+      "2009": 1
+    },
+    "caseTypeMix": {
+      "appeal": 2,
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 4,
+      "imljd": 4,
+      "supreme court": 4,
+      "hindu marriage act": 1,
+      "allowed": 1,
+      "disposed": 1,
+      "settled": 1,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 4
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "b-n-kirpal",
+    "judgeName": "B.N. KIRPAL",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2001": 2,
+      "2002": 1
+    },
+    "caseTypeMix": {
+      "appeal": 1,
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "dismissed": 1,
+      "quashed": 1,
+      "leave_granted": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 2,
+      "3 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "b-n-srikrishna",
+    "judgeName": "B.N. SRIKRISHNA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 2,
+    "judgmentsByYear": {
+      "2004": 1,
+      "2006": 1
+    },
+    "caseTypeMix": {
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 2,
+      "imljd": 2,
+      "supreme court": 2,
+      "settled": 1,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "b-p-singh",
+    "judgeName": "B.P. SINGH",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 2,
+    "judgmentsByYear": {
+      "2005": 2
+    },
+    "caseTypeMix": {
+      "maintenance": 1,
+      "quash": 1
+    },
+    "subjectMix": {
+      "matrimonial": 2,
+      "imljd": 2,
+      "supreme court": 2,
+      "allowed": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "b-s-chauhan",
+    "judgeName": "B.S. CHAUHAN",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 25,
+    "judgmentsByYear": {
+      "2010": 2,
+      "2012": 8,
+      "2013": 11,
+      "2014": 4
+    },
+    "caseTypeMix": {
+      "appeal": 10,
+      "quash": 15
+    },
+    "subjectMix": {
+      "matrimonial": 25,
+      "imljd": 25,
+      "supreme court": 25,
+      "dismissed": 11,
+      "dowry prohibition act": 2,
+      "partly_allowed": 1,
+      "ipc 498a": 2,
+      "allowed": 4,
+      "quashed": 7,
+      "crpc 482": 2,
+      "settled": 1,
+      "disposed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 19,
+      "2 judge bench": 4,
+      "3 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "b-v-nagarathna",
+    "judgeName": "B.V. NAGARATHNA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 7,
+    "judgmentsByYear": {
+      "2022": 1,
+      "2023": 1,
+      "2024": 5
+    },
+    "caseTypeMix": {
+      "appeal": 1,
+      "quash": 4,
+      "maintenance": 1,
+      "other": 1
+    },
+    "subjectMix": {
+      "matrimonial": 7,
+      "imljd": 7,
+      "supreme court": 7,
+      "dv act": 2,
+      "allowed": 2,
+      "quashed": 4,
+      "crpc 482": 1,
+      "ipc 498a": 1,
+      "dowry prohibition act": 1,
+      "disposed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 2,
+      "1 judge bench": 5
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "bela-m-trivedi",
+    "judgeName": "BELA M. TRIVEDI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2023": 1,
+      "2024": 2
+    },
+    "caseTypeMix": {
+      "quash": 2,
+      "appeal": 1
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "dismissed": 3,
+      "ipc 498a": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "bhushan-ramkrishna-gavai",
+    "judgeName": "BHUSHAN RAMKRISHNA GAVAI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 20,
+    "judgmentsByYear": {
+      "2019": 1,
+      "2020": 4,
+      "2023": 4,
+      "2024": 11
+    },
+    "caseTypeMix": {
+      "quash": 15,
+      "appeal": 4,
+      "bail": 1
+    },
+    "subjectMix": {
+      "matrimonial": 20,
+      "imljd": 20,
+      "supreme court": 20,
+      "partly_quashed": 1,
+      "quashed": 11,
+      "allowed": 5,
+      "dismissed": 2,
+      "directions": 1,
+      "crpc 482": 2
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 5,
+      "1 judge bench": 14,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "brijesh-kumar",
+    "judgeName": "BRIJESH KUMAR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2002": 1,
+      "2003": 1,
+      "2004": 1
+    },
+    "caseTypeMix": {
+      "appeal": 1,
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "allowed": 1,
+      "quashed": 1,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "c-k-prasad",
+    "judgeName": "C.K. PRASAD",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 13,
+    "judgmentsByYear": {
+      "2010": 3,
+      "2011": 2,
+      "2013": 4,
+      "2014": 4
+    },
+    "caseTypeMix": {
+      "appeal": 5,
+      "quash": 7,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 13,
+      "imljd": 13,
+      "supreme court": 13,
+      "allowed": 6,
+      "quashed": 3,
+      "ipc 498a": 2,
+      "settled": 1,
+      "dismissed": 3
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 6,
+      "1 judge bench": 7
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "c-k-thakker",
+    "judgeName": "C.K. THAKKER",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 21,
+    "judgmentsByYear": {
+      "2007": 5,
+      "2008": 16
+    },
+    "caseTypeMix": {
+      "quash": 9,
+      "appeal": 11,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 21,
+      "imljd": 21,
+      "supreme court": 21,
+      "dismissed": 6,
+      "partly_allowed": 5,
+      "ipc 498a": 2,
+      "ipc 304b": 2,
+      "disposed": 2,
+      "quashed": 3,
+      "settled": 2,
+      "special marriage act": 1,
+      "hindu marriage act": 1,
+      "allowed": 2,
+      "unknown": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 20,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "c-t-ravikumar",
+    "judgeName": "C.T. RAVIKUMAR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 10,
+    "judgmentsByYear": {
+      "2022": 1,
+      "2023": 2,
+      "2024": 7
+    },
+    "caseTypeMix": {
+      "other": 1,
+      "quash": 8,
+      "appeal": 1
+    },
+    "subjectMix": {
+      "matrimonial": 10,
+      "imljd": 10,
+      "supreme court": 10,
+      "directions": 1,
+      "settled": 2,
+      "quashed": 4,
+      "ipc 498a": 1,
+      "dismissed": 2,
+      "unknown": 1
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 1,
+      "1 judge bench": 9
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "cyriac-joseph",
+    "judgeName": "CYRIAC JOSEPH",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 5,
+    "judgmentsByYear": {
+      "2008": 2,
+      "2009": 1,
+      "2011": 2
+    },
+    "caseTypeMix": {
+      "quash": 3,
+      "appeal": 2
+    },
+    "subjectMix": {
+      "matrimonial": 5,
+      "imljd": 5,
+      "supreme court": 5,
+      "dismissed": 2,
+      "ipc 498a": 1,
+      "crpc 482": 1,
+      "quashed": 2,
+      "dowry prohibition act": 1,
+      "allowed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 3,
+      "1 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "d-k-jain",
+    "judgeName": "D.K. JAIN",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 13,
+    "judgmentsByYear": {
+      "2009": 4,
+      "2010": 4,
+      "2011": 1,
+      "2012": 2,
+      "2013": 2
+    },
+    "caseTypeMix": {
+      "appeal": 1,
+      "quash": 11,
+      "anticipatory_bail": 1
+    },
+    "subjectMix": {
+      "matrimonial": 13,
+      "imljd": 13,
+      "supreme court": 13,
+      "ipc 498a": 1,
+      "allowed": 1,
+      "quashed": 10,
+      "crpc 482": 2,
+      "dowry prohibition act": 1,
+      "disposed": 1,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 12,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "d-m-dharmadhikari",
+    "judgeName": "D.M. DHARMADHIKARI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 1,
+    "judgmentsByYear": {
+      "2004": 1
+    },
+    "caseTypeMix": {
+      "quash": 1
+    },
+    "subjectMix": {
+      "matrimonial": 1,
+      "imljd": 1,
+      "supreme court": 1,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "d-p-mohapatra",
+    "judgeName": "D.P. MOHAPATRA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 9,
+    "judgmentsByYear": {
+      "2000": 2,
+      "2001": 5,
+      "2002": 2
+    },
+    "caseTypeMix": {
+      "quash": 5,
+      "maintenance": 2,
+      "appeal": 2
+    },
+    "subjectMix": {
+      "matrimonial": 9,
+      "imljd": 9,
+      "supreme court": 9,
+      "quashed": 3,
+      "disposed": 2,
+      "partly_quashed": 1,
+      "hindu marriage act": 2,
+      "dismissed": 2,
+      "allowed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 8
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "d-p-wadhwa",
+    "judgeName": "D.P. WADHWA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 2,
+    "judgmentsByYear": {
+      "2000": 2
+    },
+    "caseTypeMix": {
+      "quash": 1,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 2,
+      "imljd": 2,
+      "supreme court": 2,
+      "quashed": 1,
+      "hindu marriage act": 1,
+      "partly_allowed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "d-y-chandrachud",
+    "judgeName": "D.Y. CHANDRACHUD",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 33,
+    "judgmentsByYear": {
+      "2018": 3,
+      "2019": 9,
+      "2020": 8,
+      "2021": 10,
+      "2022": 2,
+      "2024": 1
+    },
+    "caseTypeMix": {
+      "quash": 24,
+      "appeal": 5,
+      "maintenance": 2,
+      "anticipatory_bail": 1,
+      "bail": 1
+    },
+    "subjectMix": {
+      "matrimonial": 33,
+      "imljd": 33,
+      "supreme court": 33,
+      "leave_granted": 1,
+      "dismissed": 4,
+      "settled": 6,
+      "ipc 498a": 2,
+      "crpc 482": 1,
+      "quashed": 15,
+      "dv act": 1,
+      "disposed": 4,
+      "allowed": 3,
+      "dowry prohibition act": 3
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 29,
+      "2 judge bench": 4
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "dalveer-bhandari",
+    "judgeName": "DALVEER BHANDARI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 14,
+    "judgmentsByYear": {
+      "2008": 1,
+      "2009": 5,
+      "2010": 3,
+      "2011": 5
+    },
+    "caseTypeMix": {
+      "quash": 6,
+      "appeal": 7,
+      "other": 1
+    },
+    "subjectMix": {
+      "matrimonial": 14,
+      "imljd": 14,
+      "supreme court": 14,
+      "quashed": 4,
+      "ipc 498a": 2,
+      "dismissed": 4,
+      "dowry prohibition act": 1,
+      "allowed": 4,
+      "settled": 1,
+      "partly_allowed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 2,
+      "1 judge bench": 12
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "deepak-gupta",
+    "judgeName": "DEEPAK GUPTA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2020": 3
+    },
+    "caseTypeMix": {
+      "appeal": 3
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "disposed": 2,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "deepak-verma",
+    "judgeName": "DEEPAK VERMA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 1,
+    "judgmentsByYear": {
+      "2012": 1
+    },
+    "caseTypeMix": {
+      "appeal": 1
+    },
+    "subjectMix": {
+      "matrimonial": 1,
+      "imljd": 1,
+      "supreme court": 1,
+      "hindu marriage act": 1,
+      "allowed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "dinesh-maheshwari",
+    "judgeName": "DINESH MAHESHWARI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2021": 1,
+      "2022": 2
+    },
+    "caseTypeMix": {
+      "quash": 1,
+      "appeal": 1,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "crpc 482": 1,
+      "quashed": 1,
+      "ipc 498a": 1,
+      "allowed": 2
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 2,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "dipak-misra",
+    "judgeName": "DIPAK MISRA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 52,
+    "judgmentsByYear": {
+      "2012": 2,
+      "2013": 3,
+      "2014": 8,
+      "2015": 16,
+      "2016": 8,
+      "2017": 8,
+      "2018": 7
+    },
+    "caseTypeMix": {
+      "quash": 33,
+      "appeal": 13,
+      "maintenance": 4,
+      "other": 2
+    },
+    "subjectMix": {
+      "matrimonial": 52,
+      "imljd": 52,
+      "supreme court": 52,
+      "settled": 5,
+      "quashed": 21,
+      "disposed": 3,
+      "allowed": 9,
+      "dismissed": 11,
+      "crpc 482": 2,
+      "dowry prohibition act": 2,
+      "crpc 125": 2,
+      "dv act": 2,
+      "ipc 498a": 2,
+      "unknown": 1,
+      "reference_answered": 1,
+      "referred": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 6,
+      "1 judge bench": 44,
+      "3 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "dipankar-datta",
+    "judgeName": "DIPANKAR DATTA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 1,
+    "judgmentsByYear": {
+      "2024": 1
+    },
+    "caseTypeMix": {
+      "appeal": 1
+    },
+    "subjectMix": {
+      "matrimonial": 1,
+      "imljd": 1,
+      "supreme court": 1,
+      "allowed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "doraiswamy-raju",
+    "judgeName": "DORAISWAMY RAJU",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 24,
+    "judgmentsByYear": {
+      "2002": 4,
+      "2003": 9,
+      "2004": 11
+    },
+    "caseTypeMix": {
+      "quash": 9,
+      "appeal": 15
+    },
+    "subjectMix": {
+      "matrimonial": 24,
+      "imljd": 24,
+      "supreme court": 24,
+      "quashed": 7,
+      "dismissed": 8,
+      "ipc 498a": 6,
+      "ipc 304b": 1,
+      "partly_allowed": 2,
+      "hindu marriage act": 1,
+      "allowed": 4,
+      "disposed": 2,
+      "partly_quashed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 22,
+      "2 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "f-m-ibrahim-kalifulla",
+    "judgeName": "F.M. IBRAHIM KALIFULLA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 9,
+    "judgmentsByYear": {
+      "2012": 1,
+      "2013": 2,
+      "2014": 4,
+      "2015": 2
+    },
+    "caseTypeMix": {
+      "appeal": 7,
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 9,
+      "imljd": 9,
+      "supreme court": 9,
+      "dismissed": 3,
+      "allowed": 2,
+      "ipc 498a": 2,
+      "dv act": 1,
+      "disposed": 2,
+      "quashed": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 4,
+      "1 judge bench": 5
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "g-b-pattanaik",
+    "judgeName": "G.B. PATTANAIK",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 7,
+    "judgmentsByYear": {
+      "2000": 3,
+      "2001": 3,
+      "2002": 1
+    },
+    "caseTypeMix": {
+      "quash": 5,
+      "appeal": 1,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 7,
+      "imljd": 7,
+      "supreme court": 7,
+      "quashed": 4,
+      "partly_allowed": 1,
+      "dismissed": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 7
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "g-p-mathur",
+    "judgeName": "G.P. MATHUR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 8,
+    "judgmentsByYear": {
+      "2006": 5,
+      "2007": 3
+    },
+    "caseTypeMix": {
+      "maintenance": 1,
+      "quash": 3,
+      "other": 1,
+      "appeal": 3
+    },
+    "subjectMix": {
+      "matrimonial": 8,
+      "imljd": 8,
+      "supreme court": 8,
+      "hindu marriage act": 2,
+      "disposed": 2,
+      "quashed": 2,
+      "dismissed": 3,
+      "ipc 498a": 1,
+      "dowry prohibition act": 1,
+      "allowed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 8
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "g-s-singhvi",
+    "judgeName": "G.S. SINGHVI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 12,
+    "judgmentsByYear": {
+      "2009": 1,
+      "2010": 2,
+      "2011": 4,
+      "2012": 4,
+      "2013": 1
+    },
+    "caseTypeMix": {
+      "quash": 8,
+      "maintenance": 2,
+      "appeal": 2
+    },
+    "subjectMix": {
+      "matrimonial": 12,
+      "imljd": 12,
+      "supreme court": 12,
+      "quashed": 4,
+      "dv act": 1,
+      "referred": 1,
+      "disposed": 1,
+      "settled": 1,
+      "dismissed": 4,
+      "allowed": 1,
+      "hindu marriage act": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 11,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "gyan-sudha-misra",
+    "judgeName": "GYAN SUDHA MISRA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 9,
+    "judgmentsByYear": {
+      "2010": 3,
+      "2011": 3,
+      "2013": 2,
+      "2014": 1
+    },
+    "caseTypeMix": {
+      "appeal": 3,
+      "maintenance": 3,
+      "other": 1,
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 9,
+      "imljd": 9,
+      "supreme court": 9,
+      "dowry prohibition act": 1,
+      "dismissed": 5,
+      "adjourned": 1,
+      "unknown": 1,
+      "ipc 498a": 1,
+      "quashed": 1,
+      "allowed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 7,
+      "1 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "h-k-sema",
+    "judgeName": "H.K. SEMA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 8,
+    "judgmentsByYear": {
+      "2005": 2,
+      "2006": 4,
+      "2007": 1,
+      "2008": 1
+    },
+    "caseTypeMix": {
+      "appeal": 3,
+      "quash": 5
+    },
+    "subjectMix": {
+      "matrimonial": 8,
+      "imljd": 8,
+      "supreme court": 8,
+      "allowed": 1,
+      "dismissed": 3,
+      "quashed": 2,
+      "partly_quashed": 1,
+      "settled": 1,
+      "crpc 482": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 8
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "h-l-dattu",
+    "judgeName": "H.L. DATTU",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 5,
+    "judgmentsByYear": {
+      "2009": 2,
+      "2011": 2,
+      "2015": 1
+    },
+    "caseTypeMix": {
+      "quash": 2,
+      "appeal": 2,
+      "other": 1
+    },
+    "subjectMix": {
+      "matrimonial": 5,
+      "imljd": 5,
+      "supreme court": 5,
+      "settled": 1,
+      "quashed": 1,
+      "disposed": 1,
+      "allowed": 1,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 2,
+      "1 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "h-l-gokhale",
+    "judgeName": "H.L. GOKHALE",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 2,
+    "judgmentsByYear": {
+      "2013": 2
+    },
+    "caseTypeMix": {
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 2,
+      "imljd": 2,
+      "supreme court": 2,
+      "quashed": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 1,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "h-s-bedi",
+    "judgeName": "H.S. BEDI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 18,
+    "judgmentsByYear": {
+      "2008": 1,
+      "2009": 1,
+      "2010": 11,
+      "2011": 5
+    },
+    "caseTypeMix": {
+      "quash": 6,
+      "appeal": 11,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 18,
+      "imljd": 18,
+      "supreme court": 18,
+      "quashed": 5,
+      "partly_quashed": 1,
+      "dismissed": 6,
+      "allowed": 6,
+      "ipc 498a": 3
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 9,
+      "1 judge bench": 9
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "hemant-gupta",
+    "judgeName": "HEMANT GUPTA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 6,
+    "judgmentsByYear": {
+      "2019": 1,
+      "2020": 1,
+      "2021": 2,
+      "2022": 2
+    },
+    "caseTypeMix": {
+      "maintenance": 1,
+      "quash": 3,
+      "appeal": 2
+    },
+    "subjectMix": {
+      "matrimonial": 6,
+      "imljd": 6,
+      "supreme court": 6,
+      "dv act": 1,
+      "disposed": 2,
+      "settled": 1,
+      "quashed": 2,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 3,
+      "1 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "hima-kohli",
+    "judgeName": "HIMA KOHLI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 2,
+    "judgmentsByYear": {
+      "2023": 1,
+      "2024": 1
+    },
+    "caseTypeMix": {
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 2,
+      "imljd": 2,
+      "supreme court": 2,
+      "settled": 2
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "indira-banerjee",
+    "judgeName": "INDIRA BANERJEE",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 12,
+    "judgmentsByYear": {
+      "2019": 3,
+      "2020": 2,
+      "2021": 1,
+      "2022": 6
+    },
+    "caseTypeMix": {
+      "appeal": 2,
+      "quash": 9,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 12,
+      "imljd": 12,
+      "supreme court": 12,
+      "ipc 498a": 1,
+      "ipc 304b": 1,
+      "dismissed": 5,
+      "quashed": 5,
+      "settled": 1,
+      "hindu marriage act": 1,
+      "allowed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 11,
+      "3 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "indu-malhotra",
+    "judgeName": "INDU MALHOTRA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 4,
+    "judgmentsByYear": {
+      "2019": 2,
+      "2020": 1,
+      "2021": 1
+    },
+    "caseTypeMix": {
+      "quash": 2,
+      "other": 1,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 4,
+      "imljd": 4,
+      "supreme court": 4,
+      "unknown": 1,
+      "disposed": 2,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "3 judge bench": 1,
+      "1 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "j-b-pardiwala",
+    "judgeName": "J.B. PARDIWALA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 9,
+    "judgmentsByYear": {
+      "2023": 2,
+      "2024": 7
+    },
+    "caseTypeMix": {
+      "appeal": 4,
+      "quash": 5
+    },
+    "subjectMix": {
+      "matrimonial": 9,
+      "imljd": 9,
+      "supreme court": 9,
+      "ipc 498a": 4,
+      "dismissed": 3,
+      "ipc 304b": 2,
+      "quashed": 4,
+      "disposed": 1,
+      "allowed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 6,
+      "2 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "j-k-maheshwari",
+    "judgeName": "J.K. MAHESHWARI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 6,
+    "judgmentsByYear": {
+      "2022": 4,
+      "2023": 1,
+      "2024": 1
+    },
+    "caseTypeMix": {
+      "appeal": 4,
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 6,
+      "imljd": 6,
+      "supreme court": 6,
+      "allowed": 3,
+      "quashed": 2,
+      "dismissed": 1,
+      "dowry prohibition act": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 4,
+      "1 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "j-m-panchal",
+    "judgeName": "J.M. PANCHAL",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 6,
+    "judgmentsByYear": {
+      "2008": 1,
+      "2009": 1,
+      "2010": 3,
+      "2011": 1
+    },
+    "caseTypeMix": {
+      "quash": 3,
+      "appeal": 3
+    },
+    "subjectMix": {
+      "matrimonial": 6,
+      "imljd": 6,
+      "supreme court": 6,
+      "quashed": 1,
+      "partly_allowed": 1,
+      "dismissed": 3,
+      "allowed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 4,
+      "1 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "j-s-khehar",
+    "judgeName": "J.S. KHEHAR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 9,
+    "judgmentsByYear": {
+      "2012": 1,
+      "2015": 3,
+      "2016": 4,
+      "2017": 1
+    },
+    "caseTypeMix": {
+      "quash": 7,
+      "appeal": 1,
+      "other": 1
+    },
+    "subjectMix": {
+      "matrimonial": 9,
+      "imljd": 9,
+      "supreme court": 9,
+      "dismissed": 2,
+      "quashed": 3,
+      "ipc 498a": 1,
+      "ipc 304b": 1,
+      "dowry prohibition act": 2,
+      "settled": 2,
+      "unknown": 1,
+      "disposed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 8
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "jasti-chelameswar",
+    "judgeName": "JASTI CHELAMESWAR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 14,
+    "judgmentsByYear": {
+      "2013": 1,
+      "2014": 6,
+      "2015": 2,
+      "2016": 4,
+      "2017": 1
+    },
+    "caseTypeMix": {
+      "quash": 11,
+      "maintenance": 1,
+      "appeal": 2
+    },
+    "subjectMix": {
+      "matrimonial": 14,
+      "imljd": 14,
+      "supreme court": 14,
+      "settled": 4,
+      "allowed": 2,
+      "ipc 304b": 1,
+      "dowry prohibition act": 1,
+      "crpc 482": 1,
+      "quashed": 5,
+      "dismissed": 3
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 4,
+      "1 judge bench": 8,
+      "3 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "k-g-balakrishnan",
+    "judgeName": "K.G. BALAKRISHNAN",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 13,
+    "judgmentsByYear": {
+      "2002": 1,
+      "2003": 1,
+      "2004": 6,
+      "2007": 2,
+      "2008": 2,
+      "2009": 1
+    },
+    "caseTypeMix": {
+      "quash": 7,
+      "appeal": 6
+    },
+    "subjectMix": {
+      "matrimonial": 13,
+      "imljd": 13,
+      "supreme court": 13,
+      "leave_granted": 1,
+      "dismissed": 3,
+      "partly_allowed": 2,
+      "ipc 498a": 1,
+      "allowed": 1,
+      "settled": 3,
+      "disposed": 1,
+      "reference_answered": 1,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 1,
+      "1 judge bench": 8,
+      "2 judge bench": 4
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "k-m-joseph",
+    "judgeName": "K.M. JOSEPH",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 9,
+    "judgmentsByYear": {
+      "2019": 1,
+      "2021": 1,
+      "2022": 5,
+      "2023": 2
+    },
+    "caseTypeMix": {
+      "quash": 7,
+      "appeal": 1,
+      "other": 1
+    },
+    "subjectMix": {
+      "matrimonial": 9,
+      "imljd": 9,
+      "supreme court": 9,
+      "settled": 1,
+      "dismissed": 3,
+      "hindu marriage act": 1,
+      "disposed": 1,
+      "quashed": 3,
+      "unknown": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 8
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "k-s-radhakrishnan",
+    "judgeName": "K.S. RADHAKRISHNAN",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 26,
+    "judgmentsByYear": {
+      "2012": 4,
+      "2013": 13,
+      "2014": 9
+    },
+    "caseTypeMix": {
+      "quash": 15,
+      "appeal": 8,
+      "maintenance": 1,
+      "other": 2
+    },
+    "subjectMix": {
+      "matrimonial": 26,
+      "imljd": 26,
+      "supreme court": 26,
+      "settled": 2,
+      "quashed": 10,
+      "hindu marriage act": 1,
+      "dismissed": 6,
+      "dv act": 1,
+      "crpc 125": 1,
+      "adjourned": 1,
+      "ipc 498a": 2,
+      "allowed": 3,
+      "crpc 482": 2,
+      "directions": 1,
+      "disposed": 3
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 4,
+      "1 judge bench": 22
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "k-t-thomas",
+    "judgeName": "K.T. THOMAS",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 25,
+    "judgmentsByYear": {
+      "2000": 7,
+      "2001": 18
+    },
+    "caseTypeMix": {
+      "quash": 17,
+      "appeal": 7,
+      "bail": 1
+    },
+    "subjectMix": {
+      "matrimonial": 25,
+      "imljd": 25,
+      "supreme court": 25,
+      "quashed": 14,
+      "disposed": 5,
+      "dismissed": 3,
+      "hindu marriage act": 1,
+      "ipc 498a": 1,
+      "allowed": 2,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 24,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "krishna-murari",
+    "judgeName": "KRISHNA MURARI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 4,
+    "judgmentsByYear": {
+      "2019": 1,
+      "2022": 1,
+      "2023": 2
+    },
+    "caseTypeMix": {
+      "other": 2,
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 4,
+      "imljd": 4,
+      "supreme court": 4,
+      "disposed": 1,
+      "quashed": 2,
+      "referred": 1
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 1,
+      "1 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "kurian-joseph",
+    "judgeName": "KURIAN JOSEPH",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 12,
+    "judgmentsByYear": {
+      "2014": 2,
+      "2015": 1,
+      "2016": 2,
+      "2017": 6,
+      "2018": 1
+    },
+    "caseTypeMix": {
+      "appeal": 8,
+      "quash": 3,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 12,
+      "imljd": 12,
+      "supreme court": 12,
+      "ipc 498a": 2,
+      "partly_allowed": 3,
+      "quashed": 3,
+      "dv act": 2,
+      "disposed": 2,
+      "allowed": 3,
+      "dismissed": 1,
+      "hindu marriage act": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 11,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "l-nageswara-rao",
+    "judgeName": "L. NAGESWARA RAO",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 12,
+    "judgmentsByYear": {
+      "2019": 7,
+      "2020": 2,
+      "2021": 3
+    },
+    "caseTypeMix": {
+      "appeal": 4,
+      "quash": 8
+    },
+    "subjectMix": {
+      "matrimonial": 12,
+      "imljd": 12,
+      "supreme court": 12,
+      "dismissed": 1,
+      "settled": 3,
+      "ipc 498a": 1,
+      "allowed": 3,
+      "crpc 482": 1,
+      "quashed": 5
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 12
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "lokeshwar-singh-panta",
+    "judgeName": "LOKESHWAR SINGH PANTA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 6,
+    "judgmentsByYear": {
+      "2006": 1,
+      "2007": 1,
+      "2008": 1,
+      "2009": 3
+    },
+    "caseTypeMix": {
+      "appeal": 4,
+      "bail": 1,
+      "quash": 1
+    },
+    "subjectMix": {
+      "matrimonial": 6,
+      "imljd": 6,
+      "supreme court": 6,
+      "dowry prohibition act": 1,
+      "dismissed": 4,
+      "allowed": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 3,
+      "1 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "m-jagannadha-rao",
+    "judgeName": "M. JAGANNADHA RAO",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 4,
+    "judgmentsByYear": {
+      "2000": 4
+    },
+    "caseTypeMix": {
+      "appeal": 1,
+      "quash": 3
+    },
+    "subjectMix": {
+      "matrimonial": 4,
+      "imljd": 4,
+      "supreme court": 4,
+      "allowed": 1,
+      "dismissed": 2,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 1,
+      "2 judge bench": 2,
+      "3 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "m-b-shah",
+    "judgeName": "M.B. SHAH",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 20,
+    "judgmentsByYear": {
+      "2000": 1,
+      "2001": 8,
+      "2002": 7,
+      "2003": 4
+    },
+    "caseTypeMix": {
+      "quash": 12,
+      "appeal": 6,
+      "bail": 1,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 20,
+      "imljd": 20,
+      "supreme court": 20,
+      "dismissed": 3,
+      "allowed": 4,
+      "quashed": 7,
+      "settled": 3,
+      "ipc 498a": 1,
+      "ipc 304b": 1,
+      "disposed": 2,
+      "leave_granted": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 19
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "m-r-shah",
+    "judgeName": "M.R. SHAH",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 26,
+    "judgmentsByYear": {
+      "2020": 1,
+      "2021": 8,
+      "2022": 14,
+      "2023": 3
+    },
+    "caseTypeMix": {
+      "quash": 18,
+      "appeal": 7,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 26,
+      "imljd": 26,
+      "supreme court": 26,
+      "settled": 4,
+      "partly_allowed": 3,
+      "crpc 482": 3,
+      "quashed": 11,
+      "dowry prohibition act": 1,
+      "allowed": 4,
+      "disposed": 1,
+      "ipc 498a": 3,
+      "dv act": 1,
+      "partly_quashed": 2,
+      "unknown": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 3,
+      "1 judge bench": 23
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "m-y-eqbal",
+    "judgeName": "M.Y. EQBAL",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 17,
+    "judgmentsByYear": {
+      "2014": 11,
+      "2015": 6
+    },
+    "caseTypeMix": {
+      "appeal": 9,
+      "quash": 6,
+      "maintenance": 2
+    },
+    "subjectMix": {
+      "matrimonial": 17,
+      "imljd": 17,
+      "supreme court": 17,
+      "ipc 304b": 1,
+      "allowed": 3,
+      "ipc 498a": 2,
+      "disposed": 1,
+      "quashed": 2,
+      "dismissed": 10,
+      "dowry prohibition act": 2,
+      "settled": 1,
+      "hindu marriage act": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 15,
+      "3 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "madan-b-lokur",
+    "judgeName": "MADAN B. LOKUR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 5,
+    "judgmentsByYear": {
+      "2015": 1,
+      "2016": 1,
+      "2017": 1,
+      "2018": 2
+    },
+    "caseTypeMix": {
+      "quash": 4,
+      "appeal": 1
+    },
+    "subjectMix": {
+      "matrimonial": 5,
+      "imljd": 5,
+      "supreme court": 5,
+      "quashed": 3,
+      "ipc 498a": 1,
+      "ipc 304b": 1,
+      "allowed": 1,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 5
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "manoj-misra",
+    "judgeName": "MANOJ MISRA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 1,
+    "judgmentsByYear": {
+      "2024": 1
+    },
+    "caseTypeMix": {
+      "quash": 1
+    },
+    "subjectMix": {
+      "matrimonial": 1,
+      "imljd": 1,
+      "supreme court": 1,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "markandey-katju",
+    "judgeName": "MARKANDEY KATJU",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 15,
+    "judgmentsByYear": {
+      "2007": 2,
+      "2009": 2,
+      "2010": 7,
+      "2011": 4
+    },
+    "caseTypeMix": {
+      "quash": 6,
+      "appeal": 4,
+      "maintenance": 3,
+      "conviction": 1,
+      "other": 1
+    },
+    "subjectMix": {
+      "matrimonial": 15,
+      "imljd": 15,
+      "supreme court": 15,
+      "settled": 1,
+      "quashed": 4,
+      "hindu marriage act": 1,
+      "dismissed": 5,
+      "dowry prohibition act": 1,
+      "adjourned": 3,
+      "ipc 304b": 1,
+      "allowed": 1,
+      "unknown": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 11,
+      "1 judge bench": 4
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "mohan-m-shantanagoudar",
+    "judgeName": "MOHAN M. SHANTANAGOUDAR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2019": 1,
+      "2020": 1,
+      "2021": 1
+    },
+    "caseTypeMix": {
+      "quash": 3
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "reference_answered": 1,
+      "directions": 1,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 2,
+      "1 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "mukundakam-sharma",
+    "judgeName": "MUKUNDAKAM SHARMA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 10,
+    "judgmentsByYear": {
+      "2009": 3,
+      "2010": 2,
+      "2011": 5
+    },
+    "caseTypeMix": {
+      "appeal": 4,
+      "quash": 6
+    },
+    "subjectMix": {
+      "matrimonial": 10,
+      "imljd": 10,
+      "supreme court": 10,
+      "ipc 498a": 3,
+      "partly_allowed": 1,
+      "dismissed": 4,
+      "quashed": 2,
+      "allowed": 1,
+      "settled": 2
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 6,
+      "2 judge bench": 4
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "n-kotiswar-singh",
+    "judgeName": "N KOTISWAR SINGH",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 1,
+    "judgmentsByYear": {
+      "2024": 1
+    },
+    "caseTypeMix": {
+      "other": 1
+    },
+    "subjectMix": {
+      "matrimonial": 1,
+      "imljd": 1,
+      "supreme court": 1,
+      "disposed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "n-santosh-hegde",
+    "judgeName": "N. SANTOSH HEGDE",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 8,
+    "judgmentsByYear": {
+      "2003": 1,
+      "2004": 5,
+      "2005": 2
+    },
+    "caseTypeMix": {
+      "appeal": 4,
+      "quash": 4
+    },
+    "subjectMix": {
+      "matrimonial": 8,
+      "imljd": 8,
+      "supreme court": 8,
+      "ipc 304b": 1,
+      "allowed": 2,
+      "dismissed": 3,
+      "quashed": 2,
+      "partly_allowed": 1,
+      "ipc 498a": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 8
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "n-v-ramana",
+    "judgeName": "N.V. RAMANA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 19,
+    "judgmentsByYear": {
+      "2017": 2,
+      "2018": 3,
+      "2019": 2,
+      "2020": 2,
+      "2021": 5,
+      "2022": 5
+    },
+    "caseTypeMix": {
+      "appeal": 10,
+      "quash": 8,
+      "anticipatory_bail": 1
+    },
+    "subjectMix": {
+      "matrimonial": 19,
+      "imljd": 19,
+      "supreme court": 19,
+      "dismissed": 5,
+      "quashed": 5,
+      "reference_answered": 1,
+      "ipc 498a": 4,
+      "allowed": 3,
+      "ipc 304b": 7,
+      "disposed": 2,
+      "crpc 482": 1,
+      "settled": 1,
+      "partly_allowed": 2
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 18,
+      "3 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "navin-sinha",
+    "judgeName": "NAVIN SINHA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 5,
+    "judgmentsByYear": {
+      "2019": 3,
+      "2020": 1,
+      "2021": 1
+    },
+    "caseTypeMix": {
+      "appeal": 1,
+      "quash": 4
+    },
+    "subjectMix": {
+      "matrimonial": 5,
+      "imljd": 5,
+      "supreme court": 5,
+      "partly_allowed": 1,
+      "quashed": 2,
+      "settled": 1,
+      "partly_quashed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 3,
+      "3 judge bench": 1,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "p-sathasivam",
+    "judgeName": "P. SATHASIVAM",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 51,
+    "judgmentsByYear": {
+      "2010": 14,
+      "2011": 12,
+      "2012": 11,
+      "2013": 7,
+      "2014": 7
+    },
+    "caseTypeMix": {
+      "appeal": 16,
+      "quash": 33,
+      "maintenance": 1,
+      "bail": 1
+    },
+    "subjectMix": {
+      "matrimonial": 51,
+      "imljd": 51,
+      "supreme court": 51,
+      "hindu marriage act": 4,
+      "dismissed": 25,
+      "settled": 6,
+      "quashed": 13,
+      "ipc 498a": 6,
+      "dowry prohibition act": 1,
+      "allowed": 5,
+      "crpc 482": 3,
+      "partly_allowed": 1,
+      "dv act": 2,
+      "referred": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 51
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "p-venkatarama-reddi",
+    "judgeName": "P. VENKATARAMA REDDI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2002": 1,
+      "2005": 2
+    },
+    "caseTypeMix": {
+      "appeal": 1,
+      "maintenance": 1,
+      "quash": 1
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "dismissed": 1,
+      "allowed": 1,
+      "dowry prohibition act": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 2,
+      "1 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "p-k-balasubramanyan",
+    "judgeName": "P.K. BALASUBRAMANYAN",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 2,
+    "judgmentsByYear": {
+      "2007": 2
+    },
+    "caseTypeMix": {
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 2,
+      "imljd": 2,
+      "supreme court": 2,
+      "dismissed": 1,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "pamidighantam-sri-narasimha",
+    "judgeName": "PAMIDIGHANTAM SRI NARASIMHA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2024": 3
+    },
+    "caseTypeMix": {
+      "quash": 3
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "ipc 498a": 1,
+      "crpc 482": 1,
+      "quashed": 3
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 2,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "pankaj-mithal",
+    "judgeName": "PANKAJ MITHAL",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 2,
+    "judgmentsByYear": {
+      "2024": 2
+    },
+    "caseTypeMix": {
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 2,
+      "imljd": 2,
+      "supreme court": 2,
+      "dismissed": 1,
+      "crpc 482": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "pinaki-chandra-ghose",
+    "judgeName": "PINAKI CHANDRA GHOSE",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 12,
+    "judgmentsByYear": {
+      "2013": 2,
+      "2015": 4,
+      "2016": 3,
+      "2017": 3
+    },
+    "caseTypeMix": {
+      "appeal": 8,
+      "quash": 4
+    },
+    "subjectMix": {
+      "matrimonial": 12,
+      "imljd": 12,
+      "supreme court": 12,
+      "disposed": 1,
+      "dismissed": 4,
+      "ipc 498a": 2,
+      "allowed": 6,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 2,
+      "1 judge bench": 10
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "prafulla-c-pant",
+    "judgeName": "PRAFULLA C. PANT",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2016": 3
+    },
+    "caseTypeMix": {
+      "quash": 2,
+      "appeal": 1
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "settled": 1,
+      "ipc 498a": 1,
+      "dismissed": 1,
+      "reference_answered": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 1,
+      "3 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "prasanna-bhalachandra-varale",
+    "judgeName": "PRASANNA BHALACHANDRA VARALE",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2024": 3
+    },
+    "caseTypeMix": {
+      "quash": 2,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "quashed": 2,
+      "unknown": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "prashant-kumar-mishra",
+    "judgeName": "PRASHANT KUMAR MISHRA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 1,
+    "judgmentsByYear": {
+      "2023": 1
+    },
+    "caseTypeMix": {
+      "appeal": 1
+    },
+    "subjectMix": {
+      "matrimonial": 1,
+      "imljd": 1,
+      "supreme court": 1,
+      "ipc 498a": 1,
+      "ipc 304b": 1,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "r-banumathi",
+    "judgeName": "R. BANUMATHI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 17,
+    "judgmentsByYear": {
+      "2017": 2,
+      "2018": 3,
+      "2019": 7,
+      "2020": 5
+    },
+    "caseTypeMix": {
+      "maintenance": 2,
+      "appeal": 6,
+      "quash": 9
+    },
+    "subjectMix": {
+      "matrimonial": 17,
+      "imljd": 17,
+      "supreme court": 17,
+      "hindu marriage act": 1,
+      "partly_allowed": 1,
+      "allowed": 5,
+      "quashed": 5,
+      "dismissed": 3,
+      "unknown": 1,
+      "settled": 1,
+      "crpc 125": 1,
+      "disposed": 1,
+      "dv act": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 16,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "r-subhash-reddy",
+    "judgeName": "R. SUBHASH REDDY",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 1,
+    "judgmentsByYear": {
+      "2021": 1
+    },
+    "caseTypeMix": {
+      "quash": 1
+    },
+    "subjectMix": {
+      "matrimonial": 1,
+      "imljd": 1,
+      "supreme court": 1,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "r-c-lahoti",
+    "judgeName": "R.C. LAHOTI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 11,
+    "judgmentsByYear": {
+      "2001": 1,
+      "2002": 2,
+      "2003": 1,
+      "2004": 3,
+      "2005": 4
+    },
+    "caseTypeMix": {
+      "appeal": 2,
+      "maintenance": 3,
+      "quash": 4,
+      "other": 2
+    },
+    "subjectMix": {
+      "matrimonial": 11,
+      "imljd": 11,
+      "supreme court": 11,
+      "dismissed": 4,
+      "allowed": 3,
+      "quashed": 3,
+      "disposed": 1,
+      "dowry prohibition act": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 9,
+      "2 judge bench": 1,
+      "3 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "r-f-nariman",
+    "judgeName": "R.F. NARIMAN",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 7,
+    "judgmentsByYear": {
+      "2017": 2,
+      "2018": 1,
+      "2019": 2,
+      "2020": 2
+    },
+    "caseTypeMix": {
+      "appeal": 5,
+      "anticipatory_bail": 1,
+      "other": 1
+    },
+    "subjectMix": {
+      "matrimonial": 7,
+      "imljd": 7,
+      "supreme court": 7,
+      "ipc 498a": 1,
+      "allowed": 4,
+      "dv act": 1,
+      "disposed": 2,
+      "unknown": 1,
+      "ipc 304b": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 7
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "r-k-agrawal",
+    "judgeName": "R.K. AGRAWAL",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 6,
+    "judgmentsByYear": {
+      "2015": 1,
+      "2017": 3,
+      "2018": 2
+    },
+    "caseTypeMix": {
+      "appeal": 2,
+      "quash": 4
+    },
+    "subjectMix": {
+      "matrimonial": 6,
+      "imljd": 6,
+      "supreme court": 6,
+      "ipc 498a": 1,
+      "allowed": 1,
+      "settled": 2,
+      "hindu marriage act": 1,
+      "unknown": 1,
+      "quashed": 2
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 6
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "r-p-sethi",
+    "judgeName": "R.P. SETHI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2002": 3
+    },
+    "caseTypeMix": {
+      "appeal": 2,
+      "quash": 1
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "hindu marriage act": 1,
+      "dismissed": 1,
+      "ipc 498a": 1,
+      "allowed": 1,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "r-v-raveendran",
+    "judgeName": "R.V. RAVEENDRAN",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 16,
+    "judgmentsByYear": {
+      "2007": 1,
+      "2008": 3,
+      "2009": 5,
+      "2010": 2,
+      "2011": 5
+    },
+    "caseTypeMix": {
+      "appeal": 4,
+      "quash": 10,
+      "anticipatory_bail": 1,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 16,
+      "imljd": 16,
+      "supreme court": 16,
+      "dowry prohibition act": 1,
+      "disposed": 2,
+      "quashed": 7,
+      "dismissed": 2,
+      "allowed": 2,
+      "ipc 498a": 1,
+      "partly_quashed": 2,
+      "crpc 125": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 16
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "rajendra-mal-lodha",
+    "judgeName": "RAJENDRA MAL LODHA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 8,
+    "judgmentsByYear": {
+      "2010": 3,
+      "2011": 1,
+      "2012": 2,
+      "2013": 1,
+      "2014": 1
+    },
+    "caseTypeMix": {
+      "appeal": 2,
+      "maintenance": 1,
+      "other": 1,
+      "quash": 4
+    },
+    "subjectMix": {
+      "matrimonial": 8,
+      "imljd": 8,
+      "supreme court": 8,
+      "disposed": 1,
+      "hindu marriage act": 1,
+      "partly_allowed": 1,
+      "dismissed": 2,
+      "ipc 498a": 1,
+      "quashed": 2,
+      "reference_answered": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 5,
+      "2 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "rajesh-bindal",
+    "judgeName": "RAJESH BINDAL",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 2,
+    "judgmentsByYear": {
+      "2023": 1,
+      "2024": 1
+    },
+    "caseTypeMix": {
+      "other": 1,
+      "quash": 1
+    },
+    "subjectMix": {
+      "matrimonial": 2,
+      "imljd": 2,
+      "supreme court": 2,
+      "dismissed": 1,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 1,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "ranjan-gogoi",
+    "judgeName": "RANJAN GOGOI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 6,
+    "judgmentsByYear": {
+      "2016": 2,
+      "2017": 1,
+      "2018": 2,
+      "2019": 1
+    },
+    "caseTypeMix": {
+      "quash": 4,
+      "appeal": 2
+    },
+    "subjectMix": {
+      "matrimonial": 6,
+      "imljd": 6,
+      "supreme court": 6,
+      "quashed": 1,
+      "reference_answered": 1,
+      "settled": 1,
+      "dismissed": 2,
+      "ipc 498a": 1,
+      "disposed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 5,
+      "3 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "ranjana-prakash-desai",
+    "judgeName": "RANJANA PRAKASH DESAI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 12,
+    "judgmentsByYear": {
+      "2013": 8,
+      "2014": 4
+    },
+    "caseTypeMix": {
+      "maintenance": 1,
+      "appeal": 8,
+      "quash": 3
+    },
+    "subjectMix": {
+      "matrimonial": 12,
+      "imljd": 12,
+      "supreme court": 12,
+      "crpc 125": 1,
+      "dismissed": 7,
+      "ipc 498a": 6,
+      "partly_allowed": 1,
+      "allowed": 1,
+      "quashed": 3
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 11
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "ruma-pal",
+    "judgeName": "RUMA PAL",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 8,
+    "judgmentsByYear": {
+      "2002": 1,
+      "2003": 1,
+      "2004": 2,
+      "2005": 3,
+      "2006": 1
+    },
+    "caseTypeMix": {
+      "quash": 4,
+      "appeal": 3,
+      "other": 1
+    },
+    "subjectMix": {
+      "matrimonial": 8,
+      "imljd": 8,
+      "supreme court": 8,
+      "dismissed": 2,
+      "hindu marriage act": 3,
+      "allowed": 3,
+      "quashed": 2,
+      "disposed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 8
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "s-abdul-nazeer",
+    "judgeName": "S. ABDUL NAZEER",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 15,
+    "judgmentsByYear": {
+      "2017": 1,
+      "2020": 1,
+      "2021": 3,
+      "2022": 10
+    },
+    "caseTypeMix": {
+      "quash": 6,
+      "appeal": 9
+    },
+    "subjectMix": {
+      "matrimonial": 15,
+      "imljd": 15,
+      "supreme court": 15,
+      "quashed": 5,
+      "disposed": 1,
+      "directions": 2,
+      "ipc 498a": 1,
+      "dismissed": 2,
+      "crpc 482": 1,
+      "referred": 1,
+      "allowed": 4
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 3,
+      "1 judge bench": 12
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "s-j-mukhopadhaya",
+    "judgeName": "S. J. MUKHOPADHAYA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 30,
+    "judgmentsByYear": {
+      "2012": 1,
+      "2013": 8,
+      "2014": 19,
+      "2015": 2
+    },
+    "caseTypeMix": {
+      "appeal": 21,
+      "quash": 9
+    },
+    "subjectMix": {
+      "matrimonial": 30,
+      "imljd": 30,
+      "supreme court": 30,
+      "allowed": 10,
+      "partly_allowed": 4,
+      "dismissed": 5,
+      "dv act": 3,
+      "ipc 498a": 5,
+      "quashed": 9,
+      "hindu marriage act": 2,
+      "disposed": 2,
+      "dowry prohibition act": 2,
+      "crpc 482": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 29
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "s-rajendra-babu",
+    "judgeName": "S. RAJENDRA BABU",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 12,
+    "judgmentsByYear": {
+      "2000": 3,
+      "2001": 3,
+      "2002": 2,
+      "2003": 3,
+      "2004": 1
+    },
+    "caseTypeMix": {
+      "appeal": 2,
+      "quash": 10
+    },
+    "subjectMix": {
+      "matrimonial": 12,
+      "imljd": 12,
+      "supreme court": 12,
+      "dismissed": 2,
+      "settled": 1,
+      "quashed": 7,
+      "allowed": 1,
+      "referred": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 12
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "s-ravindra-bhat",
+    "judgeName": "S. RAVINDRA BHAT",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 10,
+    "judgmentsByYear": {
+      "2021": 1,
+      "2022": 2,
+      "2023": 7
+    },
+    "caseTypeMix": {
+      "quash": 5,
+      "appeal": 3,
+      "anticipatory_bail": 1,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 10,
+      "imljd": 10,
+      "supreme court": 10,
+      "quashed": 5,
+      "ipc 498a": 3,
+      "allowed": 3,
+      "dismissed": 1,
+      "dowry prohibition act": 2,
+      "disposed": 1,
+      "ipc 304b": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 2,
+      "1 judge bench": 8
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "s-saghir-ahmad",
+    "judgeName": "S. SAGHIR AHMAD",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 4,
+    "judgmentsByYear": {
+      "2000": 4
+    },
+    "caseTypeMix": {
+      "quash": 2,
+      "maintenance": 1,
+      "appeal": 1
+    },
+    "subjectMix": {
+      "matrimonial": 4,
+      "imljd": 4,
+      "supreme court": 4,
+      "quashed": 1,
+      "dismissed": 3
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "s-a-bobde",
+    "judgeName": "S.A. BOBDE",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 11,
+    "judgmentsByYear": {
+      "2014": 1,
+      "2016": 1,
+      "2017": 1,
+      "2019": 2,
+      "2020": 5,
+      "2021": 1
+    },
+    "caseTypeMix": {
+      "appeal": 4,
+      "quash": 6,
+      "bail": 1
+    },
+    "subjectMix": {
+      "matrimonial": 11,
+      "imljd": 11,
+      "supreme court": 11,
+      "dowry prohibition act": 1,
+      "disposed": 1,
+      "quashed": 3,
+      "allowed": 4,
+      "ipc 498a": 1,
+      "partly_quashed": 2,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 5,
+      "3 judge bench": 5
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "s-b-majmudar",
+    "judgeName": "S.B. MAJMUDAR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 2,
+    "judgmentsByYear": {
+      "2000": 2
+    },
+    "caseTypeMix": {
+      "maintenance": 1,
+      "quash": 1
+    },
+    "subjectMix": {
+      "matrimonial": 2,
+      "imljd": 2,
+      "supreme court": 2,
+      "dismissed": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "s-b-sinha",
+    "judgeName": "S.B. SINHA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 88,
+    "judgmentsByYear": {
+      "2003": 1,
+      "2005": 2,
+      "2006": 16,
+      "2007": 26,
+      "2008": 24,
+      "2009": 19
+    },
+    "caseTypeMix": {
+      "quash": 46,
+      "appeal": 36,
+      "other": 2,
+      "maintenance": 3,
+      "bail": 1
+    },
+    "subjectMix": {
+      "matrimonial": 88,
+      "imljd": 88,
+      "supreme court": 88,
+      "settled": 5,
+      "allowed": 16,
+      "unknown": 2,
+      "quashed": 23,
+      "dv act": 1,
+      "dismissed": 32,
+      "partly_quashed": 5,
+      "ipc 498a": 10,
+      "ipc 304b": 4,
+      "partly_allowed": 4,
+      "dowry prohibition act": 2,
+      "disposed": 1,
+      "crpc 482": 3
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 6,
+      "1 judge bench": 82
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "s-h-kapadia",
+    "judgeName": "S.H. KAPADIA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 6,
+    "judgmentsByYear": {
+      "2005": 2,
+      "2006": 1,
+      "2007": 1,
+      "2011": 2
+    },
+    "caseTypeMix": {
+      "other": 2,
+      "appeal": 1,
+      "quash": 3
+    },
+    "subjectMix": {
+      "matrimonial": 6,
+      "imljd": 6,
+      "supreme court": 6,
+      "unknown": 2,
+      "disposed": 1,
+      "settled": 1,
+      "quashed": 1,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 3,
+      "1 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "s-n-phukan",
+    "judgeName": "S.N. PHUKAN",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2000": 2,
+      "2001": 1
+    },
+    "caseTypeMix": {
+      "quash": 2,
+      "appeal": 1
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "dismissed": 1,
+      "quashed": 1,
+      "disposed": 1
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 1,
+      "2 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "s-n-variava",
+    "judgeName": "S.N. VARIAVA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 9,
+    "judgmentsByYear": {
+      "2000": 1,
+      "2002": 1,
+      "2003": 1,
+      "2004": 4,
+      "2005": 2
+    },
+    "caseTypeMix": {
+      "quash": 7,
+      "appeal": 2
+    },
+    "subjectMix": {
+      "matrimonial": 9,
+      "imljd": 9,
+      "supreme court": 9,
+      "dismissed": 3,
+      "quashed": 3,
+      "settled": 2,
+      "allowed": 1
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 1,
+      "2 judge bench": 1,
+      "1 judge bench": 7
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "s-p-bharucha",
+    "judgeName": "S.P. BHARUCHA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2000": 1,
+      "2001": 1,
+      "2002": 1
+    },
+    "caseTypeMix": {
+      "appeal": 1,
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "disposed": 1,
+      "settled": 2
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "s-p-kurdukar",
+    "judgeName": "S.P. KURDUKAR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 1,
+    "judgmentsByYear": {
+      "2000": 1
+    },
+    "caseTypeMix": {
+      "quash": 1
+    },
+    "subjectMix": {
+      "matrimonial": 1,
+      "imljd": 1,
+      "supreme court": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "s-s-nijjar",
+    "judgeName": "S.S. NIJJAR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 5,
+    "judgmentsByYear": {
+      "2010": 2,
+      "2013": 2,
+      "2014": 1
+    },
+    "caseTypeMix": {
+      "appeal": 4,
+      "quash": 1
+    },
+    "subjectMix": {
+      "matrimonial": 5,
+      "imljd": 5,
+      "supreme court": 5,
+      "allowed": 3,
+      "disposed": 1,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 4,
+      "1 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "s-s-m-quadri",
+    "judgeName": "S.S.M. QUADRI",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 4,
+    "judgmentsByYear": {
+      "2001": 1,
+      "2002": 3
+    },
+    "caseTypeMix": {
+      "appeal": 2,
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 4,
+      "imljd": 4,
+      "supreme court": 4,
+      "dismissed": 3,
+      "allowed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 2,
+      "2 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "sandeep-mehta",
+    "judgeName": "SANDEEP MEHTA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 1,
+    "judgmentsByYear": {
+      "2024": 1
+    },
+    "caseTypeMix": {
+      "quash": 1
+    },
+    "subjectMix": {
+      "matrimonial": 1,
+      "imljd": 1,
+      "supreme court": 1,
+      "crpc 482": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "sanjay-kishan-kaul",
+    "judgeName": "SANJAY KISHAN KAUL",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 12,
+    "judgmentsByYear": {
+      "2019": 4,
+      "2020": 1,
+      "2021": 3,
+      "2022": 2,
+      "2023": 2
+    },
+    "caseTypeMix": {
+      "appeal": 10,
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 12,
+      "imljd": 12,
+      "supreme court": 12,
+      "ipc 498a": 2,
+      "ipc 304b": 2,
+      "dowry prohibition act": 2,
+      "allowed": 7,
+      "dismissed": 2,
+      "quashed": 2,
+      "hindu marriage act": 1,
+      "disposed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 12
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "sanjiv-khanna",
+    "judgeName": "SANJIV KHANNA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2023": 2,
+      "2024": 1
+    },
+    "caseTypeMix": {
+      "appeal": 1,
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "ipc 498a": 1,
+      "dowry prohibition act": 1,
+      "allowed": 1,
+      "dismissed": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 2,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "satish-chandra-sharma",
+    "judgeName": "SATISH CHANDRA SHARMA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 2,
+    "judgmentsByYear": {
+      "2024": 2
+    },
+    "caseTypeMix": {
+      "quash": 2
+    },
+    "subjectMix": {
+      "matrimonial": 2,
+      "imljd": 2,
+      "supreme court": 2,
+      "ipc 498a": 1,
+      "dowry prohibition act": 1,
+      "unknown": 1,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "shivaraj-v-patil",
+    "judgeName": "SHIVARAJ V. PATIL",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 3,
+    "judgmentsByYear": {
+      "2002": 1,
+      "2003": 1,
+      "2004": 1
+    },
+    "caseTypeMix": {
+      "quash": 3
+    },
+    "subjectMix": {
+      "matrimonial": 3,
+      "imljd": 3,
+      "supreme court": 3,
+      "quashed": 1,
+      "dismissed": 2
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1,
+      "1 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "sudhanshu-dhulia",
+    "judgeName": "SUDHANSHU DHULIA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 6,
+    "judgmentsByYear": {
+      "2023": 1,
+      "2024": 5
+    },
+    "caseTypeMix": {
+      "appeal": 2,
+      "quash": 4
+    },
+    "subjectMix": {
+      "matrimonial": 6,
+      "imljd": 6,
+      "supreme court": 6,
+      "hindu marriage act": 1,
+      "allowed": 1,
+      "quashed": 3,
+      "ipc 498a": 1,
+      "ipc 304b": 1,
+      "disposed": 1,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 3,
+      "2 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "surya-kant",
+    "judgeName": "SURYA KANT",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 9,
+    "judgmentsByYear": {
+      "2019": 1,
+      "2020": 4,
+      "2022": 1,
+      "2023": 2,
+      "2024": 1
+    },
+    "caseTypeMix": {
+      "quash": 6,
+      "appeal": 2,
+      "bail": 1
+    },
+    "subjectMix": {
+      "matrimonial": 9,
+      "imljd": 9,
+      "supreme court": 9,
+      "partly_quashed": 1,
+      "quashed": 3,
+      "allowed": 2,
+      "dismissed": 1,
+      "ipc 498a": 1,
+      "ipc 304b": 1,
+      "partly_allowed": 1,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 5,
+      "1 judge bench": 4
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "swatanter-kumar",
+    "judgeName": "SWATANTER KUMAR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 8,
+    "judgmentsByYear": {
+      "2012": 8
+    },
+    "caseTypeMix": {
+      "appeal": 8
+    },
+    "subjectMix": {
+      "matrimonial": 8,
+      "imljd": 8,
+      "supreme court": 8,
+      "ipc 498a": 5,
+      "partly_allowed": 2,
+      "dismissed": 6
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 8
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "t-s-thakur",
+    "judgeName": "T.S. THAKUR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 44,
+    "judgmentsByYear": {
+      "2010": 3,
+      "2012": 2,
+      "2013": 8,
+      "2014": 11,
+      "2015": 12,
+      "2016": 7,
+      "2017": 1
+    },
+    "caseTypeMix": {
+      "conviction": 1,
+      "appeal": 22,
+      "maintenance": 1,
+      "quash": 19,
+      "other": 1
+    },
+    "subjectMix": {
+      "matrimonial": 44,
+      "imljd": 44,
+      "supreme court": 44,
+      "adjourned": 1,
+      "allowed": 5,
+      "ipc 498a": 13,
+      "dowry prohibition act": 5,
+      "quashed": 10,
+      "dismissed": 15,
+      "partly_allowed": 8,
+      "crpc 482": 1,
+      "settled": 2,
+      "partly_quashed": 3
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 3,
+      "1 judge bench": 41
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "tarun-chatterjee",
+    "judgeName": "TARUN CHATTERJEE",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 12,
+    "judgmentsByYear": {
+      "2007": 2,
+      "2008": 3,
+      "2009": 7
+    },
+    "caseTypeMix": {
+      "quash": 10,
+      "appeal": 2
+    },
+    "subjectMix": {
+      "matrimonial": 12,
+      "imljd": 12,
+      "supreme court": 12,
+      "dismissed": 3,
+      "allowed": 1,
+      "quashed": 6,
+      "settled": 2,
+      "ipc 498a": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 9,
+      "2 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "u-c-banerjee",
+    "judgeName": "U.C. BANERJEE",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 8,
+    "judgmentsByYear": {
+      "2001": 3,
+      "2002": 5
+    },
+    "caseTypeMix": {
+      "appeal": 7,
+      "quash": 1
+    },
+    "subjectMix": {
+      "matrimonial": 8,
+      "imljd": 8,
+      "supreme court": 8,
+      "dismissed": 3,
+      "allowed": 3,
+      "disposed": 2
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 8
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "uday-umesh-lalit",
+    "judgeName": "UDAY UMESH LALIT",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 11,
+    "judgmentsByYear": {
+      "2017": 1,
+      "2018": 3,
+      "2019": 3,
+      "2020": 1,
+      "2021": 1,
+      "2022": 2
+    },
+    "caseTypeMix": {
+      "quash": 9,
+      "appeal": 1,
+      "other": 1
+    },
+    "subjectMix": {
+      "matrimonial": 11,
+      "imljd": 11,
+      "supreme court": 11,
+      "quashed": 5,
+      "dismissed": 1,
+      "disposed": 2,
+      "directions": 1,
+      "partly_quashed": 1,
+      "settled": 1,
+      "dv act": 1,
+      "crpc 482": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 2,
+      "1 judge bench": 7,
+      "3 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "ujjal-bhuyan",
+    "judgeName": "UJJAL BHUYAN",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 1,
+    "judgmentsByYear": {
+      "2024": 1
+    },
+    "caseTypeMix": {
+      "quash": 1
+    },
+    "subjectMix": {
+      "matrimonial": 1,
+      "imljd": 1,
+      "supreme court": 1,
+      "quashed": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "v-gopala-gowda",
+    "judgeName": "V. GOPALA GOWDA",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 13,
+    "judgmentsByYear": {
+      "2014": 3,
+      "2015": 7,
+      "2016": 3
+    },
+    "caseTypeMix": {
+      "appeal": 5,
+      "quash": 7,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 13,
+      "imljd": 13,
+      "supreme court": 13,
+      "dismissed": 2,
+      "allowed": 3,
+      "ipc 498a": 1,
+      "quashed": 6,
+      "partly_quashed": 1,
+      "disposed": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 13
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "v-n-khare",
+    "judgeName": "V.N. KHARE",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 6,
+    "judgmentsByYear": {
+      "2000": 1,
+      "2002": 1,
+      "2003": 4
+    },
+    "caseTypeMix": {
+      "quash": 3,
+      "appeal": 3
+    },
+    "subjectMix": {
+      "matrimonial": 6,
+      "imljd": 6,
+      "supreme court": 6,
+      "quashed": 2,
+      "dismissed": 3,
+      "settled": 1,
+      "hindu marriage act": 1
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 2,
+      "1 judge bench": 4
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "v-s-sirpurkar",
+    "judgeName": "V.S. SIRPURKAR",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 12,
+    "judgmentsByYear": {
+      "2009": 4,
+      "2010": 8
+    },
+    "caseTypeMix": {
+      "appeal": 5,
+      "quash": 6,
+      "maintenance": 1
+    },
+    "subjectMix": {
+      "matrimonial": 12,
+      "imljd": 12,
+      "supreme court": 12,
+      "dismissed": 6,
+      "hindu marriage act": 2,
+      "ipc 498a": 3,
+      "quashed": 2,
+      "allowed": 3,
+      "settled": 1
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 10,
+      "2 judge bench": 2
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "vikram-nath",
+    "judgeName": "VIKRAM NATH",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 28,
+    "judgmentsByYear": {
+      "2022": 1,
+      "2023": 4,
+      "2024": 23
+    },
+    "caseTypeMix": {
+      "appeal": 9,
+      "quash": 15,
+      "maintenance": 2,
+      "other": 2
+    },
+    "subjectMix": {
+      "matrimonial": 28,
+      "imljd": 28,
+      "supreme court": 28,
+      "ipc 498a": 5,
+      "allowed": 3,
+      "quashed": 9,
+      "disposed": 4,
+      "hindu marriage act": 2,
+      "dismissed": 3,
+      "partly_allowed": 2,
+      "settled": 1,
+      "unknown": 6,
+      "dowry prohibition act": 1,
+      "crpc 482": 2
+    },
+    "benchSizeProfile": {
+      "2 judge bench": 8,
+      "1 judge bench": 20
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "vikramajit-sen",
+    "judgeName": "VIKRAMAJIT SEN",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 15,
+    "judgmentsByYear": {
+      "2014": 4,
+      "2015": 11
+    },
+    "caseTypeMix": {
+      "appeal": 8,
+      "quash": 7
+    },
+    "subjectMix": {
+      "matrimonial": 15,
+      "imljd": 15,
+      "supreme court": 15,
+      "hindu marriage act": 3,
+      "allowed": 3,
+      "crpc 482": 1,
+      "quashed": 3,
+      "partly_allowed": 1,
+      "ipc 498a": 3,
+      "dismissed": 5,
+      "settled": 3
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 14,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "vineet-saran",
+    "judgeName": "VINEET SARAN",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 4,
+    "judgmentsByYear": {
+      "2020": 1,
+      "2021": 1,
+      "2022": 2
+    },
+    "caseTypeMix": {
+      "quash": 3,
+      "appeal": 1
+    },
+    "subjectMix": {
+      "matrimonial": 4,
+      "imljd": 4,
+      "supreme court": 4,
+      "directions": 1,
+      "quashed": 2,
+      "dismissed": 1
+    },
+    "benchSizeProfile": {
+      "3 judge bench": 1,
+      "2 judge bench": 3
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "y-k-sabharwal",
+    "judgeName": "Y.K. SABHARWAL",
+    "authoredJudgments": 0,
+    "benchAssociatedJudgments": 14,
+    "judgmentsByYear": {
+      "2002": 1,
+      "2003": 5,
+      "2004": 7,
+      "2006": 1
+    },
+    "caseTypeMix": {
+      "quash": 6,
+      "maintenance": 1,
+      "appeal": 7
+    },
+    "subjectMix": {
+      "matrimonial": 14,
+      "imljd": 14,
+      "supreme court": 14,
+      "settled": 1,
+      "dismissed": 5,
+      "ipc 498a": 1,
+      "quashed": 3,
+      "allowed": 2,
+      "ipc 304b": 2,
+      "partly_allowed": 1,
+      "disposed": 2
+    },
+    "benchSizeProfile": {
+      "1 judge bench": 13,
+      "2 judge bench": 1
+    },
+    "medianCaseAgeYears": 0,
+    "casesOlderThan5Years": 0,
+    "casesOlderThan10Years": 0,
+    "oldestCaseAgeYears": 0,
+    "confidence": "medium",
+    "attributionWarning": "Bench-associated counts show participation on a bench, not individual responsibility for delay or outcome.",
+    "caveat": "This is not a performance rating. It is a public metadata profile based on available judgment records.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
   }
 ]

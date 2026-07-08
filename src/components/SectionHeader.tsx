@@ -4,16 +4,24 @@ type SectionHeaderProps = {
   description?: string;
 };
 
-export function SectionHeader({ eyebrow, title, description }: SectionHeaderProps) {
+export function SectionHeader({
+  eyebrow,
+  title,
+  description,
+}: SectionHeaderProps) {
   return (
-    <header className="space-y-2">
+    <div className="space-y-2">
       {eyebrow ? (
-        <p className="text-xs font-bold uppercase tracking-[0.24em] text-amber-700">
+        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-amber-800">
           {eyebrow}
         </p>
       ) : null}
-      <h1 className="text-4xl font-black tracking-tight text-slate-950">{title}</h1>
-      {description ? <p className="text-base leading-7 text-slate-700">{description}</p> : null}
-    </header>
+      <h2 className="text-xl font-semibold tracking-normal text-slate-950">
+        {title}
+      </h2>
+      {description ? (
+        <p className="text-sm leading-6 text-slate-600">{description}</p>
+      ) : null}
+    </div>
   );
 }

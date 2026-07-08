@@ -1,0 +1,27 @@
+{
+  "sourceName": "National Judicial Data Grid - Supreme Court of India dashboard",
+  "sourceUrl": "https://njdg.ecourts.gov.in/scnjdg/",
+  "capturedAt": "2026-06-18T00:00:00.000Z",
+  "reportingPeriod": "As captured from NJDG Supreme Court dashboard on 2026-06-18",
+  "totalPending": 90694,
+  "civilPending": null,
+  "criminalPending": null,
+  "institutedThisMonth": null,
+  "disposedThisMonth": null,
+  "oldCasesDisposedThisMonth": null,
+  "coramPending": [
+    {
+      "benchSize": "Not available in current source",
+      "pending": 90694
+    }
+  ],
+  "confidence": "medium",
+  "limitations": [
+    "Supreme Court of India total pendency captured from the National Judicial Data Grid Supreme Court dashboard.",
+    "Civil/criminal split, institution YTD, disposal YTD, old-case count, and bench-size split were not available in the captured source and are not estimated.",
+    "The coram pending entry records the total under an unavailable bench-size label; it is not an official bench-size split."
+  ],
+  "isOfficialApi": false,
+  "captureMethod": "manual",
+  "status": "import"
+}

@@ -1,18 +1,19 @@
 type SourceBadgeProps = {
-  label: string;
-  href?: string;
+  name: string;
+  url?: string;
 };
 
-export function SourceBadge({ label, href }: SourceBadgeProps) {
-  const className = "inline-flex rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-bold text-slate-600";
+export function SourceBadge({ name, url }: SourceBadgeProps) {
+  const className =
+    "inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700";
 
-  if (href) {
-    return (
-      <a className={className} href={href} target="_blank" rel="noreferrer">
-        Source: {label}
-      </a>
-    );
+  if (!url) {
+    return <span className={className}>{name}</span>;
   }
 
-  return <span className={className}>Source: {label}</span>;
+  return (
+    <a href={url} className={className} rel="noreferrer" target="_blank">
+      {name}
+    </a>
+  );
 }

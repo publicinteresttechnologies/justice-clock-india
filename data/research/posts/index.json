@@ -1,0 +1,19 @@
+[
+  {
+    "slug": "supreme-court-delay-methodology",
+    "title": "How Justice Clock India estimates Supreme Court time-to-judgment",
+    "question": "How can public judgment metadata support historical estimated time-to-judgment research?",
+    "shortAnswer": "The first draft explains the estimation method and its limitations. It does not publish unsupported headline numbers.",
+    "status": "draft",
+    "methodology": "Compare judgment year against the strongest available start-year signal, preferring exact filing or registration dates where available and structured case or diary year otherwise.",
+    "limitations": "Exact filing-to-disposal dates are not always available in public metadata. Estimates are excluded when a credible start-year signal is missing.",
+    "dataFiles": [
+      "/data/judgments.json",
+      "/data/delay-summary.json"
+    ],
+    "sourceNotes": [
+      "Supreme Court of India public judgment metadata",
+      "NJDG public dashboard snapshots where manually captured"
+    ]
+  }
+]

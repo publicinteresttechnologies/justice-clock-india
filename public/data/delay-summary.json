@@ -1,0 +1,144 @@
+{
+  "generatedAt": "2026-07-08T19:08:59.170Z",
+  "status": "generated",
+  "source": "generated from judgment metadata",
+  "recordsAnalyzed": 1474,
+  "recordsUsable": 1474,
+  "recordsExcluded": 0,
+  "confidenceBreakdown": {
+    "high": 0,
+    "medium-high": 0,
+    "medium": 1474,
+    "low": 0,
+    "experimental": 0
+  },
+  "medianDelayYears": 0,
+  "p75DelayYears": 0,
+  "p90DelayYears": 0,
+  "longestDelays": [
+    {
+      "id": "imljd-2000-INSC-370",
+      "caseTitle": "RAJENDRA KUMAR versus KALYAN (DEAD) BY LRS.",
+      "judgmentDate": "2000-08-02",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-431",
+      "caseTitle": "NAVINCHANDRA N. MAJITHIA versus STATE OF MAHARASHTRA AND ORS.",
+      "judgmentDate": "2000-09-04",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-567",
+      "caseTitle": "CHIRANJILAL SRILAL GOENKA (DEAD) BY LRS. versus JASJIT SINGH AND ORS.",
+      "judgmentDate": "2000-12-01",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-498",
+      "caseTitle": "HARI SINGH MANN versus HARBHAJAN SINGH BAJWA AND ORS.",
+      "judgmentDate": "2000-11-01",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-537",
+      "caseTitle": "HAR KIRAN COMMAR versus DELHI ADMN. AND ORS.",
+      "judgmentDate": "2000-11-21",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-34",
+      "caseTitle": "G. SAGAR SURI AND. ANR versus STATE OF C.P. AND ORS.",
+      "judgmentDate": "2000-01-28",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-33",
+      "caseTitle": "CHAIRMAN, J AND K STATE BOARD OF EDUCATION versus FEYAZ AHMED MALIK AND ORS.",
+      "judgmentDate": "2000-01-28",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-300",
+      "caseTitle": "K.S. BHOOPATHY AND ORS. versus KOKILAAND ORS.",
+      "judgmentDate": "2000-05-08",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-539",
+      "caseTitle": "CHRISTIAN MEDICAL COLLEGE versus EMPLOYEES STATE INSURANCE CORPORATION",
+      "judgmentDate": "2000-11-23",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-405",
+      "caseTitle": "DELHI ADMINISTRATION versus GURDIP SINGH UBAN AND ORS. ETC.",
+      "judgmentDate": "2000-08-18",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-299",
+      "caseTitle": "M/S. MONARCH INFRASTRUCTURE (P) LTD. versus COMMISSIONER, ULHASNAGAR MUNICIPAL  CORPORATION AND ORS.",
+      "judgmentDate": "2000-05-08",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-115",
+      "caseTitle": "ROHTASH SINGH versus SMT. RAMENDRI AND ORS.",
+      "judgmentDate": "2000-03-02",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-103",
+      "caseTitle": "MIS. MEDCHL CHEMICALS AND PHARMA PVT. LTD. versus M/S. BIOLOGICAL E. LTD. AND ORS.",
+      "judgmentDate": "2000-02-25",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-15",
+      "caseTitle": "MAHARASHTRA VIKRIKAR KARAMCHARI SANGATHAN  versus STATE OF MAHARASHTRA AND ANR",
+      "judgmentDate": "2000-01-12",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-491",
+      "caseTitle": "STATE OF DELHI versus GYAN DEVI AND ORS.",
+      "judgmentDate": "2000-10-18",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-599",
+      "caseTitle": "THE STATE OF BIHAR versus CHANDRA BHUSHAN SINGH AND ORS.",
+      "judgmentDate": "2000-12-13",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-160",
+      "caseTitle": "PADMJA SHARMA versus RATAN LAL SHARMA",
+      "judgmentDate": "2000-03-28",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-216",
+      "caseTitle": "R.SARALA  versus T.S.VELU",
+      "judgmentDate": "2000-04-13",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-122",
+      "caseTitle": "G.V. RAO versus L.H.V. PRASAD AND ORS.",
+      "judgmentDate": "2000-03-06",
+      "estimatedDelayYears": 0
+    },
+    {
+      "id": "imljd-2000-INSC-271",
+      "caseTitle": "SATPAL AND ANR.  versus STATE OF HARYANA AND ORS.",
+      "judgmentDate": "2000-05-01",
+      "estimatedDelayYears": 0
+    }
+  ],
+  "limitations": [
+    "This is historical estimated time-to-judgment, not exact delay of all cases.",
+    "Estimates use case year or diary year when exact filing or registration dates are unavailable."
+  ]
+}

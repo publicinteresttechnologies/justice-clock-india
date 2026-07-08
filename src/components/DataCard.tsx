@@ -1,19 +1,35 @@
+import Link from "next/link";
+import type { ReactNode } from "react";
+
 type DataCardProps = {
   title: string;
-  description: string;
-  eyebrow?: string;
+  subtitle?: string;
+  href?: string;
+  children?: ReactNode;
 };
 
-export function DataCard({ title, description, eyebrow }: DataCardProps) {
+export function DataCard({ title, subtitle, href, children }: DataCardProps) {
+  const content = (
+    <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="space-y-1">
+        <h3 className="text-base font-semibold tracking-normal text-slate-950">
+          {title}
+        </h3>
+        {subtitle ? (
+          <p className="text-sm leading-6 text-slate-600">{subtitle}</p>
+        ) : null}
+      </div>
+      {children ? <div className="mt-4">{children}</div> : null}
+    </article>
+  );
+
+  if (!href) {
+    return content;
+  }
+
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      {eyebrow ? (
-        <p className="mb-2 text-xs font-bold uppercase tracking-wide text-amber-700">
-          {eyebrow}
-        </p>
-      ) : null}
-      <h2 className="font-black text-slate-950">{title}</h2>
-      <p className="mt-1 text-sm leading-6 text-slate-600">{description}</p>
-    </section>
+    <Link href={href} className="block focus:outline-none focus:ring-2 focus:ring-amber-700">
+      {content}
+    </Link>
   );
 }

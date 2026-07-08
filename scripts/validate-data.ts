@@ -1,18 +1,26 @@
-import { loadCourtSnapshot, loadJudgments } from "./lib/source-data";
+import { loadSourceData } from "./lib/source-data";
 
-async function main() {
-  const root = process.cwd();
-  const courtSource = await loadCourtSnapshot(root);
-  const judgmentSource = await loadJudgments(root);
+function validate() {
+  console.log("Validating Justice Clock India source data...");
+  const data = loadSourceData(process.cwd());
 
-  console.log(`Court snapshot validated from ${courtSource.sourcePath.replace(`${root}/`, "")}`);
-  console.log(`Judgment records validated from ${judgmentSource.sourcePath.replace(`${root}/`, "")}`);
-  console.log(`Validated ${judgmentSource.data.length} judgment record${judgmentSource.data.length === 1 ? "" : "s"}.`);
-  console.log("Data validation passed.");
+  console.log(
+    `OK: court snapshot ${data.courtSnapshotSource.mode} is valid (${data.courtSnapshotSource.path}).`,
+  );
+
+  console.log(
+    `OK: ${data.judgments.length} judgment records from ${data.judgmentsSource.mode} are valid (${data.judgmentsSource.path}).`,
+  );
+
+  if (data.judgments.length === 0) {
+    throw new Error("Judgment source is empty.");
+  }
 }
 
-main().catch((error) => {
+try {
+  validate();
+} catch (error) {
   console.error("Data validation failed.");
   console.error(error);
   process.exit(1);
-});
+}

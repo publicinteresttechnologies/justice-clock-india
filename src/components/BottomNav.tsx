@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const items = [
+const navItems = [
   { href: "/", label: "Clock" },
   { href: "/case-types", label: "Case Types" },
   { href: "/judges", label: "Judges" },
@@ -9,13 +9,16 @@ const items = [
 
 export function BottomNav() {
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto grid max-w-3xl grid-cols-4">
-        {items.map((item) => (
+    <nav
+      aria-label="Primary"
+      className="fixed inset-x-0 bottom-0 z-10 border-t border-slate-200 bg-[#f8f5ee]/95 backdrop-blur"
+    >
+      <div className="mx-auto grid max-w-screen-sm grid-cols-4">
+        {navItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="flex min-h-16 items-center justify-center px-2 text-center text-xs font-semibold text-slate-700 hover:bg-slate-50"
+            className="flex min-h-16 items-center justify-center px-2 text-center text-sm font-medium text-slate-700"
           >
             {item.label}
           </Link>

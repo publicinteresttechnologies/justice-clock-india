@@ -1,13 +1,13 @@
+import type { ReactNode } from "react";
+
 type CaveatBoxProps = {
-  title?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
-export function CaveatBox({ title = "Caveat", children }: CaveatBoxProps) {
+export function CaveatBox({ children }: CaveatBoxProps) {
   return (
     <aside className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-      <p className="mb-1 font-black">{title}</p>
-      <div>{children}</div>
+      {children}
     </aside>
   );
 }

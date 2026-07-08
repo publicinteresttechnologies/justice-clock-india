@@ -1,1 +1,248 @@
-[]
+[
+  {
+    "slug": "anticipatory-bail",
+    "caseType": "anticipatory_bail",
+    "sampleSize": 7,
+    "medianCaseAgeYears": 0,
+    "p25CaseAgeYears": 0,
+    "p75CaseAgeYears": 0,
+    "p90CaseAgeYears": 0,
+    "oldestCaseAgeYears": 0,
+    "judgmentsByYear": {
+      "2008": 1,
+      "2009": 2,
+      "2019": 1,
+      "2020": 1,
+      "2021": 1,
+      "2023": 1
+    },
+    "confidence": "medium",
+    "caveat": "This measures the gap between case/diary year and judgment year where exact filing-to-disposal dates are not available. It is an approximation, not a prediction for your case.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "appeal",
+    "caseType": "appeal",
+    "sampleSize": 545,
+    "medianCaseAgeYears": 0,
+    "p25CaseAgeYears": 0,
+    "p75CaseAgeYears": 0,
+    "p90CaseAgeYears": 0,
+    "oldestCaseAgeYears": 0,
+    "judgmentsByYear": {
+      "2000": 6,
+      "2001": 16,
+      "2002": 13,
+      "2003": 17,
+      "2004": 23,
+      "2005": 10,
+      "2006": 21,
+      "2007": 33,
+      "2008": 32,
+      "2009": 47,
+      "2010": 30,
+      "2011": 16,
+      "2012": 21,
+      "2013": 51,
+      "2014": 47,
+      "2015": 28,
+      "2016": 15,
+      "2017": 14,
+      "2018": 9,
+      "2019": 15,
+      "2020": 18,
+      "2021": 14,
+      "2022": 20,
+      "2023": 14,
+      "2024": 15
+    },
+    "confidence": "medium",
+    "caveat": "This measures the gap between case/diary year and judgment year where exact filing-to-disposal dates are not available. It is an approximation, not a prediction for your case.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "bail",
+    "caseType": "bail",
+    "sampleSize": 10,
+    "medianCaseAgeYears": 0,
+    "p25CaseAgeYears": 0,
+    "p75CaseAgeYears": 0,
+    "p90CaseAgeYears": 0,
+    "oldestCaseAgeYears": 0,
+    "judgmentsByYear": {
+      "2001": 2,
+      "2006": 1,
+      "2007": 1,
+      "2008": 1,
+      "2011": 1,
+      "2018": 1,
+      "2020": 2,
+      "2021": 1
+    },
+    "confidence": "medium",
+    "caveat": "This measures the gap between case/diary year and judgment year where exact filing-to-disposal dates are not available. It is an approximation, not a prediction for your case.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "conviction",
+    "caseType": "conviction",
+    "sampleSize": 2,
+    "medianCaseAgeYears": 0,
+    "p25CaseAgeYears": 0,
+    "p75CaseAgeYears": 0,
+    "p90CaseAgeYears": 0,
+    "oldestCaseAgeYears": 0,
+    "judgmentsByYear": {
+      "2010": 2
+    },
+    "confidence": "medium",
+    "caveat": "This measures the gap between case/diary year and judgment year where exact filing-to-disposal dates are not available. It is an approximation, not a prediction for your case.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "maintenance",
+    "caseType": "maintenance",
+    "sampleSize": 69,
+    "medianCaseAgeYears": 0,
+    "p25CaseAgeYears": 0,
+    "p75CaseAgeYears": 0,
+    "p90CaseAgeYears": 0,
+    "oldestCaseAgeYears": 0,
+    "judgmentsByYear": {
+      "2000": 3,
+      "2001": 4,
+      "2002": 1,
+      "2003": 2,
+      "2004": 1,
+      "2005": 4,
+      "2006": 1,
+      "2007": 4,
+      "2008": 5,
+      "2009": 5,
+      "2010": 5,
+      "2011": 4,
+      "2013": 2,
+      "2014": 4,
+      "2015": 3,
+      "2016": 1,
+      "2017": 4,
+      "2018": 3,
+      "2019": 2,
+      "2020": 4,
+      "2021": 1,
+      "2022": 2,
+      "2023": 1,
+      "2024": 3
+    },
+    "confidence": "medium",
+    "caveat": "This measures the gap between case/diary year and judgment year where exact filing-to-disposal dates are not available. It is an approximation, not a prediction for your case.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "other",
+    "caseType": "other",
+    "sampleSize": 39,
+    "medianCaseAgeYears": 0,
+    "p25CaseAgeYears": 0,
+    "p75CaseAgeYears": 0,
+    "p90CaseAgeYears": 0,
+    "oldestCaseAgeYears": 0,
+    "judgmentsByYear": {
+      "2005": 6,
+      "2006": 2,
+      "2007": 1,
+      "2008": 3,
+      "2009": 4,
+      "2010": 1,
+      "2011": 4,
+      "2012": 1,
+      "2013": 1,
+      "2014": 2,
+      "2015": 1,
+      "2017": 3,
+      "2018": 1,
+      "2019": 2,
+      "2022": 1,
+      "2023": 3,
+      "2024": 3
+    },
+    "confidence": "medium",
+    "caveat": "This measures the gap between case/diary year and judgment year where exact filing-to-disposal dates are not available. It is an approximation, not a prediction for your case.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  },
+  {
+    "slug": "quash",
+    "caseType": "quash",
+    "sampleSize": 802,
+    "medianCaseAgeYears": 0,
+    "p25CaseAgeYears": 0,
+    "p75CaseAgeYears": 0,
+    "p90CaseAgeYears": 0,
+    "oldestCaseAgeYears": 0,
+    "judgmentsByYear": {
+      "2000": 21,
+      "2001": 27,
+      "2002": 20,
+      "2003": 13,
+      "2004": 29,
+      "2005": 11,
+      "2006": 18,
+      "2007": 36,
+      "2008": 68,
+      "2009": 48,
+      "2010": 34,
+      "2011": 35,
+      "2012": 26,
+      "2013": 35,
+      "2014": 43,
+      "2015": 40,
+      "2016": 27,
+      "2017": 25,
+      "2018": 35,
+      "2019": 41,
+      "2020": 21,
+      "2021": 27,
+      "2022": 36,
+      "2023": 29,
+      "2024": 57
+    },
+    "confidence": "medium",
+    "caveat": "This measures the gap between case/diary year and judgment year where exact filing-to-disposal dates are not available. It is an approximation, not a prediction for your case.",
+    "sources": [
+      {
+        "sourceName": "IMLJD open dataset",
+        "sourceUrl": "https://github.com/joyboseroy/imljd"
+      }
+    ]
+  }
+]

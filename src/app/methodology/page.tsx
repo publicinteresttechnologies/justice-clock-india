@@ -1,96 +1,106 @@
 import Link from "next/link";
-import { CaveatBox } from "@/components/CaveatBox";
+import { DataCard } from "@/components/DataCard";
 import { SectionHeader } from "@/components/SectionHeader";
-
-const attributionLevels = [
-  {
-    title: "Direct",
-    text: "Mostly attributable to a judge or record field, such as an authored judgment where the author is explicitly recorded.",
-  },
-  {
-    title: "Bench-associated",
-    text: "Associated with a bench including a judge, but not assigned as individual responsibility. Most judge-page metrics start here.",
-  },
-  {
-    title: "System-associated",
-    text: "Linked to court process, listing, registry, roster, or aggregate case flow rather than to a named judge.",
-  },
-  {
-    title: "Experimental",
-    text: "Derived from incomplete metadata, approximations, or early parsing. These metrics must carry visible caveats.",
-  },
-];
-
-const confidenceLevels = [
-  "high: official aggregate source with stable meaning",
-  "medium-high: official or court-origin metadata with some gaps",
-  "medium: useful but incomplete source structure",
-  "experimental: sample, inferred, or prototype-only data",
-];
 
 export default function MethodologyPage() {
   return (
-    <div className="space-y-7">
+    <div className="space-y-6">
       <SectionHeader
-        eyebrow="Methodology"
-        title="What we measure, and what we refuse to pretend"
-        description="Justice Clock India separates court-level flow, case-type delay, and public judgment metadata so users can see what is measured, what is approximate, and what should not be inferred."
+        description="How Justice Clock India turns repeatable public records into readable public-interest metrics."
+        title="Methodology"
       />
 
-      <CaveatBox title="Core rule">
-        A delay metric is not automatically a blame metric. Many case-flow outcomes are shaped by listing, registry process, roster, counsel behaviour, case complexity, state capacity, and bench composition.
-      </CaveatBox>
-
-      <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Formula</p>
-        <h2 className="mt-2 text-2xl font-black text-slate-950">Approximate case-age-to-judgment gap</h2>
-        <p className="mt-3 text-sm leading-6 text-slate-700">
-          Where exact filing-to-disposal dates are unavailable, the app estimates time to justice using the gap between the judgment year and the case year or diary year.
+      <DataCard title="What Justice Clock India Measures">
+        <p className="text-sm leading-6 text-slate-700">
+          Justice Clock India measures visible court-system movement: pendency,
+          institution, disposal, case-type judgment samples, and public judgment
+          metadata profiles.
         </p>
-        <div className="mt-4 rounded-2xl bg-slate-950 p-4 font-mono text-sm text-white">
-          judgment year − case/diary year = approximate case-age gap
+      </DataCard>
+
+      <DataCard title="What It Does Not Measure">
+        <p className="text-sm leading-6 text-slate-700">
+          It does not measure the merits of a case, predict the outcome or timing
+          of any individual matter, provide legal advice, or assign personal
+          responsibility for delay.
+        </p>
+      </DataCard>
+
+      <DataCard title="Clearance Rate">
+        <p className="text-sm leading-6 text-slate-700">
+          Clearance rate is calculated as disposed cases divided by instituted
+          cases for the same reporting period, multiplied by 100.
+        </p>
+      </DataCard>
+
+      <DataCard title="Approximate Case-age-to-judgment">
+        <p className="text-sm leading-6 text-slate-700">
+          When exact filing dates are available, date-based age can be used.
+          Where exact filing-to-disposal dates are unavailable, Justice Clock
+          India uses case year or diary year as an approximation and compares it
+          with decision year or judgment year.
+        </p>
+      </DataCard>
+
+      <DataCard title="Why This Is Not Exact Filing-to-disposal">
+        <p className="text-sm leading-6 text-slate-700">
+          Case year and diary year are coarse public metadata fields. They can
+          indicate an approximate starting year, but they do not always prove the
+          exact filing date, listing history, transfer history, or full procedural
+          path of a matter.
+        </p>
+      </DataCard>
+
+      <DataCard title="Judge Pages Are Metadata Profiles">
+        <p className="text-sm leading-6 text-slate-700">
+          Judge pages summarize public metadata connected to judgment records.
+          Bench-associated counts are not individual performance scores and do
+          not assign responsibility for delay, outcome, or administrative
+          listing.
+        </p>
+      </DataCard>
+
+      <DataCard title="Why We Use Metadata Profiles">
+        <p className="text-sm leading-6 text-slate-700">
+          Comparative performance lists would require stronger attribution,
+          fuller procedural context, validated official data, and safeguards
+          against misleading comparisons. This project starts with transparent
+          public judgment metadata profiles.
+        </p>
+      </DataCard>
+
+      <DataCard title="Update Frequency">
+        <p className="text-sm leading-6 text-slate-700">
+          The data pipeline is designed to run on demand and on a scheduled
+          refresh. Public outputs are regenerated from validated import files or
+          clearly marked sample fallback files.
+        </p>
+      </DataCard>
+
+      <DataCard title="Confidence Labels">
+        <div className="space-y-3 text-sm leading-6 text-slate-700">
+          <p>High: official source, stable schema, repeatable capture.</p>
+          <p>Medium-high: strong public source with minor limitations.</p>
+          <p>Medium: useful but incomplete or partially inferred.</p>
+          <p>Low: thin sample or significant missing context.</p>
+          <p>Experimental: sample, prototype, or unverified generated output.</p>
         </div>
-      </section>
+      </DataCard>
 
-      <section className="space-y-3">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Attribution</p>
-          <h2 className="mt-2 text-2xl font-black text-slate-950">Four levels of responsibility</h2>
+      <DataCard title="Attribution Labels">
+        <div className="space-y-3 text-sm leading-6 text-slate-700">
+          <p>Direct: explicitly authored or directly attributed in the record.</p>
+          <p>Bench-associated: the judge appears on the bench for the record.</p>
+          <p>System-associated: connected to court-system metadata.</p>
+          <p>Experimental: prototype attribution requiring review.</p>
         </div>
-        <div className="grid gap-3">
-          {attributionLevels.map((level) => (
-            <section key={level.title} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-              <h3 className="font-black text-slate-950">{level.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-700">{level.text}</p>
-            </section>
-          ))}
-        </div>
-      </section>
+      </DataCard>
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Confidence</p>
-        <h2 className="mt-2 text-2xl font-black text-slate-950">Confidence labels</h2>
-        <ul className="mt-4 space-y-2 text-sm leading-6 text-slate-700">
-          {confidenceLevels.map((level) => (
-            <li key={level} className="rounded-2xl bg-slate-50 px-4 py-3">{level}</li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Launch guardrails</p>
-        <h2 className="mt-2 text-2xl font-black text-slate-950">What the product will not do at launch</h2>
-        <ul className="mt-4 space-y-2 text-sm leading-6 text-slate-700">
-          <li>It will not rank judges as best or worst.</li>
-          <li>It will not label judges as slow, corrupt, anti-citizen, or pro-government.</li>
-          <li>It will not treat bench-associated delay as individual fault.</li>
-          <li>It will not present sample or inferred records as official court data.</li>
-        </ul>
-      </section>
-
-      <Link href="/launch-checklist" className="inline-flex rounded-full bg-slate-950 px-4 py-2 text-sm font-bold text-white">
-        Open launch checklist
-      </Link>
+      <DataCard title="Public Launch Readiness">
+        <Link className="text-sm font-semibold text-amber-900" href="/launch-checklist">
+          Open launch checklist
+        </Link>
+      </DataCard>
     </div>
   );
 }

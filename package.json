@@ -5,16 +5,22 @@
   "packageManager": "pnpm@10.24.0",
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npm run data:build",
+    "prebuild": "tsx scripts/validate-data.ts && tsx scripts/compute-metrics.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "snapshot:update": "tsx scripts/update-court-snapshot.ts",
     "import:imljd": "tsx scripts/import-imljd.ts",
-    "import:sc-metadata": "python3 scripts/import-sc-metadata.py --start-year 2000 --end-year 2024",
+    "import:sc-metadata": "python scripts/import-sc-metadata.py",
+    "import:njdg": "tsx scripts/import-njdg-snapshot.ts",
+    "import:supreme-court-sources": "tsx scripts/import-supreme-court-sources.ts",
+    "import:sources": "tsx scripts/import-supreme-court-sources.ts",
+    "research:delay": "tsx scripts/compute-delay-estimates.ts",
+    "validate": "tsx scripts/validate-data.ts",
     "validate:data": "tsx scripts/validate-data.ts",
+    "compute": "tsx scripts/compute-metrics.ts",
     "compute:metrics": "tsx scripts/compute-metrics.ts",
-    "data:build": "npm run validate:data && npm run compute:metrics"
+    "data": "tsx scripts/validate-data.ts && tsx scripts/compute-metrics.ts",
+    "data:build": "tsx scripts/validate-data.ts && tsx scripts/compute-metrics.ts"
   },
   "dependencies": {
     "next": "16.0.10",

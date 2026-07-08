@@ -43,8 +43,12 @@ function timestamp() {
   return new Date().toISOString().slice(0, 19).replaceAll(":", "-");
 }
 
+function rawPath(filename: string) {
+  return join(process.cwd(), "data", "raw", "imljd", filename);
+}
+
 function saveRaw(filename: string, value: string) {
-  const path = join(process.cwd(), "data", "raw", "imljd", filename);
+  const path = rawPath(filename);
   mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, value);
   return path;
@@ -78,9 +82,13 @@ function parseCsv(text: string) {
     }
 
     if ((char === "\n" || char === "\r") && !inQuotes) {
-      if (char === "\r" && next === "\n") index += 1;
+      if (char === "\r" && next === "\n") {
+        index += 1;
+      }
       row.push(cell);
-      if (row.some((value) => value.trim() !== "")) rows.push(row);
+      if (row.some((value) => value.trim() !== "")) {
+        rows.push(row);
+      }
       row = [];
       cell = "";
       continue;
@@ -90,10 +98,14 @@ function parseCsv(text: string) {
   }
 
   row.push(cell);
-  if (row.some((value) => value.trim() !== "")) rows.push(row);
+  if (row.some((value) => value.trim() !== "")) {
+    rows.push(row);
+  }
 
   const [headers, ...records] = rows;
-  if (!headers) throw new Error("CSV has no header row.");
+  if (!headers) {
+    throw new Error("CSV has no header row.");
+  }
 
   return records.map((record) =>
     Object.fromEntries(
@@ -103,7 +115,10 @@ function parseCsv(text: string) {
 }
 
 function asRecord(value: unknown): Record<string, unknown> {
-  if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return {};
+  }
+
   return value as Record<string, unknown>;
 }
 
@@ -114,13 +129,18 @@ function firstValue(record: Record<string, unknown>, keys: string[]) {
       return value;
     }
   }
+
   return "";
 }
 
 function normalizeDate(value: unknown) {
   const text = String(value ?? "").trim();
-  if (!text) return "";
-  if (/^\d{4}-\d{2}-\d{2}/.test(text)) return text.slice(0, 10);
+  if (!text) {
+    return "";
+  }
+  if (/^\d{4}-\d{2}-\d{2}/.test(text)) {
+    return text.slice(0, 10);
+  }
 
   const match = text.match(/^(\d{1,2})[/-](\d{1,2})[/-](\d{4})/);
   if (match) {
@@ -148,37 +168,65 @@ function listValue(value: unknown) {
 }
 
 function isSupremeCourtRecord(record: Record<string, unknown>) {
-  const court = String(firstValue(record, ["court", "_court_name", "court_name", "courtName"])).toLowerCase();
+  const court = String(
+    firstValue(record, ["court", "_court_name", "court_name", "courtName"]),
+  ).toLowerCase();
   const source = String(firstValue(record, ["_source", "source"])).toLowerCase();
   const courtCode = String(firstValue(record, ["court_code", "courtCode"]));
 
-  if (court.includes("high court") || source === "hc") return false;
-  if (court.includes("supreme court") || source === "sc") return true;
-  if (courtCode.startsWith("SC") || courtCode.toLowerCase() === "sc") return true;
+  if (court.includes("high court") || source === "hc") {
+    return false;
+  }
+  if (court.includes("supreme court") || source === "sc") {
+    return true;
+  }
+  if (courtCode.startsWith("SC") || courtCode.toLowerCase() === "sc") {
+    return true;
+  }
 
   return false;
 }
 
 function inferCaseType(record: Record<string, unknown>, title: string) {
-  const explicit = String(firstValue(record, ["case_type", "caseType", "type", "matter_type"])).trim();
-  if (explicit) return explicit;
+  const explicit = String(
+    firstValue(record, ["case_type", "caseType", "type", "matter_type"]),
+  ).trim();
+  if (explicit) {
+    return explicit;
+  }
 
   const prefix = title.split(" of ")[0]?.trim();
-  if (!prefix) return "Matrimonial litigation";
-  if (/criminal|crl|cr\.?a/i.test(prefix)) return "Criminal Appeal";
-  if (/slp/i.test(prefix)) return "Special Leave Petition";
-  if (/transfer|t\.?p/i.test(prefix)) return "Transfer Petition";
-  if (/civil|c\.?a/i.test(prefix)) return "Civil Appeal";
+  if (!prefix) {
+    return "Matrimonial litigation";
+  }
+  if (/criminal|crl|cr\.?a/i.test(prefix)) {
+    return "Criminal Appeal";
+  }
+  if (/slp/i.test(prefix)) {
+    return "Special Leave Petition";
+  }
+  if (/transfer|t\.?p/i.test(prefix)) {
+    return "Transfer Petition";
+  }
+  if (/civil|c\.?a/i.test(prefix)) {
+    return "Civil Appeal";
+  }
 
   return prefix.slice(0, 80);
 }
 
 function sourceUrl(record: Record<string, unknown>) {
-  const direct = String(firstValue(record, ["sourceUrl", "source_url", "judgment_url", "url"])).trim();
-  if (/^https?:\/\//.test(direct)) return direct;
+  const direct = String(
+    firstValue(record, ["sourceUrl", "source_url", "judgment_url", "url"]),
+  ).trim();
+  if (/^https?:\/\//.test(direct)) {
+    return direct;
+  }
 
   const pdf = String(firstValue(record, ["pdf_link", "pdfLink"])).trim();
-  if (/^https?:\/\//.test(pdf)) return pdf;
+  if (/^https?:\/\//.test(pdf)) {
+    return pdf;
+  }
 
   return GITHUB_URL;
 }
@@ -186,31 +234,52 @@ function sourceUrl(record: Record<string, unknown>) {
 function recordId(record: Record<string, unknown>, normalized: CsvRecord) {
   const caseId = String(firstValue(record, ["case_id", "caseId"])).trim();
   const fallback = normalized.caseNumber || normalized.diaryNumber;
-  const value = caseId || fallback || `${normalized.caseTitle}-${normalized.judgmentDate}`;
+  const value = caseId || fallback;
 
   return `imljd-${value.replace(/[^A-Za-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
 }
 
 function subjectTagsFor(record: Record<string, unknown>) {
   const tags = new Set(["matrimonial", "imljd", "supreme court"]);
-  for (const key of ["subjectTags", "subject_tags", "statutes", "outcome", "case_category", "label"]) {
-    for (const value of listValue(record[key])) tags.add(value.toLowerCase());
+  for (const key of [
+    "subjectTags",
+    "subject_tags",
+    "statutes",
+    "outcome",
+    "case_category",
+    "label",
+  ]) {
+    for (const value of listValue(record[key])) {
+      tags.add(value.toLowerCase());
+    }
   }
   return [...tags].join("; ");
 }
 
 function normalizeRecord(raw: unknown): CsvRecord | null {
   const record = asRecord(raw);
-  if (!isSupremeCourtRecord(record)) return null;
+  if (!isSupremeCourtRecord(record)) {
+    return null;
+  }
 
-  const caseTitle = String(firstValue(record, ["title", "caseTitle", "case_title", "case_name"])).trim();
-  const judgmentDate = normalizeDate(firstValue(record, ["decision_date", "decisionDate", "judgmentDate"]));
+  const caseTitle = String(
+    firstValue(record, ["title", "caseTitle", "case_title", "case_name"]),
+  ).trim();
+  const judgmentDate = normalizeDate(
+    firstValue(record, ["decision_date", "decisionDate", "judgmentDate"]),
+  );
   const judges = listValue(firstValue(record, ["judge", "judges", "bench"]));
 
-  if (!caseTitle || !judgmentDate || judges.length === 0) return null;
+  if (!caseTitle || !judgmentDate) {
+    return null;
+  }
 
-  const registrationDate = normalizeDate(firstValue(record, ["date_of_registration", "registration_date"]));
-  const caseNumber = String(firstValue(record, ["case_id", "caseNumber", "case_number", "case_no_clean"])).trim();
+  const registrationDate = normalizeDate(
+    firstValue(record, ["date_of_registration", "registration_date"]),
+  );
+  const caseNumber = String(
+    firstValue(record, ["case_id", "caseNumber", "case_number", "case_no_clean"]),
+  ).trim();
   const normalized: CsvRecord = {
     id: "",
     caseTitle,
@@ -225,7 +294,7 @@ function normalizeRecord(raw: unknown): CsvRecord | null {
     disposalNature: String(firstValue(record, ["disposal_nature", "outcome"])),
     judges: judges.join("; "),
     authoringJudge: String(firstValue(record, ["author_judge", "authoring_judge"])),
-    benchSize: String(judges.length),
+    benchSize: judges.length > 0 ? String(judges.length) : "",
     subjectTags: subjectTagsFor(record),
     sourceName: SOURCE_NAME,
     sourceUrl: sourceUrl(record),
@@ -244,7 +313,9 @@ function csvEscape(value: string) {
 function toCsv(records: CsvRecord[]) {
   return `${[
     CSV_HEADERS.join(","),
-    ...records.map((record) => CSV_HEADERS.map((header) => csvEscape(record[header])).join(",")),
+    ...records.map((record) =>
+      CSV_HEADERS.map((header) => csvEscape(record[header])).join(","),
+    ),
   ].join("\n")}\n`;
 }
 
@@ -252,7 +323,9 @@ async function fetchText(url: string) {
   const response = await fetch(url, {
     headers: { Accept: "text/csv, application/json;q=0.9, */*;q=0.1" },
   });
-  if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+  if (!response.ok) {
+    throw new Error(`${response.status} ${response.statusText}`);
+  }
   return response.text();
 }
 
@@ -270,6 +343,7 @@ async function loadFromRemoteCsv() {
       errors.push(`${url}: ${String(error)}`);
     }
   }
+
   throw new Error(errors.join("\n"));
 }
 
@@ -287,12 +361,18 @@ async function loadFromHuggingFaceRowsApi() {
     url.searchParams.set("length", String(length));
 
     const text = await fetchText(url.toString());
-    const json = JSON.parse(text) as { rows?: { row?: unknown }[]; num_rows_total?: number };
+    const json = JSON.parse(text) as {
+      rows?: { row?: unknown }[];
+      num_rows_total?: number;
+    };
     const rows = json.rows ?? [];
     records.push(...rows.map((item) => item.row));
 
     if (rows.length < length || records.length >= (json.num_rows_total ?? 0)) {
-      const path = saveRaw(`${timestamp()}-huggingface-rows.json`, `${JSON.stringify(records, null, 2)}\n`);
+      const path = saveRaw(
+        `${timestamp()}-huggingface-rows.json`,
+        `${JSON.stringify(records, null, 2)}\n`,
+      );
       return {
         records,
         source: "https://datasets-server.huggingface.co/rows?dataset=joyboseroy/imljd&config=sc&split=train",
@@ -305,20 +385,45 @@ async function loadFromHuggingFaceRowsApi() {
 }
 
 function loadLocalFallback() {
-  const nestedCsvPath = join(process.cwd(), "data", "imports", "imljd", "sc_enriched.csv");
   const jsonPath = join(process.cwd(), "data", "imports", "imljd.json");
   const csvPath = join(process.cwd(), "data", "imports", "imljd.csv");
+  const nestedCsvPath = join(
+    process.cwd(),
+    "data",
+    "imports",
+    "imljd",
+    "sc_enriched.csv",
+  );
+  const nestedParquetPath = join(
+    process.cwd(),
+    "data",
+    "imports",
+    "imljd",
+    "sc_enriched.parquet",
+  );
 
   if (existsSync(nestedCsvPath)) {
     const text = readFileSync(nestedCsvPath, "utf8");
     const path = saveRaw(`${timestamp()}-local-sc_enriched.csv`, text);
-    return { records: parseCsv(text), source: "data/imports/imljd/sc_enriched.csv", rawPath: path };
+    return {
+      records: parseCsv(text),
+      source: "data/imports/imljd/sc_enriched.csv",
+      rawPath: path,
+    };
+  }
+
+  if (existsSync(nestedParquetPath)) {
+    throw new Error(
+      "data/imports/imljd/sc_enriched.parquet exists, but no parquet reader is installed. Export it to sc_enriched.csv and rerun import:imljd.",
+    );
   }
 
   if (existsSync(jsonPath)) {
     const text = readFileSync(jsonPath, "utf8");
     const parsed = JSON.parse(text) as unknown;
-    if (!Array.isArray(parsed)) throw new Error("data/imports/imljd.json must contain an array.");
+    if (!Array.isArray(parsed)) {
+      throw new Error("data/imports/imljd.json must contain an array.");
+    }
     const path = saveRaw(`${timestamp()}-local-imljd.json`, text);
     return { records: parsed, source: "data/imports/imljd.json", rawPath: path };
   }
@@ -329,7 +434,7 @@ function loadLocalFallback() {
     return { records: parseCsv(text), source: "data/imports/imljd.csv", rawPath: path };
   }
 
-  throw new Error("No local IMLJD fallback found.");
+  throw new Error("No local fallback found at data/imports/imljd.json or data/imports/imljd.csv.");
 }
 
 async function loadImljdSource() {
@@ -361,8 +466,8 @@ async function importImljd() {
     .map((record) => normalizeRecord(record))
     .filter((record): record is CsvRecord => record !== null);
 
-  if (normalized.length < 1000) {
-    throw new Error(`Expected at least 1000 Supreme Court IMLJD records, found ${normalized.length}.`);
+  if (normalized.length === 0) {
+    throw new Error("No valid Supreme Court of India IMLJD records were found.");
   }
 
   const outputPath = join(process.cwd(), OUTPUT_PATH);
@@ -373,6 +478,7 @@ async function importImljd() {
   console.log(`OK: saved raw IMLJD source to ${source.rawPath}`);
   console.log(`OK: wrote ${normalized.length} Supreme Court of India records to ${OUTPUT_PATH}`);
   console.log(`OK: source repository ${GITHUB_URL}`);
+  console.log("Next: run npm run data:build");
 }
 
 importImljd().catch((error) => {

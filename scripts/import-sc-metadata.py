@@ -1,33 +1,36 @@
 #!/usr/bin/env python3
-"""Import Supreme Court of India judgment metadata from the public AWS Open Data corpus.
+"""Manual Supreme Court metadata importer.
 
-This imports metadata, not the full PDF archive. The PDF/tar paths are preserved so
-research questions can fetch full judgments on demand without committing tens of GB
-of binaries to the app repository.
+Downloads public Supreme Court metadata parquet files from the open S3 mirror,
+normalizes lightweight metadata into Justice Clock CSV format, and writes
+research summary artifacts. This is intentionally not part of `npm run build`.
 """
 
 from __future__ import annotations
 
 import argparse
 import csv
-import io
 import json
 import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.request import Request, urlopen
+from urllib.request import urlopen
 
-import pandas as pd
 
-BUCKET = "indian-supreme-court-judgments"
-BASE_URL = f"https://{BUCKET}.s3.amazonaws.com"
-SOURCE_REPO = "https://github.com/vanga/indian-supreme-court-judgments"
-SOURCE_REGISTRY = "https://registry.opendata.aws/indian-supreme-court-judgments/"
+ROOT = Path(__file__).resolve().parents[1]
+IMPORT_CSV = ROOT / "data" / "imports" / "judgments.csv"
+RESEARCH_CSV = ROOT / "data" / "research" / "sc-judgments-2000-2024.csv"
+SUMMARY_JSON = ROOT / "data" / "research" / "sc-corpus-summary.json"
+PUBLIC_SUMMARY_JSON = ROOT / "public" / "data" / "sc-corpus-summary.json"
+SOURCE_URL = (
+    "https://indian-supreme-court-judgments.s3.amazonaws.com/"
+    "metadata/parquet/year={year}/metadata.parquet"
+)
+SOURCE_NAME = "Indian Supreme Court Judgments public S3 metadata"
 
-APP_COLUMNS = [
+CSV_HEADERS = [
     "id",
     "caseTitle",
     "caseNumber",
@@ -49,292 +52,185 @@ APP_COLUMNS = [
     "sample",
 ]
 
-RESEARCH_COLUMNS = [
-    "source_year",
-    "case_id",
-    "title",
-    "petitioner",
-    "respondent",
-    "description",
-    "judge",
-    "author_judge",
-    "citation",
-    "cnr",
-    "decision_date",
-    "disposal_nature",
-    "court",
-    "available_languages",
-    "nc_display",
-    "path",
-    "raw_html_present",
-    "scraped_at",
-    "metadata_parquet_url",
-    "metadata_json_prefix_url",
-    "english_pdf_url",
-    "english_tar_prefix_url",
-    "regional_pdf_prefix_url",
-]
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--from-year", type=int, default=2000)
+    parser.add_argument("--to-year", type=int, default=2024)
+    parser.add_argument("--min-records", type=int, default=1000)
+    return parser.parse_args()
 
 
-def text(value: Any) -> str:
-    if value is None:
-        return ""
+def require_pyarrow():
     try:
-        if pd.isna(value):
-            return ""
-    except TypeError:
-        pass
-    if isinstance(value, (list, tuple, set)):
-        return "; ".join(text(item) for item in value if text(item))
-    return str(value).strip()
+        import pandas as pd  # type: ignore
+        import pyarrow  # noqa: F401
+    except ImportError as exc:
+        raise SystemExit(
+            "pandas and pyarrow are required. Install them in the workflow before "
+            "running scripts/import-sc-metadata.py."
+        ) from exc
+    return pd
 
 
-def date_only(value: Any) -> str:
-    raw = text(value)
-    if not raw:
-        return ""
-    match = re.match(r"^(\d{4}-\d{2}-\d{2})", raw)
-    if match:
-        return match.group(1)
-    parsed = pd.to_datetime(raw, errors="coerce")
-    if pd.isna(parsed):
-        return ""
-    return parsed.strftime("%Y-%m-%d")
-
-
-def year_from(value: Any) -> str:
-    match = re.search(r"\b(19[5-9]\d|20\d{2})\b", text(value))
-    return match.group(1) if match else ""
-
-
-def slug(value: str) -> str:
-    cleaned = re.sub(r"[^A-Za-z0-9]+", "-", value).strip("-").lower()
-    return cleaned[:120] or "unknown"
-
-
-def bench_size(judges: str) -> str:
-    if not judges:
-        return ""
-    pieces = [part.strip() for part in re.split(r"[;|,]", judges) if part.strip()]
-    return str(len(pieces)) if pieces else ""
-
-
-def parquet_url(year: int) -> str:
-    return f"{BASE_URL}/metadata/parquet/year={year}/metadata.parquet"
-
-
-def metadata_json_prefix_url(year: int) -> str:
-    return f"{BASE_URL}/metadata/json/year={year}/"
-
-
-def english_tar_prefix_url(year: int) -> str:
-    return f"{BASE_URL}/data/tar/year={year}/english/"
-
-
-def regional_pdf_prefix_url(year: int) -> str:
-    return f"{BASE_URL}/data/pdf/year={year}/regional/"
-
-
-def english_pdf_url(year: int, pdf_path: str) -> str:
-    path = text(pdf_path)
-    if not path:
-        return ""
-    if path.startswith("http://") or path.startswith("https://"):
+def download_parquet(year: int) -> Path:
+    raw_dir = ROOT / "data" / "raw" / "sc-metadata" / str(year)
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    path = raw_dir / "metadata.parquet"
+    if path.exists():
         return path
-    filename = Path(path).name
-    if not filename.lower().endswith(".pdf"):
-        return ""
-    return f"{BASE_URL}/data/pdf/year={year}/english/{filename}"
+
+    url = SOURCE_URL.format(year=year)
+    try:
+        with urlopen(url, timeout=60) as response:
+            path.write_bytes(response.read())
+    except (HTTPError, URLError) as exc:
+        raise RuntimeError(f"Unable to download {url}: {exc}") from exc
+    return path
 
 
-def read_parquet_year(year: int) -> pd.DataFrame:
-    url = parquet_url(year)
-    request = Request(url, headers={"User-Agent": "justice-clock-india-data-import/1.0"})
-    with urlopen(request, timeout=120) as response:
-        payload = response.read()
-    frame = pd.read_parquet(io.BytesIO(payload))
-    frame["_source_year"] = year
-    frame["_metadata_parquet_url"] = url
-    return frame
-
-
-def row_value(row: pd.Series, *names: str) -> str:
+def first_text(row: dict, *names: str) -> str:
     for name in names:
-        if name in row:
-            value = text(row[name])
-            if value:
-                return value
+        value = row.get(name)
+        if value is not None and str(value).strip() and str(value).lower() != "nan":
+            return str(value).strip()
     return ""
 
 
-def to_research_row(row: pd.Series, year: int) -> dict[str, str]:
-    pdf_path = row_value(row, "path")
+def date_text(value: str) -> str:
+    if not value:
+        return ""
+    match = re.search(r"(\d{4})-(\d{2})-(\d{2})", value)
+    if match:
+        return match.group(0)
+    match = re.search(r"(\d{1,2})[-/](\d{1,2})[-/](\d{4})", value)
+    if match:
+        day, month, year = match.groups()
+        return f"{year}-{month.zfill(2)}-{day.zfill(2)}"
+    return ""
+
+
+def split_judges(value: str) -> list[str]:
+    return [item.strip() for item in re.split(r";|,|\band\b", value) if item.strip()]
+
+
+def infer_case_type(case_number: str) -> str:
+    text = case_number.upper()
+    if "CRIMINAL APPEAL" in text:
+        return "Criminal Appeal"
+    if "CIVIL APPEAL" in text:
+        return "Civil Appeal"
+    if "SLP" in text and "CRIMINAL" in text:
+        return "SLP Criminal"
+    if "SLP" in text:
+        return "SLP Civil"
+    if "WRIT" in text:
+        return "Writ Petition"
+    return "Supreme Court judgment"
+
+
+def normalize(row: dict) -> dict | None:
+    title = first_text(row, "title", "case_title", "caseTitle", "name")
+    case_id = first_text(row, "case_id", "id", "path")
+    case_number = first_text(row, "case_number", "case_no", "caseNumber", "citation")
+    decision_date = date_text(first_text(row, "decision_date", "judgment_date", "date"))
+    judges_text = first_text(row, "judges", "judge", "coram", "bench")
+    judges = split_judges(judges_text)
+
+    if not title or not decision_date or not judges:
+        return None
+
+    case_year = first_text(row, "year", "case_year")
+    if not case_year:
+        case_year = re.search(r"\b(19[5-9]\d|20\d{2})\b", case_number or title)
+        case_year = case_year.group(1) if case_year else decision_date[:4]
+
+    source_path = first_text(row, "path", "source_path")
+    source_url = first_text(row, "metadata_url", "source_url") or SOURCE_URL.format(
+        year=decision_date[:4]
+    )
+
     return {
-        "source_year": str(year),
-        "case_id": row_value(row, "case_id"),
-        "title": row_value(row, "title"),
-        "petitioner": row_value(row, "petitioner"),
-        "respondent": row_value(row, "respondent"),
-        "description": row_value(row, "description"),
-        "judge": row_value(row, "judge"),
-        "author_judge": row_value(row, "author_judge"),
-        "citation": row_value(row, "citation"),
-        "cnr": row_value(row, "cnr"),
-        "decision_date": date_only(row_value(row, "decision_date")),
-        "disposal_nature": row_value(row, "disposal_nature"),
-        "court": row_value(row, "court"),
-        "available_languages": row_value(row, "available_languages"),
-        "nc_display": row_value(row, "nc_display"),
-        "path": pdf_path,
-        "raw_html_present": "true" if row_value(row, "raw_html") else "false",
-        "scraped_at": row_value(row, "scraped_at"),
-        "metadata_parquet_url": parquet_url(year),
-        "metadata_json_prefix_url": metadata_json_prefix_url(year),
-        "english_pdf_url": english_pdf_url(year, pdf_path),
-        "english_tar_prefix_url": english_tar_prefix_url(year),
-        "regional_pdf_prefix_url": regional_pdf_prefix_url(year),
-    }
-
-
-def to_app_row(research_row: dict[str, str], sequence: int) -> dict[str, str]:
-    decision_date = research_row["decision_date"]
-    case_id = research_row["case_id"] or research_row["cnr"] or f"{research_row['source_year']}-{sequence}"
-    title = research_row["title"] or "Untitled Supreme Court judgment"
-    citation = research_row["citation"] or research_row["nc_display"]
-    year = research_row["source_year"] or year_from(decision_date) or year_from(title)
-    tags = ["supreme court", "judgment corpus", "aws open data", "2000-2024"]
-    if citation:
-        tags.append(citation)
-    if research_row["available_languages"]:
-        tags.append(f"languages: {research_row['available_languages']}")
-
-    return {
-        "id": f"sc-corpus-{slug(case_id)}",
+        "id": f"sc-meta-{case_id or re.sub(r'[^A-Za-z0-9]+', '-', title)[:80]}",
         "caseTitle": title,
-        "caseNumber": citation or case_id,
-        "diaryNumber": research_row["cnr"],
-        "diaryYear": year_from(research_row["cnr"]),
-        "caseType": "Supreme Court judgment",
-        "caseYear": year,
+        "caseNumber": case_number,
+        "diaryNumber": first_text(row, "cnr", "diary_number"),
+        "diaryYear": "",
+        "caseType": infer_case_type(case_number),
+        "caseYear": case_year,
         "decisionDate": decision_date,
         "judgmentDate": decision_date,
         "uploadDate": "",
-        "disposalNature": research_row["disposal_nature"],
-        "judges": research_row["judge"],
-        "authoringJudge": research_row["author_judge"],
-        "benchSize": bench_size(research_row["judge"]),
-        "subjectTags": "; ".join(tags),
-        "sourceName": "Indian Supreme Court Judgments corpus / AWS Open Data",
-        "sourceUrl": research_row["english_pdf_url"] or SOURCE_REGISTRY,
-        "confidence": "medium-high",
+        "disposalNature": first_text(row, "disposal_nature", "outcome"),
+        "judges": "; ".join(judges),
+        "authoringJudge": first_text(row, "author_judge", "authoring_judge"),
+        "benchSize": str(len(judges)),
+        "subjectTags": "supreme court; public judgment metadata",
+        "sourceName": SOURCE_NAME,
+        "sourceUrl": source_url,
+        "confidence": "medium",
         "sample": "false",
+        "_sourcePath": source_path,
     }
 
 
-def write_csv(path: Path, columns: list[str], rows: list[dict[str, str]]) -> None:
+def write_csv(path: Path, records: list[dict], headers: list[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=columns, extrasaction="ignore")
+        writer = csv.DictWriter(handle, fieldnames=headers, extrasaction="ignore")
         writer.writeheader()
-        writer.writerows(rows)
+        writer.writerows(records)
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--start-year", type=int, default=2000)
-    parser.add_argument("--end-year", type=int, default=2024)
-    parser.add_argument("--fail-under", type=int, default=10000)
-    args = parser.parse_args()
+    args = parse_args()
+    pd = require_pyarrow()
+    records: list[dict] = []
 
-    years = list(range(args.start_year, args.end_year + 1))
-    frames: list[pd.DataFrame] = []
-    failed: dict[str, str] = {}
+    for year in range(args.from_year, args.to_year + 1):
+        path = download_parquet(year)
+        frame = pd.read_parquet(path)
+        for row in frame.to_dict(orient="records"):
+            record = normalize(row)
+            if record:
+                records.append(record)
+        print(f"OK: loaded {len(frame)} raw metadata rows for {year}")
 
-    for year in years:
-        try:
-            frame = read_parquet_year(year)
-            frames.append(frame)
-            print(f"OK: loaded {year}: {len(frame)} metadata records")
-        except (HTTPError, URLError, TimeoutError, Exception) as exc:
-            failed[str(year)] = str(exc)
-            print(f"WARN: failed {year}: {exc}", file=sys.stderr)
+    deduped = {record["id"]: record for record in records}
+    records = sorted(deduped.values(), key=lambda item: item["judgmentDate"])
+    if len(records) < args.min_records:
+        raise SystemExit(
+            f"Only {len(records)} usable Supreme Court records loaded; expected at least {args.min_records}."
+        )
 
-    if not frames:
-        raise SystemExit("No Supreme Court metadata parquet files loaded.")
-
-    research_rows: list[dict[str, str]] = []
-    app_rows: list[dict[str, str]] = []
-    year_counts: dict[str, int] = {}
-    disposal_counts: dict[str, int] = {}
-
-    sequence = 0
-    for frame in frames:
-        year = int(frame["_source_year"].iloc[0])
-        year_count = 0
-        for _, row in frame.iterrows():
-            research = to_research_row(row, year)
-            if not research["title"] or not research["decision_date"]:
-                continue
-            sequence += 1
-            year_count += 1
-            research_rows.append(research)
-            app_rows.append(to_app_row(research, sequence))
-            disposal = research["disposal_nature"] or "missing"
-            disposal_counts[disposal] = disposal_counts.get(disposal, 0) + 1
-        year_counts[str(year)] = year_count
-
-    if len(app_rows) < args.fail_under:
-        raise SystemExit(f"Expected at least {args.fail_under} usable records, found {len(app_rows)}.")
-
-    write_csv(Path("data/imports/judgments.csv"), APP_COLUMNS, app_rows)
-    write_csv(Path("data/research/sc-judgments-2000-2024.csv"), RESEARCH_COLUMNS, research_rows)
+    write_csv(IMPORT_CSV, records, CSV_HEADERS)
+    research_headers = CSV_HEADERS + ["sourcePath"]
+    research_records = [{**record, "sourcePath": record.get("_sourcePath", "")} for record in records]
+    write_csv(RESEARCH_CSV, research_records, research_headers)
 
     summary = {
-        "name": "Supreme Court of India judgment metadata corpus",
-        "source": {
-            "name": "Indian Supreme Court Judgments corpus / AWS Open Data",
-            "repository": SOURCE_REPO,
-            "registry": SOURCE_REGISTRY,
-            "bucket": f"s3://{BUCKET}/",
-            "baseHttpsUrl": BASE_URL,
-            "license": "CC BY 4.0 according to source repository README",
-        },
-        "importedAt": datetime.now(timezone.utc).isoformat(),
-        "coverage": {
-            "startYear": args.start_year,
-            "endYear": args.end_year,
-            "requestedYears": years,
-            "failedYears": failed,
-        },
-        "counts": {
-            "usableRecords": len(app_rows),
-            "researchRows": len(research_rows),
-            "yearsLoaded": len(year_counts),
-            "byYear": year_counts,
-            "topDisposalNatures": sorted(
-                disposal_counts.items(), key=lambda item: item[1], reverse=True
-            )[:50],
-        },
-        "files": {
-            "appImportCsv": "data/imports/judgments.csv",
-            "researchCsv": "data/research/sc-judgments-2000-2024.csv",
-        },
+        "generatedAt": datetime.now(timezone.utc).isoformat(),
+        "sourceName": SOURCE_NAME,
+        "sourceUrl": "https://indian-supreme-court-judgments.s3.amazonaws.com/",
+        "court": "Supreme Court of India",
+        "records": len(records),
+        "years": f"{args.from_year}-{args.to_year}",
         "notes": [
-            "This import stores metadata and source links only; it does not commit the PDF/tar archives.",
-            "Full judgment PDFs remain accessible from the public S3 corpus using the preserved path and year fields.",
-            "Use the research CSV for original research extraction and the app CSV for the existing site schema.",
+            "This is public judgment metadata, not a live court service.",
+            "PDFs and tar archives are not committed to the app repository.",
         ],
     }
-
-    Path("data/research").mkdir(parents=True, exist_ok=True)
-    Path("public/data").mkdir(parents=True, exist_ok=True)
-    Path("data/research/sc-corpus-summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
-    Path("public/data/sc-corpus-summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
-
-    print(f"OK: wrote {len(app_rows)} app judgment records to data/imports/judgments.csv")
-    print(f"OK: wrote {len(research_rows)} research rows to data/research/sc-judgments-2000-2024.csv")
-    print("OK: wrote corpus summary to data/research/sc-corpus-summary.json and public/data/sc-corpus-summary.json")
+    SUMMARY_JSON.parent.mkdir(parents=True, exist_ok=True)
+    PUBLIC_SUMMARY_JSON.parent.mkdir(parents=True, exist_ok=True)
+    SUMMARY_JSON.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+    PUBLIC_SUMMARY_JSON.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+    print(f"OK: wrote {len(records)} Supreme Court records to {IMPORT_CSV}")
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as exc:  # noqa: BLE001
+        print("Supreme Court metadata import failed.", file=sys.stderr)
+        print(exc, file=sys.stderr)
+        sys.exit(1)

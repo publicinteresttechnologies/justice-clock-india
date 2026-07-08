@@ -1,43 +1,190 @@
-import { access, readFile } from "node:fs/promises";
-import path from "node:path";
+import { createHash } from "node:crypto";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import {
   courtSnapshotSchema,
   judgmentRecordSchema,
+  judgmentsSchema,
+  type Confidence,
   type CourtSnapshot,
   type JudgmentRecord,
+  type SourceKind,
 } from "../../src/lib/schemas";
 
-type LoadedSource<T> = {
-  data: T;
-  sourcePath: string;
-  sourceType: "import" | "sample";
+type SourceData = {
+  courtSnapshot: CourtSnapshot;
+  courtSnapshotSource: {
+    mode: SourceKind;
+    path: string;
+  };
+  judgments: JudgmentRecord[];
+  judgmentsSource: {
+    mode: SourceKind;
+    path: string;
+  };
 };
 
-async function fileExists(filePath: string) {
-  try {
-    await access(filePath);
+const importPaths = {
+  courtSnapshot: "data/imports/court-snapshot.json",
+  judgmentsCsv: "data/imports/judgments.csv",
+  judgmentsJson: "data/imports/judgments.json",
+};
+
+const samplePaths = {
+  courtSnapshot: "data/seed/court-snapshot.sample.json",
+  judgments: "data/seed/judgments.sample.json",
+};
+
+function readJson(path: string) {
+  return JSON.parse(readFileSync(path, "utf8")) as unknown;
+}
+
+function emptyToNull(value: unknown) {
+  if (value === undefined || value === null) {
+    return null;
+  }
+
+  const text = String(value).trim();
+  return text === "" ? null : text;
+}
+
+function parseInteger(value: unknown) {
+  const clean = emptyToNull(value);
+  if (clean === null) {
+    return null;
+  }
+
+  const parsed = Number(clean);
+  if (!Number.isInteger(parsed)) {
+    throw new Error(`Expected integer value, received "${clean}".`);
+  }
+
+  return parsed;
+}
+
+function splitList(value: unknown) {
+  if (Array.isArray(value)) {
+    return value.map((item) => String(item).trim()).filter(Boolean);
+  }
+
+  const clean = emptyToNull(value);
+  if (clean === null) {
+    return [];
+  }
+
+  return String(clean)
+    .split(";")
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+function normalizeDate(value: unknown) {
+  const clean = emptyToNull(value);
+  if (clean === null) {
+    return null;
+  }
+
+  const text = String(clean);
+  if (/^\d{4}-\d{2}-\d{2}$/.test(text)) {
+    return text;
+  }
+
+  const match = text.match(/^(\d{1,2})[/-](\d{1,2})[/-](\d{4})$/);
+  if (match) {
+    const [, day, month, year] = match;
+    return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+  }
+
+  throw new Error(`Unsupported date format "${text}". Use YYYY-MM-DD.`);
+}
+
+function parseBoolean(value: unknown, defaultValue: boolean) {
+  const clean = emptyToNull(value);
+  if (clean === null) {
+    return defaultValue;
+  }
+
+  const text = String(clean).toLowerCase();
+  if (["true", "1", "yes", "y"].includes(text)) {
     return true;
-  } catch {
+  }
+  if (["false", "0", "no", "n"].includes(text)) {
     return false;
   }
+
+  throw new Error(`Expected boolean value, received "${clean}".`);
 }
 
-async function readJson<T>(filePath: string): Promise<T> {
-  const raw = await readFile(filePath, "utf8");
-  return JSON.parse(raw) as T;
+function normalizeConfidence(value: unknown): Confidence {
+  const clean = emptyToNull(value);
+  if (clean === null) {
+    return "medium";
+  }
+
+  return String(clean).trim() as Confidence;
 }
 
-function parseCsvLine(line: string) {
-  const values: string[] = [];
-  let current = "";
+function generatedId(record: Record<string, unknown>) {
+  const caseTitle = emptyToNull(record.caseTitle);
+  const date = emptyToNull(record.judgmentDate) ?? emptyToNull(record.decisionDate);
+  const caseNumber = emptyToNull(record.caseNumber);
+
+  if (!caseTitle || !date) {
+    throw new Error(
+      "Missing id and insufficient fields to generate one. Provide id, or caseTitle plus judgmentDate/decisionDate.",
+    );
+  }
+
+  const raw = [caseTitle, date, caseNumber ?? ""].join("|").toLowerCase();
+  return `judgment-${createHash("sha256").update(raw).digest("hex").slice(0, 16)}`;
+}
+
+function normalizeJudgment(
+  raw: Record<string, unknown>,
+  sourceKind: SourceKind,
+): JudgmentRecord {
+  const judges = splitList(raw.judges);
+  const benchSize = parseInteger(raw.benchSize) ?? judges.length;
+
+  const normalized = {
+    id: String(emptyToNull(raw.id) ?? generatedId(raw)),
+    caseTitle: String(emptyToNull(raw.caseTitle) ?? ""),
+    caseNumber: emptyToNull(raw.caseNumber),
+    diaryNumber: emptyToNull(raw.diaryNumber),
+    diaryYear: parseInteger(raw.diaryYear),
+    caseType: String(emptyToNull(raw.caseType) ?? "Unclassified"),
+    caseYear: parseInteger(raw.caseYear),
+    decisionDate: normalizeDate(raw.decisionDate),
+    judgmentDate: normalizeDate(raw.judgmentDate),
+    uploadDate: normalizeDate(raw.uploadDate),
+    disposalNature: emptyToNull(raw.disposalNature),
+    judges,
+    authoringJudge: emptyToNull(raw.authoringJudge),
+    benchSize,
+    subjectTags: splitList(raw.subjectTags),
+    sourceName: String(
+      emptyToNull(raw.sourceName) ?? "Supreme Court judgment metadata import",
+    ),
+    sourceUrl: emptyToNull(raw.sourceUrl),
+    confidence: normalizeConfidence(raw.confidence),
+    sample: parseBoolean(raw.sample, sourceKind === "sample"),
+  };
+
+  return judgmentRecordSchema.parse(normalized);
+}
+
+function parseCsv(text: string) {
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let cell = "";
   let inQuotes = false;
 
-  for (let index = 0; index < line.length; index += 1) {
-    const char = line[index];
-    const next = line[index + 1];
+  for (let index = 0; index < text.length; index += 1) {
+    const char = text[index];
+    const next = text[index + 1];
 
-    if (char === '"' && next === '"') {
-      current += '"';
+    if (char === '"' && inQuotes && next === '"') {
+      cell += '"';
       index += 1;
       continue;
     }
@@ -48,134 +195,143 @@ function parseCsvLine(line: string) {
     }
 
     if (char === "," && !inQuotes) {
-      values.push(current.trim());
-      current = "";
+      row.push(cell);
+      cell = "";
       continue;
     }
 
-    current += char;
-  }
-
-  values.push(current.trim());
-  return values;
-}
-
-function parseCsv(raw: string) {
-  const lines = raw
-    .split(/\r?\n/)
-    .map((line) => line.trim())
-    .filter(Boolean);
-
-  if (lines.length < 2) {
-    return [];
-  }
-
-  const headers = parseCsvLine(lines[0]);
-
-  return lines.slice(1).map((line) => {
-    const values = parseCsvLine(line);
-    return Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""]));
-  });
-}
-
-function toNumber(value: string | undefined) {
-  if (!value) return undefined;
-  const parsed = Number(value);
-  return Number.isFinite(parsed) ? parsed : undefined;
-}
-
-function splitList(value: string | undefined) {
-  if (!value) return [];
-  return value
-    .split(";")
-    .map((item) => item.trim())
-    .filter(Boolean);
-}
-
-function clean(value: string | undefined) {
-  if (!value) return undefined;
-  const trimmed = value.trim();
-  return trimmed.length > 0 ? trimmed : undefined;
-}
-
-function normalizeCsvJudgment(row: Record<string, string>, index: number): JudgmentRecord {
-  const normalized = {
-    id: clean(row.id) ?? `imported-judgment-${String(index + 1).padStart(5, "0")}`,
-    caseTitle: clean(row.caseTitle) ?? clean(row.title) ?? "Untitled judgment",
-    caseNumber: clean(row.caseNumber),
-    diaryNumber: clean(row.diaryNumber),
-    diaryYear: toNumber(row.diaryYear),
-    caseType: clean(row.caseType),
-    caseYear: toNumber(row.caseYear),
-    decisionDate: clean(row.decisionDate),
-    judgmentDate: clean(row.judgmentDate),
-    uploadDate: clean(row.uploadDate),
-    disposalNature: clean(row.disposalNature),
-    judges: splitList(row.judges),
-    authoringJudge: clean(row.authoringJudge),
-    benchSize: toNumber(row.benchSize),
-    subjectTags: splitList(row.subjectTags),
-    sourceName: clean(row.sourceName) ?? "Imported Judgment Metadata",
-    sourceUrl: clean(row.sourceUrl),
-    confidence: clean(row.confidence) ?? "medium",
-    sample: row.sample === "true" ? true : undefined,
-  };
-
-  return judgmentRecordSchema.parse(normalized);
-}
-
-export async function loadCourtSnapshot(root: string): Promise<LoadedSource<CourtSnapshot>> {
-  const importPath = path.join(root, "data/imports/court-snapshot.json");
-  const samplePath = path.join(root, "data/seed/court-snapshot.sample.json");
-  const sourcePath = (await fileExists(importPath)) ? importPath : samplePath;
-  const sourceType = sourcePath === importPath ? "import" : "sample";
-
-  return {
-    data: courtSnapshotSchema.parse(await readJson<unknown>(sourcePath)),
-    sourcePath,
-    sourceType,
-  };
-}
-
-export async function loadJudgments(root: string): Promise<LoadedSource<JudgmentRecord[]>> {
-  const importJsonPath = path.join(root, "data/imports/judgments.json");
-  const importCsvPath = path.join(root, "data/imports/judgments.csv");
-  const samplePath = path.join(root, "data/seed/judgments.sample.json");
-
-  if (await fileExists(importJsonPath)) {
-    const input = await readJson<unknown>(importJsonPath);
-    if (!Array.isArray(input)) {
-      throw new Error("data/imports/judgments.json must contain an array.");
+    if ((char === "\n" || char === "\r") && !inQuotes) {
+      if (char === "\r" && next === "\n") {
+        index += 1;
+      }
+      row.push(cell);
+      if (row.some((value) => value.trim() !== "")) {
+        rows.push(row);
+      }
+      row = [];
+      cell = "";
+      continue;
     }
 
+    cell += char;
+  }
+
+  row.push(cell);
+  if (row.some((value) => value.trim() !== "")) {
+    rows.push(row);
+  }
+
+  const [headers, ...records] = rows;
+  if (!headers || headers.length === 0) {
+    throw new Error("CSV file has no header row.");
+  }
+
+  return records.map((record) =>
+    Object.fromEntries(
+      headers.map((header, index) => [header.trim(), record[index] ?? ""]),
+    ),
+  );
+}
+
+function loadJudgmentImport(root: string) {
+  const jsonPath = join(root, importPaths.judgmentsJson);
+  const csvPath = join(root, importPaths.judgmentsCsv);
+  const hasJson = existsSync(jsonPath);
+  const hasCsv = existsSync(csvPath);
+
+  if (!hasJson && !hasCsv) {
+    return null;
+  }
+
+  const records: JudgmentRecord[] = [];
+  const sourcePaths: string[] = [];
+
+  if (hasJson) {
+    const raw = readJson(jsonPath);
+    if (!Array.isArray(raw)) {
+      throw new Error(`${importPaths.judgmentsJson} must contain an array.`);
+    }
+    records.push(
+      ...raw.map((record) =>
+        normalizeJudgment(record as Record<string, unknown>, "import"),
+      ),
+    );
+    sourcePaths.push(importPaths.judgmentsJson);
+  }
+
+  if (hasCsv) {
+    const rawRows = parseCsv(readFileSync(csvPath, "utf8"));
+    records.push(
+      ...rawRows.map((record) => normalizeJudgment(record, "import")),
+    );
+    sourcePaths.push(importPaths.judgmentsCsv);
+  }
+
+  return {
+    records: judgmentsSchema.parse(records),
+    path: sourcePaths.join(", "),
+  };
+}
+
+function loadSampleJudgments(root: string) {
+  const sample = readJson(join(root, samplePaths.judgments));
+  if (!Array.isArray(sample)) {
+    throw new Error(`${samplePaths.judgments} must contain an array.`);
+  }
+
+  return judgmentsSchema.parse(
+    sample.map((record) =>
+      normalizeJudgment(record as Record<string, unknown>, "sample"),
+    ),
+  );
+}
+
+function loadCourtSnapshot(root: string) {
+  const importPath = join(root, importPaths.courtSnapshot);
+  if (existsSync(importPath)) {
     return {
-      data: input.map((record) => judgmentRecordSchema.parse(record)),
-      sourcePath: importJsonPath,
-      sourceType: "import",
+      record: courtSnapshotSchema.parse(readJson(importPath)),
+      source: {
+        mode: "import" as const,
+        path: importPaths.courtSnapshot,
+      },
     };
   }
 
-  if (await fileExists(importCsvPath)) {
-    const raw = await readFile(importCsvPath, "utf8");
-    const rows = parseCsv(raw);
+  return {
+    record: courtSnapshotSchema.parse(
+      readJson(join(root, samplePaths.courtSnapshot)),
+    ),
+    source: {
+      mode: "sample" as const,
+      path: samplePaths.courtSnapshot,
+    },
+  };
+}
 
-    if (rows.length > 0) {
-      return {
-        data: rows.map((row, index) => normalizeCsvJudgment(row, index)),
-        sourcePath: importCsvPath,
-        sourceType: "import",
-      };
-    }
-  }
+export function loadSourceData(root = process.cwd()): SourceData {
+  const courtSnapshot = loadCourtSnapshot(root);
+  const judgmentImport = loadJudgmentImport(root);
 
-  const sample = await readJson<unknown>(samplePath);
-  if (!Array.isArray(sample)) {
-    throw new Error("data/seed/judgments.sample.json must contain an array.");
+  if (judgmentImport) {
+    return {
+      courtSnapshot: courtSnapshot.record,
+      courtSnapshotSource: courtSnapshot.source,
+      judgments: judgmentImport.records,
+      judgmentsSource: {
+        mode: "import",
+        path: judgmentImport.path,
+      },
+    };
   }
 
   return {
-    data: sample.map((record) => judgmentRecordSchema.parse(record)),
-    sourcePath: samplePath,
-    sourceType: "sample",
+    courtSnapshot: courtSnapshot.record,
+    courtSnapshotSource: courtSnapshot.source,
+    judgments: loadSampleJudgments(root),
+    judgmentsSource: {
+      mode: "sample",
+      path: samplePaths.judgments,
+    },
   };
 }

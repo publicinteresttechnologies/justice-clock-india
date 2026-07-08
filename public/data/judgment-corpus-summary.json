@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-07-08T19:08:59.167Z",
+  "status": "import",
+  "court": "Supreme Court of India",
+  "records": 1474,
+  "earliestYear": 2000,
+  "latestYear": 2024,
+  "sourceNames": [
+    "IMLJD open dataset"
+  ],
+  "sourceNotes": [
+    "This is public judgment metadata, not a complete live court service.",
+    "Judge pages are public judgment metadata profiles and not a performance rating."
+  ]
+}

@@ -1,23 +1,35 @@
 {
-  "sourceName": "Sample Court Snapshot",
-  "sourceUrl": "https://example.com/sample-court-snapshot",
-  "capturedAt": "2026-06-17T00:00:00.000Z",
-  "reportingPeriod": "Sample month",
-  "totalPending": 92313,
-  "civilPending": 68120,
-  "criminalPending": 24193,
-  "institutedThisMonth": 6638,
-  "disposedThisMonth": 4735,
-  "oldCasesDisposedThisMonth": 128,
+  "sourceName": "Sample Source - Mock Supreme Court Clock",
+  "sourceUrl": "https://example.test/sample-court-clock",
+  "capturedAt": "2026-06-17T12:00:00.000Z",
+  "reportingPeriod": "Sample month June 2026",
+  "totalPending": 82640,
+  "civilPending": 54210,
+  "criminalPending": 28430,
+  "institutedThisMonth": 5120,
+  "disposedThisMonth": 5480,
+  "oldCasesDisposedThisMonth": 740,
   "coramPending": [
-    { "benchSize": "2-judge", "pending": 81000 },
-    { "benchSize": "3-judge", "pending": 7200 },
-    { "benchSize": "5+ judge", "pending": 4113 }
+    {
+      "benchSize": "Single judge",
+      "pending": 620
+    },
+    {
+      "benchSize": "Two judges",
+      "pending": 61300
+    },
+    {
+      "benchSize": "Three judges",
+      "pending": 14220
+    },
+    {
+      "benchSize": "Constitution bench",
+      "pending": 6500
+    }
   ],
   "confidence": "experimental",
   "notes": [
     "Sample data only.",
-    "Replace with official/generated data before public launch."
-  ],
-  "sample": true
+    "These values are fake and must not be treated as official Supreme Court data."
+  ]
 }
