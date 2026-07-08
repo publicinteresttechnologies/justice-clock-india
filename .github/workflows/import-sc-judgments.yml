@@ -7,7 +7,6 @@ on:
     paths:
       - ".github/workflows/import-sc-judgments.yml"
       - "scripts/import-sc-metadata.py"
-      - "package.json"
 
 permissions:
   contents: write
@@ -17,10 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
 
       - uses: actions/setup-python@v5
         with:
@@ -32,21 +27,10 @@ jobs:
       - name: Import Supreme Court metadata corpus from public S3
         run: python3 scripts/import-sc-metadata.py --start-year 2000 --end-year 2024 --fail-under 10000
 
-      - name: Install Node dependencies
-        run: npm install
-
-      - name: Validate and build generated data
-        run: |
-          npm run validate:data
-          npm run compute:metrics
-
-      - name: Build app
-        run: npm run build
-
       - name: Commit generated Supreme Court corpus data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/imports/judgments.csv data/research/sc-judgments-2000-2024.csv data/research/sc-corpus-summary.json public/data/*.json
+          git add data/imports/judgments.csv data/research/sc-judgments-2000-2024.csv data/research/sc-corpus-summary.json public/data/sc-corpus-summary.json
           git commit -m "Import Supreme Court judgment metadata corpus" || echo "No data changes to commit"
           git push
