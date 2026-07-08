@@ -1,0 +1,33 @@
+name: Pull Supreme Court judgment PDFs
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_year:
+        description: First decision year to pull
+        required: true
+        default: "1950"
+      end_year:
+        description: Last decision year to pull
+        required: true
+        default: "1950"
+      limit:
+        description: Optional max PDFs for this run
+        required: false
+        default: "100"
+
+permissions:
+  contents: read
+
+jobs:
+  pull-pdfs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Pull PDFs from public corpus
+        run: python3 scripts/pull-sc-pdfs.py --start-year ${{ inputs.start_year }} --end-year ${{ inputs.end_year }} --limit ${{ inputs.limit }}
+      - name: Show pull summary
+        run: du -sh data/raw/sc-pdfs || true
