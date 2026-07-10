@@ -8,8 +8,8 @@
     "lastUpdated": "2026-06-18T00:00:00.000Z"
   },
   {
-    "sourceName": "IMLJD open dataset",
-    "sourceUrl": "https://github.com/joyboseroy/imljd",
+    "sourceName": "Indian Supreme Court Judgments public S3 metadata (37125 records)",
+    "sourceUrl": "https://indian-supreme-court-judgments.s3.amazonaws.com/metadata/parquet/year=1950/metadata.parquet",
     "proves": "Public judgment metadata used to generate case-type and bench-associated metrics.",
     "doesNotProve": "Official judgment counts, official authorship, final attribution, or legal conclusions.",
     "confidence": "medium",

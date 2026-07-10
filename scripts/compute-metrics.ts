@@ -14,11 +14,14 @@ import {
 } from "../src/lib/schemas";
 import {
   approximateCaseAgeYears,
+  buildDelaySummaryFromJudgments,
+  getJudgmentYear,
   isOlderThan10Years,
   isOlderThan5Years,
   median,
   percentile,
   safeClearanceRate,
+  weakestConfidence,
 } from "../src/lib/metrics";
 import { loadSourceData } from "./lib/source-data";
 
@@ -57,27 +60,29 @@ function increment(map: Record<string, number>, key: string) {
   map[key] = (map[key] ?? 0) + 1;
 }
 
-function judgmentYear(record: JudgmentRecord) {
-  return (record.decisionDate ?? record.judgmentDate ?? "").slice(0, 4);
-}
-
 function sourcesFor(records: JudgmentRecord[]): Source[] {
-  const sources = new Map<string, Source>();
+  const sources = new Map<string, Source & { count: number }>();
   for (const record of records) {
-    const key = record.sourceUrl ?? record.sourceName;
-    sources.set(key, {
-      sourceName: record.sourceName,
-      sourceUrl: record.sourceUrl,
-    });
+    const key = record.sourceName;
+    const existing = sources.get(key);
+    if (existing) {
+      existing.count += 1;
+      existing.sourceUrl = existing.sourceUrl ?? record.sourceUrl;
+    } else {
+      sources.set(key, {
+        sourceName: record.sourceName,
+        sourceUrl: record.sourceUrl,
+        count: 1,
+      });
+    }
   }
-  return [...sources.values()];
-}
-
-function weakestConfidence(records: JudgmentRecord[]): Confidence {
-  if (records.some((record) => record.confidence === "experimental")) {
-    return "experimental";
-  }
-  return records[0]?.confidence ?? "experimental";
+  return [...sources.values()].map((source) => ({
+    sourceName:
+      source.count > 1
+        ? `${source.sourceName} (${source.count} records)`
+        : source.sourceName,
+    sourceUrl: source.sourceUrl,
+  }));
 }
 
 function agesFor(records: JudgmentRecord[]) {
@@ -94,9 +99,9 @@ function buildCaseTypes(judgments: JudgmentRecord[]) {
       const ages = agesFor(records);
       const judgmentsByYear: Record<string, number> = {};
       for (const record of records) {
-        const year = judgmentYear(record);
-        if (year) {
-          increment(judgmentsByYear, year);
+        const year = getJudgmentYear(record);
+        if (year !== null) {
+          increment(judgmentsByYear, String(year));
         }
       }
 
@@ -136,9 +141,9 @@ function buildJudges(judgments: JudgmentRecord[]) {
       const benchSizeProfile: Record<string, number> = {};
 
       for (const record of benchRecords) {
-        const year = judgmentYear(record);
-        if (year) {
-          increment(judgmentsByYear, year);
+        const year = getJudgmentYear(record);
+        if (year !== null) {
+          increment(judgmentsByYear, String(year));
         }
         increment(caseTypeMix, record.caseType);
         if (record.benchSize > 0) {
@@ -218,8 +223,8 @@ function buildSiteSummary(
   sourceCount: number,
 ) {
   const years = judgments
-    .map((record) => Number(judgmentYear(record)))
-    .filter((year) => Number.isInteger(year));
+    .map((record) => getJudgmentYear(record))
+    .filter((year): year is number => year !== null && Number.isInteger(year));
 
   return {
     productName: "Justice Clock India" as const,
@@ -263,8 +268,8 @@ function buildNjdgLatest(courtSnapshot: CourtSnapshot, sourceMode: "import" | "s
 
 function buildJudgmentCorpusSummary(judgments: JudgmentRecord[], sourceMode: "import" | "sample") {
   const years = judgments
-    .map((record) => Number(judgmentYear(record)))
-    .filter((year) => Number.isInteger(year));
+    .map((record) => getJudgmentYear(record))
+    .filter((year): year is number => year !== null && Number.isInteger(year));
   const sources = sourcesFor(judgments);
 
   return {
@@ -278,45 +283,6 @@ function buildJudgmentCorpusSummary(judgments: JudgmentRecord[], sourceMode: "im
     sourceNotes: [
       "This is public judgment metadata, not a complete live court service.",
       "Judge pages are public judgment metadata profiles and not a performance rating.",
-    ],
-  };
-}
-
-function buildDelaySummary(judgments: JudgmentRecord[], sourceMode: "import" | "sample") {
-  const usable = judgments
-    .map((record) => ({ record, age: approximateCaseAgeYears(record) }))
-    .filter((item): item is { record: JudgmentRecord; age: number } => item.age !== null);
-  const ages = usable.map((item) => item.age);
-
-  return {
-    generatedAt: new Date().toISOString(),
-    status: sourceMode === "sample" ? "sample" : "generated",
-    source: sourceMode === "sample" ? "sample judgments" : "generated from judgment metadata",
-    recordsAnalyzed: judgments.length,
-    recordsUsable: usable.length,
-    recordsExcluded: judgments.length - usable.length,
-    confidenceBreakdown: {
-      high: 0,
-      "medium-high": 0,
-      medium: usable.length,
-      low: 0,
-      experimental: sourceMode === "sample" ? usable.length : 0,
-    },
-    medianDelayYears: median(ages),
-    p75DelayYears: percentile(ages, 75),
-    p90DelayYears: percentile(ages, 90),
-    longestDelays: usable
-      .sort((a, b) => b.age - a.age)
-      .slice(0, 20)
-      .map(({ record, age }) => ({
-        id: record.id,
-        caseTitle: record.caseTitle,
-        judgmentDate: record.judgmentDate ?? record.decisionDate,
-        estimatedDelayYears: age,
-      })),
-    limitations: [
-      "This is historical estimated time-to-judgment, not exact delay of all cases.",
-      "Estimates use case year or diary year when exact filing or registration dates are unavailable.",
     ],
   };
 }
@@ -436,7 +402,16 @@ function compute() {
     join(outDir, "judgment-corpus-summary.json"),
     buildJudgmentCorpusSummary(judgments, judgmentsSource.mode),
   );
-  writeJson(join(outDir, "delay-summary.json"), buildDelaySummary(judgments, judgmentsSource.mode));
+  writeJson(
+    join(outDir, "delay-summary.json"),
+    buildDelaySummaryFromJudgments(
+      judgments,
+      judgmentsSource.mode === "sample"
+        ? "sample judgments"
+        : `generated from ${judgmentsSource.path}`,
+      judgmentsSource.mode === "sample" ? "sample" : "generated",
+    ),
+  );
   writeJson(join(outDir, "research-index.json"), buildResearchIndex(root));
 
   console.log("OK: generated public/data/court-clock.json");

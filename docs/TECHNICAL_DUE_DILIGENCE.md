@@ -17,6 +17,8 @@ NJDG/public snapshots can support a dated current backlog snapshot when the sour
 
 Judgment metadata can support public judgment metadata profiles, case-type grouping, bench-associated metrics, and estimated historical time-to-judgment research. It cannot support legal advice, case prediction, or responsibility for delay.
 
+The Indian Supreme Court Judgments public S3 metadata mirror cannot be treated as supporting historical time-to-judgment estimates unless a record exposes a genuine filing, registration, diary, or structured case-year signal. Citation years and judgment years are not start-date signals. Records without a credible start signal are excluded from delay estimates.
+
 Research outputs can support transparent exploratory analysis. Draft posts must not publish unsupported headline numbers.
 
 ## Architecture
@@ -38,6 +40,8 @@ The live snapshot layer is a dated backlog signal.
 The judgment corpus layer is public judgment metadata.
 
 The delay layer is historical estimated time-to-judgment, not exact delay of all cases. Estimates should use the strongest available start signal and report limitations.
+
+If a source only exposes citation year or decision year, delay outputs must report zero usable records for that source rather than presenting a fabricated median of zero.
 
 ## Confidence Rules
 

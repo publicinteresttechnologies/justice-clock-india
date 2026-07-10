@@ -1,12 +1,14 @@
 import { describe, expect, it } from "vitest";
 import {
   approximateCaseAgeYears,
+  getJudgmentYear,
   getYear,
   isOlderThan10Years,
   isOlderThan5Years,
   median,
   percentile,
   safeClearanceRate,
+  weakestConfidence,
 } from "./metrics";
 import type { JudgmentRecord } from "./schemas";
 
@@ -54,6 +56,25 @@ describe("metric utilities", () => {
     expect(getYear("2026-06-17")).toBe(2026);
     expect(getYear(null)).toBeNull();
     expect(getYear("not-a-date")).toBeNull();
+  });
+
+  it("returns null when a judgment has no usable date", () => {
+    expect(
+      getJudgmentYear({
+        decisionDate: null,
+        judgmentDate: null,
+      }),
+    ).toBeNull();
+  });
+
+  it("returns the weakest confidence in a mixed record group", () => {
+    expect(
+      weakestConfidence([
+        { confidence: "high" },
+        { confidence: "low" },
+        { confidence: "medium" },
+      ]),
+    ).toBe("low");
   });
 
   it("calculates approximate case-age-to-judgment gap", () => {

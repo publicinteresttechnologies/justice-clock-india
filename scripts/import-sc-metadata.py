@@ -117,8 +117,8 @@ def split_judges(value: str) -> list[str]:
     return [item.strip() for item in re.split(r";|,|\band\b", value) if item.strip()]
 
 
-def infer_case_type(case_number: str) -> str:
-    text = case_number.upper()
+def infer_case_type(*values: str) -> str:
+    text = " ".join(value for value in values if value).upper()
     if "CRIMINAL APPEAL" in text:
         return "Criminal Appeal"
     if "CIVIL APPEAL" in text:
@@ -129,7 +129,53 @@ def infer_case_type(case_number: str) -> str:
         return "SLP Civil"
     if "WRIT" in text:
         return "Writ Petition"
-    return "Supreme Court judgment"
+    return "Unclassified"
+
+
+def year_from_date(value: str) -> str:
+    normalized = date_text(value)
+    return normalized[:4] if normalized else ""
+
+
+def plausible_start_year(value: str) -> str:
+    if not value:
+        return ""
+    match = re.search(r"\b(19[5-9]\d|20\d{2})\b", value)
+    return match.group(1) if match else ""
+
+
+def first_start_year(row: dict) -> tuple[str, str]:
+    date_year = year_from_date(
+        first_text(
+            row,
+            "filing_date",
+            "registration_date",
+            "registered_on",
+            "institution_date",
+            "diary_date",
+        )
+    )
+    if date_year:
+        return date_year, "date"
+
+    structured_year = first_text(
+        row,
+        "diary_year",
+        "filing_year",
+        "registration_year",
+        "institution_year",
+        "case_year",
+    )
+    structured_year = plausible_start_year(structured_year)
+    if structured_year:
+        return structured_year, "structured-year"
+
+    diary_number = first_text(row, "diary_number", "diary_no", "cnr")
+    diary_year = plausible_start_year(diary_number)
+    if diary_year:
+        return diary_year, "diary-number"
+
+    return "", ""
 
 
 def normalize(row: dict) -> dict | None:
@@ -143,10 +189,16 @@ def normalize(row: dict) -> dict | None:
     if not title or not decision_date or not judges:
         return None
 
-    case_year = first_text(row, "year", "case_year")
-    if not case_year:
-        case_year_match = re.search(r"\b(19[5-9]\d|20\d{2})\b", case_number or title)
-        case_year = case_year_match.group(1) if case_year_match else decision_date[:4]
+    start_year, start_signal = first_start_year(row)
+    explicit_case_type = first_text(
+        row,
+        "case_type",
+        "caseType",
+        "case_category",
+        "category",
+        "docket_type",
+        "matter_type",
+    )
 
     source_path = first_text(row, "path", "source_path")
     source_url = first_text(row, "metadata_url", "source_url") or SOURCE_URL.format(
@@ -157,10 +209,10 @@ def normalize(row: dict) -> dict | None:
         "id": f"sc-meta-{case_id or re.sub(r'[^A-Za-z0-9]+', '-', title)[:80]}",
         "caseTitle": title,
         "caseNumber": case_number,
-        "diaryNumber": first_text(row, "cnr", "diary_number"),
-        "diaryYear": "",
-        "caseType": infer_case_type(case_number),
-        "caseYear": case_year,
+        "diaryNumber": first_text(row, "diary_number", "diary_no", "cnr"),
+        "diaryYear": start_year if start_signal in {"date", "diary-number"} else "",
+        "caseType": explicit_case_type or infer_case_type(case_number, title),
+        "caseYear": start_year if start_signal == "structured-year" else "",
         "decisionDate": decision_date,
         "judgmentDate": decision_date,
         "uploadDate": "",
@@ -168,7 +220,15 @@ def normalize(row: dict) -> dict | None:
         "judges": "; ".join(judges),
         "authoringJudge": first_text(row, "author_judge", "authoring_judge"),
         "benchSize": str(len(judges)),
-        "subjectTags": "supreme court; public judgment metadata",
+        "subjectTags": "; ".join(
+            item
+            for item in [
+                "supreme court",
+                "public judgment metadata",
+                f"start signal: {start_signal}" if start_signal else "no start-year signal",
+            ]
+            if item
+        ),
         "sourceName": SOURCE_NAME,
         "sourceUrl": source_url,
         "confidence": "medium",

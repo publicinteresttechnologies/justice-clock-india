@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-07-10T04:44:31.084Z",
+  "status": "generated",
+  "source": "data/imports/judgments.csv",
+  "recordsAnalyzed": 37125,
+  "recordsUsable": 0,
+  "recordsExcluded": 37125,
+  "confidenceBreakdown": {
+    "high": 0,
+    "medium-high": 0,
+    "medium": 0,
+    "low": 0,
+    "experimental": 0
+  },
+  "medianDelayYears": null,
+  "p75DelayYears": null,
+  "p90DelayYears": null,
+  "longestDelays": [],
+  "limitations": [
+    "This is historical estimated time-to-judgment, not exact delay of all cases.",
+    "Records are excluded when no credible filing, registration, diary, or structured case-year signal is available."
+  ]
+}

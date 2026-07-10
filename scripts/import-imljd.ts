@@ -287,7 +287,7 @@ function normalizeRecord(raw: unknown): CsvRecord | null {
     diaryNumber: String(firstValue(record, ["diaryNumber", "diary_number", "cnr"])),
     diaryYear: yearFrom(registrationDate),
     caseType: String(firstValue(record, ["case_type", "caseType"]) || inferCaseType(record, caseTitle)),
-    caseYear: String(firstValue(record, ["year", "_year"]) || yearFrom(caseTitle) || yearFrom(registrationDate)),
+    caseYear: yearFrom(registrationDate),
     decisionDate: judgmentDate,
     judgmentDate,
     uploadDate: "",
