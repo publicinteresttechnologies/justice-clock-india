@@ -5,7 +5,7 @@ import { JudgmentExplorer } from "@/components/JudgmentExplorer";
 import { MetricCard } from "@/components/MetricCard";
 import { SampleDataWarning } from "@/components/SampleDataWarning";
 import { SectionHeader } from "@/components/SectionHeader";
-import { dataMetadata, judgments } from "@/lib/data";
+import { dataMetadata } from "@/lib/data";
 import { formatNumber } from "@/lib/format";
 
 function sourceLabel(mode: "import" | "sample") {
@@ -123,7 +123,7 @@ export default function DataPage() {
           description="Search case title, judge name, or case type and filter by bench size or year."
           title="Judgment Records"
         />
-        <JudgmentExplorer judgments={judgments} />
+        <JudgmentExplorer />
       </section>
 
       <CaveatBox>

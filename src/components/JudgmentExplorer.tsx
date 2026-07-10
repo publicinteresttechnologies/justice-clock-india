@@ -1,14 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import { DataCard } from "@/components/DataCard";
 import { approximateCaseAgeYears } from "@/lib/metrics";
 import type { JudgmentRecord } from "@/lib/schemas";
-
-type JudgmentExplorerProps = {
-  judgments: JudgmentRecord[];
-};
 
 type SortMode = "recent" | "longest-gap" | "largest-bench" | "case-title";
 
@@ -22,13 +18,44 @@ function displayDate(record: JudgmentRecord) {
   return record.decisionDate ?? record.judgmentDate ?? "Date unavailable";
 }
 
-export function JudgmentExplorer({ judgments }: JudgmentExplorerProps) {
+export function JudgmentExplorer() {
+  const [judgments, setJudgments] = useState<JudgmentRecord[]>([]);
+  const [loadState, setLoadState] = useState<"loading" | "ready" | "error">(
+    "loading",
+  );
   const [query, setQuery] = useState("");
   const [caseType, setCaseType] = useState("all");
   const [judge, setJudge] = useState("all");
   const [benchSize, setBenchSize] = useState("all");
   const [year, setYear] = useState("all");
   const [sortMode, setSortMode] = useState<SortMode>("recent");
+
+  useEffect(() => {
+    let active = true;
+
+    fetch("/data/judgments.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Unable to load judgments.json: ${response.status}`);
+        }
+        return response.json() as Promise<JudgmentRecord[]>;
+      })
+      .then((records) => {
+        if (active) {
+          setJudgments(records);
+          setLoadState("ready");
+        }
+      })
+      .catch(() => {
+        if (active) {
+          setLoadState("error");
+        }
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const caseTypes = useMemo(
     () => uniqueSorted(judgments.map((record) => record.caseType)),
@@ -100,6 +127,23 @@ export function JudgmentExplorer({ judgments }: JudgmentExplorerProps) {
 
   return (
     <div className="space-y-4">
+      {loadState === "loading" ? (
+        <DataCard title="Loading judgment records">
+          <p className="text-sm leading-6 text-slate-700">
+            Loading the public judgment metadata corpus from static JSON.
+          </p>
+        </DataCard>
+      ) : null}
+
+      {loadState === "error" ? (
+        <DataCard title="Judgment records unavailable">
+          <p className="text-sm leading-6 text-slate-700">
+            The public judgment metadata JSON could not be loaded in this
+            browser session.
+          </p>
+        </DataCard>
+      ) : null}
+
       <label className="block">
         <span className="text-sm font-medium text-slate-700">Search</span>
         <input

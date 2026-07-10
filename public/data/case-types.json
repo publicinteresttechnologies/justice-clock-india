@@ -1,8 +1,51 @@
 [
   {
+    "slug": "criminal-appeal",
+    "caseType": "Criminal Appeal",
+    "sampleSize": 2,
+    "medianCaseAgeYears": null,
+    "p25CaseAgeYears": null,
+    "p75CaseAgeYears": null,
+    "p90CaseAgeYears": null,
+    "oldestCaseAgeYears": null,
+    "judgmentsByYear": {
+      "2019": 1,
+      "2021": 1
+    },
+    "confidence": "medium",
+    "caveat": "This measures the gap between case/diary year and judgment year where exact filing-to-disposal dates are not available. It is an approximation, not a prediction for your case.",
+    "sources": [
+      {
+        "sourceName": "Indian Supreme Court Judgments public S3 metadata (2 records)",
+        "sourceUrl": "https://indian-supreme-court-judgments.s3.amazonaws.com/metadata/parquet/year=2019/metadata.parquet"
+      }
+    ]
+  },
+  {
+    "slug": "slp-civil",
+    "caseType": "SLP Civil",
+    "sampleSize": 1,
+    "medianCaseAgeYears": null,
+    "p25CaseAgeYears": null,
+    "p75CaseAgeYears": null,
+    "p90CaseAgeYears": null,
+    "oldestCaseAgeYears": null,
+    "judgmentsByYear": {
+      "2019": 1
+    },
+    "confidence": "medium",
+    "caveat": "This measures the gap between case/diary year and judgment year where exact filing-to-disposal dates are not available. It is an approximation, not a prediction for your case.",
+    "sources": [
+      {
+        "sourceName": "Indian Supreme Court Judgments public S3 metadata",
+        "sourceUrl": "https://indian-supreme-court-judgments.s3.amazonaws.com/metadata/parquet/year=2019/metadata.parquet"
+      }
+    ]
+  },
+  {
     "slug": "unclassified",
     "caseType": "Unclassified",
-    "sampleSize": 37125,
+    "sampleSize": 37116,
     "medianCaseAgeYears": null,
     "p25CaseAgeYears": null,
     "p75CaseAgeYears": null,
@@ -68,7 +111,7 @@
       "2006": 1029,
       "2007": 1323,
       "2008": 1508,
-      "2009": 1324,
+      "2009": 1322,
       "2010": 896,
       "2011": 847,
       "2012": 622,
@@ -77,10 +120,10 @@
       "2015": 746,
       "2016": 570,
       "2017": 719,
-      "2018": 766,
-      "2019": 1045,
-      "2020": 568,
-      "2021": 706,
+      "2018": 764,
+      "2019": 1043,
+      "2020": 567,
+      "2021": 704,
       "2022": 1012,
       "2023": 846,
       "2024": 777
@@ -89,8 +132,32 @@
     "caveat": "This measures the gap between case/diary year and judgment year where exact filing-to-disposal dates are not available. It is an approximation, not a prediction for your case.",
     "sources": [
       {
-        "sourceName": "Indian Supreme Court Judgments public S3 metadata (37125 records)",
+        "sourceName": "Indian Supreme Court Judgments public S3 metadata (37116 records)",
         "sourceUrl": "https://indian-supreme-court-judgments.s3.amazonaws.com/metadata/parquet/year=1950/metadata.parquet"
+      }
+    ]
+  },
+  {
+    "slug": "writ-petition",
+    "caseType": "Writ Petition",
+    "sampleSize": 6,
+    "medianCaseAgeYears": null,
+    "p25CaseAgeYears": null,
+    "p75CaseAgeYears": null,
+    "p90CaseAgeYears": null,
+    "oldestCaseAgeYears": null,
+    "judgmentsByYear": {
+      "2009": 2,
+      "2018": 2,
+      "2020": 1,
+      "2021": 1
+    },
+    "confidence": "medium",
+    "caveat": "This measures the gap between case/diary year and judgment year where exact filing-to-disposal dates are not available. It is an approximation, not a prediction for your case.",
+    "sources": [
+      {
+        "sourceName": "Indian Supreme Court Judgments public S3 metadata (6 records)",
+        "sourceUrl": "https://indian-supreme-court-judgments.s3.amazonaws.com/metadata/parquet/year=2009/metadata.parquet"
       }
     ]
   }

@@ -4,10 +4,10 @@
   "reportingPeriod": "As captured from NJDG Supreme Court dashboard on 2026-06-18",
   "totalPending": 90694,
   "totalJudgments": 37125,
-  "caseTypeCount": 1,
+  "caseTypeCount": 4,
   "judgeProfileCount": 272,
   "sourceCount": 2,
   "earliestJudgmentYear": 1950,
   "latestJudgmentYear": 2024,
-  "generatedAt": "2026-07-10T04:57:36.038Z"
+  "generatedAt": "2026-07-10T05:28:16.964Z"
 }
