@@ -1,136 +1,102 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { DataCard } from "@/components/DataCard";
+import {
+  judgmentDisplayDate,
+  type JudgmentQueryResponse,
+  type JudgmentSortMode,
+} from "@/lib/judgment-query";
 import { approximateCaseAgeYears } from "@/lib/metrics";
-import type { JudgmentRecord } from "@/lib/schemas";
 
-type SortMode = "recent" | "longest-gap" | "largest-bench" | "case-title";
-
-function uniqueSorted(values: string[]) {
-  return [...new Set(values.filter(Boolean))].sort((a, b) =>
-    a.localeCompare(b),
-  );
-}
-
-function displayDate(record: JudgmentRecord) {
-  return record.decisionDate ?? record.judgmentDate ?? "Date unavailable";
-}
+const EMPTY_RESULT: JudgmentQueryResponse = {
+  items: [],
+  total: 0,
+  page: 1,
+  pageSize: 25,
+  pageCount: 1,
+  filters: {
+    caseTypes: [],
+    judges: [],
+    benchSizes: [],
+    years: [],
+  },
+};
 
 export function JudgmentExplorer() {
-  const [judgments, setJudgments] = useState<JudgmentRecord[]>([]);
+  const [result, setResult] = useState<JudgmentQueryResponse>(EMPTY_RESULT);
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">(
     "loading",
   );
   const [query, setQuery] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
   const [caseType, setCaseType] = useState("all");
   const [judge, setJudge] = useState("all");
   const [benchSize, setBenchSize] = useState("all");
   const [year, setYear] = useState("all");
-  const [sortMode, setSortMode] = useState<SortMode>("recent");
+  const [sortMode, setSortMode] = useState<JudgmentSortMode>("recent");
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    let active = true;
+    const timer = window.setTimeout(() => {
+      setDebouncedQuery(query.trim());
+      setPage(1);
+    }, 250);
+    return () => window.clearTimeout(timer);
+  }, [query]);
 
-    fetch("/data/judgments.json")
+  useEffect(() => {
+    const controller = new AbortController();
+    const params = new URLSearchParams({
+      page: String(page),
+      pageSize: "25",
+      sort: sortMode,
+    });
+
+    if (debouncedQuery) params.set("query", debouncedQuery);
+    if (caseType !== "all") params.set("caseType", caseType);
+    if (judge !== "all") params.set("judge", judge);
+    if (benchSize !== "all") params.set("benchSize", benchSize);
+    if (year !== "all") params.set("year", year);
+
+    setLoadState("loading");
+    fetch(`/api/judgments?${params.toString()}`, {
+      signal: controller.signal,
+    })
       .then((response) => {
         if (!response.ok) {
-          throw new Error(`Unable to load judgments.json: ${response.status}`);
+          throw new Error(`Unable to load judgment records: ${response.status}`);
         }
-        return response.json() as Promise<JudgmentRecord[]>;
+        return response.json() as Promise<JudgmentQueryResponse>;
       })
-      .then((records) => {
-        if (active) {
-          setJudgments(records);
-          setLoadState("ready");
-        }
+      .then((nextResult) => {
+        setResult(nextResult);
+        if (nextResult.page !== page) setPage(nextResult.page);
+        setLoadState("ready");
       })
-      .catch(() => {
-        if (active) {
-          setLoadState("error");
-        }
+      .catch((error: unknown) => {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+        setLoadState("error");
       });
 
-    return () => {
-      active = false;
-    };
-  }, []);
+    return () => controller.abort();
+  }, [benchSize, caseType, debouncedQuery, judge, page, sortMode, year]);
 
-  const caseTypes = useMemo(
-    () => uniqueSorted(judgments.map((record) => record.caseType)),
-    [judgments],
-  );
-  const judges = useMemo(
-    () => uniqueSorted(judgments.flatMap((record) => record.judges)),
-    [judgments],
-  );
-  const benchSizes = useMemo(
-    () =>
-      uniqueSorted(
-        judgments
-          .map((record) => String(record.benchSize))
-          .filter((value) => value !== "0"),
-      ).sort((a, b) => Number(a) - Number(b)),
-    [judgments],
-  );
-  const years = useMemo(
-    () =>
-      uniqueSorted(
-        judgments
-          .map((record) => displayDate(record).slice(0, 4))
-          .filter((value) => /^\d{4}$/.test(value)),
-      ).sort((a, b) => Number(b) - Number(a)),
-    [judgments],
-  );
+  const firstVisible = result.total === 0 ? 0 : (result.page - 1) * result.pageSize + 1;
+  const lastVisible = Math.min(result.page * result.pageSize, result.total);
 
-  const filtered = useMemo(() => {
-    const cleanQuery = query.toLowerCase().trim();
-
-    return judgments
-      .filter((record) => {
-        const searchable = [
-          record.caseTitle,
-          record.caseNumber ?? "",
-          record.caseType,
-          ...record.judges,
-        ]
-          .join(" ")
-          .toLowerCase();
-
-        return (
-          (!cleanQuery || searchable.includes(cleanQuery)) &&
-          (caseType === "all" || record.caseType === caseType) &&
-          (judge === "all" || record.judges.includes(judge)) &&
-          (benchSize === "all" ||
-            (record.benchSize > 0 && String(record.benchSize) === benchSize)) &&
-          (year === "all" || displayDate(record).startsWith(year))
-        );
-      })
-      .sort((a, b) => {
-        if (sortMode === "longest-gap") {
-          return (
-            (approximateCaseAgeYears(b) ?? -1) -
-            (approximateCaseAgeYears(a) ?? -1)
-          );
-        }
-        if (sortMode === "largest-bench") {
-          return b.benchSize - a.benchSize;
-        }
-        if (sortMode === "case-title") {
-          return a.caseTitle.localeCompare(b.caseTitle);
-        }
-
-        return displayDate(b).localeCompare(displayDate(a));
-      });
-  }, [benchSize, caseType, judge, judgments, query, sortMode, year]);
+  function resetPageAnd(setter: (value: string) => void, value: string) {
+    setter(value);
+    setPage(1);
+  }
 
   return (
     <div className="space-y-4">
       {loadState === "loading" ? (
         <DataCard title="Loading judgment records">
           <p className="text-sm leading-6 text-slate-700">
-            Loading the public judgment metadata corpus from static JSON.
+            Loading a paginated slice of the public judgment metadata corpus.
           </p>
         </DataCard>
       ) : null}
@@ -138,8 +104,8 @@ export function JudgmentExplorer() {
       {loadState === "error" ? (
         <DataCard title="Judgment records unavailable">
           <p className="text-sm leading-6 text-slate-700">
-            The public judgment metadata JSON could not be loaded in this
-            browser session.
+            The paginated judgment endpoint could not be loaded in this browser
+            session.
           </p>
         </DataCard>
       ) : null}
@@ -156,33 +122,49 @@ export function JudgmentExplorer() {
       </label>
 
       <div className="grid grid-cols-2 gap-3">
-        <SelectField label="Case type" onChange={setCaseType} value={caseType}>
+        <SelectField
+          label="Case type"
+          onChange={(value) => resetPageAnd(setCaseType, value)}
+          value={caseType}
+        >
           <option value="all">All case types</option>
-          {caseTypes.map((item) => (
+          {result.filters.caseTypes.map((item) => (
             <option key={item} value={item}>
               {item}
             </option>
           ))}
         </SelectField>
-        <SelectField label="Judge" onChange={setJudge} value={judge}>
+        <SelectField
+          label="Judge"
+          onChange={(value) => resetPageAnd(setJudge, value)}
+          value={judge}
+        >
           <option value="all">All judges</option>
-          {judges.map((item) => (
+          {result.filters.judges.map((item) => (
             <option key={item} value={item}>
               {item}
             </option>
           ))}
         </SelectField>
-        <SelectField label="Bench size" onChange={setBenchSize} value={benchSize}>
+        <SelectField
+          label="Bench size"
+          onChange={(value) => resetPageAnd(setBenchSize, value)}
+          value={benchSize}
+        >
           <option value="all">All bench sizes</option>
-          {benchSizes.map((item) => (
+          {result.filters.benchSizes.map((item) => (
             <option key={item} value={item}>
               {item}
             </option>
           ))}
         </SelectField>
-        <SelectField label="Year" onChange={setYear} value={year}>
+        <SelectField
+          label="Year"
+          onChange={(value) => resetPageAnd(setYear, value)}
+          value={year}
+        >
           <option value="all">All years</option>
-          {years.map((item) => (
+          {result.filters.years.map((item) => (
             <option key={item} value={item}>
               {item}
             </option>
@@ -192,7 +174,10 @@ export function JudgmentExplorer() {
 
       <SelectField
         label="Sort"
-        onChange={(value) => setSortMode(value as SortMode)}
+        onChange={(value) => {
+          setSortMode(value as JudgmentSortMode);
+          setPage(1);
+        }}
         value={sortMode}
       >
         <option value="recent">Most recent judgments</option>
@@ -201,15 +186,15 @@ export function JudgmentExplorer() {
         <option value="case-title">Case title</option>
       </SelectField>
 
-      <p className="text-sm font-medium text-slate-600">
-        Showing {filtered.length} of {judgments.length} judgment records
+      <p aria-live="polite" className="text-sm font-medium text-slate-600">
+        Showing {firstVisible}-{lastVisible} of {result.total} judgment records
       </p>
 
       <div className="space-y-3">
-        {filtered.slice(0, 25).map((record) => (
+        {result.items.map((record) => (
           <DataCard
             key={record.id}
-            subtitle={`${record.caseType} - ${displayDate(record)}`}
+            subtitle={`${record.caseType} - ${judgmentDisplayDate(record) || "Date unavailable"}`}
             title={record.caseTitle}
           >
             <div className="space-y-2 text-sm leading-6 text-slate-700">
@@ -230,6 +215,28 @@ export function JudgmentExplorer() {
             </div>
           </DataCard>
         ))}
+      </div>
+
+      <div className="flex items-center justify-between gap-3">
+        <button
+          className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 disabled:cursor-not-allowed disabled:opacity-40"
+          disabled={loadState === "loading" || result.page <= 1}
+          onClick={() => setPage((current) => Math.max(1, current - 1))}
+          type="button"
+        >
+          Previous
+        </button>
+        <span className="text-sm font-medium text-slate-600">
+          Page {result.page} of {result.pageCount}
+        </span>
+        <button
+          className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 disabled:cursor-not-allowed disabled:opacity-40"
+          disabled={loadState === "loading" || result.page >= result.pageCount}
+          onClick={() => setPage((current) => current + 1)}
+          type="button"
+        >
+          Next
+        </button>
       </div>
     </div>
   );
