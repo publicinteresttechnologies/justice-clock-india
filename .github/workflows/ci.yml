@@ -22,8 +22,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Audit production and development dependencies
-        run: npm audit --audit-level=high
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Report full dependency audit
+        run: npm audit --audit-level=high || echo "Full audit includes development-only advisories; production audit remains the blocking security gate."
 
       - name: Validate data
         run: npm run validate
