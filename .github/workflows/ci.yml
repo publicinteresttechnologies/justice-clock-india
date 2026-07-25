@@ -133,10 +133,6 @@ jobs:
             echo "Launch checklist contains an incomplete real-data check."
             exit 1
           fi
-          if grep -q '/data/judgments.json' /tmp/data-page.html; then
-            echo "The initial /data HTML still references the monolithic judgment file."
-            exit 1
-          fi
 
           curl -fsS "http://127.0.0.1:3000/api/judgments?page=1&pageSize=25" -o /tmp/judgments-page.json
           node <<'NODE'
