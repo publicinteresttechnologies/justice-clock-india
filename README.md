@@ -12,7 +12,7 @@ npm run data:build
 npm run dev
 ```
 
-The project also works with pnpm, but CI and public setup instructions can use npm scripts.
+The project also works with pnpm, but CI and public setup instructions use npm scripts.
 
 ## Add Real Judgments CSV
 
@@ -39,66 +39,32 @@ CSV conventions:
 
 You may also provide `data/imports/judgments.json` as an array of judgment records with the same field names.
 
-## Optional eCourtsIndia API Adapter
+## Optional Supreme Court Sources Import
 
-The eCourtsIndia API adapter is an optional private/offline ingestion backend. Treat it as third-party and unverified unless official API documentation proves the endpoint, fields, and terms. Next.js pages must not call the third-party API directly.
+The optional source importer reads Supreme Court of India public judgment metadata from the configured Hugging Face mirror and merges new records into `data/imports/judgments.csv`. It is a manual/offline ingestion step and is not called from Next.js pages.
 
-The adapter must only import Supreme Court of India public judgment metadata. Do not broaden it to High Courts, District Courts, tribunals, or all-India court data.
-
-Intended flow:
-
-```text
-eCourtsIndia API
--> private import script
--> raw saved responses
--> normalized Supreme Court of India records
--> data/imports/judgments.csv
--> npm run data:build
--> public static JSON
--> website
-```
-
-Create a private `.env` from `.env.example`:
+Run a narrow year range first:
 
 ```bash
-ECOURTS_API_KEY=
-ECOURTS_API_BASE_URL=https://ecourtsindia.com/api
-ECOURTS_IMPORT_LIMIT=100
-```
-
-Do not use `NEXT_PUBLIC_` for the API key. It is server/private ingestion configuration only.
-
-Run a dry run:
-
-```bash
-npm run import:ecourts -- --dry-run --limit=10
-```
-
-Write the normalized import CSV:
-
-```bash
-npm run import:ecourts -- --limit=100
+npm run import:supreme-court-sources -- --from-year=2024 --to-year=2024
 npm run data:build
 ```
 
-The importer saves raw responses under `data/raw/ecourts/` and writes normalized records to `data/imports/judgments.csv` by default. It intentionally requests Supreme Court of India judgment metadata only. Endpoint names and query parameters are placeholders until official API documentation is confirmed, so review `scripts/import-ecourts-api.ts` before first production use.
+The shorter alias is equivalent:
 
-Files produced by the adapter and data pipeline:
+```bash
+npm run import:sources -- --from-year=2024 --to-year=2024
+```
 
-- `data/raw/ecourts/*.json`
-- `data/imports/judgments.csv`
-- `public/data/judgments.json`
-- `public/data/justice-clock-data.json`
+The importer stores raw source archives under `data/raw/hf-supreme-court-judgments/`, normalizes Supreme Court metadata, deduplicates against committed imports, and writes the merged CSV to `data/imports/judgments.csv`.
 
 ## IMLJD Supreme Court Seed Dataset
 
 IMLJD is the Indian Matrimonial Litigation Judgment Dataset, an open research dataset for matrimonial and criminal-family litigation analysis. Its public materials describe 3,613 Indian court judgments in total, including a Supreme Court of India subset of 1,474 cases covering 2000-2024.
 
-Justice Clock India uses IMLJD as the first real-data seed because it provides structured public judgment metadata and a Supreme Court subset that can be normalized into the existing generated metrics pipeline.
+Justice Clock India uses IMLJD as a subject-specific enrichment source. It is not full Supreme Court coverage, and generated metrics from IMLJD must be read as subject-specific public judgment metadata rather than whole-court metrics.
 
-Important scope limitation: IMLJD is not full Supreme Court coverage. It is a subject-specific Supreme Court matrimonial/family-related litigation subset. Generated metrics from this seed must be read as subject-specific public judgment metadata, not whole-court metrics.
-
-Run the import:
+Run the importer directly:
 
 ```bash
 npm run import:imljd
@@ -106,7 +72,7 @@ npm run data:build
 npm run build
 ```
 
-The importer attempts to load IMLJD from Hugging Face or GitHub, saves the raw source under `data/raw/imljd/`, filters to Supreme Court of India records, excludes Karnataka High Court records, and writes normalized records to `data/imports/judgments.csv`. The IMLJD `case_id` citation is stored in the Justice Clock `caseNumber` column.
+The importer attempts to load IMLJD from Hugging Face or GitHub, saves the raw source under `data/raw/imljd/`, filters to Supreme Court of India records, excludes Karnataka High Court records, and writes normalized records to `data/imports/judgments.csv`. The scheduled refresh workflow backs up the full corpus first, refreshes IMLJD from its independent upstream source, and merges only refreshed IMLJD rows back into the full corpus.
 
 If remote download is unavailable, place a local fallback at either:
 
@@ -114,20 +80,6 @@ If remote download is unavailable, place a local fallback at either:
 data/imports/imljd.json
 data/imports/imljd.csv
 data/imports/imljd/sc_enriched.csv
-```
-
-After `npm run data:build`, the bundled metadata includes:
-
-```json
-{
-  "datasetScope": {
-    "name": "IMLJD Supreme Court subset",
-    "court": "Supreme Court of India",
-    "coverage": "Subject-specific matrimonial/criminal-family litigation subset",
-    "years": "2000-2024",
-    "fullCourtCoverage": false
-  }
-}
 ```
 
 ## Add Real Court Snapshot JSON
@@ -152,22 +104,22 @@ This reads `data/imports/court-snapshot.json`, writes `public/data/njdg-latest.j
 
 ## Supreme Court Corpus Import
 
-The long-form Supreme Court metadata importer is manual/workflow-only. It must not run inside Vercel build.
+The long-form Supreme Court metadata importer is manual/workflow-only. It must not run inside the Vercel build.
 
 ```bash
 npm run import:sc-metadata
 ```
 
-The script reads public S3 parquet files from:
+The script reads public S3 Parquet files from:
 
 ```text
 https://indian-supreme-court-judgments.s3.amazonaws.com/metadata/parquet/year=YYYY/metadata.parquet
 ```
 
-It writes:
+The committed import currently covers 1950-2024 and writes:
 
 - `data/imports/judgments.csv`
-- `data/research/sc-judgments-2000-2024.csv`
+- `data/research/sc-judgments-1950-2024.csv`
 - `data/research/sc-corpus-summary.json`
 - `public/data/sc-corpus-summary.json`
 
@@ -198,7 +150,7 @@ npm run data
 ```
 
 - `npm run validate` validates import files when present, otherwise validates sample fallback.
-- `npm run compute` generates public data files.
+- `npm run compute` generates public data files, including the lightweight shared metadata file.
 - `npm run data` runs validation and generation together.
 - `npm run build` also runs validation and generation before the Next.js build.
 
@@ -206,15 +158,16 @@ If an import file exists but is malformed, validation fails loudly. The app only
 
 ## Scheduled Refresh
 
-The repository includes a scheduled GitHub Actions workflow at `.github/workflows/data-refresh.yml`.
+The recurring GitHub Actions workflow is `.github/workflows/regenerate-public-data.yml`.
 
-It runs the validated data pipeline and production build on a cron schedule and can also be started manually from GitHub Actions. The workflow does not scrape or create source records by itself; it refreshes the generated public JSON files from committed/imported data sources.
+It runs at 03:17 UTC on the first day of each month and can also be started manually from GitHub Actions. The workflow refreshes IMLJD rows from the independent Hugging Face/GitHub source, preserves non-IMLJD corpus rows, regenerates public JSON, runs tests/lint/build, and commits changed generated files. If the upstream IMLJD source is temporarily unavailable, it keeps the committed import snapshot instead of downloading the live site's own output.
 
 ## Generated Files
 
 The data pipeline writes:
 
 - `public/data/justice-clock-data.json`
+- `public/data/data-metadata.json`
 - `public/data/court-clock.json`
 - `public/data/njdg-latest.json`
 - `public/data/case-types.json`
@@ -226,7 +179,9 @@ The data pipeline writes:
 - `public/data/sources.json`
 - `public/data/site-summary.json`
 
-The bundled dataset at `public/data/justice-clock-data.json` includes source metadata and record counts.
+The bundled dataset at `public/data/justice-clock-data.json` remains available as a complete generated export. Shared page modules import `data-metadata.json` and the smaller aggregate files instead of statically importing the bundled dataset or full judgment list.
+
+The `/data` judgment explorer queries `/api/judgments`, which reads the committed static judgment JSON on the server and returns only the requested filtered page. The browser does not download `public/data/judgments.json` in full.
 
 Important metadata fields:
 
@@ -234,17 +189,17 @@ Important metadata fields:
 - `metadata.counts`: reports judgment records, case-type groups, and judge profiles.
 - `metadata.publicLaunchReady`: `true` only when both source streams are imports, sample mode is off, and judgment records are present.
 
-`npm run build` does not download the corpus or scrape public court sites. Build uses the generated/static data already present in the repository. Run import scripts manually or from a scheduled workflow, then run `npm run data:build`.
+`npm run build` does not download the corpus or scrape public court sites. Build uses generated/static data already present in the repository. Run import scripts manually or from the scheduled workflow, then run `npm run data:build`.
 
 ## Sample Mode
 
-Open `/data` or inspect `public/data/justice-clock-data.json`.
+Open `/data` or inspect `public/data/data-metadata.json`.
 
 The app is still in sample mode when:
 
-- `metadata.sample` is `true`
-- `metadata.sources.courtSnapshot.mode` is `sample`
-- `metadata.sources.judgments.mode` is `sample`
+- `sample` is `true`
+- `sources.courtSnapshot.mode` is `sample`
+- `sources.judgments.mode` is `sample`
 
 Sample mode is off only when both the court snapshot and judgment records come from imports.
 
@@ -273,21 +228,25 @@ Check `/launch-checklist` and confirm:
 ## Verification
 
 ```bash
+npm install
+npm audit --audit-level=high
 npm run validate
 npm run compute
 npm test
 npm run lint
 npm run build
+npm run start
 ```
 
 Acceptance smoke checks:
 
-- `/data` renders
-- `/launch-checklist` renders
-- `public/data/judgments.json` is generated
-- `public/data/justice-clock-data.json` includes source metadata and record counts
-- Sample fallback remains available
-- Malformed import files fail loudly
+- `/`, `/data`, `/launch-checklist`, `/judges`, a judge profile, `/case-types`, a case-type profile, `/methodology`, `/sources`, `/about`, and `/research` return HTTP 200.
+- `/api/judgments?page=1&pageSize=25` returns at most 25 records and stays below 500KB.
+- `/launch-checklist` reports the real-data checks as complete.
+- `public/data/judgments.json` is generated.
+- `public/data/justice-clock-data.json` includes source metadata and record counts.
+- Sample fallback remains available.
+- Malformed import files fail loudly.
 
 ## Safety Notes
 
