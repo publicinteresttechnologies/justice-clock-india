@@ -1,6 +1,6 @@
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
-import { basename, dirname, join } from "node:path";
+import { dirname, join } from "node:path";
 
 const OUTPUT_PATH = "data/imports/judgments.csv";
 const RAW_DIR = "data/raw/hf-supreme-court-judgments";
@@ -338,10 +338,10 @@ async function main() {
   );
   writeCsv(merged);
 
-  console.log(`OK: scanned ${imported} records from ${HF_SOURCE_NAME}`);
-  console.log(`OK: wrote ${merged.length} total normalized judgment records to ${OUTPUT_PATH}`);
+  console.log(`OK: fetched ${imported} records across ${fromYear}-${toYear}`);
+  console.log(`OK: wrote ${merged.length} deduplicated Supreme Court records to ${OUTPUT_PATH}`);
   if (errors.length > 0) {
-    console.log(`WARN: ${errors.length} yearly source archives were unavailable or malformed.`);
+    console.log(`WARN: ${errors.length} year imports failed.`);
   }
 }
 
