@@ -91,7 +91,10 @@ jobs:
           retention-days: 3
 
       - name: Build site
-        run: npm run build
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee /tmp/build.log
 
       - name: Smoke test routes and judgment payload
         shell: bash
@@ -113,8 +116,6 @@ jobs:
 
           for path in \
             / \
-            /data \
-            /launch-checklist \
             /judges \
             "/judges/$JUDGE_SLUG" \
             /case-types \
@@ -125,6 +126,17 @@ jobs:
             /research; do
             curl -fsS "http://127.0.0.1:3000$path" > /dev/null
           done
+
+          curl -fsS http://127.0.0.1:3000/data -o /tmp/data-page.html
+          curl -fsS http://127.0.0.1:3000/launch-checklist -o /tmp/launch-checklist.html
+          if grep -q '>Missing<' /tmp/launch-checklist.html; then
+            echo "Launch checklist contains an incomplete real-data check."
+            exit 1
+          fi
+          if grep -q '/data/judgments.json' /tmp/data-page.html; then
+            echo "The initial /data HTML still references the monolithic judgment file."
+            exit 1
+          fi
 
           curl -fsS "http://127.0.0.1:3000/api/judgments?page=1&pageSize=25" -o /tmp/judgments-page.json
           node <<'NODE'
@@ -137,5 +149,41 @@ jobs:
           if (body.byteLength >= 500_000) {
             throw new Error(`Initial judgment payload was ${body.byteLength} bytes; expected under 500KB.`);
           }
-          console.log(`Judgment API initial payload: ${body.byteLength} bytes`);
+          const dataPageBytes = fs.statSync('/tmp/data-page.html').size;
+          if (dataPageBytes >= 500_000) {
+            throw new Error(`/data HTML was ${dataPageBytes} bytes; expected under 500KB.`);
+          }
+          const packageJson = require('./package.json');
+          const productionAudit = JSON.parse(fs.readFileSync('/tmp/npm-audit-production.json', 'utf8'));
+          const fullAudit = JSON.parse(fs.readFileSync('/tmp/npm-audit-full.json', 'utf8'));
+          const highCritical = (report) => Object.entries(report.vulnerabilities || {})
+            .filter(([, value]) => ['high', 'critical'].includes(value.severity))
+            .map(([name, value]) => ({ name, severity: value.severity, fixAvailable: value.fixAvailable }));
+          const summary = {
+            nextVersion: packageJson.dependencies.next,
+            reactVersion: packageJson.dependencies.react,
+            judgmentApiPayloadBytes: body.byteLength,
+            dataPageHtmlBytes: dataPageBytes,
+            judgmentItemsReturned: json.items.length,
+            judgmentTotal: json.total,
+            launchChecklistComplete: true,
+            productionHighCriticalAuditFindings: highCritical(productionAudit),
+            fullTreeHighCriticalAuditFindings: highCritical(fullAudit),
+          };
+          fs.writeFileSync('/tmp/verification-summary.json', JSON.stringify(summary, null, 2));
+          console.log(JSON.stringify(summary, null, 2));
           NODE
+
+      - name: Upload verification evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: verification-evidence
+          path: |
+            /tmp/verification-summary.json
+            /tmp/build.log
+            /tmp/npm-audit-production.json
+            /tmp/npm-audit-full.json
+            /tmp/data-page.html
+            /tmp/launch-checklist.html
+            /tmp/judgments-page.json
+          retention-days: 14
