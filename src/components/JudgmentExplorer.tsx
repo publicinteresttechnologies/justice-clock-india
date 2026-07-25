@@ -60,7 +60,6 @@ export function JudgmentExplorer() {
     if (benchSize !== "all") params.set("benchSize", benchSize);
     if (year !== "all") params.set("year", year);
 
-    setLoadState("loading");
     fetch(`/api/judgments?${params.toString()}`, {
       signal: controller.signal,
     })
@@ -86,7 +85,12 @@ export function JudgmentExplorer() {
   const firstVisible = result.total === 0 ? 0 : (result.page - 1) * result.pageSize + 1;
   const lastVisible = Math.min(result.page * result.pageSize, result.total);
 
+  function beginLoad() {
+    setLoadState("loading");
+  }
+
   function resetPageAnd(setter: (value: string) => void, value: string) {
+    beginLoad();
     setter(value);
     setPage(1);
   }
@@ -114,7 +118,10 @@ export function JudgmentExplorer() {
         <span className="text-sm font-medium text-slate-700">Search</span>
         <input
           className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-950 outline-none focus:border-amber-700"
-          onChange={(event) => setQuery(event.target.value)}
+          onChange={(event) => {
+            beginLoad();
+            setQuery(event.target.value);
+          }}
           placeholder="Case title, judge name, or case type"
           type="search"
           value={query}
@@ -175,6 +182,7 @@ export function JudgmentExplorer() {
       <SelectField
         label="Sort"
         onChange={(value) => {
+          beginLoad();
           setSortMode(value as JudgmentSortMode);
           setPage(1);
         }}
@@ -221,7 +229,10 @@ export function JudgmentExplorer() {
         <button
           className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={loadState === "loading" || result.page <= 1}
-          onClick={() => setPage((current) => Math.max(1, current - 1))}
+          onClick={() => {
+            beginLoad();
+            setPage((current) => Math.max(1, current - 1));
+          }}
           type="button"
         >
           Previous
@@ -232,7 +243,10 @@ export function JudgmentExplorer() {
         <button
           className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={loadState === "loading" || result.page >= result.pageCount}
-          onClick={() => setPage((current) => current + 1)}
+          onClick={() => {
+            beginLoad();
+            setPage((current) => current + 1);
+          }}
           type="button"
         >
           Next
