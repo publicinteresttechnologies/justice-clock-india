@@ -30,6 +30,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Refresh Supreme Court NJDG snapshot
+        shell: bash
+        run: |
+          cp data/imports/court-snapshot.json /tmp/court-snapshot-before-refresh.json
+          if npm run import:njdg -- --fetch-live; then
+            echo "Refreshed NJDG snapshot from the official public Supreme Court dashboard."
+          else
+            echo "WARN: live NJDG refresh failed; retaining the last committed snapshot."
+            cp /tmp/court-snapshot-before-refresh.json data/imports/court-snapshot.json
+            npm run import:njdg
+          fi
+
       - name: Refresh IMLJD rows from the independent upstream dataset
         shell: bash
         run: |
@@ -56,7 +68,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/imports/judgments.csv public/data/*.json
+          git add data/imports/court-snapshot.json data/imports/judgments.csv data/research/njdg-snapshots public/data/*.json
           if git diff --cached --quiet; then
             echo "No public data changes to commit."
           else
