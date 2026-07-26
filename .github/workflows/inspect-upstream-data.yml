@@ -9,13 +9,16 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   inspect:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: agent/fix-six-verified-problems
+          persist-credentials: true
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -23,7 +26,7 @@ jobs:
       - name: Inspect parquet schemas and candidate fields
         run: |
           python <<'PY' > /tmp/parquet-report.txt
-          import json, re
+          import json
           from urllib.request import urlopen
           import pandas as pd
 
@@ -64,7 +67,6 @@ jobs:
           PY
       - name: Inspect current NJDG Supreme Court page
         run: |
-          set -x
           curl -L --retry 3 --connect-timeout 30 --max-time 120 -A 'Mozilla/5.0' 'https://scdg.sci.gov.in/scnjdg/?p=home' -o /tmp/njdg.html || true
           curl -L --retry 3 --connect-timeout 30 --max-time 120 -A 'Mozilla/5.0' 'https://njdg.ecourts.gov.in/scnjdg/' -o /tmp/njdg-old.html || true
           {
@@ -72,15 +74,18 @@ jobs:
             wc -c /tmp/njdg.html /tmp/njdg-old.html 2>/dev/null || true
             echo '=== RELEVANT TEXT CURRENT ==='
             grep -Eio '.{0,120}(Pending Civil Cases|Pending Criminal Cases|Instituted in last month|Disposed In Last Month|more than 10 years old|3 Judge|5 Judge|7 Judge).{0,180}' /tmp/njdg.html | head -100 || true
+            echo '=== PAGE TEXT ==='
+            sed -E 's/<[^>]+>/ /g; s/&nbsp;/ /g; s/[[:space:]]+/ /g' /tmp/njdg.html | fold -w 240 | grep -Ei 'pending|instituted|disposed|judge|coram|civil|criminal' | head -200 || true
             echo '=== ENDPOINT/JS CLUES ==='
             grep -Eio '(src|href|url)[=:]["'"'][^"'"']+' /tmp/njdg.html | head -200 || true
           } > /tmp/njdg-report.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          name: upstream-inspection
-          path: |
-            /tmp/parquet-report.txt
-            /tmp/njdg-report.txt
-            /tmp/njdg.html
-            /tmp/njdg-old.html
-          retention-days: 3
+      - name: Commit inspection reports
+        run: |
+          mkdir -p data/research/upstream-inspection
+          cp /tmp/parquet-report.txt data/research/upstream-inspection/parquet-report.txt
+          cp /tmp/njdg-report.txt data/research/upstream-inspection/njdg-report.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/research/upstream-inspection
+          git commit -m "Record upstream inspection results" || exit 0
+          git push origin HEAD:agent/fix-six-verified-problems
