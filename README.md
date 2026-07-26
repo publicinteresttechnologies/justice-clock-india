@@ -82,25 +82,28 @@ data/imports/imljd.csv
 data/imports/imljd/sc_enriched.csv
 ```
 
-## Add Real Court Snapshot JSON
+## Supreme Court NJDG Snapshot
 
-Create `data/imports/court-snapshot.json`. You can start from:
+`data/imports/court-snapshot.json` stores the latest timestamped Supreme Court of India NJDG snapshot. The snapshot includes:
 
-```text
-data/imports/court-snapshot.template.json
-```
+- total, civil, and criminal pendency
+- cases instituted and disposed in the last month
+- cases over ten years old disposed in the last month
+- coram-wise totals for 3, 5, 7, 9, 11, and more-than-11-judge matters
 
-The court snapshot should include source name, source URL, capture time, reporting period, pending counts, monthly institution/disposal movement, bench-size pending counts, confidence, and notes.
-
-Current court-wide snapshot caveat: the imported Supreme Court snapshot uses the National Judicial Data Grid Supreme Court dashboard total pendency. Civil/criminal split, institution/disposal movement, old-case count, and bench-size split were not available in the captured source. Missing fields are stored as `null` and shown as missing, not estimated.
-
-To normalize the current manually captured snapshot into the public NJDG layer:
+Normalize the committed snapshot:
 
 ```bash
 npm run import:njdg
 ```
 
-This reads `data/imports/court-snapshot.json`, writes `public/data/njdg-latest.json`, and stores a dated snapshot under `data/research/njdg-snapshots/`.
+Fetch and validate a fresh snapshot from the official public NJDG Supreme Court At a Glance page:
+
+```bash
+npm run import:njdg -- --fetch-live
+```
+
+The live importer verifies that civil plus criminal pendency equals total pendency, requires the monthly movement and coram tables, writes `public/data/njdg-latest.json`, and stores a dated snapshot under `data/research/njdg-snapshots/`. It parses public HTML; it does not claim access to an official API. If the scheduled live capture fails, the workflow retains and republishes the last committed snapshot rather than fabricating values.
 
 ## Supreme Court Corpus Import
 
@@ -116,14 +119,16 @@ The script reads public S3 Parquet files from:
 https://indian-supreme-court-judgments.s3.amazonaws.com/metadata/parquet/year=YYYY/metadata.parquet
 ```
 
-The committed import currently covers 1950-2024 and writes:
+The upstream structured schema does not expose a dedicated case-type field across the historical corpus. The importer therefore parses the source `Case No` value embedded in `raw_html` and maps recognised docket formats such as Civil Appeal, Criminal Appeal, SLP, Writ, Review, Contempt, Transfer, Curative, Arbitration, and miscellaneous applications. Records without a defensible docket signal remain `Unclassified`.
+
+The committed import covers 1950-2024 and writes:
 
 - `data/imports/judgments.csv`
 - `data/research/sc-judgments-1950-2024.csv`
 - `data/research/sc-corpus-summary.json`
 - `public/data/sc-corpus-summary.json`
 
-The workflow environment must install `pandas` and `pyarrow` before running this importer. PDFs, tar archives, and large raw exports should not be committed to the app repository.
+The corpus summary records classified/unclassified counts, classification rate, and the full case-type distribution. The workflow environment must install `pandas` and `pyarrow` before running this importer. PDFs, tar archives, and large raw exports should not be committed to the app repository.
 
 ## Delay Estimate Research
 
@@ -160,7 +165,7 @@ If an import file exists but is malformed, validation fails loudly. The app only
 
 The recurring GitHub Actions workflow is `.github/workflows/regenerate-public-data.yml`.
 
-It runs at 03:17 UTC on the first day of each month and can also be started manually from GitHub Actions. The workflow refreshes IMLJD rows from the independent Hugging Face/GitHub source, preserves non-IMLJD corpus rows, regenerates public JSON, runs tests/lint/build, and commits changed generated files. If the upstream IMLJD source is temporarily unavailable, it keeps the committed import snapshot instead of downloading the live site's own output.
+It runs at 03:17 UTC on the first day of each month and can also be started manually from GitHub Actions. The workflow first attempts to capture a complete NJDG Supreme Court snapshot from the official public dashboard, then refreshes IMLJD rows from the independent Hugging Face/GitHub source, preserves non-IMLJD corpus rows, regenerates public JSON, runs tests/lint/build, and commits changed generated files. If either upstream source is temporarily unavailable, it keeps the relevant committed snapshot instead of downloading the live site's own output or inventing data.
 
 ## Generated Files
 
@@ -243,6 +248,8 @@ Acceptance smoke checks:
 - `/`, `/data`, `/launch-checklist`, `/judges`, a judge profile, `/case-types`, a case-type profile, `/methodology`, `/sources`, `/about`, and `/research` return HTTP 200.
 - `/api/judgments?page=1&pageSize=25` returns at most 25 records and stays below 500KB.
 - `/launch-checklist` reports the real-data checks as complete.
+- `public/data/case-types.json` contains multiple substantive case types and less than 95% of records are `Unclassified`.
+- The homepage displays NJDG civil/criminal pendency, monthly institution/disposal, old-case disposal, and coram-wise values from the committed snapshot.
 - `public/data/judgments.json` is generated.
 - `public/data/justice-clock-data.json` includes source metadata and record counts.
 - Sample fallback remains available.
