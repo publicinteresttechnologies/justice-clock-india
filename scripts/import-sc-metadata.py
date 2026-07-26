@@ -13,7 +13,9 @@ import csv
 import json
 import re
 import sys
+from collections import Counter
 from datetime import datetime, timezone
+from html import unescape
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import urlopen
@@ -100,6 +102,28 @@ def first_text(row: dict, *names: str) -> str:
     return ""
 
 
+def decode_html(value: str) -> str:
+    if not value:
+        return ""
+    text = re.sub(r"<[^>]+>", " ", value)
+    return re.sub(r"\s+", " ", unescape(text)).strip()
+
+
+def detail_field(raw_html: str, label: str) -> str:
+    if not raw_html:
+        return ""
+    escaped = re.escape(label)
+    patterns = [
+        rf"{escaped}\s*:?\s*</span>\s*<font[^>]*>([\s\S]*?)</font>",
+        rf"{escaped}\s*:?\s*</[^>]+>\s*<[^>]+>([\s\S]*?)</[^>]+>",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, raw_html, flags=re.IGNORECASE)
+        if match:
+            return decode_html(match.group(1))
+    return ""
+
+
 def date_text(value: str) -> str:
     if not value:
         return ""
@@ -119,16 +143,69 @@ def split_judges(value: str) -> list[str]:
 
 def infer_case_type(*values: str) -> str:
     text = " ".join(value for value in values if value).upper()
-    if "CRIMINAL APPEAL" in text:
+    text = re.sub(r"[._/-]+", " ", text)
+    text = re.sub(r"\s+", " ", text).strip()
+
+    if re.search(r"\bCRIMINAL APPEAL", text):
         return "Criminal Appeal"
-    if "CIVIL APPEAL" in text:
+    if re.search(r"\bCIVIL APPEAL", text):
         return "Civil Appeal"
-    if "SLP" in text and "CRIMINAL" in text:
+
+    if re.search(r"SPECIAL LEAVE (?:PETITION|TO APPEAL).*(?:CRIMINAL|CRL)", text) or re.search(
+        r"\bSLP\s*(?:CRL|CRIMINAL)\b", text
+    ):
         return "SLP Criminal"
-    if "SLP" in text:
+    if re.search(r"SPECIAL LEAVE (?:PETITION|TO APPEAL).*(?:CIVIL|\(C\))", text) or re.search(
+        r"\bSLP\s*(?:C|CIVIL)\b", text
+    ):
         return "SLP Civil"
-    if "WRIT" in text:
+    if "SPECIAL LEAVE PETITION" in text or "SPECIAL LEAVE TO APPEAL" in text or re.search(
+        r"\bSLP\b", text
+    ):
+        return "SLP (Unspecified)"
+
+    if "WRIT PETITION" in text:
+        if re.search(r"WRIT PETITION.*(?:CRIMINAL|CRL)", text):
+            return "Writ Petition Criminal"
+        if re.search(r"WRIT PETITION.*(?:CIVIL|\bC\b)", text):
+            return "Writ Petition Civil"
         return "Writ Petition"
+
+    for phrase, label in [
+        ("REVIEW PETITION", "Review Petition"),
+        ("CONTEMPT PETITION", "Contempt Petition"),
+        ("TRANSFER PETITION", "Transfer Petition"),
+        ("CURATIVE PETITION", "Curative Petition"),
+    ]:
+        if phrase in text:
+            if re.search(rf"{phrase}.*(?:CRIMINAL|CRL)", text):
+                return f"{label} Criminal"
+            if re.search(rf"{phrase}.*(?:CIVIL|\bC\b)", text):
+                return f"{label} Civil"
+            return label
+
+    if "ARBITRATION PETITION" in text:
+        return "Arbitration Petition"
+    if "MISCELLANEOUS APPLICATION" in text:
+        return "Miscellaneous Application"
+    if "INTERLOCUTORY APPLICATION" in text:
+        return "Interlocutory Application"
+    if "ORIGINAL SUIT" in text or "CIVIL ORIGINAL" in text:
+        return "Original Suit"
+    if "ELECTION PETITION" in text:
+        return "Election Petition"
+    if "SPECIAL REFERENCE" in text or "PRESIDENTIAL REFERENCE" in text:
+        return "Reference"
+    if "CRIMINAL MISCELLANEOUS" in text:
+        return "Criminal Miscellaneous Petition"
+    if "CIVIL MISCELLANEOUS" in text:
+        return "Civil Miscellaneous Petition"
+    if re.search(r"\bCRIMINAL PETITION", text):
+        return "Criminal Petition"
+    if re.search(r"\bCIVIL PETITION", text):
+        return "Civil Petition"
+    if re.search(r"\bAPPEAL\b", text):
+        return "Appeal (Unspecified)"
     return "Unclassified"
 
 
@@ -178,10 +255,26 @@ def first_start_year(row: dict) -> tuple[str, str]:
     return "", ""
 
 
+def unique_join(*values: str) -> str:
+    seen: set[str] = set()
+    output: list[str] = []
+    for value in values:
+        cleaned = value.strip()
+        if cleaned and cleaned not in seen:
+            seen.add(cleaned)
+            output.append(cleaned)
+    return " | ".join(output)
+
+
 def normalize(row: dict) -> dict | None:
+    raw_html = first_text(row, "raw_html")
     title = first_text(row, "title", "case_title", "caseTitle", "name")
     case_id = first_text(row, "case_id", "id", "path")
-    case_number = first_text(row, "case_number", "case_no", "caseNumber", "citation")
+    raw_case_number = first_text(row, "case_number", "case_no", "caseNumber") or detail_field(
+        raw_html, "Case No"
+    )
+    citation = first_text(row, "citation")
+    neutral_citation = first_text(row, "nc_display", "neutral_citation")
     decision_date = date_text(first_text(row, "decision_date", "judgment_date", "date"))
     judges_text = first_text(row, "judges", "judge", "coram", "bench")
     judges = split_judges(judges_text)
@@ -199,6 +292,9 @@ def normalize(row: dict) -> dict | None:
         "docket_type",
         "matter_type",
     )
+    case_type = infer_case_type(explicit_case_type, raw_case_number)
+    if explicit_case_type and case_type == "Unclassified":
+        case_type = explicit_case_type
 
     source_path = first_text(row, "path", "source_path")
     source_url = first_text(row, "metadata_url", "source_url") or SOURCE_URL.format(
@@ -208,15 +304,17 @@ def normalize(row: dict) -> dict | None:
     return {
         "id": f"sc-meta-{case_id or re.sub(r'[^A-Za-z0-9]+', '-', title)[:80]}",
         "caseTitle": title,
-        "caseNumber": case_number,
-        "diaryNumber": first_text(row, "diary_number", "diary_no", "cnr"),
+        "caseNumber": unique_join(raw_case_number, neutral_citation, citation),
+        "diaryNumber": first_text(row, "diary_number", "diary_no") or detail_field(
+            raw_html, "Diary No"
+        ),
         "diaryYear": start_year if start_signal in {"date", "diary-number"} else "",
-        "caseType": explicit_case_type or infer_case_type(case_number, title),
+        "caseType": case_type,
         "caseYear": start_year if start_signal == "structured-year" else "",
         "decisionDate": decision_date,
         "judgmentDate": decision_date,
         "uploadDate": "",
-        "disposalNature": first_text(row, "disposal_nature", "outcome"),
+        "disposalNature": first_text(row, "disposal_nature", "outcome", "description"),
         "judges": "; ".join(judges),
         "authoringJudge": first_text(row, "author_judge", "authoring_judge"),
         "benchSize": str(len(judges)),
@@ -226,6 +324,7 @@ def normalize(row: dict) -> dict | None:
                 "supreme court",
                 "public judgment metadata",
                 f"start signal: {start_signal}" if start_signal else "no start-year signal",
+                "case type parsed from source case number" if raw_case_number else "case type unavailable",
             ]
             if item
         ),
@@ -277,6 +376,9 @@ def main() -> None:
     research_records = [{**record, "sourcePath": record.get("_sourcePath", "")} for record in records]
     write_csv(research_csv, research_records, research_headers)
 
+    case_type_counts = Counter(record["caseType"] for record in records)
+    unclassified_records = case_type_counts.get("Unclassified", 0)
+    classified_records = len(records) - unclassified_records
     summary = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "sourceName": SOURCE_NAME,
@@ -287,8 +389,16 @@ def main() -> None:
         "researchCsv": str(research_csv.relative_to(ROOT)),
         "appCsv": str(IMPORT_CSV.relative_to(ROOT)),
         "rawRowsByYear": raw_rows_by_year,
+        "caseTypeClassification": {
+            "classifiedRecords": classified_records,
+            "unclassifiedRecords": unclassified_records,
+            "classificationRate": round(classified_records / len(records), 6),
+            "counts": dict(case_type_counts.most_common()),
+            "method": "Parsed from the source raw_html Case No field; explicit structured case-type fields are used when present.",
+        },
         "notes": [
             "This is public judgment metadata, not a live court service.",
+            "The upstream parquet schema does not expose a dedicated case-type field across the corpus; case type is parsed from the source Case No text embedded in raw_html.",
             "PDFs and tar archives are not committed to the app repository.",
             "Full judgment text should be fetched later only for targeted research questions.",
         ],
@@ -298,6 +408,10 @@ def main() -> None:
     SUMMARY_JSON.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     PUBLIC_SUMMARY_JSON.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     print(f"OK: wrote {len(records)} Supreme Court records to {IMPORT_CSV}")
+    print(
+        f"OK: classified {classified_records}/{len(records)} records "
+        f"({classified_records / len(records):.2%}); unclassified={unclassified_records}"
+    )
     print(f"OK: wrote research CSV to {research_csv}")
 
 
