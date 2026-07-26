@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T12:38:04.175198+00:00",
+  "generatedAt": "2026-07-26T12:46:12.035956+00:00",
   "sourceName": "Indian Supreme Court Judgments public S3 metadata",
   "sourceUrl": "https://indian-supreme-court-judgments.s3.amazonaws.com/",
   "court": "Supreme Court of India",
@@ -85,6 +85,7 @@
     "2024": 782
   },
   "caseTypeClassification": {
+    "parserVersion": 2,
     "classifiedRecords": 36910,
     "unclassifiedRecords": 215,
     "classificationRate": 0.994209,
