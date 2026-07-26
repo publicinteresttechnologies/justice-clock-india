@@ -10,12 +10,15 @@
       "1975": 66
     },
     "caseTypeMix": {
-      "Unclassified": 84
+      "Civil Appeal": 78,
+      "Writ Petition Criminal": 2,
+      "Criminal Appeal": 4
     },
     "subjectMix": {
       "supreme court": 84,
       "public judgment metadata": 84,
-      "no start-year signal": 84
+      "no start-year signal": 84,
+      "case type parsed from source case number": 84
     },
     "benchSizeProfile": {
       "2 judge bench": 3,
@@ -48,12 +51,15 @@
       "1985": 2
     },
     "caseTypeMix": {
-      "Unclassified": 6
+      "Civil Appeal": 4,
+      "Writ Petition Civil": 1,
+      "Criminal Appeal": 1
     },
     "subjectMix": {
       "supreme court": 6,
       "public judgment metadata": 6,
-      "no start-year signal": 6
+      "no start-year signal": 6,
+      "case type parsed from source case number": 6
     },
     "benchSizeProfile": {
       "3 judge bench": 3,
@@ -89,12 +95,16 @@
       "1981": 9
     },
     "caseTypeMix": {
-      "Unclassified": 67
+      "Civil Appeal": 56,
+      "SLP Criminal": 1,
+      "Criminal Appeal": 7,
+      "Writ Petition Civil": 3
     },
     "subjectMix": {
       "supreme court": 67,
       "public judgment metadata": 67,
-      "no start-year signal": 67
+      "no start-year signal": 67,
+      "case type parsed from source case number": 67
     },
     "benchSizeProfile": {
       "5 judge bench": 1,
@@ -128,12 +138,16 @@
       "1982": 8
     },
     "caseTypeMix": {
-      "Unclassified": 37
+      "Criminal Appeal": 7,
+      "Writ Petition Criminal": 2,
+      "Civil Appeal": 25,
+      "Writ Petition Civil": 3
     },
     "subjectMix": {
       "supreme court": 37,
       "public judgment metadata": 37,
-      "no start-year signal": 37
+      "no start-year signal": 37,
+      "case type parsed from source case number": 37
     },
     "benchSizeProfile": {
       "2 judge bench": 2,
@@ -166,12 +180,16 @@
       "2012": 16
     },
     "caseTypeMix": {
-      "Unclassified": 73
+      "Criminal Appeal": 29,
+      "Arbitration Petition": 2,
+      "Civil Appeal": 40,
+      "SLP Criminal": 2
     },
     "subjectMix": {
       "supreme court": 73,
       "public judgment metadata": 73,
-      "no start-year signal": 73
+      "no start-year signal": 73,
+      "case type parsed from source case number": 73
     },
     "benchSizeProfile": {
       "2 judge bench": 33,
@@ -203,12 +221,17 @@
       "2008": 33
     },
     "caseTypeMix": {
-      "Unclassified": 121
+      "Civil Appeal": 98,
+      "Criminal Appeal": 18,
+      "Arbitration Petition": 1,
+      "SLP Criminal": 2,
+      "Unclassified": 2
     },
     "subjectMix": {
       "supreme court": 121,
       "public judgment metadata": 121,
-      "no start-year signal": 121
+      "no start-year signal": 121,
+      "case type parsed from source case number": 121
     },
     "benchSizeProfile": {
       "3 judge bench": 2,
@@ -242,12 +265,21 @@
       "2014": 22
     },
     "caseTypeMix": {
-      "Unclassified": 137
+      "Criminal Appeal": 80,
+      "Civil Appeal": 39,
+      "SLP Criminal": 1,
+      "Review Petition Criminal": 1,
+      "Unclassified": 1,
+      "SLP Civil": 2,
+      "Writ Petition Civil": 10,
+      "Contempt Petition Civil": 2,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 137,
       "public judgment metadata": 137,
-      "no start-year signal": 137
+      "no start-year signal": 137,
+      "case type parsed from source case number": 137
     },
     "benchSizeProfile": {
       "2 judge bench": 17,
@@ -284,12 +316,18 @@
       "1966": 21
     },
     "caseTypeMix": {
-      "Unclassified": 149
+      "Writ Petition Civil": 7,
+      "Civil Appeal": 108,
+      "Criminal Appeal": 31,
+      "Unclassified": 1,
+      "Reference": 1,
+      "Transfer Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 149,
       "public judgment metadata": 149,
-      "no start-year signal": 149
+      "no start-year signal": 149,
+      "case type parsed from source case number": 149
     },
     "benchSizeProfile": {
       "4 judge bench": 2,
@@ -329,13 +367,24 @@
       "2019": 25
     },
     "caseTypeMix": {
-      "Unclassified": 388,
-      "Criminal Appeal": 1
+      "SLP Civil": 4,
+      "Civil Appeal": 274,
+      "Criminal Miscellaneous Petition": 1,
+      "Writ Petition Criminal": 3,
+      "Criminal Appeal": 78,
+      "Contempt Petition Civil": 3,
+      "Review Petition Civil": 1,
+      "Writ Petition Civil": 21,
+      "Arbitration Petition": 1,
+      "Transfer Petition Civil": 1,
+      "SLP Criminal": 1,
+      "Review Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 389,
       "public judgment metadata": 389,
-      "no start-year signal": 389
+      "no start-year signal": 389,
+      "case type parsed from source case number": 389
     },
     "benchSizeProfile": {
       "2 judge bench": 21,
@@ -374,12 +423,23 @@
       "1997": 36
     },
     "caseTypeMix": {
-      "Unclassified": 328
+      "Civil Appeal": 217,
+      "Criminal Appeal": 50,
+      "Writ Petition Criminal": 11,
+      "Writ Petition Civil": 31,
+      "Appeal (Unspecified)": 1,
+      "SLP Civil": 5,
+      "Unclassified": 6,
+      "Contempt Petition Civil": 1,
+      "SLP Criminal": 3,
+      "Contempt Petition Criminal": 2,
+      "Transfer Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 328,
       "public judgment metadata": 328,
-      "no start-year signal": 328
+      "no start-year signal": 328,
+      "case type parsed from source case number": 328
     },
     "benchSizeProfile": {
       "2 judge bench": 38,
@@ -417,12 +477,23 @@
       "2022": 30
     },
     "caseTypeMix": {
-      "Unclassified": 183
+      "Civil Appeal": 121,
+      "Writ Petition Civil": 14,
+      "SLP Civil": 5,
+      "Transfer Petition Criminal": 1,
+      "Writ Petition Criminal": 8,
+      "SLP Criminal": 2,
+      "Criminal Appeal": 25,
+      "Review Petition Criminal": 2,
+      "Election Petition": 1,
+      "Unclassified": 3,
+      "Transfer Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 183,
       "public judgment metadata": 183,
-      "no start-year signal": 183
+      "no start-year signal": 183,
+      "case type parsed from source case number": 183
     },
     "benchSizeProfile": {
       "2 judge bench": 16,
@@ -457,12 +528,14 @@
       "1973": 7
     },
     "caseTypeMix": {
-      "Unclassified": 47
+      "Civil Appeal": 38,
+      "Criminal Appeal": 9
     },
     "subjectMix": {
       "supreme court": 47,
       "public judgment metadata": 47,
-      "no start-year signal": 47
+      "no start-year signal": 47,
+      "case type parsed from source case number": 47
     },
     "benchSizeProfile": {
       "3 judge bench": 1,
@@ -499,12 +572,18 @@
       "1977": 19
     },
     "caseTypeMix": {
-      "Unclassified": 363
+      "Criminal Appeal": 33,
+      "Writ Petition Civil": 46,
+      "Civil Appeal": 277,
+      "Writ Petition Criminal": 5,
+      "Reference": 1,
+      "Criminal Miscellaneous Petition": 1
     },
     "subjectMix": {
       "supreme court": 363,
       "public judgment metadata": 363,
-      "no start-year signal": 363
+      "no start-year signal": 363,
+      "case type parsed from source case number": 363
     },
     "benchSizeProfile": {
       "1 judge bench": 337,
@@ -546,12 +625,21 @@
       "1988": 48
     },
     "caseTypeMix": {
-      "Unclassified": 231
+      "Civil Appeal": 128,
+      "Criminal Appeal": 53,
+      "Writ Petition Civil": 14,
+      "SLP Civil": 14,
+      "Writ Petition Criminal": 12,
+      "Unclassified": 2,
+      "SLP Criminal": 3,
+      "Civil Miscellaneous Petition": 2,
+      "Miscellaneous Application": 3
     },
     "subjectMix": {
       "supreme court": 231,
       "public judgment metadata": 231,
-      "no start-year signal": 231
+      "no start-year signal": 231,
+      "case type parsed from source case number": 231
     },
     "benchSizeProfile": {
       "2 judge bench": 18,
@@ -590,12 +678,26 @@
       "2001": 40
     },
     "caseTypeMix": {
-      "Unclassified": 381
+      "Writ Petition Civil": 23,
+      "Civil Appeal": 189,
+      "Criminal Appeal": 139,
+      "Contempt Petition Criminal": 1,
+      "Review Petition Criminal": 1,
+      "Arbitration Petition": 1,
+      "Review Petition Civil": 5,
+      "Writ Petition Criminal": 9,
+      "Contempt Petition Civil": 2,
+      "Transfer Petition Civil": 1,
+      "Unclassified": 2,
+      "Criminal Miscellaneous Petition": 1,
+      "SLP Civil": 6,
+      "Reference": 1
     },
     "subjectMix": {
       "supreme court": 381,
       "public judgment metadata": 381,
-      "no start-year signal": 381
+      "no start-year signal": 381,
+      "case type parsed from source case number": 381
     },
     "benchSizeProfile": {
       "3 judge bench": 60,
@@ -631,12 +733,22 @@
       "2024": 8
     },
     "caseTypeMix": {
-      "Unclassified": 71
+      "Arbitration Petition": 1,
+      "Civil Appeal": 37,
+      "Criminal Appeal": 13,
+      "SLP Criminal": 3,
+      "Writ Petition Criminal": 6,
+      "Unclassified": 3,
+      "Writ Petition Civil": 4,
+      "SLP Civil": 1,
+      "Miscellaneous Application": 2,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 71,
       "public judgment metadata": 71,
-      "no start-year signal": 71
+      "no start-year signal": 71,
+      "case type parsed from source case number": 71
     },
     "benchSizeProfile": {
       "2 judge bench": 15,
@@ -672,12 +784,18 @@
       "2019": 118
     },
     "caseTypeMix": {
-      "Unclassified": 228
+      "Civil Appeal": 159,
+      "Criminal Appeal": 64,
+      "Writ Petition Criminal": 1,
+      "Writ Petition Civil": 2,
+      "Transfer Petition Criminal": 1,
+      "Miscellaneous Application": 1
     },
     "subjectMix": {
       "supreme court": 228,
       "public judgment metadata": 228,
-      "no start-year signal": 228
+      "no start-year signal": 228,
+      "case type parsed from source case number": 228
     },
     "benchSizeProfile": {
       "2 judge bench": 26,
@@ -708,12 +826,18 @@
       "2024": 65
     },
     "caseTypeMix": {
-      "Unclassified": 136
+      "Writ Petition Civil": 2,
+      "Civil Appeal": 62,
+      "Criminal Appeal": 69,
+      "Contempt Petition Criminal": 1,
+      "Writ Petition Criminal": 1,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 136,
       "public judgment metadata": 136,
-      "no start-year signal": 136
+      "no start-year signal": 136,
+      "case type parsed from source case number": 136
     },
     "benchSizeProfile": {
       "3 judge bench": 3,
@@ -747,12 +871,22 @@
       "2018": 30
     },
     "caseTypeMix": {
-      "Unclassified": 71
+      "Civil Appeal": 39,
+      "Criminal Appeal": 20,
+      "Review Petition Civil": 1,
+      "Writ Petition Civil": 3,
+      "Unclassified": 1,
+      "Transfer Petition Criminal": 1,
+      "SLP Civil": 2,
+      "Writ Petition Criminal": 1,
+      "SLP Criminal": 2,
+      "Transfer Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 71,
       "public judgment metadata": 71,
-      "no start-year signal": 71
+      "no start-year signal": 71,
+      "case type parsed from source case number": 71
     },
     "benchSizeProfile": {
       "3 judge bench": 7,
@@ -789,12 +923,22 @@
       "2013": 18
     },
     "caseTypeMix": {
-      "Unclassified": 148
+      "Civil Appeal": 86,
+      "SLP Criminal": 3,
+      "Criminal Appeal": 46,
+      "Unclassified": 1,
+      "Writ Petition Civil": 5,
+      "Transfer Petition Criminal": 1,
+      "Review Petition Civil": 1,
+      "SLP Civil": 3,
+      "Writ Petition Criminal": 1,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 148,
       "public judgment metadata": 148,
-      "no start-year signal": 148
+      "no start-year signal": 148,
+      "case type parsed from source case number": 148
     },
     "benchSizeProfile": {
       "2 judge bench": 34,
@@ -825,12 +969,17 @@
       "2024": 15
     },
     "caseTypeMix": {
-      "Unclassified": 22
+      "Criminal Appeal": 7,
+      "Unclassified": 1,
+      "Civil Appeal": 11,
+      "Writ Petition Civil": 2,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 22,
       "public judgment metadata": 22,
-      "no start-year signal": 22
+      "no start-year signal": 22,
+      "case type parsed from source case number": 22
     },
     "benchSizeProfile": {
       "2 judge bench": 19,
@@ -862,12 +1011,16 @@
       "2001": 24
     },
     "caseTypeMix": {
-      "Unclassified": 75
+      "Civil Appeal": 68,
+      "Writ Petition Civil": 1,
+      "Criminal Appeal": 5,
+      "Writ Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 75,
       "public judgment metadata": 75,
-      "no start-year signal": 75
+      "no start-year signal": 75,
+      "case type parsed from source case number": 75
     },
     "benchSizeProfile": {
       "2 judge bench": 19,
@@ -901,12 +1054,16 @@
       "2023": 25
     },
     "caseTypeMix": {
-      "Unclassified": 89
+      "SLP Civil": 4,
+      "Civil Appeal": 60,
+      "SLP Criminal": 2,
+      "Criminal Appeal": 23
     },
     "subjectMix": {
       "supreme court": 89,
       "public judgment metadata": 89,
-      "no start-year signal": 89
+      "no start-year signal": 89,
+      "case type parsed from source case number": 89
     },
     "benchSizeProfile": {
       "2 judge bench": 13,
@@ -943,12 +1100,28 @@
       "2013": 25
     },
     "caseTypeMix": {
-      "Unclassified": 328
+      "Civil Appeal": 150,
+      "Criminal Miscellaneous Petition": 3,
+      "Criminal Appeal": 63,
+      "SLP Civil": 48,
+      "Arbitration Petition": 2,
+      "Writ Petition Criminal": 2,
+      "Writ Petition Civil": 14,
+      "SLP Criminal": 29,
+      "Transfer Petition Civil": 3,
+      "Contempt Petition Civil": 2,
+      "Curative Petition Criminal": 1,
+      "Election Petition": 2,
+      "Contempt Petition Criminal": 1,
+      "Transfer Petition Criminal": 2,
+      "Unclassified": 5,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 328,
       "public judgment metadata": 328,
-      "no start-year signal": 328
+      "no start-year signal": 328,
+      "case type parsed from source case number": 328
     },
     "benchSizeProfile": {
       "2 judge bench": 24,
@@ -982,12 +1155,15 @@
       "1985": 4
     },
     "caseTypeMix": {
-      "Unclassified": 11
+      "Criminal Appeal": 3,
+      "Civil Appeal": 5,
+      "Writ Petition Civil": 3
     },
     "subjectMix": {
       "supreme court": 11,
       "public judgment metadata": 11,
-      "no start-year signal": 11
+      "no start-year signal": 11,
+      "case type parsed from source case number": 11
     },
     "benchSizeProfile": {
       "1 judge bench": 8,
@@ -1019,12 +1195,15 @@
       "2018": 2
     },
     "caseTypeMix": {
-      "Unclassified": 9
+      "Civil Appeal": 5,
+      "Writ Petition Civil": 3,
+      "Criminal Appeal": 1
     },
     "subjectMix": {
       "supreme court": 9,
       "public judgment metadata": 9,
-      "no start-year signal": 9
+      "no start-year signal": 9,
+      "case type parsed from source case number": 9
     },
     "benchSizeProfile": {
       "2 judge bench": 6,
@@ -1059,12 +1238,21 @@
       "2016": 33
     },
     "caseTypeMix": {
-      "Unclassified": 162
+      "Civil Appeal": 131,
+      "Writ Petition Civil": 9,
+      "Criminal Appeal": 14,
+      "SLP Civil": 1,
+      "Unclassified": 2,
+      "Contempt Petition Civil": 1,
+      "Writ Petition Criminal": 1,
+      "Review Petition Civil": 2,
+      "Reference": 1
     },
     "subjectMix": {
       "supreme court": 162,
       "public judgment metadata": 162,
-      "no start-year signal": 162
+      "no start-year signal": 162,
+      "case type parsed from source case number": 162
     },
     "benchSizeProfile": {
       "2 judge bench": 30,
@@ -1100,12 +1288,19 @@
       "2024": 16
     },
     "caseTypeMix": {
-      "Unclassified": 73
+      "Civil Appeal": 44,
+      "Criminal Appeal": 20,
+      "SLP Criminal": 2,
+      "SLP Civil": 2,
+      "Miscellaneous Application": 2,
+      "Unclassified": 2,
+      "Writ Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 73,
       "public judgment metadata": 73,
-      "no start-year signal": 73
+      "no start-year signal": 73,
+      "case type parsed from source case number": 73
     },
     "benchSizeProfile": {
       "2 judge bench": 25,
@@ -1139,12 +1334,20 @@
       "2007": 54
     },
     "caseTypeMix": {
-      "Unclassified": 201
+      "Civil Appeal": 171,
+      "Criminal Appeal": 12,
+      "Writ Petition Civil": 6,
+      "SLP Civil": 5,
+      "Unclassified": 1,
+      "SLP Criminal": 3,
+      "Writ Petition Criminal": 1,
+      "Contempt Petition Civil": 2
     },
     "subjectMix": {
       "supreme court": 201,
       "public judgment metadata": 201,
-      "no start-year signal": 201
+      "no start-year signal": 201,
+      "case type parsed from source case number": 201
     },
     "benchSizeProfile": {
       "3 judge bench": 13,
@@ -1175,12 +1378,17 @@
       "2024": 9
     },
     "caseTypeMix": {
-      "Unclassified": 15
+      "Criminal Appeal": 5,
+      "Civil Appeal": 7,
+      "Miscellaneous Application": 1,
+      "Writ Petition Civil": 1,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 15,
       "public judgment metadata": 15,
-      "no start-year signal": 15
+      "no start-year signal": 15,
+      "case type parsed from source case number": 15
     },
     "benchSizeProfile": {
       "3 judge bench": 3,
@@ -1217,12 +1425,25 @@
       "2009": 405
     },
     "caseTypeMix": {
-      "Unclassified": 1966
+      "Civil Appeal": 1011,
+      "Writ Petition Civil": 37,
+      "Criminal Appeal": 874,
+      "Criminal Miscellaneous Petition": 3,
+      "Writ Petition Criminal": 7,
+      "SLP Civil": 8,
+      "Transfer Petition Civil": 15,
+      "SLP Criminal": 3,
+      "Unclassified": 2,
+      "Civil Miscellaneous Petition": 1,
+      "Transfer Petition Criminal": 3,
+      "Appeal (Unspecified)": 1,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 1966,
       "public judgment metadata": 1966,
-      "no start-year signal": 1966
+      "no start-year signal": 1966,
+      "case type parsed from source case number": 1966
     },
     "benchSizeProfile": {
       "3 judge bench": 11,
@@ -1257,12 +1478,15 @@
       "2006": 9
     },
     "caseTypeMix": {
-      "Unclassified": 21
+      "Civil Appeal": 18,
+      "SLP Criminal": 1,
+      "Criminal Appeal": 2
     },
     "subjectMix": {
       "supreme court": 21,
       "public judgment metadata": 21,
-      "no start-year signal": 21
+      "no start-year signal": 21,
+      "case type parsed from source case number": 21
     },
     "benchSizeProfile": {
       "3 judge bench": 3,
@@ -1298,12 +1522,21 @@
       "2020": 39
     },
     "caseTypeMix": {
-      "Unclassified": 202
+      "Unclassified": 5,
+      "Civil Appeal": 149,
+      "Criminal Appeal": 14,
+      "SLP Civil": 6,
+      "Writ Petition Civil": 20,
+      "SLP Criminal": 4,
+      "Writ Petition Criminal": 2,
+      "Election Petition": 1,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 202,
       "public judgment metadata": 202,
-      "no start-year signal": 202
+      "no start-year signal": 202,
+      "case type parsed from source case number": 202
     },
     "benchSizeProfile": {
       "3 judge bench": 17,
@@ -1340,12 +1573,18 @@
       "2008": 36
     },
     "caseTypeMix": {
-      "Unclassified": 205
+      "Civil Appeal": 191,
+      "SLP Criminal": 1,
+      "Writ Petition Civil": 2,
+      "Criminal Appeal": 9,
+      "Civil Miscellaneous Petition": 1,
+      "Writ Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 205,
       "public judgment metadata": 205,
-      "no start-year signal": 205
+      "no start-year signal": 205,
+      "case type parsed from source case number": 205
     },
     "benchSizeProfile": {
       "3 judge bench": 2,
@@ -1380,13 +1619,23 @@
       "2021": 41
     },
     "caseTypeMix": {
-      "Unclassified": 231,
-      "SLP Civil": 1
+      "Civil Appeal": 125,
+      "Criminal Appeal": 69,
+      "Writ Petition Civil": 21,
+      "Unclassified": 1,
+      "SLP Civil": 1,
+      "Review Petition Civil": 1,
+      "SLP Criminal": 4,
+      "Writ Petition Criminal": 6,
+      "Contempt Petition Civil": 1,
+      "Transfer Petition Civil": 2,
+      "Transfer Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 232,
       "public judgment metadata": 232,
-      "no start-year signal": 232
+      "no start-year signal": 232,
+      "case type parsed from source case number": 232
     },
     "benchSizeProfile": {
       "2 judge bench": 19,
@@ -1418,12 +1667,14 @@
       "2024": 1
     },
     "caseTypeMix": {
-      "Unclassified": 2
+      "Civil Appeal": 1,
+      "Transfer Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 2,
       "public judgment metadata": 2,
-      "no start-year signal": 2
+      "no start-year signal": 2,
+      "case type parsed from source case number": 2
     },
     "benchSizeProfile": {
       "3 judge bench": 1,
@@ -1456,12 +1707,16 @@
       "1957": 11
     },
     "caseTypeMix": {
-      "Unclassified": 37
+      "Criminal Appeal": 15,
+      "Civil Appeal": 20,
+      "Contempt Petition Criminal": 1,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 37,
       "public judgment metadata": 37,
-      "no start-year signal": 37
+      "no start-year signal": 37,
+      "case type parsed from source case number": 37
     },
     "benchSizeProfile": {
       "3 judge bench": 12,
@@ -1498,12 +1753,19 @@
       "2011": 26
     },
     "caseTypeMix": {
-      "Unclassified": 96
+      "Civil Appeal": 45,
+      "Criminal Appeal": 44,
+      "Arbitration Petition": 1,
+      "Writ Petition Civil": 3,
+      "SLP Criminal": 1,
+      "Transfer Petition Criminal": 1,
+      "Transfer Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 96,
       "public judgment metadata": 96,
-      "no start-year signal": 96
+      "no start-year signal": 96,
+      "case type parsed from source case number": 96
     },
     "benchSizeProfile": {
       "2 judge bench": 19,
@@ -1538,12 +1800,21 @@
       "1991": 20
     },
     "caseTypeMix": {
-      "Unclassified": 79
+      "Civil Appeal": 36,
+      "Criminal Appeal": 16,
+      "Writ Petition Civil": 6,
+      "Civil Miscellaneous Petition": 1,
+      "Writ Petition Criminal": 15,
+      "Review Petition Criminal": 1,
+      "SLP Criminal": 1,
+      "Unclassified": 2,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 79,
       "public judgment metadata": 79,
-      "no start-year signal": 79
+      "no start-year signal": 79,
+      "case type parsed from source case number": 79
     },
     "benchSizeProfile": {
       "2 judge bench": 6,
@@ -1576,12 +1847,21 @@
       "1996": 39
     },
     "caseTypeMix": {
-      "Unclassified": 327
+      "Civil Appeal": 267,
+      "Criminal Appeal": 20,
+      "Writ Petition Criminal": 1,
+      "Writ Petition Civil": 10,
+      "SLP Civil": 19,
+      "Review Petition Civil": 3,
+      "Criminal Miscellaneous Petition": 1,
+      "Transfer Petition Civil": 1,
+      "Contempt Petition Civil": 5
     },
     "subjectMix": {
       "supreme court": 327,
       "public judgment metadata": 327,
-      "no start-year signal": 327
+      "no start-year signal": 327,
+      "case type parsed from source case number": 327
     },
     "benchSizeProfile": {
       "2 judge bench": 288,
@@ -1620,12 +1900,17 @@
       "2009": 19
     },
     "caseTypeMix": {
-      "Unclassified": 87
+      "Contempt Petition Civil": 3,
+      "Writ Petition Civil": 5,
+      "Civil Appeal": 57,
+      "Criminal Appeal": 21,
+      "Writ Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 87,
       "public judgment metadata": 87,
-      "no start-year signal": 87
+      "no start-year signal": 87,
+      "case type parsed from source case number": 87
     },
     "benchSizeProfile": {
       "2 judge bench": 15,
@@ -1663,12 +1948,21 @@
       "2002": 26
     },
     "caseTypeMix": {
-      "Unclassified": 219
+      "Civil Appeal": 162,
+      "Contempt Petition Civil": 2,
+      "SLP Civil": 10,
+      "Criminal Appeal": 12,
+      "SLP Criminal": 1,
+      "Writ Petition Civil": 26,
+      "Unclassified": 4,
+      "Writ Petition Criminal": 1,
+      "Transfer Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 219,
       "public judgment metadata": 219,
-      "no start-year signal": 219
+      "no start-year signal": 219,
+      "case type parsed from source case number": 219
     },
     "benchSizeProfile": {
       "2 judge bench": 70,
@@ -1703,12 +1997,16 @@
       "2006": 10
     },
     "caseTypeMix": {
-      "Unclassified": 30
+      "Civil Appeal": 18,
+      "Criminal Appeal": 10,
+      "SLP Civil": 1,
+      "Writ Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 30,
       "public judgment metadata": 30,
-      "no start-year signal": 30
+      "no start-year signal": 30,
+      "case type parsed from source case number": 30
     },
     "benchSizeProfile": {
       "2 judge bench": 14,
@@ -1744,12 +2042,24 @@
       "1997": 36
     },
     "caseTypeMix": {
-      "Unclassified": 358
+      "SLP Civil": 10,
+      "Civil Appeal": 306,
+      "Criminal Appeal": 3,
+      "Writ Petition Civil": 25,
+      "Unclassified": 1,
+      "Review Petition Criminal": 1,
+      "Arbitration Petition": 2,
+      "Contempt Petition Civil": 4,
+      "SLP Criminal": 1,
+      "Writ Petition Criminal": 2,
+      "Review Petition Civil": 2,
+      "Criminal Miscellaneous Petition": 1
     },
     "subjectMix": {
       "supreme court": 358,
       "public judgment metadata": 358,
-      "no start-year signal": 358
+      "no start-year signal": 358,
+      "case type parsed from source case number": 358
     },
     "benchSizeProfile": {
       "2 judge bench": 77,
@@ -1786,12 +2096,19 @@
       "2007": 19
     },
     "caseTypeMix": {
-      "Unclassified": 112
+      "Civil Appeal": 87,
+      "SLP Civil": 2,
+      "Criminal Appeal": 16,
+      "Writ Petition Civil": 3,
+      "Unclassified": 2,
+      "Writ Petition Criminal": 1,
+      "SLP Criminal": 1
     },
     "subjectMix": {
       "supreme court": 112,
       "public judgment metadata": 112,
-      "no start-year signal": 112
+      "no start-year signal": 112,
+      "case type parsed from source case number": 112
     },
     "benchSizeProfile": {
       "3 judge bench": 3,
@@ -1826,12 +2143,25 @@
       "2014": 35
     },
     "caseTypeMix": {
-      "Unclassified": 306
+      "Criminal Appeal": 138,
+      "Civil Appeal": 131,
+      "SLP Civil": 7,
+      "Transfer Petition Criminal": 1,
+      "Review Petition Civil": 2,
+      "Writ Petition Civil": 6,
+      "Writ Petition Criminal": 5,
+      "Arbitration Petition": 1,
+      "Transfer Petition Civil": 1,
+      "SLP Criminal": 11,
+      "Miscellaneous Application": 1,
+      "Contempt Petition Civil": 1,
+      "Criminal Miscellaneous Petition": 1
     },
     "subjectMix": {
       "supreme court": 306,
       "public judgment metadata": 306,
-      "no start-year signal": 306
+      "no start-year signal": 306,
+      "case type parsed from source case number": 306
     },
     "benchSizeProfile": {
       "2 judge bench": 70,
@@ -1864,12 +2194,22 @@
       "2024": 27
     },
     "caseTypeMix": {
-      "Unclassified": 62
+      "Miscellaneous Application": 4,
+      "Civil Appeal": 31,
+      "Criminal Appeal": 18,
+      "SLP Civil": 1,
+      "Transfer Petition Criminal": 1,
+      "Writ Petition Criminal": 1,
+      "Transfer Petition Civil": 2,
+      "Unclassified": 2,
+      "Writ Petition Civil": 1,
+      "SLP Criminal": 1
     },
     "subjectMix": {
       "supreme court": 62,
       "public judgment metadata": 62,
-      "no start-year signal": 62
+      "no start-year signal": 62,
+      "case type parsed from source case number": 62
     },
     "benchSizeProfile": {
       "2 judge bench": 20,
@@ -1899,12 +2239,14 @@
       "1981": 2
     },
     "caseTypeMix": {
-      "Unclassified": 2
+      "Civil Appeal": 1,
+      "Writ Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 2,
       "public judgment metadata": 2,
-      "no start-year signal": 2
+      "no start-year signal": 2,
+      "case type parsed from source case number": 2
     },
     "benchSizeProfile": {
       "3 judge bench": 1,
@@ -1936,12 +2278,16 @@
       "2024": 40
     },
     "caseTypeMix": {
-      "Unclassified": 55
+      "Civil Appeal": 25,
+      "Criminal Appeal": 27,
+      "Writ Petition Civil": 2,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 55,
       "public judgment metadata": 55,
-      "no start-year signal": 55
+      "no start-year signal": 55,
+      "case type parsed from source case number": 55
     },
     "benchSizeProfile": {
       "3 judge bench": 3,
@@ -1976,12 +2322,22 @@
       "2024": 97
     },
     "caseTypeMix": {
-      "Unclassified": 239
+      "Civil Appeal": 98,
+      "Writ Petition Civil": 17,
+      "Criminal Appeal": 110,
+      "Contempt Petition Civil": 2,
+      "Miscellaneous Application": 3,
+      "Writ Petition Criminal": 3,
+      "Review Petition Civil": 2,
+      "Unclassified": 2,
+      "Transfer Petition Civil": 1,
+      "Original Suit": 1
     },
     "subjectMix": {
       "supreme court": 239,
       "public judgment metadata": 239,
-      "no start-year signal": 239
+      "no start-year signal": 239,
+      "case type parsed from source case number": 239
     },
     "benchSizeProfile": {
       "3 judge bench": 33,
@@ -2021,12 +2377,20 @@
       "1964": 8
     },
     "caseTypeMix": {
-      "Unclassified": 387
+      "Civil Appeal": 235,
+      "Criminal Appeal": 70,
+      "Writ Petition Civil": 73,
+      "Unclassified": 3,
+      "Criminal Miscellaneous Petition": 1,
+      "Writ Petition Criminal": 3,
+      "Original Suit": 1,
+      "Reference": 1
     },
     "subjectMix": {
       "supreme court": 387,
       "public judgment metadata": 387,
-      "no start-year signal": 387
+      "no start-year signal": 387,
+      "case type parsed from source case number": 387
     },
     "benchSizeProfile": {
       "5 judge bench": 14,
@@ -2064,12 +2428,19 @@
       "1955": 11
     },
     "caseTypeMix": {
-      "Unclassified": 89
+      "Civil Appeal": 59,
+      "Criminal Appeal": 16,
+      "Original Suit": 1,
+      "Writ Petition Civil": 10,
+      "Unclassified": 1,
+      "Writ Petition Criminal": 1,
+      "Civil Miscellaneous Petition": 1
     },
     "subjectMix": {
       "supreme court": 89,
       "public judgment metadata": 89,
-      "no start-year signal": 89
+      "no start-year signal": 89,
+      "case type parsed from source case number": 89
     },
     "benchSizeProfile": {
       "6 judge bench": 2,
@@ -2106,12 +2477,16 @@
       "2004": 18
     },
     "caseTypeMix": {
-      "Unclassified": 69
+      "Civil Appeal": 60,
+      "Writ Petition Civil": 2,
+      "Contempt Petition Civil": 1,
+      "Criminal Appeal": 6
     },
     "subjectMix": {
       "supreme court": 69,
       "public judgment metadata": 69,
-      "no start-year signal": 69
+      "no start-year signal": 69,
+      "case type parsed from source case number": 69
     },
     "benchSizeProfile": {
       "3 judge bench": 8,
@@ -2143,12 +2518,14 @@
       "2016": 3
     },
     "caseTypeMix": {
-      "Unclassified": 6
+      "Criminal Appeal": 2,
+      "Civil Appeal": 4
     },
     "subjectMix": {
       "supreme court": 6,
       "public judgment metadata": 6,
-      "no start-year signal": 6
+      "no start-year signal": 6,
+      "case type parsed from source case number": 6
     },
     "benchSizeProfile": {
       "2 judge bench": 3,
@@ -2183,12 +2560,16 @@
       "1973": 42
     },
     "caseTypeMix": {
-      "Unclassified": 132
+      "Civil Appeal": 98,
+      "Criminal Appeal": 27,
+      "Writ Petition Civil": 4,
+      "Writ Petition Criminal": 3
     },
     "subjectMix": {
       "supreme court": 132,
       "public judgment metadata": 132,
-      "no start-year signal": 132
+      "no start-year signal": 132,
+      "case type parsed from source case number": 132
     },
     "benchSizeProfile": {
       "5 judge bench": 3,
@@ -2223,12 +2604,18 @@
       "2014": 25
     },
     "caseTypeMix": {
-      "Unclassified": 133
+      "Criminal Appeal": 92,
+      "Transfer Petition Civil": 1,
+      "Civil Appeal": 36,
+      "SLP Criminal": 2,
+      "SLP Civil": 1,
+      "Writ Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 133,
       "public judgment metadata": 133,
-      "no start-year signal": 133
+      "no start-year signal": 133,
+      "case type parsed from source case number": 133
     },
     "benchSizeProfile": {
       "2 judge bench": 79,
@@ -2261,12 +2648,20 @@
       "2008": 109
     },
     "caseTypeMix": {
-      "Unclassified": 201
+      "Civil Appeal": 122,
+      "Arbitration Petition": 3,
+      "Writ Petition Civil": 6,
+      "Review Petition Civil": 1,
+      "Criminal Appeal": 66,
+      "SLP Criminal": 1,
+      "Contempt Petition Civil": 1,
+      "Writ Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 201,
       "public judgment metadata": 201,
-      "no start-year signal": 201
+      "no start-year signal": 201,
+      "case type parsed from source case number": 201
     },
     "benchSizeProfile": {
       "2 judge bench": 7,
@@ -2300,12 +2695,19 @@
       "2024": 44
     },
     "caseTypeMix": {
-      "Unclassified": 68
+      "Writ Petition Criminal": 1,
+      "Writ Petition Civil": 4,
+      "Civil Appeal": 25,
+      "Criminal Appeal": 32,
+      "Contempt Petition Civil": 1,
+      "SLP Civil": 1,
+      "SLP Criminal": 4
     },
     "subjectMix": {
       "supreme court": 68,
       "public judgment metadata": 68,
-      "no start-year signal": 68
+      "no start-year signal": 68,
+      "case type parsed from source case number": 68
     },
     "benchSizeProfile": {
       "3 judge bench": 6,
@@ -2339,12 +2741,16 @@
       "2012": 2
     },
     "caseTypeMix": {
-      "Unclassified": 33
+      "Civil Appeal": 17,
+      "Criminal Appeal": 13,
+      "SLP Criminal": 2,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 33,
       "public judgment metadata": 33,
-      "no start-year signal": 33
+      "no start-year signal": 33,
+      "case type parsed from source case number": 33
     },
     "benchSizeProfile": {
       "2 judge bench": 24,
@@ -2382,12 +2788,20 @@
       "2022": 1
     },
     "caseTypeMix": {
-      "Unclassified": 203
+      "Civil Appeal": 141,
+      "SLP Civil": 5,
+      "Criminal Appeal": 20,
+      "SLP Criminal": 1,
+      "Civil Miscellaneous Petition": 1,
+      "Writ Petition Civil": 24,
+      "Writ Petition Criminal": 9,
+      "Criminal Miscellaneous Petition": 2
     },
     "subjectMix": {
       "supreme court": 203,
       "public judgment metadata": 203,
-      "no start-year signal": 203
+      "no start-year signal": 203,
+      "case type parsed from source case number": 203
     },
     "benchSizeProfile": {
       "3 judge bench": 4,
@@ -2419,12 +2833,14 @@
       "1974": 10
     },
     "caseTypeMix": {
-      "Unclassified": 32
+      "Civil Appeal": 31,
+      "Criminal Appeal": 1
     },
     "subjectMix": {
       "supreme court": 32,
       "public judgment metadata": 32,
-      "no start-year signal": 32
+      "no start-year signal": 32,
+      "case type parsed from source case number": 32
     },
     "benchSizeProfile": {
       "3 judge bench": 1,
@@ -2461,12 +2877,20 @@
       "2013": 13
     },
     "caseTypeMix": {
-      "Unclassified": 186
+      "Criminal Appeal": 39,
+      "Civil Appeal": 139,
+      "Arbitration Petition": 2,
+      "Criminal Miscellaneous Petition": 1,
+      "Unclassified": 1,
+      "Transfer Petition Civil": 1,
+      "SLP Civil": 2,
+      "Writ Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 186,
       "public judgment metadata": 186,
-      "no start-year signal": 186
+      "no start-year signal": 186,
+      "case type parsed from source case number": 186
     },
     "benchSizeProfile": {
       "2 judge bench": 14,
@@ -2500,12 +2924,19 @@
       "2005": 10
     },
     "caseTypeMix": {
-      "Unclassified": 27
+      "Civil Appeal": 16,
+      "SLP Criminal": 2,
+      "Writ Petition Civil": 1,
+      "SLP Civil": 3,
+      "Criminal Appeal": 3,
+      "Criminal Miscellaneous Petition": 1,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 27,
       "public judgment metadata": 27,
-      "no start-year signal": 27
+      "no start-year signal": 27,
+      "case type parsed from source case number": 27
     },
     "benchSizeProfile": {
       "2 judge bench": 8,
@@ -2536,12 +2967,14 @@
       "1986": 4
     },
     "caseTypeMix": {
-      "Unclassified": 8
+      "Civil Appeal": 7,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 8,
       "public judgment metadata": 8,
-      "no start-year signal": 8
+      "no start-year signal": 8,
+      "case type parsed from source case number": 8
     },
     "benchSizeProfile": {
       "3 judge bench": 2,
@@ -2575,12 +3008,17 @@
       "2002": 36
     },
     "caseTypeMix": {
-      "Unclassified": 107
+      "Criminal Appeal": 17,
+      "Civil Appeal": 86,
+      "SLP Civil": 2,
+      "Writ Petition Civil": 1,
+      "SLP Criminal": 1
     },
     "subjectMix": {
       "supreme court": 107,
       "public judgment metadata": 107,
-      "no start-year signal": 107
+      "no start-year signal": 107,
+      "case type parsed from source case number": 107
     },
     "benchSizeProfile": {
       "2 judge bench": 11,
@@ -2614,12 +3052,19 @@
       "2000": 34
     },
     "caseTypeMix": {
-      "Unclassified": 199
+      "Civil Appeal": 160,
+      "Writ Petition Civil": 6,
+      "SLP Civil": 12,
+      "Contempt Petition Civil": 5,
+      "Criminal Appeal": 14,
+      "Arbitration Petition": 1,
+      "Writ Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 199,
       "public judgment metadata": 199,
-      "no start-year signal": 199
+      "no start-year signal": 199,
+      "case type parsed from source case number": 199
     },
     "benchSizeProfile": {
       "2 judge bench": 140,
@@ -2658,14 +3103,28 @@
       "2024": 85
     },
     "caseTypeMix": {
-      "Unclassified": 665,
-      "SLP Civil": 1,
-      "Writ Petition": 1
+      "SLP Civil": 12,
+      "Writ Petition Civil": 72,
+      "Civil Appeal": 398,
+      "Criminal Appeal": 127,
+      "Transfer Petition Criminal": 1,
+      "SLP Criminal": 3,
+      "Review Petition Criminal": 2,
+      "Contempt Petition Criminal": 1,
+      "Writ Petition Criminal": 9,
+      "Unclassified": 4,
+      "Miscellaneous Application": 15,
+      "Contempt Petition Civil": 4,
+      "Arbitration Petition": 12,
+      "Transfer Petition Civil": 1,
+      "Curative Petition Civil": 2,
+      "Review Petition Civil": 4
     },
     "subjectMix": {
       "supreme court": 667,
       "public judgment metadata": 667,
-      "no start-year signal": 667
+      "no start-year signal": 667,
+      "case type parsed from source case number": 667
     },
     "benchSizeProfile": {
       "3 judge bench": 43,
@@ -2703,12 +3162,19 @@
       "2012": 12
     },
     "caseTypeMix": {
-      "Unclassified": 164
+      "Civil Appeal": 99,
+      "Writ Petition Civil": 4,
+      "Criminal Appeal": 56,
+      "Arbitration Petition": 2,
+      "Criminal Miscellaneous Petition": 1,
+      "SLP Civil": 1,
+      "Writ Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 164,
       "public judgment metadata": 164,
-      "no start-year signal": 164
+      "no start-year signal": 164,
+      "case type parsed from source case number": 164
     },
     "benchSizeProfile": {
       "2 judge bench": 19,
@@ -2741,12 +3207,18 @@
       "2020": 19
     },
     "caseTypeMix": {
-      "Unclassified": 61
+      "Writ Petition Civil": 7,
+      "Civil Appeal": 39,
+      "Miscellaneous Application": 1,
+      "SLP Civil": 3,
+      "Criminal Appeal": 10,
+      "Contempt Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 61,
       "public judgment metadata": 61,
-      "no start-year signal": 61
+      "no start-year signal": 61,
+      "case type parsed from source case number": 61
     },
     "benchSizeProfile": {
       "2 judge bench": 19,
@@ -2779,12 +3251,18 @@
       "2012": 5
     },
     "caseTypeMix": {
-      "Unclassified": 17
+      "SLP Criminal": 1,
+      "Writ Petition Civil": 2,
+      "Civil Appeal": 7,
+      "Criminal Appeal": 5,
+      "Transfer Petition Criminal": 1,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 17,
       "public judgment metadata": 17,
-      "no start-year signal": 17
+      "no start-year signal": 17,
+      "case type parsed from source case number": 17
     },
     "benchSizeProfile": {
       "2 judge bench": 10,
@@ -2818,12 +3296,20 @@
       "2023": 26
     },
     "caseTypeMix": {
-      "Unclassified": 100
+      "Civil Appeal": 60,
+      "Criminal Appeal": 29,
+      "Writ Petition Criminal": 5,
+      "Transfer Petition Civil": 2,
+      "Miscellaneous Application": 1,
+      "SLP Criminal": 1,
+      "Transfer Petition Criminal": 1,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 100,
       "public judgment metadata": 100,
-      "no start-year signal": 100
+      "no start-year signal": 100,
+      "case type parsed from source case number": 100
     },
     "benchSizeProfile": {
       "2 judge bench": 28,
@@ -2859,13 +3345,26 @@
       "2018": 130
     },
     "caseTypeMix": {
-      "Unclassified": 527,
-      "Writ Petition": 1
+      "Criminal Appeal": 168,
+      "Civil Appeal": 260,
+      "SLP Civil": 9,
+      "Writ Petition Civil": 60,
+      "Writ Petition Criminal": 13,
+      "SLP Criminal": 3,
+      "Review Petition Civil": 1,
+      "Unclassified": 3,
+      "Transfer Petition Criminal": 2,
+      "Transfer Petition Civil": 1,
+      "Arbitration Petition": 3,
+      "Contempt Petition Civil": 2,
+      "Review Petition Criminal": 1,
+      "Miscellaneous Application": 2
     },
     "subjectMix": {
       "supreme court": 528,
       "public judgment metadata": 528,
-      "no start-year signal": 528
+      "no start-year signal": 528,
+      "case type parsed from source case number": 528
     },
     "benchSizeProfile": {
       "2 judge bench": 27,
@@ -2897,12 +3396,16 @@
       "2024": 19
     },
     "caseTypeMix": {
-      "Unclassified": 25
+      "Civil Appeal": 15,
+      "Criminal Appeal": 8,
+      "Writ Petition Civil": 1,
+      "Miscellaneous Application": 1
     },
     "subjectMix": {
       "supreme court": 25,
       "public judgment metadata": 25,
-      "no start-year signal": 25
+      "no start-year signal": 25,
+      "case type parsed from source case number": 25
     },
     "benchSizeProfile": {
       "2 judge bench": 13,
@@ -2936,12 +3439,20 @@
       "2004": 89
     },
     "caseTypeMix": {
-      "Unclassified": 277
+      "Civil Appeal": 103,
+      "SLP Civil": 3,
+      "Contempt Petition Civil": 1,
+      "Writ Petition Civil": 3,
+      "Criminal Appeal": 164,
+      "Contempt Petition Criminal": 1,
+      "Writ Petition Criminal": 1,
+      "Criminal Miscellaneous Petition": 1
     },
     "subjectMix": {
       "supreme court": 277,
       "public judgment metadata": 277,
-      "no start-year signal": 277
+      "no start-year signal": 277,
+      "case type parsed from source case number": 277
     },
     "benchSizeProfile": {
       "2 judge bench": 18,
@@ -2980,12 +3491,22 @@
       "1989": 22
     },
     "caseTypeMix": {
-      "Unclassified": 244
+      "Civil Appeal": 162,
+      "Criminal Appeal": 15,
+      "Writ Petition Civil": 30,
+      "Writ Petition Criminal": 5,
+      "Unclassified": 2,
+      "SLP Criminal": 1,
+      "SLP Civil": 24,
+      "Civil Miscellaneous Petition": 2,
+      "Election Petition": 2,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 244,
       "public judgment metadata": 244,
-      "no start-year signal": 244
+      "no start-year signal": 244,
+      "case type parsed from source case number": 244
     },
     "benchSizeProfile": {
       "3 judge bench": 4,
@@ -3020,12 +3541,21 @@
       "2016": 9
     },
     "caseTypeMix": {
-      "Unclassified": 90
+      "Criminal Appeal": 37,
+      "SLP Criminal": 1,
+      "Civil Appeal": 43,
+      "Review Petition Civil": 1,
+      "SLP Civil": 1,
+      "Writ Petition Criminal": 2,
+      "Writ Petition Civil": 3,
+      "Contempt Petition Civil": 1,
+      "Criminal Miscellaneous Petition": 1
     },
     "subjectMix": {
       "supreme court": 90,
       "public judgment metadata": 90,
-      "no start-year signal": 90
+      "no start-year signal": 90,
+      "case type parsed from source case number": 90
     },
     "benchSizeProfile": {
       "2 judge bench": 37,
@@ -3059,12 +3589,18 @@
       "1997": 3
     },
     "caseTypeMix": {
-      "Unclassified": 101
+      "Criminal Appeal": 25,
+      "Civil Appeal": 56,
+      "Reference": 1,
+      "Writ Petition Civil": 6,
+      "Unclassified": 2,
+      "SLP Civil": 11
     },
     "subjectMix": {
       "supreme court": 101,
       "public judgment metadata": 101,
-      "no start-year signal": 101
+      "no start-year signal": 101,
+      "case type parsed from source case number": 101
     },
     "benchSizeProfile": {
       "2 judge bench": 51,
@@ -3102,12 +3638,25 @@
       "2002": 54
     },
     "caseTypeMix": {
-      "Unclassified": 714
+      "Civil Appeal": 540,
+      "SLP Civil": 51,
+      "Criminal Appeal": 89,
+      "Writ Petition Civil": 17,
+      "Transfer Petition Civil": 3,
+      "Unclassified": 4,
+      "SLP Criminal": 1,
+      "Review Petition Civil": 1,
+      "Writ Petition Criminal": 3,
+      "Contempt Petition Civil": 1,
+      "Contempt Petition Criminal": 2,
+      "Original Suit": 1,
+      "Election Petition": 1
     },
     "subjectMix": {
       "supreme court": 714,
       "public judgment metadata": 714,
-      "no start-year signal": 714
+      "no start-year signal": 714,
+      "case type parsed from source case number": 714
     },
     "benchSizeProfile": {
       "2 judge bench": 428,
@@ -3143,12 +3692,15 @@
       "1972": 29
     },
     "caseTypeMix": {
-      "Unclassified": 76
+      "Civil Appeal": 63,
+      "Criminal Appeal": 10,
+      "Writ Petition Civil": 3
     },
     "subjectMix": {
       "supreme court": 76,
       "public judgment metadata": 76,
-      "no start-year signal": 76
+      "no start-year signal": 76,
+      "case type parsed from source case number": 76
     },
     "benchSizeProfile": {
       "3 judge bench": 6,
@@ -3183,12 +3735,20 @@
       "1989": 37
     },
     "caseTypeMix": {
-      "Unclassified": 74
+      "Civil Appeal": 48,
+      "Writ Petition Civil": 4,
+      "SLP Criminal": 1,
+      "Criminal Appeal": 15,
+      "Review Petition Civil": 1,
+      "Civil Miscellaneous Petition": 1,
+      "Unclassified": 1,
+      "Writ Petition Criminal": 3
     },
     "subjectMix": {
       "supreme court": 74,
       "public judgment metadata": 74,
-      "no start-year signal": 74
+      "no start-year signal": 74,
+      "case type parsed from source case number": 74
     },
     "benchSizeProfile": {
       "1 judge bench": 62,
@@ -3225,12 +3785,19 @@
       "1998": 10
     },
     "caseTypeMix": {
-      "Unclassified": 157
+      "Writ Petition Civil": 2,
+      "Civil Appeal": 75,
+      "SLP Civil": 5,
+      "Criminal Appeal": 71,
+      "Writ Petition Criminal": 2,
+      "Reference": 1,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 157,
       "public judgment metadata": 157,
-      "no start-year signal": 157
+      "no start-year signal": 157,
+      "case type parsed from source case number": 157
     },
     "benchSizeProfile": {
       "3 judge bench": 3,
@@ -3266,12 +3833,21 @@
       "2008": 6
     },
     "caseTypeMix": {
-      "Unclassified": 74
+      "Civil Appeal": 48,
+      "Writ Petition Civil": 2,
+      "Unclassified": 2,
+      "Criminal Appeal": 17,
+      "Transfer Petition Civil": 1,
+      "Criminal Miscellaneous Petition": 1,
+      "Review Petition Civil": 1,
+      "Contempt Petition Civil": 1,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 74,
       "public judgment metadata": 74,
-      "no start-year signal": 74
+      "no start-year signal": 74,
+      "case type parsed from source case number": 74
     },
     "benchSizeProfile": {
       "3 judge bench": 7,
@@ -3304,12 +3880,18 @@
       "2013": 78
     },
     "caseTypeMix": {
-      "Unclassified": 242
+      "Civil Appeal": 205,
+      "SLP Civil": 4,
+      "Criminal Appeal": 21,
+      "Writ Petition Civil": 8,
+      "Review Petition Civil": 1,
+      "Unclassified": 3
     },
     "subjectMix": {
       "supreme court": 242,
       "public judgment metadata": 242,
-      "no start-year signal": 242
+      "no start-year signal": 242,
+      "case type parsed from source case number": 242
     },
     "benchSizeProfile": {
       "1 judge bench": 219,
@@ -3344,12 +3926,20 @@
       "2000": 11
     },
     "caseTypeMix": {
-      "Unclassified": 251
+      "Criminal Appeal": 39,
+      "SLP Civil": 33,
+      "Civil Appeal": 166,
+      "Writ Petition Civil": 3,
+      "Transfer Petition Civil": 3,
+      "Review Petition Civil": 2,
+      "Contempt Petition Criminal": 1,
+      "Writ Petition Criminal": 4
     },
     "subjectMix": {
       "supreme court": 251,
       "public judgment metadata": 251,
-      "no start-year signal": 251
+      "no start-year signal": 251,
+      "case type parsed from source case number": 251
     },
     "benchSizeProfile": {
       "2 judge bench": 194,
@@ -3381,12 +3971,14 @@
       "1954": 11
     },
     "caseTypeMix": {
-      "Unclassified": 15
+      "Civil Appeal": 13,
+      "Criminal Appeal": 2
     },
     "subjectMix": {
       "supreme court": 15,
       "public judgment metadata": 15,
-      "no start-year signal": 15
+      "no start-year signal": 15,
+      "case type parsed from source case number": 15
     },
     "benchSizeProfile": {
       "5 judge bench": 10,
@@ -3420,12 +4012,22 @@
       "2014": 24
     },
     "caseTypeMix": {
-      "Unclassified": 98
+      "Criminal Appeal": 24,
+      "Writ Petition Civil": 2,
+      "Transfer Petition Criminal": 1,
+      "SLP Criminal": 10,
+      "Civil Appeal": 48,
+      "SLP Civil": 8,
+      "Writ Petition Criminal": 1,
+      "Transfer Petition Civil": 1,
+      "Contempt Petition Civil": 2,
+      "Miscellaneous Application": 1
     },
     "subjectMix": {
       "supreme court": 98,
       "public judgment metadata": 98,
-      "no start-year signal": 98
+      "no start-year signal": 98,
+      "case type parsed from source case number": 98
     },
     "benchSizeProfile": {
       "2 judge bench": 70,
@@ -3459,12 +4061,18 @@
       "2008": 26
     },
     "caseTypeMix": {
-      "Unclassified": 158
+      "Writ Petition Civil": 2,
+      "Criminal Appeal": 31,
+      "Civil Appeal": 122,
+      "Contempt Petition Civil": 1,
+      "SLP Civil": 1,
+      "Arbitration Petition": 1
     },
     "subjectMix": {
       "supreme court": 158,
       "public judgment metadata": 158,
-      "no start-year signal": 158
+      "no start-year signal": 158,
+      "case type parsed from source case number": 158
     },
     "benchSizeProfile": {
       "3 judge bench": 3,
@@ -3500,12 +4108,21 @@
       "2015": 24
     },
     "caseTypeMix": {
-      "Unclassified": 92
+      "SLP Civil": 1,
+      "Criminal Appeal": 25,
+      "Civil Appeal": 55,
+      "Writ Petition Civil": 3,
+      "Contempt Petition Civil": 1,
+      "Writ Petition Criminal": 2,
+      "Arbitration Petition": 1,
+      "Unclassified": 3,
+      "SLP Criminal": 1
     },
     "subjectMix": {
       "supreme court": 92,
       "public judgment metadata": 92,
-      "no start-year signal": 92
+      "no start-year signal": 92,
+      "case type parsed from source case number": 92
     },
     "benchSizeProfile": {
       "2 judge bench": 32,
@@ -3540,12 +4157,19 @@
       "2014": 13
     },
     "caseTypeMix": {
-      "Unclassified": 48
+      "Civil Appeal": 36,
+      "SLP Civil": 3,
+      "Criminal Appeal": 5,
+      "Writ Petition Civil": 1,
+      "Criminal Miscellaneous Petition": 1,
+      "SLP Criminal": 1,
+      "Contempt Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 48,
       "public judgment metadata": 48,
-      "no start-year signal": 48
+      "no start-year signal": 48,
+      "case type parsed from source case number": 48
     },
     "benchSizeProfile": {
       "2 judge bench": 17,
@@ -3578,12 +4202,15 @@
       "2011": 55
     },
     "caseTypeMix": {
-      "Unclassified": 179
+      "Civil Appeal": 33,
+      "SLP Criminal": 4,
+      "Criminal Appeal": 142
     },
     "subjectMix": {
       "supreme court": 179,
       "public judgment metadata": 179,
-      "no start-year signal": 179
+      "no start-year signal": 179,
+      "case type parsed from source case number": 179
     },
     "benchSizeProfile": {
       "2 judge bench": 118,
@@ -3617,12 +4244,17 @@
       "1977": 8
     },
     "caseTypeMix": {
-      "Unclassified": 181
+      "Writ Petition Civil": 4,
+      "Criminal Appeal": 37,
+      "Civil Appeal": 132,
+      "Writ Petition Criminal": 7,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 181,
       "public judgment metadata": 181,
-      "no start-year signal": 181
+      "no start-year signal": 181,
+      "case type parsed from source case number": 181
     },
     "benchSizeProfile": {
       "1 judge bench": 167,
@@ -3654,12 +4286,20 @@
       "1951": 25
     },
     "caseTypeMix": {
-      "Unclassified": 51
+      "Civil Appeal": 28,
+      "Criminal Appeal": 9,
+      "Writ Petition Civil": 6,
+      "Unclassified": 4,
+      "Criminal Miscellaneous Petition": 1,
+      "Original Suit": 1,
+      "Writ Petition Criminal": 1,
+      "Reference": 1
     },
     "subjectMix": {
       "supreme court": 51,
       "public judgment metadata": 51,
-      "no start-year signal": 51
+      "no start-year signal": 51,
+      "case type parsed from source case number": 51
     },
     "benchSizeProfile": {
       "6 judge bench": 1,
@@ -3693,12 +4333,17 @@
       "2022": 57
     },
     "caseTypeMix": {
-      "Unclassified": 121
+      "Civil Appeal": 107,
+      "Criminal Appeal": 10,
+      "Miscellaneous Application": 1,
+      "SLP Civil": 1,
+      "Writ Petition Civil": 2
     },
     "subjectMix": {
       "supreme court": 121,
       "public judgment metadata": 121,
-      "no start-year signal": 121
+      "no start-year signal": 121,
+      "case type parsed from source case number": 121
     },
     "benchSizeProfile": {
       "2 judge bench": 20,
@@ -3731,12 +4376,18 @@
       "2024": 27
     },
     "caseTypeMix": {
-      "Unclassified": 53
+      "Writ Petition Civil": 7,
+      "Civil Appeal": 37,
+      "Criminal Appeal": 6,
+      "Unclassified": 1,
+      "SLP Civil": 1,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 53,
       "public judgment metadata": 53,
-      "no start-year signal": 53
+      "no start-year signal": 53,
+      "case type parsed from source case number": 53
     },
     "benchSizeProfile": {
       "3 judge bench": 7,
@@ -3771,12 +4422,16 @@
       "2024": 15
     },
     "caseTypeMix": {
-      "Unclassified": 53
+      "Civil Appeal": 40,
+      "Criminal Appeal": 8,
+      "SLP Criminal": 2,
+      "Writ Petition Civil": 3
     },
     "subjectMix": {
       "supreme court": 53,
       "public judgment metadata": 53,
-      "no start-year signal": 53
+      "no start-year signal": 53,
+      "case type parsed from source case number": 53
     },
     "benchSizeProfile": {
       "3 judge bench": 10,
@@ -3810,12 +4465,15 @@
       "1973": 13
     },
     "caseTypeMix": {
-      "Unclassified": 26
+      "Writ Petition Civil": 5,
+      "Criminal Appeal": 18,
+      "Civil Appeal": 3
     },
     "subjectMix": {
       "supreme court": 26,
       "public judgment metadata": 26,
-      "no start-year signal": 26
+      "no start-year signal": 26,
+      "case type parsed from source case number": 26
     },
     "benchSizeProfile": {
       "3 judge bench": 3,
@@ -3850,12 +4508,18 @@
       "2022": 57
     },
     "caseTypeMix": {
-      "Unclassified": 109
+      "Civil Appeal": 75,
+      "Criminal Appeal": 21,
+      "Contempt Petition Civil": 1,
+      "Writ Petition Criminal": 1,
+      "SLP Criminal": 7,
+      "SLP Civil": 4
     },
     "subjectMix": {
       "supreme court": 109,
       "public judgment metadata": 109,
-      "no start-year signal": 109
+      "no start-year signal": 109,
+      "case type parsed from source case number": 109
     },
     "benchSizeProfile": {
       "2 judge bench": 10,
@@ -3889,12 +4553,19 @@
       "2021": 10
     },
     "caseTypeMix": {
-      "Unclassified": 51
+      "SLP Criminal": 3,
+      "SLP Civil": 3,
+      "Civil Appeal": 31,
+      "Miscellaneous Application": 1,
+      "Criminal Appeal": 11,
+      "Arbitration Petition": 1,
+      "Writ Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 51,
       "public judgment metadata": 51,
-      "no start-year signal": 51
+      "no start-year signal": 51,
+      "case type parsed from source case number": 51
     },
     "benchSizeProfile": {
       "2 judge bench": 22,
@@ -3926,12 +4597,22 @@
       "2024": 63
     },
     "caseTypeMix": {
-      "Unclassified": 85
+      "Civil Appeal": 28,
+      "SLP Civil": 11,
+      "Criminal Appeal": 24,
+      "Writ Petition Criminal": 2,
+      "Writ Petition Civil": 6,
+      "Contempt Petition Civil": 2,
+      "SLP Criminal": 2,
+      "Miscellaneous Application": 3,
+      "Unclassified": 6,
+      "Arbitration Petition": 1
     },
     "subjectMix": {
       "supreme court": 85,
       "public judgment metadata": 85,
-      "no start-year signal": 85
+      "no start-year signal": 85,
+      "case type parsed from source case number": 85
     },
     "benchSizeProfile": {
       "3 judge bench": 20,
@@ -3972,12 +4653,20 @@
       "1971": 20
     },
     "caseTypeMix": {
-      "Unclassified": 619
+      "Criminal Appeal": 30,
+      "Civil Appeal": 567,
+      "Unclassified": 2,
+      "Reference": 1,
+      "Writ Petition Civil": 16,
+      "Miscellaneous Application": 1,
+      "Writ Petition Criminal": 1,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 619,
       "public judgment metadata": 619,
-      "no start-year signal": 619
+      "no start-year signal": 619,
+      "case type parsed from source case number": 619
     },
     "benchSizeProfile": {
       "2 judge bench": 4,
@@ -4013,12 +4702,18 @@
       "2024": 26
     },
     "caseTypeMix": {
-      "Unclassified": 51
+      "Civil Appeal": 44,
+      "Criminal Appeal": 3,
+      "Writ Petition Civil": 1,
+      "SLP Civil": 1,
+      "Contempt Petition Civil": 1,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 51,
       "public judgment metadata": 51,
-      "no start-year signal": 51
+      "no start-year signal": 51,
+      "case type parsed from source case number": 51
     },
     "benchSizeProfile": {
       "2 judge bench": 15,
@@ -4051,12 +4746,16 @@
       "1962": 48
     },
     "caseTypeMix": {
-      "Unclassified": 144
+      "Writ Petition Civil": 1,
+      "Criminal Appeal": 35,
+      "Civil Appeal": 107,
+      "Criminal Miscellaneous Petition": 1
     },
     "subjectMix": {
       "supreme court": 144,
       "public judgment metadata": 144,
-      "no start-year signal": 144
+      "no start-year signal": 144,
+      "case type parsed from source case number": 144
     },
     "benchSizeProfile": {
       "5 judge bench": 5,
@@ -4090,12 +4789,20 @@
       "2011": 36
     },
     "caseTypeMix": {
-      "Unclassified": 92
+      "Civil Appeal": 52,
+      "Criminal Appeal": 27,
+      "Writ Petition Civil": 5,
+      "Arbitration Petition": 1,
+      "SLP Civil": 3,
+      "Unclassified": 2,
+      "Transfer Petition Criminal": 1,
+      "SLP Criminal": 1
     },
     "subjectMix": {
       "supreme court": 92,
       "public judgment metadata": 92,
-      "no start-year signal": 92
+      "no start-year signal": 92,
+      "case type parsed from source case number": 92
     },
     "benchSizeProfile": {
       "2 judge bench": 25,
@@ -4133,12 +4840,16 @@
       "1973": 8
     },
     "caseTypeMix": {
-      "Unclassified": 202
+      "Criminal Appeal": 39,
+      "Civil Appeal": 138,
+      "Writ Petition Civil": 23,
+      "Writ Petition Criminal": 2
     },
     "subjectMix": {
       "supreme court": 202,
       "public judgment metadata": 202,
-      "no start-year signal": 202
+      "no start-year signal": 202,
+      "case type parsed from source case number": 202
     },
     "benchSizeProfile": {
       "3 judge bench": 4,
@@ -4174,12 +4885,15 @@
       "1966": 1
     },
     "caseTypeMix": {
-      "Unclassified": 19
+      "Writ Petition Civil": 3,
+      "Criminal Appeal": 9,
+      "Civil Appeal": 7
     },
     "subjectMix": {
       "supreme court": 19,
       "public judgment metadata": 19,
-      "no start-year signal": 19
+      "no start-year signal": 19,
+      "case type parsed from source case number": 19
     },
     "benchSizeProfile": {
       "5 judge bench": 8,
@@ -4216,12 +4930,21 @@
       "2017": 26
     },
     "caseTypeMix": {
-      "Unclassified": 108
+      "Civil Appeal": 58,
+      "Transfer Petition Civil": 1,
+      "Writ Petition Criminal": 2,
+      "Criminal Appeal": 34,
+      "Writ Petition Civil": 9,
+      "SLP Civil": 1,
+      "Contempt Petition Civil": 1,
+      "SLP Criminal": 1,
+      "Contempt Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 108,
       "public judgment metadata": 108,
-      "no start-year signal": 108
+      "no start-year signal": 108,
+      "case type parsed from source case number": 108
     },
     "benchSizeProfile": {
       "2 judge bench": 11,
@@ -4259,12 +4982,22 @@
       "1998": 7
     },
     "caseTypeMix": {
-      "Unclassified": 258
+      "Civil Appeal": 198,
+      "SLP Civil": 4,
+      "Writ Petition Civil": 27,
+      "Criminal Appeal": 12,
+      "Unclassified": 4,
+      "Election Petition": 2,
+      "Transfer Petition Civil": 3,
+      "Contempt Petition Civil": 1,
+      "SLP Criminal": 1,
+      "Writ Petition Criminal": 6
     },
     "subjectMix": {
       "supreme court": 258,
       "public judgment metadata": 258,
-      "no start-year signal": 258
+      "no start-year signal": 258,
+      "case type parsed from source case number": 258
     },
     "benchSizeProfile": {
       "3 judge bench": 41,
@@ -4302,13 +5035,20 @@
       "2018": 16
     },
     "caseTypeMix": {
-      "Unclassified": 151,
-      "Writ Petition": 1
+      "Criminal Appeal": 25,
+      "Civil Appeal": 101,
+      "SLP Civil": 8,
+      "SLP Criminal": 4,
+      "Criminal Miscellaneous Petition": 1,
+      "Writ Petition Civil": 8,
+      "Writ Petition Criminal": 3,
+      "Unclassified": 2
     },
     "subjectMix": {
       "supreme court": 152,
       "public judgment metadata": 152,
-      "no start-year signal": 152
+      "no start-year signal": 152,
+      "case type parsed from source case number": 152
     },
     "benchSizeProfile": {
       "3 judge bench": 4,
@@ -4341,12 +5081,15 @@
       "1979": 2
     },
     "caseTypeMix": {
-      "Unclassified": 40
+      "Civil Appeal": 16,
+      "Criminal Appeal": 23,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 40,
       "public judgment metadata": 40,
-      "no start-year signal": 40
+      "no start-year signal": 40,
+      "case type parsed from source case number": 40
     },
     "benchSizeProfile": {
       "3 judge bench": 7,
@@ -4379,12 +5122,20 @@
       "1991": 37
     },
     "caseTypeMix": {
-      "Unclassified": 100
+      "Writ Petition Criminal": 2,
+      "Criminal Appeal": 7,
+      "Civil Appeal": 82,
+      "SLP Criminal": 1,
+      "Writ Petition Civil": 3,
+      "Transfer Petition Civil": 1,
+      "SLP Civil": 3,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 100,
       "public judgment metadata": 100,
-      "no start-year signal": 100
+      "no start-year signal": 100,
+      "case type parsed from source case number": 100
     },
     "benchSizeProfile": {
       "3 judge bench": 1,
@@ -4418,12 +5169,18 @@
       "1995": 3
     },
     "caseTypeMix": {
-      "Unclassified": 57
+      "Civil Appeal": 27,
+      "SLP Civil": 7,
+      "Criminal Appeal": 20,
+      "Transfer Petition Civil": 1,
+      "Writ Petition Criminal": 1,
+      "Writ Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 57,
       "public judgment metadata": 57,
-      "no start-year signal": 57
+      "no start-year signal": 57,
+      "case type parsed from source case number": 57
     },
     "benchSizeProfile": {
       "3 judge bench": 5,
@@ -4462,12 +5219,25 @@
       "1997": 325
     },
     "caseTypeMix": {
-      "Unclassified": 1806
+      "Writ Petition Civil": 43,
+      "Civil Appeal": 1497,
+      "Criminal Appeal": 62,
+      "SLP Civil": 164,
+      "Arbitration Petition": 3,
+      "Review Petition Civil": 9,
+      "SLP Criminal": 2,
+      "Contempt Petition Civil": 14,
+      "Criminal Miscellaneous Petition": 1,
+      "Transfer Petition Civil": 6,
+      "Writ Petition Criminal": 2,
+      "Unclassified": 2,
+      "Contempt Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 1806,
       "public judgment metadata": 1806,
-      "no start-year signal": 1806
+      "no start-year signal": 1806,
+      "case type parsed from source case number": 1806
     },
     "benchSizeProfile": {
       "3 judge bench": 149,
@@ -4506,12 +5276,18 @@
       "1967": 33
     },
     "caseTypeMix": {
-      "Unclassified": 414
+      "Civil Appeal": 322,
+      "Criminal Appeal": 70,
+      "Criminal Miscellaneous Petition": 1,
+      "Writ Petition Civil": 11,
+      "Unclassified": 9,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 414,
       "public judgment metadata": 414,
-      "no start-year signal": 414
+      "no start-year signal": 414,
+      "case type parsed from source case number": 414
     },
     "benchSizeProfile": {
       "3 judge bench": 13,
@@ -4547,12 +5323,19 @@
       "1999": 21
     },
     "caseTypeMix": {
-      "Unclassified": 125
+      "Civil Appeal": 105,
+      "Criminal Appeal": 6,
+      "Writ Petition Civil": 6,
+      "SLP Civil": 5,
+      "Unclassified": 1,
+      "Review Petition Civil": 1,
+      "Transfer Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 125,
       "public judgment metadata": 125,
-      "no start-year signal": 125
+      "no start-year signal": 125,
+      "case type parsed from source case number": 125
     },
     "benchSizeProfile": {
       "2 judge bench": 54,
@@ -4587,12 +5370,17 @@
       "1964": 2
     },
     "caseTypeMix": {
-      "Unclassified": 23
+      "Criminal Appeal": 7,
+      "Civil Appeal": 13,
+      "Writ Petition Civil": 1,
+      "Review Petition Civil": 1,
+      "Reference": 1
     },
     "subjectMix": {
       "supreme court": 23,
       "public judgment metadata": 23,
-      "no start-year signal": 23
+      "no start-year signal": 23,
+      "case type parsed from source case number": 23
     },
     "benchSizeProfile": {
       "2 judge bench": 3,
@@ -4635,12 +5423,27 @@
       "2010": 35
     },
     "caseTypeMix": {
-      "Unclassified": 264
+      "Civil Appeal": 119,
+      "Criminal Appeal": 92,
+      "SLP Civil": 5,
+      "Writ Petition Civil": 29,
+      "Review Petition Civil": 3,
+      "Unclassified": 4,
+      "Writ Petition Criminal": 2,
+      "Contempt Petition Civil": 1,
+      "Review Petition Criminal": 1,
+      "Civil Miscellaneous Petition": 1,
+      "Criminal Miscellaneous Petition": 2,
+      "Transfer Petition Criminal": 2,
+      "Curative Petition Criminal": 1,
+      "Miscellaneous Application": 1,
+      "Original Suit": 1
     },
     "subjectMix": {
       "supreme court": 264,
       "public judgment metadata": 264,
-      "no start-year signal": 264
+      "no start-year signal": 264,
+      "case type parsed from source case number": 264
     },
     "benchSizeProfile": {
       "3 judge bench": 30,
@@ -4676,12 +5479,19 @@
       "2023": 29
     },
     "caseTypeMix": {
-      "Unclassified": 118
+      "Writ Petition Civil": 7,
+      "Civil Appeal": 87,
+      "Criminal Appeal": 18,
+      "Review Petition Criminal": 1,
+      "Miscellaneous Application": 3,
+      "Transfer Petition Criminal": 1,
+      "Criminal Miscellaneous Petition": 1
     },
     "subjectMix": {
       "supreme court": 118,
       "public judgment metadata": 118,
-      "no start-year signal": 118
+      "no start-year signal": 118,
+      "case type parsed from source case number": 118
     },
     "benchSizeProfile": {
       "3 judge bench": 4,
@@ -4713,12 +5523,14 @@
       "1991": 12
     },
     "caseTypeMix": {
-      "Unclassified": 35
+      "Civil Appeal": 31,
+      "Criminal Appeal": 4
     },
     "subjectMix": {
       "supreme court": 35,
       "public judgment metadata": 35,
-      "no start-year signal": 35
+      "no start-year signal": 35,
+      "case type parsed from source case number": 35
     },
     "benchSizeProfile": {
       "1 judge bench": 33,
@@ -4751,12 +5563,19 @@
       "1991": 21
     },
     "caseTypeMix": {
-      "Unclassified": 83
+      "Criminal Appeal": 5,
+      "Writ Petition Civil": 14,
+      "Civil Appeal": 56,
+      "Civil Miscellaneous Petition": 2,
+      "Unclassified": 1,
+      "SLP Civil": 1,
+      "Writ Petition Criminal": 4
     },
     "subjectMix": {
       "supreme court": 83,
       "public judgment metadata": 83,
-      "no start-year signal": 83
+      "no start-year signal": 83,
+      "case type parsed from source case number": 83
     },
     "benchSizeProfile": {
       "2 judge bench": 18,
@@ -4796,12 +5615,19 @@
       "1968": 11
     },
     "caseTypeMix": {
-      "Unclassified": 235
+      "Criminal Appeal": 24,
+      "Civil Appeal": 191,
+      "Criminal Miscellaneous Petition": 1,
+      "Writ Petition Civil": 16,
+      "Reference": 1,
+      "SLP Civil": 1,
+      "Election Petition": 1
     },
     "subjectMix": {
       "supreme court": 235,
       "public judgment metadata": 235,
-      "no start-year signal": 235
+      "no start-year signal": 235,
+      "case type parsed from source case number": 235
     },
     "benchSizeProfile": {
       "5 judge bench": 13,
@@ -4838,12 +5664,15 @@
       "1973": 29
     },
     "caseTypeMix": {
-      "Unclassified": 226
+      "Civil Appeal": 219,
+      "Criminal Appeal": 6,
+      "Writ Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 226,
       "public judgment metadata": 226,
-      "no start-year signal": 226
+      "no start-year signal": 226,
+      "case type parsed from source case number": 226
     },
     "benchSizeProfile": {
       "1 judge bench": 222,
@@ -4875,12 +5704,17 @@
       "1997": 15
     },
     "caseTypeMix": {
-      "Unclassified": 91
+      "Civil Appeal": 79,
+      "SLP Civil": 5,
+      "Contempt Petition Civil": 3,
+      "Criminal Appeal": 3,
+      "SLP Criminal": 1
     },
     "subjectMix": {
       "supreme court": 91,
       "public judgment metadata": 91,
-      "no start-year signal": 91
+      "no start-year signal": 91,
+      "case type parsed from source case number": 91
     },
     "benchSizeProfile": {
       "2 judge bench": 67,
@@ -4914,12 +5748,19 @@
       "2014": 40
     },
     "caseTypeMix": {
-      "Unclassified": 245
+      "Civil Appeal": 114,
+      "Criminal Appeal": 86,
+      "Writ Petition Civil": 25,
+      "SLP Criminal": 4,
+      "SLP Civil": 14,
+      "Miscellaneous Application": 1,
+      "Writ Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 245,
       "public judgment metadata": 245,
-      "no start-year signal": 245
+      "no start-year signal": 245,
+      "case type parsed from source case number": 245
     },
     "benchSizeProfile": {
       "2 judge bench": 22,
@@ -4955,12 +5796,24 @@
       "2002": 7
     },
     "caseTypeMix": {
-      "Unclassified": 328
+      "Criminal Appeal": 210,
+      "Civil Appeal": 93,
+      "Review Petition Civil": 2,
+      "SLP Civil": 5,
+      "Unclassified": 3,
+      "SLP Criminal": 2,
+      "Criminal Miscellaneous Petition": 2,
+      "Review Petition Criminal": 2,
+      "Writ Petition Criminal": 2,
+      "Writ Petition Civil": 5,
+      "Transfer Petition Criminal": 1,
+      "Contempt Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 328,
       "public judgment metadata": 328,
-      "no start-year signal": 328
+      "no start-year signal": 328,
+      "case type parsed from source case number": 328
     },
     "benchSizeProfile": {
       "2 judge bench": 60,
@@ -4992,12 +5845,14 @@
       "2024": 1
     },
     "caseTypeMix": {
-      "Unclassified": 4
+      "Civil Appeal": 3,
+      "SLP Criminal": 1
     },
     "subjectMix": {
       "supreme court": 4,
       "public judgment metadata": 4,
-      "no start-year signal": 4
+      "no start-year signal": 4,
+      "case type parsed from source case number": 4
     },
     "benchSizeProfile": {
       "2 judge bench": 3,
@@ -5030,12 +5885,19 @@
       "2023": 28
     },
     "caseTypeMix": {
-      "Unclassified": 46
+      "Civil Appeal": 24,
+      "SLP Civil": 1,
+      "Criminal Appeal": 16,
+      "Contempt Petition Civil": 1,
+      "Writ Petition Civil": 1,
+      "Writ Petition Criminal": 2,
+      "Miscellaneous Application": 1
     },
     "subjectMix": {
       "supreme court": 46,
       "public judgment metadata": 46,
-      "no start-year signal": 46
+      "no start-year signal": 46,
+      "case type parsed from source case number": 46
     },
     "benchSizeProfile": {
       "3 judge bench": 7,
@@ -5071,12 +5933,26 @@
       "1996": 67
     },
     "caseTypeMix": {
-      "Unclassified": 430
+      "Civil Appeal": 299,
+      "Writ Petition Civil": 55,
+      "Criminal Appeal": 41,
+      "SLP Civil": 4,
+      "Civil Miscellaneous Petition": 2,
+      "Writ Petition Criminal": 8,
+      "Criminal Miscellaneous Petition": 1,
+      "Unclassified": 3,
+      "SLP Criminal": 2,
+      "Contempt Petition Civil": 5,
+      "Arbitration Petition": 3,
+      "Transfer Petition Civil": 2,
+      "Contempt Petition Criminal": 3,
+      "Review Petition Civil": 2
     },
     "subjectMix": {
       "supreme court": 430,
       "public judgment metadata": 430,
-      "no start-year signal": 430
+      "no start-year signal": 430,
+      "case type parsed from source case number": 430
     },
     "benchSizeProfile": {
       "1 judge bench": 325,
@@ -5113,12 +5989,20 @@
       "2018": 32
     },
     "caseTypeMix": {
-      "Unclassified": 174
+      "Civil Appeal": 137,
+      "Writ Petition Civil": 3,
+      "Criminal Appeal": 29,
+      "Writ Petition Criminal": 1,
+      "Transfer Petition Civil": 1,
+      "Arbitration Petition": 1,
+      "Unclassified": 1,
+      "Review Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 174,
       "public judgment metadata": 174,
-      "no start-year signal": 174
+      "no start-year signal": 174,
+      "case type parsed from source case number": 174
     },
     "benchSizeProfile": {
       "3 judge bench": 5,
@@ -5151,12 +6035,17 @@
       "1975": 27
     },
     "caseTypeMix": {
-      "Unclassified": 82
+      "Civil Appeal": 70,
+      "Criminal Appeal": 2,
+      "Unclassified": 1,
+      "Writ Petition Criminal": 3,
+      "Writ Petition Civil": 6
     },
     "subjectMix": {
       "supreme court": 82,
       "public judgment metadata": 82,
-      "no start-year signal": 82
+      "no start-year signal": 82,
+      "case type parsed from source case number": 82
     },
     "benchSizeProfile": {
       "1 judge bench": 67,
@@ -5193,12 +6082,22 @@
       "2022": 41
     },
     "caseTypeMix": {
-      "Unclassified": 242
+      "SLP Civil": 2,
+      "Civil Appeal": 169,
+      "Writ Petition Civil": 15,
+      "Writ Petition Criminal": 3,
+      "Criminal Appeal": 46,
+      "Unclassified": 1,
+      "Miscellaneous Application": 2,
+      "Transfer Petition Civil": 1,
+      "Review Petition Civil": 1,
+      "Contempt Petition Civil": 2
     },
     "subjectMix": {
       "supreme court": 242,
       "public judgment metadata": 242,
-      "no start-year signal": 242
+      "no start-year signal": 242,
+      "case type parsed from source case number": 242
     },
     "benchSizeProfile": {
       "3 judge bench": 11,
@@ -5234,12 +6133,21 @@
       "1993": 21
     },
     "caseTypeMix": {
-      "Unclassified": 155
+      "Criminal Appeal": 13,
+      "SLP Civil": 8,
+      "Writ Petition Criminal": 4,
+      "Civil Appeal": 113,
+      "Writ Petition Civil": 13,
+      "Reference": 1,
+      "Unclassified": 1,
+      "Contempt Petition Civil": 1,
+      "Transfer Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 155,
       "public judgment metadata": 155,
-      "no start-year signal": 155
+      "no start-year signal": 155,
+      "case type parsed from source case number": 155
     },
     "benchSizeProfile": {
       "2 judge bench": 8,
@@ -5273,13 +6181,17 @@
       "2009": 20
     },
     "caseTypeMix": {
-      "Unclassified": 42,
-      "Writ Petition": 1
+      "Criminal Appeal": 15,
+      "Civil Appeal": 25,
+      "SLP Criminal": 1,
+      "Arbitration Petition": 1,
+      "Criminal Miscellaneous Petition": 1
     },
     "subjectMix": {
       "supreme court": 43,
       "public judgment metadata": 43,
-      "no start-year signal": 43
+      "no start-year signal": 43,
+      "case type parsed from source case number": 43
     },
     "benchSizeProfile": {
       "2 judge bench": 15,
@@ -5310,12 +6222,15 @@
       "1992": 10
     },
     "caseTypeMix": {
-      "Unclassified": 14
+      "Criminal Appeal": 5,
+      "Civil Appeal": 8,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 14,
       "public judgment metadata": 14,
-      "no start-year signal": 14
+      "no start-year signal": 14,
+      "case type parsed from source case number": 14
     },
     "benchSizeProfile": {
       "3 judge bench": 2,
@@ -5350,12 +6265,23 @@
       "1978": 22
     },
     "caseTypeMix": {
-      "Unclassified": 150
+      "Civil Appeal": 83,
+      "Criminal Appeal": 46,
+      "Writ Petition Criminal": 4,
+      "Review Petition Criminal": 1,
+      "Writ Petition Civil": 8,
+      "Original Suit": 2,
+      "Civil Miscellaneous Petition": 2,
+      "Review Petition Civil": 1,
+      "SLP Civil": 1,
+      "Reference": 1,
+      "Election Petition": 1
     },
     "subjectMix": {
       "supreme court": 150,
       "public judgment metadata": 150,
-      "no start-year signal": 150
+      "no start-year signal": 150,
+      "case type parsed from source case number": 150
     },
     "benchSizeProfile": {
       "2 judge bench": 6,
@@ -5398,12 +6324,21 @@
       "1970": 48
     },
     "caseTypeMix": {
-      "Unclassified": 250
+      "Civil Appeal": 144,
+      "Criminal Appeal": 67,
+      "Reference": 1,
+      "Writ Petition Civil": 32,
+      "Criminal Miscellaneous Petition": 1,
+      "Review Petition Civil": 1,
+      "Writ Petition Criminal": 2,
+      "SLP Civil": 1,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 250,
       "public judgment metadata": 250,
-      "no start-year signal": 250
+      "no start-year signal": 250,
+      "case type parsed from source case number": 250
     },
     "benchSizeProfile": {
       "3 judge bench": 13,
@@ -5440,12 +6375,19 @@
       "2000": 57
     },
     "caseTypeMix": {
-      "Unclassified": 117
+      "Writ Petition Civil": 4,
+      "Civil Appeal": 93,
+      "Criminal Appeal": 2,
+      "SLP Civil": 15,
+      "Contempt Petition Civil": 1,
+      "Writ Petition Criminal": 1,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 117,
       "public judgment metadata": 117,
-      "no start-year signal": 117
+      "no start-year signal": 117,
+      "case type parsed from source case number": 117
     },
     "benchSizeProfile": {
       "2 judge bench": 43,
@@ -5479,12 +6421,17 @@
       "1953": 44
     },
     "caseTypeMix": {
-      "Unclassified": 98
+      "Civil Appeal": 62,
+      "Criminal Appeal": 18,
+      "Writ Petition Civil": 12,
+      "Unclassified": 5,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 98,
       "public judgment metadata": 98,
-      "no start-year signal": 98
+      "no start-year signal": 98,
+      "case type parsed from source case number": 98
     },
     "benchSizeProfile": {
       "6 judge bench": 1,
@@ -5518,12 +6465,17 @@
       "1999": 21
     },
     "caseTypeMix": {
-      "Unclassified": 36
+      "Civil Appeal": 27,
+      "Criminal Appeal": 4,
+      "Unclassified": 2,
+      "SLP Civil": 1,
+      "Writ Petition Civil": 2
     },
     "subjectMix": {
       "supreme court": 36,
       "public judgment metadata": 36,
-      "no start-year signal": 36
+      "no start-year signal": 36,
+      "case type parsed from source case number": 36
     },
     "benchSizeProfile": {
       "2 judge bench": 14,
@@ -5559,12 +6511,20 @@
       "2023": 1
     },
     "caseTypeMix": {
-      "Unclassified": 198
+      "Civil Appeal": 109,
+      "Criminal Appeal": 68,
+      "Writ Petition Civil": 13,
+      "SLP Civil": 3,
+      "Transfer Petition Criminal": 1,
+      "Writ Petition Criminal": 1,
+      "SLP Criminal": 2,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 198,
       "public judgment metadata": 198,
-      "no start-year signal": 198
+      "no start-year signal": 198,
+      "case type parsed from source case number": 198
     },
     "benchSizeProfile": {
       "3 judge bench": 5,
@@ -5600,12 +6560,19 @@
       "1992": 20
     },
     "caseTypeMix": {
-      "Unclassified": 96
+      "Civil Appeal": 74,
+      "Writ Petition Civil": 10,
+      "Criminal Appeal": 4,
+      "SLP Civil": 5,
+      "Contempt Petition Civil": 1,
+      "Criminal Miscellaneous Petition": 1,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 96,
       "public judgment metadata": 96,
-      "no start-year signal": 96
+      "no start-year signal": 96,
+      "case type parsed from source case number": 96
     },
     "benchSizeProfile": {
       "1 judge bench": 82,
@@ -5639,12 +6606,19 @@
       "1998": 40
     },
     "caseTypeMix": {
-      "Unclassified": 141
+      "Civil Appeal": 25,
+      "Arbitration Petition": 1,
+      "Criminal Appeal": 110,
+      "Writ Petition Criminal": 2,
+      "Writ Petition Civil": 1,
+      "Contempt Petition Civil": 1,
+      "Criminal Miscellaneous Petition": 1
     },
     "subjectMix": {
       "supreme court": 141,
       "public judgment metadata": 141,
-      "no start-year signal": 141
+      "no start-year signal": 141,
+      "case type parsed from source case number": 141
     },
     "benchSizeProfile": {
       "2 judge bench": 47,
@@ -5678,12 +6652,20 @@
       "1989": 28
     },
     "caseTypeMix": {
-      "Unclassified": 65
+      "Civil Appeal": 40,
+      "Criminal Appeal": 7,
+      "Review Petition Civil": 1,
+      "Writ Petition Civil": 9,
+      "Miscellaneous Application": 1,
+      "SLP Civil": 1,
+      "Writ Petition Criminal": 5,
+      "Transfer Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 65,
       "public judgment metadata": 65,
-      "no start-year signal": 65
+      "no start-year signal": 65,
+      "case type parsed from source case number": 65
     },
     "benchSizeProfile": {
       "2 judge bench": 15,
@@ -5721,12 +6703,19 @@
       "1998": 44
     },
     "caseTypeMix": {
-      "Unclassified": 262
+      "Writ Petition Civil": 4,
+      "Civil Appeal": 182,
+      "Criminal Appeal": 68,
+      "SLP Civil": 5,
+      "Review Petition Criminal": 1,
+      "Contempt Petition Civil": 1,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 262,
       "public judgment metadata": 262,
-      "no start-year signal": 262
+      "no start-year signal": 262,
+      "case type parsed from source case number": 262
     },
     "benchSizeProfile": {
       "2 judge bench": 84,
@@ -5760,12 +6749,18 @@
       "2024": 11
     },
     "caseTypeMix": {
-      "Unclassified": 21
+      "Civil Appeal": 6,
+      "Criminal Appeal": 11,
+      "Writ Petition Criminal": 1,
+      "Miscellaneous Application": 1,
+      "Writ Petition Civil": 1,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 21,
       "public judgment metadata": 21,
-      "no start-year signal": 21
+      "no start-year signal": 21,
+      "case type parsed from source case number": 21
     },
     "benchSizeProfile": {
       "2 judge bench": 9,
@@ -5803,12 +6798,27 @@
       "1994": 63
     },
     "caseTypeMix": {
-      "Unclassified": 147
+      "SLP Civil": 4,
+      "Civil Appeal": 93,
+      "Writ Petition Civil": 18,
+      "Criminal Appeal": 4,
+      "Writ Petition Criminal": 6,
+      "Civil Miscellaneous Petition": 2,
+      "Unclassified": 3,
+      "Transfer Petition Civil": 3,
+      "Contempt Petition Civil": 4,
+      "Review Petition Criminal": 1,
+      "Review Petition Civil": 3,
+      "SLP Criminal": 1,
+      "Arbitration Petition": 3,
+      "Reference": 1,
+      "Contempt Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 147,
       "public judgment metadata": 147,
-      "no start-year signal": 147
+      "no start-year signal": 147,
+      "case type parsed from source case number": 147
     },
     "benchSizeProfile": {
       "2 judge bench": 27,
@@ -5844,12 +6854,18 @@
       "1988": 19
     },
     "caseTypeMix": {
-      "Unclassified": 57
+      "Criminal Appeal": 10,
+      "Civil Appeal": 37,
+      "Review Petition Civil": 1,
+      "SLP Civil": 2,
+      "Writ Petition Civil": 5,
+      "Writ Petition Criminal": 2
     },
     "subjectMix": {
       "supreme court": 57,
       "public judgment metadata": 57,
-      "no start-year signal": 57
+      "no start-year signal": 57,
+      "case type parsed from source case number": 57
     },
     "benchSizeProfile": {
       "3 judge bench": 2,
@@ -5885,12 +6901,21 @@
       "2023": 157
     },
     "caseTypeMix": {
-      "Unclassified": 542
+      "Writ Petition Civil": 14,
+      "Criminal Appeal": 78,
+      "Civil Appeal": 419,
+      "Contempt Petition Civil": 5,
+      "SLP Civil": 9,
+      "SLP Criminal": 3,
+      "Miscellaneous Application": 8,
+      "Unclassified": 4,
+      "Writ Petition Criminal": 2
     },
     "subjectMix": {
       "supreme court": 542,
       "public judgment metadata": 542,
-      "no start-year signal": 542
+      "no start-year signal": 542,
+      "case type parsed from source case number": 542
     },
     "benchSizeProfile": {
       "2 judge bench": 27,
@@ -5924,12 +6949,20 @@
       "2016": 8
     },
     "caseTypeMix": {
-      "Unclassified": 132
+      "SLP Civil": 6,
+      "Civil Appeal": 81,
+      "Criminal Appeal": 37,
+      "Unclassified": 2,
+      "SLP Criminal": 2,
+      "Writ Petition Criminal": 1,
+      "Writ Petition Civil": 2,
+      "Transfer Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 132,
       "public judgment metadata": 132,
-      "no start-year signal": 132
+      "no start-year signal": 132,
+      "case type parsed from source case number": 132
     },
     "benchSizeProfile": {
       "2 judge bench": 11,
@@ -5965,12 +6998,23 @@
       "2018": 44
     },
     "caseTypeMix": {
-      "Unclassified": 135
+      "Civil Appeal": 75,
+      "Writ Petition Civil": 26,
+      "Criminal Appeal": 14,
+      "Writ Petition Criminal": 4,
+      "Unclassified": 8,
+      "SLP Civil": 2,
+      "Election Petition": 1,
+      "SLP Criminal": 1,
+      "Criminal Miscellaneous Petition": 1,
+      "Miscellaneous Application": 1,
+      "Review Petition Criminal": 2
     },
     "subjectMix": {
       "supreme court": 135,
       "public judgment metadata": 135,
-      "no start-year signal": 135
+      "no start-year signal": 135,
+      "case type parsed from source case number": 135
     },
     "benchSizeProfile": {
       "3 judge bench": 4,
@@ -6002,12 +7046,23 @@
       "2024": 26
     },
     "caseTypeMix": {
-      "Unclassified": 39
+      "Civil Appeal": 12,
+      "Criminal Appeal": 8,
+      "Writ Petition Civil": 7,
+      "Writ Petition Criminal": 2,
+      "Contempt Petition Civil": 1,
+      "SLP Criminal": 1,
+      "SLP Civil": 2,
+      "Miscellaneous Application": 2,
+      "Unclassified": 2,
+      "Arbitration Petition": 1,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 39,
       "public judgment metadata": 39,
-      "no start-year signal": 39
+      "no start-year signal": 39,
+      "case type parsed from source case number": 39
     },
     "benchSizeProfile": {
       "2 judge bench": 11,
@@ -6042,12 +7097,26 @@
       "2011": 71
     },
     "caseTypeMix": {
-      "Unclassified": 250
+      "Civil Appeal": 157,
+      "Criminal Appeal": 53,
+      "Unclassified": 2,
+      "Arbitration Petition": 1,
+      "Writ Petition Civil": 7,
+      "SLP Criminal": 12,
+      "SLP Civil": 7,
+      "Review Petition Criminal": 1,
+      "Original Suit": 1,
+      "Writ Petition Criminal": 4,
+      "Transfer Petition Criminal": 1,
+      "Transfer Petition Civil": 1,
+      "Contempt Petition Civil": 2,
+      "Miscellaneous Application": 1
     },
     "subjectMix": {
       "supreme court": 250,
       "public judgment metadata": 250,
-      "no start-year signal": 250
+      "no start-year signal": 250,
+      "case type parsed from source case number": 250
     },
     "benchSizeProfile": {
       "2 judge bench": 162,
@@ -6081,12 +7150,18 @@
       "1954": 88
     },
     "caseTypeMix": {
-      "Unclassified": 187
+      "Civil Appeal": 133,
+      "Original Suit": 1,
+      "Criminal Appeal": 35,
+      "Writ Petition Civil": 16,
+      "Unclassified": 1,
+      "Writ Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 187,
       "public judgment metadata": 187,
-      "no start-year signal": 187
+      "no start-year signal": 187,
+      "case type parsed from source case number": 187
     },
     "benchSizeProfile": {
       "6 judge bench": 2,
@@ -6124,12 +7199,17 @@
       "2021": 8
     },
     "caseTypeMix": {
-      "Unclassified": 65
+      "SLP Criminal": 4,
+      "Civil Appeal": 44,
+      "Unclassified": 2,
+      "Criminal Appeal": 12,
+      "SLP Civil": 3
     },
     "subjectMix": {
       "supreme court": 65,
       "public judgment metadata": 65,
-      "no start-year signal": 65
+      "no start-year signal": 65,
+      "case type parsed from source case number": 65
     },
     "benchSizeProfile": {
       "2 judge bench": 18,
@@ -6162,12 +7242,17 @@
       "2011": 73
     },
     "caseTypeMix": {
-      "Unclassified": 155
+      "Criminal Appeal": 33,
+      "Arbitration Petition": 1,
+      "Civil Appeal": 118,
+      "Writ Petition Civil": 2,
+      "Reference": 1
     },
     "subjectMix": {
       "supreme court": 155,
       "public judgment metadata": 155,
-      "no start-year signal": 155
+      "no start-year signal": 155,
+      "case type parsed from source case number": 155
     },
     "benchSizeProfile": {
       "2 judge bench": 35,
@@ -6197,12 +7282,15 @@
       "2024": 3
     },
     "caseTypeMix": {
-      "Unclassified": 3
+      "Writ Petition Civil": 1,
+      "Civil Appeal": 1,
+      "Criminal Appeal": 1
     },
     "subjectMix": {
       "supreme court": 3,
       "public judgment metadata": 3,
-      "no start-year signal": 3
+      "no start-year signal": 3,
+      "case type parsed from source case number": 3
     },
     "benchSizeProfile": {
       "2 judge bench": 3
@@ -6234,12 +7322,15 @@
       "1956": 13
     },
     "caseTypeMix": {
-      "Unclassified": 27
+      "Civil Appeal": 8,
+      "Criminal Appeal": 16,
+      "Writ Petition Civil": 3
     },
     "subjectMix": {
       "supreme court": 27,
       "public judgment metadata": 27,
-      "no start-year signal": 27
+      "no start-year signal": 27,
+      "case type parsed from source case number": 27
     },
     "benchSizeProfile": {
       "5 judge bench": 5,
@@ -6274,12 +7365,16 @@
       "1964": 4
     },
     "caseTypeMix": {
-      "Unclassified": 18
+      "Criminal Appeal": 4,
+      "Writ Petition Civil": 3,
+      "Civil Appeal": 10,
+      "Reference": 1
     },
     "subjectMix": {
       "supreme court": 18,
       "public judgment metadata": 18,
-      "no start-year signal": 18
+      "no start-year signal": 18,
+      "case type parsed from source case number": 18
     },
     "benchSizeProfile": {
       "5 judge bench": 12,
@@ -6317,12 +7412,18 @@
       "2005": 36
     },
     "caseTypeMix": {
-      "Unclassified": 136
+      "Civil Appeal": 97,
+      "Writ Petition Criminal": 1,
+      "SLP Civil": 3,
+      "Criminal Appeal": 32,
+      "Writ Petition Civil": 2,
+      "Criminal Miscellaneous Petition": 1
     },
     "subjectMix": {
       "supreme court": 136,
       "public judgment metadata": 136,
-      "no start-year signal": 136
+      "no start-year signal": 136,
+      "case type parsed from source case number": 136
     },
     "benchSizeProfile": {
       "2 judge bench": 14,
@@ -6356,12 +7457,20 @@
       "1995": 31
     },
     "caseTypeMix": {
-      "Unclassified": 170
+      "Criminal Appeal": 1,
+      "Civil Appeal": 146,
+      "SLP Civil": 11,
+      "Arbitration Petition": 3,
+      "Writ Petition Civil": 6,
+      "SLP Criminal": 1,
+      "Contempt Petition Criminal": 1,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 170,
       "public judgment metadata": 170,
-      "no start-year signal": 170
+      "no start-year signal": 170,
+      "case type parsed from source case number": 170
     },
     "benchSizeProfile": {
       "3 judge bench": 17,
@@ -6394,12 +7503,14 @@
       "1991": 5
     },
     "caseTypeMix": {
-      "Unclassified": 15
+      "Civil Appeal": 14,
+      "Civil Miscellaneous Petition": 1
     },
     "subjectMix": {
       "supreme court": 15,
       "public judgment metadata": 15,
-      "no start-year signal": 15
+      "no start-year signal": 15,
+      "case type parsed from source case number": 15
     },
     "benchSizeProfile": {
       "2 judge bench": 2,
@@ -6435,12 +7546,15 @@
       "1980": 16
     },
     "caseTypeMix": {
-      "Unclassified": 96
+      "Criminal Appeal": 15,
+      "Writ Petition Criminal": 2,
+      "Civil Appeal": 79
     },
     "subjectMix": {
       "supreme court": 96,
       "public judgment metadata": 96,
-      "no start-year signal": 96
+      "no start-year signal": 96,
+      "case type parsed from source case number": 96
     },
     "benchSizeProfile": {
       "1 judge bench": 91,
@@ -6473,12 +7587,18 @@
       "1993": 8
     },
     "caseTypeMix": {
-      "Unclassified": 71
+      "Writ Petition Civil": 5,
+      "Civil Appeal": 60,
+      "Writ Petition Criminal": 1,
+      "SLP Criminal": 1,
+      "Criminal Appeal": 2,
+      "SLP Civil": 2
     },
     "subjectMix": {
       "supreme court": 71,
       "public judgment metadata": 71,
-      "no start-year signal": 71
+      "no start-year signal": 71,
+      "case type parsed from source case number": 71
     },
     "benchSizeProfile": {
       "1 judge bench": 68,
@@ -6511,12 +7631,20 @@
       "1996": 47
     },
     "caseTypeMix": {
-      "Unclassified": 95
+      "Unclassified": 2,
+      "Criminal Appeal": 9,
+      "Civil Appeal": 74,
+      "Writ Petition Civil": 6,
+      "SLP Civil": 1,
+      "SLP Criminal": 1,
+      "Civil Miscellaneous Petition": 1,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 95,
       "public judgment metadata": 95,
-      "no start-year signal": 95
+      "no start-year signal": 95,
+      "case type parsed from source case number": 95
     },
     "benchSizeProfile": {
       "2 judge bench": 38,
@@ -6553,12 +7681,21 @@
       "2022": 40
     },
     "caseTypeMix": {
-      "Unclassified": 220
+      "Civil Appeal": 81,
+      "Criminal Appeal": 114,
+      "Review Petition Criminal": 2,
+      "SLP Criminal": 6,
+      "SLP Civil": 1,
+      "Writ Petition Civil": 10,
+      "Arbitration Petition": 3,
+      "Contempt Petition Civil": 1,
+      "Unclassified": 2
     },
     "subjectMix": {
       "supreme court": 220,
       "public judgment metadata": 220,
-      "no start-year signal": 220
+      "no start-year signal": 220,
+      "case type parsed from source case number": 220
     },
     "benchSizeProfile": {
       "2 judge bench": 7,
@@ -6596,12 +7733,15 @@
       "1959": 7
     },
     "caseTypeMix": {
-      "Unclassified": 115
+      "Criminal Appeal": 25,
+      "Civil Appeal": 87,
+      "Writ Petition Civil": 3
     },
     "subjectMix": {
       "supreme court": 115,
       "public judgment metadata": 115,
-      "no start-year signal": 115
+      "no start-year signal": 115,
+      "case type parsed from source case number": 115
     },
     "benchSizeProfile": {
       "3 judge bench": 5,
@@ -6639,12 +7779,15 @@
       "2021": 4
     },
     "caseTypeMix": {
-      "Unclassified": 35
+      "Civil Appeal": 27,
+      "Criminal Appeal": 7,
+      "Writ Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 35,
       "public judgment metadata": 35,
-      "no start-year signal": 35
+      "no start-year signal": 35,
+      "case type parsed from source case number": 35
     },
     "benchSizeProfile": {
       "2 judge bench": 14,
@@ -6682,12 +7825,22 @@
       "1987": 36
     },
     "caseTypeMix": {
-      "Unclassified": 192
+      "Civil Appeal": 114,
+      "Criminal Appeal": 27,
+      "SLP Civil": 5,
+      "Writ Petition Civil": 33,
+      "Writ Petition Criminal": 5,
+      "SLP Criminal": 3,
+      "Criminal Miscellaneous Petition": 1,
+      "Transfer Petition Civil": 2,
+      "Review Petition Civil": 1,
+      "Miscellaneous Application": 1
     },
     "subjectMix": {
       "supreme court": 192,
       "public judgment metadata": 192,
-      "no start-year signal": 192
+      "no start-year signal": 192,
+      "case type parsed from source case number": 192
     },
     "benchSizeProfile": {
       "3 judge bench": 4,
@@ -6718,12 +7871,14 @@
       "1957": 1
     },
     "caseTypeMix": {
-      "Unclassified": 2
+      "Civil Appeal": 1,
+      "Criminal Appeal": 1
     },
     "subjectMix": {
       "supreme court": 2,
       "public judgment metadata": 2,
-      "no start-year signal": 2
+      "no start-year signal": 2,
+      "case type parsed from source case number": 2
     },
     "benchSizeProfile": {
       "5 judge bench": 1,
@@ -6756,12 +7911,16 @@
       "1975": 1
     },
     "caseTypeMix": {
-      "Unclassified": 91
+      "Criminal Appeal": 16,
+      "Civil Appeal": 64,
+      "Writ Petition Criminal": 7,
+      "Writ Petition Civil": 4
     },
     "subjectMix": {
       "supreme court": 91,
       "public judgment metadata": 91,
-      "no start-year signal": 91
+      "no start-year signal": 91,
+      "case type parsed from source case number": 91
     },
     "benchSizeProfile": {
       "1 judge bench": 84,
@@ -6800,12 +7959,27 @@
       "2014": 49
     },
     "caseTypeMix": {
-      "Unclassified": 478
+      "Civil Appeal": 206,
+      "Criminal Appeal": 231,
+      "Writ Petition Civil": 12,
+      "Arbitration Petition": 1,
+      "Writ Petition Criminal": 11,
+      "Unclassified": 4,
+      "Transfer Petition Civil": 1,
+      "Transfer Petition Criminal": 2,
+      "SLP Civil": 2,
+      "Contempt Petition Civil": 2,
+      "Original Suit": 1,
+      "SLP Criminal": 2,
+      "Review Petition Civil": 1,
+      "Review Petition Criminal": 1,
+      "Miscellaneous Application": 1
     },
     "subjectMix": {
       "supreme court": 478,
       "public judgment metadata": 478,
-      "no start-year signal": 478
+      "no start-year signal": 478,
+      "case type parsed from source case number": 478
     },
     "benchSizeProfile": {
       "2 judge bench": 36,
@@ -6840,12 +8014,17 @@
       "2005": 16
     },
     "caseTypeMix": {
-      "Unclassified": 41
+      "Civil Appeal": 13,
+      "Criminal Appeal": 25,
+      "Contempt Petition Civil": 1,
+      "Writ Petition Criminal": 1,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 41,
       "public judgment metadata": 41,
-      "no start-year signal": 41
+      "no start-year signal": 41,
+      "case type parsed from source case number": 41
     },
     "benchSizeProfile": {
       "3 judge bench": 2,
@@ -6884,12 +8063,21 @@
       "1966": 39
     },
     "caseTypeMix": {
-      "Unclassified": 714
+      "Criminal Appeal": 57,
+      "Writ Petition Civil": 56,
+      "Civil Appeal": 592,
+      "Criminal Miscellaneous Petition": 1,
+      "Writ Petition Criminal": 3,
+      "Unclassified": 1,
+      "Reference": 2,
+      "Transfer Petition Criminal": 1,
+      "Transfer Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 714,
       "public judgment metadata": 714,
-      "no start-year signal": 714
+      "no start-year signal": 714,
+      "case type parsed from source case number": 714
     },
     "benchSizeProfile": {
       "3 judge bench": 17,
@@ -6928,12 +8116,20 @@
       "1995": 27
     },
     "caseTypeMix": {
-      "Unclassified": 123
+      "Writ Petition Civil": 11,
+      "Civil Appeal": 90,
+      "Criminal Appeal": 10,
+      "SLP Civil": 5,
+      "Writ Petition Criminal": 2,
+      "Unclassified": 1,
+      "SLP Criminal": 2,
+      "Contempt Petition Civil": 2
     },
     "subjectMix": {
       "supreme court": 123,
       "public judgment metadata": 123,
-      "no start-year signal": 123
+      "no start-year signal": 123,
+      "case type parsed from source case number": 123
     },
     "benchSizeProfile": {
       "3 judge bench": 12,
@@ -6967,12 +8163,17 @@
       "2007": 8
     },
     "caseTypeMix": {
-      "Unclassified": 14
+      "Writ Petition Civil": 3,
+      "Civil Appeal": 8,
+      "SLP Civil": 1,
+      "Criminal Appeal": 1,
+      "Arbitration Petition": 1
     },
     "subjectMix": {
       "supreme court": 14,
       "public judgment metadata": 14,
-      "no start-year signal": 14
+      "no start-year signal": 14,
+      "case type parsed from source case number": 14
     },
     "benchSizeProfile": {
       "3 judge bench": 2,
@@ -7006,12 +8207,17 @@
       "1977": 42
     },
     "caseTypeMix": {
-      "Unclassified": 75
+      "Civil Appeal": 47,
+      "Criminal Appeal": 24,
+      "Writ Petition Criminal": 2,
+      "SLP Criminal": 1,
+      "Transfer Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 75,
       "public judgment metadata": 75,
-      "no start-year signal": 75
+      "no start-year signal": 75,
+      "case type parsed from source case number": 75
     },
     "benchSizeProfile": {
       "2 judge bench": 7,
@@ -7056,12 +8262,23 @@
       "1986": 35
     },
     "caseTypeMix": {
-      "Unclassified": 287
+      "Civil Appeal": 174,
+      "Writ Petition Civil": 39,
+      "Review Petition Criminal": 1,
+      "Writ Petition Criminal": 16,
+      "Criminal Appeal": 42,
+      "SLP Criminal": 1,
+      "Criminal Miscellaneous Petition": 2,
+      "Unclassified": 7,
+      "SLP Civil": 3,
+      "Contempt Petition Criminal": 1,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 287,
       "public judgment metadata": 287,
-      "no start-year signal": 287
+      "no start-year signal": 287,
+      "case type parsed from source case number": 287
     },
     "benchSizeProfile": {
       "5 judge bench": 3,
@@ -7097,12 +8314,14 @@
       "1980": 5
     },
     "caseTypeMix": {
-      "Unclassified": 36
+      "Civil Appeal": 32,
+      "Criminal Appeal": 4
     },
     "subjectMix": {
       "supreme court": 36,
       "public judgment metadata": 36,
-      "no start-year signal": 36
+      "no start-year signal": 36,
+      "case type parsed from source case number": 36
     },
     "benchSizeProfile": {
       "4 judge bench": 2,
@@ -7137,12 +8356,16 @@
       "2008": 26
     },
     "caseTypeMix": {
-      "Unclassified": 38
+      "Criminal Appeal": 24,
+      "Civil Appeal": 12,
+      "Writ Petition Criminal": 1,
+      "Writ Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 38,
       "public judgment metadata": 38,
-      "no start-year signal": 38
+      "no start-year signal": 38,
+      "case type parsed from source case number": 38
     },
     "benchSizeProfile": {
       "2 judge bench": 13,
@@ -7175,12 +8398,14 @@
       "1980": 2
     },
     "caseTypeMix": {
-      "Unclassified": 22
+      "Civil Appeal": 15,
+      "Criminal Appeal": 7
     },
     "subjectMix": {
       "supreme court": 22,
       "public judgment metadata": 22,
-      "no start-year signal": 22
+      "no start-year signal": 22,
+      "case type parsed from source case number": 22
     },
     "benchSizeProfile": {
       "3 judge bench": 7,
@@ -7214,12 +8439,20 @@
       "2024": 50
     },
     "caseTypeMix": {
-      "Unclassified": 63
+      "Criminal Appeal": 9,
+      "Civil Appeal": 46,
+      "SLP Civil": 2,
+      "Transfer Petition Civil": 1,
+      "Writ Petition Civil": 2,
+      "Writ Petition Criminal": 1,
+      "Unclassified": 1,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 63,
       "public judgment metadata": 63,
-      "no start-year signal": 63
+      "no start-year signal": 63,
+      "case type parsed from source case number": 63
     },
     "benchSizeProfile": {
       "2 judge bench": 12,
@@ -7251,12 +8484,15 @@
       "2024": 19
     },
     "caseTypeMix": {
-      "Unclassified": 24
+      "Civil Appeal": 15,
+      "Criminal Appeal": 7,
+      "SLP Civil": 2
     },
     "subjectMix": {
       "supreme court": 24,
       "public judgment metadata": 24,
-      "no start-year signal": 24
+      "no start-year signal": 24,
+      "case type parsed from source case number": 24
     },
     "benchSizeProfile": {
       "2 judge bench": 10,
@@ -7291,12 +8527,17 @@
       "2017": 19
     },
     "caseTypeMix": {
-      "Unclassified": 79
+      "Civil Appeal": 20,
+      "Criminal Appeal": 55,
+      "Writ Petition Civil": 2,
+      "Criminal Miscellaneous Petition": 1,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 79,
       "public judgment metadata": 79,
-      "no start-year signal": 79
+      "no start-year signal": 79,
+      "case type parsed from source case number": 79
     },
     "benchSizeProfile": {
       "2 judge bench": 16,
@@ -7327,12 +8568,17 @@
       "2017": 4
     },
     "caseTypeMix": {
-      "Unclassified": 11
+      "Criminal Appeal": 6,
+      "Criminal Miscellaneous Petition": 1,
+      "Writ Petition Civil": 1,
+      "SLP Civil": 1,
+      "Civil Appeal": 2
     },
     "subjectMix": {
       "supreme court": 11,
       "public judgment metadata": 11,
-      "no start-year signal": 11
+      "no start-year signal": 11,
+      "case type parsed from source case number": 11
     },
     "benchSizeProfile": {
       "2 judge bench": 7,
@@ -7362,12 +8608,15 @@
       "2024": 11
     },
     "caseTypeMix": {
-      "Unclassified": 11
+      "Criminal Appeal": 4,
+      "Civil Appeal": 6,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 11,
       "public judgment metadata": 11,
-      "no start-year signal": 11
+      "no start-year signal": 11,
+      "case type parsed from source case number": 11
     },
     "benchSizeProfile": {
       "2 judge bench": 8,
@@ -7398,12 +8647,16 @@
       "2024": 8
     },
     "caseTypeMix": {
-      "Unclassified": 10
+      "Criminal Appeal": 3,
+      "Civil Appeal": 4,
+      "Writ Petition Civil": 2,
+      "SLP Criminal": 1
     },
     "subjectMix": {
       "supreme court": 10,
       "public judgment metadata": 10,
-      "no start-year signal": 10
+      "no start-year signal": 10,
+      "case type parsed from source case number": 10
     },
     "benchSizeProfile": {
       "2 judge bench": 8,
@@ -7432,12 +8685,17 @@
       "2024": 17
     },
     "caseTypeMix": {
-      "Unclassified": 17
+      "Civil Appeal": 6,
+      "SLP Civil": 8,
+      "SLP Criminal": 1,
+      "Miscellaneous Application": 1,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 17,
       "public judgment metadata": 17,
-      "no start-year signal": 17
+      "no start-year signal": 17,
+      "case type parsed from source case number": 17
     },
     "benchSizeProfile": {
       "2 judge bench": 17
@@ -7470,12 +8728,21 @@
       "2020": 33
     },
     "caseTypeMix": {
-      "Unclassified": 186
+      "Criminal Appeal": 71,
+      "Review Petition Civil": 1,
+      "Civil Appeal": 101,
+      "Writ Petition Civil": 4,
+      "Transfer Petition Civil": 1,
+      "Arbitration Petition": 1,
+      "SLP Criminal": 2,
+      "Writ Petition Criminal": 4,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 186,
       "public judgment metadata": 186,
-      "no start-year signal": 186
+      "no start-year signal": 186,
+      "case type parsed from source case number": 186
     },
     "benchSizeProfile": {
       "2 judge bench": 17,
@@ -7509,12 +8776,16 @@
       "2022": 4
     },
     "caseTypeMix": {
-      "Unclassified": 42
+      "Civil Appeal": 26,
+      "Criminal Appeal": 11,
+      "Writ Petition Civil": 4,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 42,
       "public judgment metadata": 42,
-      "no start-year signal": 42
+      "no start-year signal": 42,
+      "case type parsed from source case number": 42
     },
     "benchSizeProfile": {
       "2 judge bench": 7,
@@ -7547,12 +8818,15 @@
       "1986": 4
     },
     "caseTypeMix": {
-      "Unclassified": 7
+      "Criminal Appeal": 2,
+      "Civil Appeal": 3,
+      "Writ Petition Civil": 2
     },
     "subjectMix": {
       "supreme court": 7,
       "public judgment metadata": 7,
-      "no start-year signal": 7
+      "no start-year signal": 7,
+      "case type parsed from source case number": 7
     },
     "benchSizeProfile": {
       "3 judge bench": 2,
@@ -7588,12 +8862,24 @@
       "2005": 69
     },
     "caseTypeMix": {
-      "Unclassified": 330
+      "Civil Appeal": 270,
+      "Unclassified": 4,
+      "Criminal Appeal": 31,
+      "SLP Civil": 2,
+      "Writ Petition Civil": 16,
+      "Appeal (Unspecified)": 1,
+      "Contempt Petition Civil": 1,
+      "Review Petition Civil": 1,
+      "SLP Criminal": 1,
+      "Transfer Petition Civil": 1,
+      "Writ Petition Criminal": 1,
+      "Transfer Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 330,
       "public judgment metadata": 330,
-      "no start-year signal": 330
+      "no start-year signal": 330,
+      "case type parsed from source case number": 330
     },
     "benchSizeProfile": {
       "2 judge bench": 40,
@@ -7623,12 +8909,13 @@
       "1992": 1
     },
     "caseTypeMix": {
-      "Unclassified": 1
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 1,
       "public judgment metadata": 1,
-      "no start-year signal": 1
+      "no start-year signal": 1,
+      "case type parsed from source case number": 1
     },
     "benchSizeProfile": {
       "2 judge bench": 1
@@ -7663,13 +8950,23 @@
       "2021": 40
     },
     "caseTypeMix": {
-      "Unclassified": 268,
-      "Criminal Appeal": 1
+      "Civil Appeal": 208,
+      "Review Petition Civil": 1,
+      "Criminal Appeal": 36,
+      "Writ Petition Criminal": 1,
+      "Writ Petition Civil": 15,
+      "Unclassified": 2,
+      "Arbitration Petition": 1,
+      "SLP Civil": 1,
+      "Contempt Petition Criminal": 2,
+      "SLP Criminal": 1,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 269,
       "public judgment metadata": 269,
-      "no start-year signal": 269
+      "no start-year signal": 269,
+      "case type parsed from source case number": 269
     },
     "benchSizeProfile": {
       "2 judge bench": 26,
@@ -7703,12 +9000,21 @@
       "2018": 75
     },
     "caseTypeMix": {
-      "Unclassified": 177
+      "Unclassified": 4,
+      "Civil Appeal": 138,
+      "Writ Petition Civil": 5,
+      "Criminal Appeal": 24,
+      "Review Petition Civil": 1,
+      "Writ Petition Criminal": 2,
+      "Transfer Petition Civil": 1,
+      "Contempt Petition Civil": 1,
+      "Arbitration Petition": 1
     },
     "subjectMix": {
       "supreme court": 177,
       "public judgment metadata": 177,
-      "no start-year signal": 177
+      "no start-year signal": 177,
+      "case type parsed from source case number": 177
     },
     "benchSizeProfile": {
       "3 judge bench": 4,
@@ -7744,12 +9050,20 @@
       "1995": 40
     },
     "caseTypeMix": {
-      "Unclassified": 122
+      "Civil Appeal": 100,
+      "Writ Petition Civil": 7,
+      "Criminal Appeal": 8,
+      "SLP Civil": 1,
+      "Contempt Petition Civil": 2,
+      "Arbitration Petition": 1,
+      "Writ Petition Criminal": 2,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 122,
       "public judgment metadata": 122,
-      "no start-year signal": 122
+      "no start-year signal": 122,
+      "case type parsed from source case number": 122
     },
     "benchSizeProfile": {
       "2 judge bench": 43,
@@ -7782,12 +9096,16 @@
       "2002": 27
     },
     "caseTypeMix": {
-      "Unclassified": 54
+      "Unclassified": 1,
+      "Civil Appeal": 21,
+      "Criminal Appeal": 30,
+      "Writ Petition Civil": 2
     },
     "subjectMix": {
       "supreme court": 54,
       "public judgment metadata": 54,
-      "no start-year signal": 54
+      "no start-year signal": 54,
+      "case type parsed from source case number": 54
     },
     "benchSizeProfile": {
       "3 judge bench": 3,
@@ -7821,12 +9139,15 @@
       "1968": 22
     },
     "caseTypeMix": {
-      "Unclassified": 47
+      "Civil Appeal": 40,
+      "Criminal Appeal": 6,
+      "Writ Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 47,
       "public judgment metadata": 47,
-      "no start-year signal": 47
+      "no start-year signal": 47,
+      "case type parsed from source case number": 47
     },
     "benchSizeProfile": {
       "5 judge bench": 1,
@@ -7868,12 +9189,21 @@
       "1989": 70
     },
     "caseTypeMix": {
-      "Unclassified": 314
+      "Criminal Appeal": 14,
+      "Writ Petition Criminal": 10,
+      "Civil Appeal": 231,
+      "Writ Petition Civil": 38,
+      "Unclassified": 6,
+      "SLP Civil": 9,
+      "Review Petition Civil": 3,
+      "Miscellaneous Application": 2,
+      "SLP Criminal": 1
     },
     "subjectMix": {
       "supreme court": 314,
       "public judgment metadata": 314,
-      "no start-year signal": 314
+      "no start-year signal": 314,
+      "case type parsed from source case number": 314
     },
     "benchSizeProfile": {
       "3 judge bench": 11,
@@ -7911,12 +9241,19 @@
       "1981": 8
     },
     "caseTypeMix": {
-      "Unclassified": 154
+      "Criminal Appeal": 51,
+      "Writ Petition Criminal": 4,
+      "Civil Appeal": 86,
+      "SLP Civil": 1,
+      "Election Petition": 1,
+      "Transfer Petition Civil": 1,
+      "Writ Petition Civil": 10
     },
     "subjectMix": {
       "supreme court": 154,
       "public judgment metadata": 154,
-      "no start-year signal": 154
+      "no start-year signal": 154,
+      "case type parsed from source case number": 154
     },
     "benchSizeProfile": {
       "2 judge bench": 5,
@@ -7954,12 +9291,23 @@
       "2011": 117
     },
     "caseTypeMix": {
-      "Unclassified": 352
+      "SLP Civil": 11,
+      "Writ Petition Civil": 5,
+      "Arbitration Petition": 1,
+      "Civil Appeal": 287,
+      "Criminal Appeal": 35,
+      "Unclassified": 3,
+      "Criminal Miscellaneous Petition": 1,
+      "SLP Criminal": 6,
+      "Curative Petition Criminal": 1,
+      "Transfer Petition Civil": 1,
+      "Original Suit": 1
     },
     "subjectMix": {
       "supreme court": 352,
       "public judgment metadata": 352,
-      "no start-year signal": 352
+      "no start-year signal": 352,
+      "case type parsed from source case number": 352
     },
     "benchSizeProfile": {
       "2 judge bench": 20,
@@ -7997,12 +9345,16 @@
       "1966": 13
     },
     "caseTypeMix": {
-      "Unclassified": 44
+      "Criminal Appeal": 24,
+      "Civil Appeal": 18,
+      "Unclassified": 1,
+      "Miscellaneous Application": 1
     },
     "subjectMix": {
       "supreme court": 44,
       "public judgment metadata": 44,
-      "no start-year signal": 44
+      "no start-year signal": 44,
+      "case type parsed from source case number": 44
     },
     "benchSizeProfile": {
       "3 judge bench": 13,
@@ -8040,12 +9392,23 @@
       "2014": 38
     },
     "caseTypeMix": {
-      "Unclassified": 164
+      "Writ Petition Civil": 12,
+      "Civil Appeal": 107,
+      "Criminal Appeal": 28,
+      "SLP Civil": 1,
+      "Transfer Petition Criminal": 1,
+      "SLP Criminal": 3,
+      "Writ Petition Criminal": 5,
+      "Unclassified": 3,
+      "Original Suit": 2,
+      "Contempt Petition Civil": 1,
+      "Contempt Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 164,
       "public judgment metadata": 164,
-      "no start-year signal": 164
+      "no start-year signal": 164,
+      "case type parsed from source case number": 164
     },
     "benchSizeProfile": {
       "2 judge bench": 20,
@@ -8076,12 +9439,17 @@
       "2024": 8
     },
     "caseTypeMix": {
-      "Unclassified": 9
+      "Transfer Petition Civil": 1,
+      "Civil Appeal": 4,
+      "Criminal Appeal": 2,
+      "SLP Criminal": 1,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 9,
       "public judgment metadata": 9,
-      "no start-year signal": 9
+      "no start-year signal": 9,
+      "case type parsed from source case number": 9
     },
     "benchSizeProfile": {
       "1 judge bench": 2,
@@ -8116,12 +9484,25 @@
       "1991": 48
     },
     "caseTypeMix": {
-      "Unclassified": 239
+      "Civil Appeal": 137,
+      "Criminal Appeal": 11,
+      "Writ Petition Civil": 65,
+      "Writ Petition Criminal": 13,
+      "SLP Civil": 1,
+      "SLP Criminal": 1,
+      "Review Petition Civil": 1,
+      "Original Suit": 1,
+      "Miscellaneous Application": 1,
+      "Criminal Miscellaneous Petition": 2,
+      "Civil Miscellaneous Petition": 3,
+      "Contempt Petition Civil": 2,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 239,
       "public judgment metadata": 239,
-      "no start-year signal": 239
+      "no start-year signal": 239,
+      "case type parsed from source case number": 239
     },
     "benchSizeProfile": {
       "3 judge bench": 17,
@@ -8159,13 +9540,24 @@
       "2019": 32
     },
     "caseTypeMix": {
-      "Unclassified": 221,
-      "SLP Civil": 1
+      "Criminal Appeal": 41,
+      "SLP Civil": 4,
+      "Civil Appeal": 146,
+      "Transfer Petition Criminal": 2,
+      "Writ Petition Civil": 18,
+      "Arbitration Petition": 1,
+      "Review Petition Civil": 2,
+      "Criminal Miscellaneous Petition": 2,
+      "Writ Petition Criminal": 1,
+      "Review Petition Criminal": 3,
+      "Unclassified": 1,
+      "SLP Criminal": 1
     },
     "subjectMix": {
       "supreme court": 222,
       "public judgment metadata": 222,
-      "no start-year signal": 222
+      "no start-year signal": 222,
+      "case type parsed from source case number": 222
     },
     "benchSizeProfile": {
       "2 judge bench": 20,
@@ -8199,12 +9591,18 @@
       "2014": 29
     },
     "caseTypeMix": {
-      "Unclassified": 50
+      "Criminal Appeal": 36,
+      "Civil Appeal": 9,
+      "Writ Petition Civil": 2,
+      "Writ Petition Criminal": 1,
+      "Criminal Miscellaneous Petition": 1,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 50,
       "public judgment metadata": 50,
-      "no start-year signal": 50
+      "no start-year signal": 50,
+      "case type parsed from source case number": 50
     },
     "benchSizeProfile": {
       "2 judge bench": 11,
@@ -8240,12 +9638,20 @@
       "2006": 16
     },
     "caseTypeMix": {
-      "Unclassified": 152
+      "SLP Civil": 3,
+      "Civil Appeal": 136,
+      "Criminal Appeal": 5,
+      "Original Suit": 1,
+      "Writ Petition Civil": 4,
+      "Unclassified": 1,
+      "Writ Petition Criminal": 1,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 152,
       "public judgment metadata": 152,
-      "no start-year signal": 152
+      "no start-year signal": 152,
+      "case type parsed from source case number": 152
     },
     "benchSizeProfile": {
       "2 judge bench": 18,
@@ -8282,13 +9688,16 @@
       "2023": 1
     },
     "caseTypeMix": {
-      "Unclassified": 88,
-      "SLP Civil": 1
+      "Civil Appeal": 65,
+      "Criminal Appeal": 20,
+      "Miscellaneous Application": 3,
+      "Writ Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 89,
       "public judgment metadata": 89,
-      "no start-year signal": 89
+      "no start-year signal": 89,
+      "case type parsed from source case number": 89
     },
     "benchSizeProfile": {
       "2 judge bench": 15,
@@ -8322,12 +9731,16 @@
       "2015": 29
     },
     "caseTypeMix": {
-      "Unclassified": 139
+      "Criminal Appeal": 57,
+      "Civil Appeal": 80,
+      "Unclassified": 1,
+      "Writ Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 139,
       "public judgment metadata": 139,
-      "no start-year signal": 139
+      "no start-year signal": 139,
+      "case type parsed from source case number": 139
     },
     "benchSizeProfile": {
       "2 judge bench": 12,
@@ -8360,12 +9773,21 @@
       "1995": 4
     },
     "caseTypeMix": {
-      "Unclassified": 60
+      "Criminal Appeal": 5,
+      "Civil Appeal": 42,
+      "SLP Civil": 1,
+      "Unclassified": 2,
+      "Writ Petition Civil": 5,
+      "Arbitration Petition": 1,
+      "Reference": 1,
+      "Writ Petition Criminal": 2,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 60,
       "public judgment metadata": 60,
-      "no start-year signal": 60
+      "no start-year signal": 60,
+      "case type parsed from source case number": 60
     },
     "benchSizeProfile": {
       "1 judge bench": 23,
@@ -8406,12 +9828,18 @@
       "1985": 25
     },
     "caseTypeMix": {
-      "Unclassified": 262
+      "Civil Appeal": 148,
+      "Criminal Appeal": 90,
+      "Unclassified": 2,
+      "Writ Petition Civil": 16,
+      "Writ Petition Criminal": 5,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 262,
       "public judgment metadata": 262,
-      "no start-year signal": 262
+      "no start-year signal": 262,
+      "case type parsed from source case number": 262
     },
     "benchSizeProfile": {
       "3 judge bench": 9,
@@ -8443,12 +9871,19 @@
       "1989": 17
     },
     "caseTypeMix": {
-      "Unclassified": 29
+      "SLP Criminal": 1,
+      "Civil Appeal": 16,
+      "Miscellaneous Application": 1,
+      "Criminal Appeal": 8,
+      "Writ Petition Civil": 1,
+      "Civil Miscellaneous Petition": 1,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 29,
       "public judgment metadata": 29,
-      "no start-year signal": 29
+      "no start-year signal": 29,
+      "case type parsed from source case number": 29
     },
     "benchSizeProfile": {
       "2 judge bench": 7,
@@ -8486,12 +9921,23 @@
       "2004": 69
     },
     "caseTypeMix": {
-      "Unclassified": 409
+      "Civil Appeal": 308,
+      "Writ Petition Civil": 27,
+      "Transfer Petition Civil": 2,
+      "Unclassified": 3,
+      "SLP Civil": 14,
+      "Writ Petition Criminal": 5,
+      "Criminal Appeal": 42,
+      "SLP Criminal": 3,
+      "Contempt Petition Civil": 3,
+      "Reference": 1,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 409,
       "public judgment metadata": 409,
-      "no start-year signal": 409
+      "no start-year signal": 409,
+      "case type parsed from source case number": 409
     },
     "benchSizeProfile": {
       "2 judge bench": 23,
@@ -8527,12 +9973,18 @@
       "1992": 36
     },
     "caseTypeMix": {
-      "Unclassified": 120
+      "Civil Appeal": 103,
+      "SLP Civil": 3,
+      "Writ Petition Civil": 9,
+      "Criminal Appeal": 3,
+      "Contempt Petition Criminal": 1,
+      "Civil Miscellaneous Petition": 1
     },
     "subjectMix": {
       "supreme court": 120,
       "public judgment metadata": 120,
-      "no start-year signal": 120
+      "no start-year signal": 120,
+      "case type parsed from source case number": 120
     },
     "benchSizeProfile": {
       "2 judge bench": 5,
@@ -8568,12 +10020,22 @@
       "1994": 10
     },
     "caseTypeMix": {
-      "Unclassified": 99
+      "Civil Appeal": 27,
+      "Criminal Appeal": 48,
+      "SLP Criminal": 2,
+      "SLP Civil": 6,
+      "Writ Petition Criminal": 5,
+      "Writ Petition Civil": 6,
+      "Unclassified": 1,
+      "Contempt Petition Civil": 2,
+      "Reference": 1,
+      "Criminal Miscellaneous Petition": 1
     },
     "subjectMix": {
       "supreme court": 99,
       "public judgment metadata": 99,
-      "no start-year signal": 99
+      "no start-year signal": 99,
+      "case type parsed from source case number": 99
     },
     "benchSizeProfile": {
       "2 judge bench": 6,
@@ -8609,12 +10071,18 @@
       "2023": 76
     },
     "caseTypeMix": {
-      "Unclassified": 95
+      "Civil Appeal": 60,
+      "Criminal Appeal": 22,
+      "Writ Petition Civil": 7,
+      "Writ Petition Criminal": 3,
+      "Contempt Petition Civil": 1,
+      "Miscellaneous Application": 2
     },
     "subjectMix": {
       "supreme court": 95,
       "public judgment metadata": 95,
-      "no start-year signal": 95
+      "no start-year signal": 95,
+      "case type parsed from source case number": 95
     },
     "benchSizeProfile": {
       "3 judge bench": 10,
@@ -8650,12 +10118,21 @@
       "2000": 80
     },
     "caseTypeMix": {
-      "Unclassified": 337
+      "Civil Appeal": 279,
+      "Writ Petition Civil": 13,
+      "Criminal Appeal": 18,
+      "Writ Petition Criminal": 2,
+      "Unclassified": 2,
+      "SLP Civil": 19,
+      "Contempt Petition Criminal": 1,
+      "Contempt Petition Civil": 2,
+      "SLP Criminal": 1
     },
     "subjectMix": {
       "supreme court": 337,
       "public judgment metadata": 337,
-      "no start-year signal": 337
+      "no start-year signal": 337,
+      "case type parsed from source case number": 337
     },
     "benchSizeProfile": {
       "3 judge bench": 49,
@@ -8693,13 +10170,21 @@
       "2021": 14
     },
     "caseTypeMix": {
-      "Unclassified": 124,
-      "SLP Civil": 1
+      "Civil Appeal": 69,
+      "Writ Petition Criminal": 6,
+      "SLP Criminal": 5,
+      "Criminal Appeal": 27,
+      "Writ Petition Civil": 11,
+      "SLP Civil": 3,
+      "Unclassified": 2,
+      "Arbitration Petition": 1,
+      "Transfer Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 125,
       "public judgment metadata": 125,
-      "no start-year signal": 125
+      "no start-year signal": 125,
+      "case type parsed from source case number": 125
     },
     "benchSizeProfile": {
       "3 judge bench": 41,
@@ -8737,12 +10222,20 @@
       "2000": 18
     },
     "caseTypeMix": {
-      "Unclassified": 216
+      "Civil Appeal": 181,
+      "Writ Petition Civil": 6,
+      "Writ Petition Criminal": 3,
+      "Criminal Appeal": 13,
+      "SLP Civil": 9,
+      "Unclassified": 1,
+      "Review Petition Civil": 2,
+      "Original Suit": 1
     },
     "subjectMix": {
       "supreme court": 216,
       "public judgment metadata": 216,
-      "no start-year signal": 216
+      "no start-year signal": 216,
+      "case type parsed from source case number": 216
     },
     "benchSizeProfile": {
       "2 judge bench": 76,
@@ -8780,12 +10273,27 @@
       "2009": 290
     },
     "caseTypeMix": {
-      "Unclassified": 1538
+      "Criminal Appeal": 421,
+      "Civil Appeal": 1075,
+      "Writ Petition Civil": 12,
+      "SLP Civil": 7,
+      "Unclassified": 3,
+      "Criminal Miscellaneous Petition": 2,
+      "Contempt Petition Criminal": 1,
+      "SLP Criminal": 2,
+      "Arbitration Petition": 2,
+      "Appeal (Unspecified)": 1,
+      "Contempt Petition Civil": 5,
+      "Civil Miscellaneous Petition": 1,
+      "Review Petition Civil": 3,
+      "Transfer Petition Criminal": 2,
+      "Transfer Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 1538,
       "public judgment metadata": 1538,
-      "no start-year signal": 1538
+      "no start-year signal": 1538,
+      "case type parsed from source case number": 1538
     },
     "benchSizeProfile": {
       "3 judge bench": 32,
@@ -8823,12 +10331,23 @@
       "1998": 37
     },
     "caseTypeMix": {
-      "Unclassified": 294
+      "Civil Appeal": 257,
+      "Unclassified": 1,
+      "Writ Petition Civil": 22,
+      "Transfer Petition Civil": 1,
+      "Arbitration Petition": 2,
+      "SLP Civil": 2,
+      "Criminal Appeal": 3,
+      "Review Petition Civil": 1,
+      "Writ Petition Criminal": 2,
+      "Contempt Petition Civil": 2,
+      "Election Petition": 1
     },
     "subjectMix": {
       "supreme court": 294,
       "public judgment metadata": 294,
-      "no start-year signal": 294
+      "no start-year signal": 294,
+      "case type parsed from source case number": 294
     },
     "benchSizeProfile": {
       "2 judge bench": 74,
@@ -8863,12 +10382,20 @@
       "1997": 46
     },
     "caseTypeMix": {
-      "Unclassified": 99
+      "Writ Petition Civil": 2,
+      "Civil Appeal": 84,
+      "Contempt Petition Civil": 2,
+      "SLP Civil": 2,
+      "Review Petition Civil": 1,
+      "Criminal Appeal": 5,
+      "SLP Criminal": 1,
+      "Writ Petition Criminal": 2
     },
     "subjectMix": {
       "supreme court": 99,
       "public judgment metadata": 99,
-      "no start-year signal": 99
+      "no start-year signal": 99,
+      "case type parsed from source case number": 99
     },
     "benchSizeProfile": {
       "2 judge bench": 52,
@@ -8906,12 +10433,23 @@
       "2012": 24
     },
     "caseTypeMix": {
-      "Unclassified": 253
+      "SLP Civil": 3,
+      "Criminal Appeal": 14,
+      "Civil Appeal": 199,
+      "Unclassified": 4,
+      "Transfer Petition Civil": 2,
+      "Writ Petition Civil": 23,
+      "Civil Miscellaneous Petition": 2,
+      "Arbitration Petition": 2,
+      "Curative Petition Criminal": 2,
+      "SLP Criminal": 1,
+      "Reference": 1
     },
     "subjectMix": {
       "supreme court": 253,
       "public judgment metadata": 253,
-      "no start-year signal": 253
+      "no start-year signal": 253,
+      "case type parsed from source case number": 253
     },
     "benchSizeProfile": {
       "2 judge bench": 33,
@@ -8949,12 +10487,17 @@
       "1963": 34
     },
     "caseTypeMix": {
-      "Unclassified": 231
+      "Civil Appeal": 186,
+      "Criminal Appeal": 29,
+      "Writ Petition Civil": 14,
+      "Review Petition Civil": 1,
+      "Reference": 1
     },
     "subjectMix": {
       "supreme court": 231,
       "public judgment metadata": 231,
-      "no start-year signal": 231
+      "no start-year signal": 231,
+      "case type parsed from source case number": 231
     },
     "benchSizeProfile": {
       "5 judge bench": 10,
@@ -8996,12 +10539,20 @@
       "1973": 9
     },
     "caseTypeMix": {
-      "Unclassified": 318
+      "Civil Appeal": 201,
+      "Criminal Appeal": 77,
+      "Writ Petition Civil": 31,
+      "Election Petition": 3,
+      "Criminal Miscellaneous Petition": 2,
+      "Transfer Petition Civil": 1,
+      "Unclassified": 2,
+      "Writ Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 318,
       "public judgment metadata": 318,
-      "no start-year signal": 318
+      "no start-year signal": 318,
+      "case type parsed from source case number": 318
     },
     "benchSizeProfile": {
       "3 judge bench": 4,
@@ -9034,12 +10585,16 @@
       "1974": 3
     },
     "caseTypeMix": {
-      "Unclassified": 10
+      "Civil Appeal": 5,
+      "Writ Petition Criminal": 1,
+      "Unclassified": 1,
+      "Criminal Appeal": 3
     },
     "subjectMix": {
       "supreme court": 10,
       "public judgment metadata": 10,
-      "no start-year signal": 10
+      "no start-year signal": 10,
+      "case type parsed from source case number": 10
     },
     "benchSizeProfile": {
       "1 judge bench": 8,
@@ -9071,12 +10626,17 @@
       "2002": 5
     },
     "caseTypeMix": {
-      "Unclassified": 46
+      "Civil Appeal": 36,
+      "Writ Petition Civil": 1,
+      "Criminal Appeal": 6,
+      "SLP Civil": 2,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 46,
       "public judgment metadata": 46,
-      "no start-year signal": 46
+      "no start-year signal": 46,
+      "case type parsed from source case number": 46
     },
     "benchSizeProfile": {
       "3 judge bench": 3,
@@ -9111,12 +10671,19 @@
       "2005": 65
     },
     "caseTypeMix": {
-      "Unclassified": 175
+      "SLP Civil": 2,
+      "Civil Appeal": 151,
+      "Writ Petition Civil": 4,
+      "Criminal Appeal": 15,
+      "Transfer Petition Criminal": 1,
+      "Criminal Miscellaneous Petition": 1,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 175,
       "public judgment metadata": 175,
-      "no start-year signal": 175
+      "no start-year signal": 175,
+      "case type parsed from source case number": 175
     },
     "benchSizeProfile": {
       "3 judge bench": 4,
@@ -9157,12 +10724,21 @@
       "2002": 18
     },
     "caseTypeMix": {
-      "Unclassified": 333
+      "Civil Appeal": 301,
+      "Writ Petition Civil": 16,
+      "Arbitration Petition": 1,
+      "Writ Petition Criminal": 3,
+      "Unclassified": 4,
+      "Criminal Appeal": 5,
+      "SLP Civil": 1,
+      "Transfer Petition Civil": 1,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 333,
       "public judgment metadata": 333,
-      "no start-year signal": 333
+      "no start-year signal": 333,
+      "case type parsed from source case number": 333
     },
     "benchSizeProfile": {
       "3 judge bench": 44,
@@ -9197,12 +10773,16 @@
       "2000": 3
     },
     "caseTypeMix": {
-      "Unclassified": 26
+      "Criminal Appeal": 10,
+      "Civil Appeal": 13,
+      "Writ Petition Civil": 2,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 26,
       "public judgment metadata": 26,
-      "no start-year signal": 26
+      "no start-year signal": 26,
+      "case type parsed from source case number": 26
     },
     "benchSizeProfile": {
       "2 judge bench": 11,
@@ -9237,12 +10817,21 @@
       "2014": 44
     },
     "caseTypeMix": {
-      "Unclassified": 120
+      "Criminal Appeal": 12,
+      "Civil Appeal": 84,
+      "Writ Petition Civil": 7,
+      "SLP Criminal": 2,
+      "Arbitration Petition": 7,
+      "SLP Civil": 3,
+      "Criminal Miscellaneous Petition": 1,
+      "Writ Petition Criminal": 2,
+      "Contempt Petition Civil": 2
     },
     "subjectMix": {
       "supreme court": 120,
       "public judgment metadata": 120,
-      "no start-year signal": 120
+      "no start-year signal": 120,
+      "case type parsed from source case number": 120
     },
     "benchSizeProfile": {
       "2 judge bench": 33,
@@ -9278,12 +10867,18 @@
       "2003": 25
     },
     "caseTypeMix": {
-      "Unclassified": 175
+      "Writ Petition Criminal": 1,
+      "Criminal Appeal": 12,
+      "Civil Appeal": 158,
+      "Writ Petition Civil": 1,
+      "SLP Civil": 2,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 175,
       "public judgment metadata": 175,
-      "no start-year signal": 175
+      "no start-year signal": 175,
+      "case type parsed from source case number": 175
     },
     "benchSizeProfile": {
       "2 judge bench": 67,
@@ -9321,12 +10916,23 @@
       "1990": 33
     },
     "caseTypeMix": {
-      "Unclassified": 305
+      "Civil Appeal": 235,
+      "Writ Petition Civil": 20,
+      "Transfer Petition Civil": 2,
+      "Criminal Appeal": 6,
+      "SLP Civil": 35,
+      "SLP Criminal": 1,
+      "Civil Miscellaneous Petition": 1,
+      "Unclassified": 1,
+      "Criminal Miscellaneous Petition": 2,
+      "Review Petition Civil": 1,
+      "Writ Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 305,
       "public judgment metadata": 305,
-      "no start-year signal": 305
+      "no start-year signal": 305,
+      "case type parsed from source case number": 305
     },
     "benchSizeProfile": {
       "1 judge bench": 290,
@@ -9357,12 +10963,16 @@
       "2024": 12
     },
     "caseTypeMix": {
-      "Unclassified": 12
+      "Criminal Appeal": 2,
+      "Transfer Petition Civil": 1,
+      "Civil Appeal": 8,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 12,
       "public judgment metadata": 12,
-      "no start-year signal": 12
+      "no start-year signal": 12,
+      "case type parsed from source case number": 12
     },
     "benchSizeProfile": {
       "2 judge bench": 10,
@@ -9392,12 +11002,14 @@
       "2024": 10
     },
     "caseTypeMix": {
-      "Unclassified": 12
+      "Civil Appeal": 9,
+      "Criminal Appeal": 3
     },
     "subjectMix": {
       "supreme court": 12,
       "public judgment metadata": 12,
-      "no start-year signal": 12
+      "no start-year signal": 12,
+      "case type parsed from source case number": 12
     },
     "benchSizeProfile": {
       "2 judge bench": 5,
@@ -9431,13 +11043,20 @@
       "2023": 40
     },
     "caseTypeMix": {
-      "Unclassified": 195,
-      "Writ Petition": 1
+      "Civil Appeal": 116,
+      "Writ Petition Criminal": 4,
+      "Writ Petition Civil": 12,
+      "Criminal Appeal": 57,
+      "Review Petition Criminal": 1,
+      "Transfer Petition Civil": 2,
+      "Miscellaneous Application": 3,
+      "Curative Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 196,
       "public judgment metadata": 196,
-      "no start-year signal": 196
+      "no start-year signal": 196,
+      "case type parsed from source case number": 196
     },
     "benchSizeProfile": {
       "2 judge bench": 18,
@@ -9469,12 +11088,18 @@
       "2024": 7
     },
     "caseTypeMix": {
-      "Unclassified": 12
+      "Civil Appeal": 4,
+      "Miscellaneous Application": 1,
+      "Writ Petition Criminal": 1,
+      "Criminal Appeal": 3,
+      "SLP Criminal": 1,
+      "Writ Petition Civil": 2
     },
     "subjectMix": {
       "supreme court": 12,
       "public judgment metadata": 12,
-      "no start-year signal": 12
+      "no start-year signal": 12,
+      "case type parsed from source case number": 12
     },
     "benchSizeProfile": {
       "2 judge bench": 10,
@@ -9509,12 +11134,20 @@
       "2024": 33
     },
     "caseTypeMix": {
-      "Unclassified": 94
+      "Civil Appeal": 59,
+      "Criminal Appeal": 20,
+      "SLP Civil": 2,
+      "Writ Petition Civil": 7,
+      "Transfer Petition Civil": 1,
+      "Miscellaneous Application": 3,
+      "SLP Criminal": 1,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 94,
       "public judgment metadata": 94,
-      "no start-year signal": 94
+      "no start-year signal": 94,
+      "case type parsed from source case number": 94
     },
     "benchSizeProfile": {
       "3 judge bench": 13,
@@ -9545,12 +11178,15 @@
       "2024": 4
     },
     "caseTypeMix": {
-      "Unclassified": 4
+      "Civil Appeal": 2,
+      "Miscellaneous Application": 1,
+      "Writ Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 4,
       "public judgment metadata": 4,
-      "no start-year signal": 4
+      "no start-year signal": 4,
+      "case type parsed from source case number": 4
     },
     "benchSizeProfile": {
       "2 judge bench": 2,
@@ -9579,12 +11215,14 @@
       "2024": 8
     },
     "caseTypeMix": {
-      "Unclassified": 8
+      "Criminal Appeal": 6,
+      "Civil Appeal": 2
     },
     "subjectMix": {
       "supreme court": 8,
       "public judgment metadata": 8,
-      "no start-year signal": 8
+      "no start-year signal": 8,
+      "case type parsed from source case number": 8
     },
     "benchSizeProfile": {
       "2 judge bench": 8
@@ -9614,12 +11252,18 @@
       "2016": 11
     },
     "caseTypeMix": {
-      "Unclassified": 16
+      "Criminal Appeal": 1,
+      "Civil Appeal": 11,
+      "Criminal Miscellaneous Petition": 1,
+      "Writ Petition Criminal": 1,
+      "Writ Petition Civil": 1,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 16,
       "public judgment metadata": 16,
-      "no start-year signal": 16
+      "no start-year signal": 16,
+      "case type parsed from source case number": 16
     },
     "benchSizeProfile": {
       "2 judge bench": 5,
@@ -9654,12 +11298,18 @@
       "2005": 4
     },
     "caseTypeMix": {
-      "Unclassified": 141
+      "Civil Appeal": 134,
+      "Criminal Appeal": 3,
+      "Writ Petition Civil": 1,
+      "Criminal Miscellaneous Petition": 1,
+      "Arbitration Petition": 1,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 141,
       "public judgment metadata": 141,
-      "no start-year signal": 141
+      "no start-year signal": 141,
+      "case type parsed from source case number": 141
     },
     "benchSizeProfile": {
       "2 judge bench": 18,
@@ -9692,12 +11342,14 @@
       "1952": 9
     },
     "caseTypeMix": {
-      "Unclassified": 21
+      "Civil Appeal": 14,
+      "Criminal Appeal": 7
     },
     "subjectMix": {
       "supreme court": 21,
       "public judgment metadata": 21,
-      "no start-year signal": 21
+      "no start-year signal": 21,
+      "case type parsed from source case number": 21
     },
     "benchSizeProfile": {
       "6 judge bench": 1,
@@ -9730,12 +11382,17 @@
       "2024": 36
     },
     "caseTypeMix": {
-      "Unclassified": 45
+      "Criminal Appeal": 19,
+      "Civil Appeal": 21,
+      "Writ Petition Civil": 1,
+      "SLP Civil": 2,
+      "SLP Criminal": 2
     },
     "subjectMix": {
       "supreme court": 45,
       "public judgment metadata": 45,
-      "no start-year signal": 45
+      "no start-year signal": 45,
+      "case type parsed from source case number": 45
     },
     "benchSizeProfile": {
       "1 judge bench": 34,
@@ -9774,12 +11431,20 @@
       "1959": 42
     },
     "caseTypeMix": {
-      "Unclassified": 235
+      "Civil Appeal": 155,
+      "Criminal Appeal": 24,
+      "Writ Petition Civil": 48,
+      "Writ Petition Criminal": 3,
+      "Miscellaneous Application": 1,
+      "Unclassified": 2,
+      "Reference": 1,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 235,
       "public judgment metadata": 235,
-      "no start-year signal": 235
+      "no start-year signal": 235,
+      "case type parsed from source case number": 235
     },
     "benchSizeProfile": {
       "6 judge bench": 2,
@@ -9816,12 +11481,18 @@
       "1999": 31
     },
     "caseTypeMix": {
-      "Unclassified": 246
+      "Civil Appeal": 229,
+      "SLP Civil": 6,
+      "Criminal Appeal": 3,
+      "Writ Petition Civil": 6,
+      "Contempt Petition Civil": 1,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 246,
       "public judgment metadata": 246,
-      "no start-year signal": 246
+      "no start-year signal": 246,
+      "case type parsed from source case number": 246
     },
     "benchSizeProfile": {
       "2 judge bench": 98,
@@ -9857,12 +11528,23 @@
       "2024": 30
     },
     "caseTypeMix": {
-      "Unclassified": 116
+      "SLP Civil": 4,
+      "Criminal Appeal": 33,
+      "Civil Appeal": 65,
+      "Writ Petition Civil": 5,
+      "Writ Petition Criminal": 3,
+      "Transfer Petition Civil": 1,
+      "Contempt Petition Civil": 1,
+      "Transfer Petition Criminal": 1,
+      "Original Suit": 1,
+      "Miscellaneous Application": 1,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 116,
       "public judgment metadata": 116,
-      "no start-year signal": 116
+      "no start-year signal": 116,
+      "case type parsed from source case number": 116
     },
     "benchSizeProfile": {
       "2 judge bench": 18,
@@ -9895,12 +11577,20 @@
       "2012": 57
     },
     "caseTypeMix": {
-      "Unclassified": 72
+      "Civil Appeal": 16,
+      "Writ Petition Civil": 5,
+      "Review Petition Civil": 1,
+      "Arbitration Petition": 1,
+      "Criminal Appeal": 45,
+      "SLP Criminal": 2,
+      "Miscellaneous Application": 1,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 72,
       "public judgment metadata": 72,
-      "no start-year signal": 72
+      "no start-year signal": 72,
+      "case type parsed from source case number": 72
     },
     "benchSizeProfile": {
       "2 judge bench": 11,
@@ -9938,12 +11628,16 @@
       "1963": 8
     },
     "caseTypeMix": {
-      "Unclassified": 126
+      "Civil Appeal": 53,
+      "Criminal Appeal": 68,
+      "Writ Petition Civil": 4,
+      "Unclassified": 1
     },
     "subjectMix": {
       "supreme court": 126,
       "public judgment metadata": 126,
-      "no start-year signal": 126
+      "no start-year signal": 126,
+      "case type parsed from source case number": 126
     },
     "benchSizeProfile": {
       "2 judge bench": 1,
@@ -9978,12 +11672,17 @@
       "1993": 4
     },
     "caseTypeMix": {
-      "Unclassified": 48
+      "Civil Appeal": 43,
+      "Criminal Appeal": 2,
+      "Writ Petition Civil": 1,
+      "Contempt Petition Civil": 1,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 48,
       "public judgment metadata": 48,
-      "no start-year signal": 48
+      "no start-year signal": 48,
+      "case type parsed from source case number": 48
     },
     "benchSizeProfile": {
       "1 judge bench": 47,
@@ -10018,12 +11717,15 @@
       "1962": 66
     },
     "caseTypeMix": {
-      "Unclassified": 157
+      "Civil Appeal": 124,
+      "Criminal Appeal": 18,
+      "Writ Petition Civil": 15
     },
     "subjectMix": {
       "supreme court": 157,
       "public judgment metadata": 157,
-      "no start-year signal": 157
+      "no start-year signal": 157,
+      "case type parsed from source case number": 157
     },
     "benchSizeProfile": {
       "4 judge bench": 6,
@@ -10064,12 +11766,24 @@
       "2017": 10
     },
     "caseTypeMix": {
-      "Unclassified": 387
+      "Criminal Appeal": 139,
+      "Civil Appeal": 202,
+      "SLP Criminal": 2,
+      "Original Suit": 1,
+      "SLP Civil": 2,
+      "Writ Petition Criminal": 3,
+      "Arbitration Petition": 4,
+      "Transfer Petition Criminal": 5,
+      "Criminal Miscellaneous Petition": 2,
+      "Writ Petition Civil": 22,
+      "Miscellaneous Application": 1,
+      "Contempt Petition Civil": 4
     },
     "subjectMix": {
       "supreme court": 387,
       "public judgment metadata": 387,
-      "no start-year signal": 387
+      "no start-year signal": 387,
+      "case type parsed from source case number": 387
     },
     "benchSizeProfile": {
       "2 judge bench": 26,
@@ -10104,13 +11818,19 @@
       "2010": 13
     },
     "caseTypeMix": {
-      "Unclassified": 279,
-      "Writ Petition": 1
+      "Civil Appeal": 250,
+      "Criminal Appeal": 23,
+      "Writ Petition Civil": 2,
+      "SLP Civil": 1,
+      "Arbitration Petition": 1,
+      "Writ Petition Criminal": 2,
+      "SLP Criminal": 1
     },
     "subjectMix": {
       "supreme court": 280,
       "public judgment metadata": 280,
-      "no start-year signal": 280
+      "no start-year signal": 280,
+      "case type parsed from source case number": 280
     },
     "benchSizeProfile": {
       "2 judge bench": 25,
@@ -10142,12 +11862,17 @@
       "2002": 44
     },
     "caseTypeMix": {
-      "Unclassified": 93
+      "Civil Appeal": 42,
+      "Criminal Appeal": 47,
+      "Contempt Petition Civil": 2,
+      "Writ Petition Criminal": 1,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 93,
       "public judgment metadata": 93,
-      "no start-year signal": 93
+      "no start-year signal": 93,
+      "case type parsed from source case number": 93
     },
     "benchSizeProfile": {
       "2 judge bench": 24,
@@ -10186,12 +11911,27 @@
       "2022": 72
     },
     "caseTypeMix": {
-      "Unclassified": 302
+      "Writ Petition Civil": 13,
+      "Criminal Appeal": 70,
+      "Civil Appeal": 182,
+      "Writ Petition Criminal": 5,
+      "SLP Criminal": 4,
+      "Transfer Petition Criminal": 1,
+      "Review Petition Civil": 2,
+      "SLP Civil": 7,
+      "Contempt Petition Civil": 5,
+      "Miscellaneous Application": 6,
+      "Unclassified": 1,
+      "Original Suit": 1,
+      "Arbitration Petition": 2,
+      "Contempt Petition Criminal": 1,
+      "Review Petition Criminal": 2
     },
     "subjectMix": {
       "supreme court": 302,
       "public judgment metadata": 302,
-      "no start-year signal": 302
+      "no start-year signal": 302,
+      "case type parsed from source case number": 302
     },
     "benchSizeProfile": {
       "3 judge bench": 13,
@@ -10223,12 +11963,16 @@
       "2024": 12
     },
     "caseTypeMix": {
-      "Unclassified": 14
+      "Criminal Appeal": 5,
+      "Civil Appeal": 7,
+      "Writ Petition Criminal": 1,
+      "Miscellaneous Application": 1
     },
     "subjectMix": {
       "supreme court": 14,
       "public judgment metadata": 14,
-      "no start-year signal": 14
+      "no start-year signal": 14,
+      "case type parsed from source case number": 14
     },
     "benchSizeProfile": {
       "2 judge bench": 12,
@@ -10262,12 +12006,16 @@
       "1987": 4
     },
     "caseTypeMix": {
-      "Unclassified": 28
+      "Civil Appeal": 20,
+      "Writ Petition Criminal": 2,
+      "Criminal Appeal": 5,
+      "Writ Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 28,
       "public judgment metadata": 28,
-      "no start-year signal": 28
+      "no start-year signal": 28,
+      "case type parsed from source case number": 28
     },
     "benchSizeProfile": {
       "1 judge bench": 22,
@@ -10300,12 +12048,17 @@
       "2016": 36
     },
     "caseTypeMix": {
-      "Unclassified": 119
+      "Civil Appeal": 84,
+      "SLP Criminal": 1,
+      "Criminal Appeal": 32,
+      "Unclassified": 1,
+      "Writ Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 119,
       "public judgment metadata": 119,
-      "no start-year signal": 119
+      "no start-year signal": 119,
+      "case type parsed from source case number": 119
     },
     "benchSizeProfile": {
       "2 judge bench": 10,
@@ -10335,12 +12088,16 @@
       "1987": 19
     },
     "caseTypeMix": {
-      "Unclassified": 25
+      "Civil Appeal": 14,
+      "Criminal Appeal": 8,
+      "Writ Petition Civil": 2,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 25,
       "public judgment metadata": 25,
-      "no start-year signal": 25
+      "no start-year signal": 25,
+      "case type parsed from source case number": 25
     },
     "benchSizeProfile": {
       "1 judge bench": 22,
@@ -10374,12 +12131,19 @@
       "2023": 14
     },
     "caseTypeMix": {
-      "Unclassified": 38
+      "Writ Petition Civil": 3,
+      "Civil Appeal": 21,
+      "SLP Criminal": 2,
+      "Writ Petition Criminal": 3,
+      "Unclassified": 3,
+      "Transfer Petition Civil": 1,
+      "Criminal Appeal": 5
     },
     "subjectMix": {
       "supreme court": 38,
       "public judgment metadata": 38,
-      "no start-year signal": 38
+      "no start-year signal": 38,
+      "case type parsed from source case number": 38
     },
     "benchSizeProfile": {
       "3 judge bench": 18,
@@ -10416,12 +12180,17 @@
       "1992": 2
     },
     "caseTypeMix": {
-      "Unclassified": 41
+      "Civil Appeal": 24,
+      "Criminal Appeal": 14,
+      "Writ Petition Civil": 1,
+      "SLP Civil": 1,
+      "Civil Miscellaneous Petition": 1
     },
     "subjectMix": {
       "supreme court": 41,
       "public judgment metadata": 41,
-      "no start-year signal": 41
+      "no start-year signal": 41,
+      "case type parsed from source case number": 41
     },
     "benchSizeProfile": {
       "7 judge bench": 1,
@@ -10462,12 +12231,20 @@
       "1986": 9
     },
     "caseTypeMix": {
-      "Unclassified": 123
+      "Criminal Appeal": 10,
+      "Civil Appeal": 91,
+      "Writ Petition Civil": 13,
+      "Transfer Petition Civil": 1,
+      "Writ Petition Criminal": 3,
+      "SLP Civil": 3,
+      "Miscellaneous Application": 1,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 123,
       "public judgment metadata": 123,
-      "no start-year signal": 123
+      "no start-year signal": 123,
+      "case type parsed from source case number": 123
     },
     "benchSizeProfile": {
       "2 judge bench": 7,
@@ -10505,12 +12282,18 @@
       "2004": 70
     },
     "caseTypeMix": {
-      "Unclassified": 347
+      "Civil Appeal": 308,
+      "Writ Petition Civil": 21,
+      "Criminal Appeal": 4,
+      "SLP Civil": 11,
+      "Unclassified": 2,
+      "Review Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 347,
       "public judgment metadata": 347,
-      "no start-year signal": 347
+      "no start-year signal": 347,
+      "case type parsed from source case number": 347
     },
     "benchSizeProfile": {
       "2 judge bench": 41,
@@ -10548,12 +12331,23 @@
       "1980": 67
     },
     "caseTypeMix": {
-      "Unclassified": 333
+      "Criminal Appeal": 40,
+      "Civil Appeal": 193,
+      "Writ Petition Criminal": 14,
+      "Review Petition Civil": 4,
+      "SLP Criminal": 21,
+      "Criminal Miscellaneous Petition": 5,
+      "SLP Civil": 20,
+      "Transfer Petition Criminal": 2,
+      "Civil Miscellaneous Petition": 1,
+      "Writ Petition Civil": 32,
+      "Review Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 333,
       "public judgment metadata": 333,
-      "no start-year signal": 333
+      "no start-year signal": 333,
+      "case type parsed from source case number": 333
     },
     "benchSizeProfile": {
       "1 judge bench": 304,
@@ -10587,12 +12381,17 @@
       "2011": 29
     },
     "caseTypeMix": {
-      "Unclassified": 134
+      "Civil Appeal": 54,
+      "Writ Petition Civil": 1,
+      "Arbitration Petition": 3,
+      "Criminal Appeal": 75,
+      "SLP Civil": 1
     },
     "subjectMix": {
       "supreme court": 134,
       "public judgment metadata": 134,
-      "no start-year signal": 134
+      "no start-year signal": 134,
+      "case type parsed from source case number": 134
     },
     "benchSizeProfile": {
       "2 judge bench": 23,
@@ -10624,12 +12423,20 @@
       "2024": 103
     },
     "caseTypeMix": {
-      "Unclassified": 134
+      "Civil Appeal": 76,
+      "Criminal Appeal": 46,
+      "Miscellaneous Application": 2,
+      "SLP Criminal": 1,
+      "SLP Civil": 1,
+      "Review Petition Civil": 1,
+      "Writ Petition Civil": 2,
+      "Unclassified": 5
     },
     "subjectMix": {
       "supreme court": 134,
       "public judgment metadata": 134,
-      "no start-year signal": 134
+      "no start-year signal": 134,
+      "case type parsed from source case number": 134
     },
     "benchSizeProfile": {
       "2 judge bench": 23,
@@ -10661,12 +12468,15 @@
       "2015": 70
     },
     "caseTypeMix": {
-      "Unclassified": 88
+      "Civil Appeal": 76,
+      "Criminal Appeal": 11,
+      "Writ Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 88,
       "public judgment metadata": 88,
-      "no start-year signal": 88
+      "no start-year signal": 88,
+      "case type parsed from source case number": 88
     },
     "benchSizeProfile": {
       "3 judge bench": 2,
@@ -10701,12 +12511,17 @@
       "2022": 15
     },
     "caseTypeMix": {
-      "Unclassified": 38
+      "Civil Appeal": 26,
+      "Writ Petition Civil": 1,
+      "Contempt Petition Criminal": 1,
+      "Criminal Appeal": 9,
+      "Writ Petition Criminal": 1
     },
     "subjectMix": {
       "supreme court": 38,
       "public judgment metadata": 38,
-      "no start-year signal": 38
+      "no start-year signal": 38,
+      "case type parsed from source case number": 38
     },
     "benchSizeProfile": {
       "2 judge bench": 26,
@@ -10742,12 +12557,15 @@
       "1971": 4
     },
     "caseTypeMix": {
-      "Unclassified": 26
+      "Criminal Appeal": 9,
+      "Civil Appeal": 16,
+      "Writ Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 26,
       "public judgment metadata": 26,
-      "no start-year signal": 26
+      "no start-year signal": 26,
+      "case type parsed from source case number": 26
     },
     "benchSizeProfile": {
       "3 judge bench": 3,
@@ -10784,12 +12602,15 @@
       "1958": 9
     },
     "caseTypeMix": {
-      "Unclassified": 75
+      "Criminal Appeal": 22,
+      "Civil Appeal": 51,
+      "Writ Petition Civil": 2
     },
     "subjectMix": {
       "supreme court": 75,
       "public judgment metadata": 75,
-      "no start-year signal": 75
+      "no start-year signal": 75,
+      "case type parsed from source case number": 75
     },
     "benchSizeProfile": {
       "2 judge bench": 1,
@@ -10830,12 +12651,19 @@
       "2007": 5
     },
     "caseTypeMix": {
-      "Unclassified": 152
+      "Civil Appeal": 65,
+      "Unclassified": 3,
+      "Criminal Appeal": 50,
+      "Writ Petition Civil": 30,
+      "SLP Criminal": 2,
+      "Writ Petition Criminal": 1,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 152,
       "public judgment metadata": 152,
-      "no start-year signal": 152
+      "no start-year signal": 152,
+      "case type parsed from source case number": 152
     },
     "benchSizeProfile": {
       "2 judge bench": 16,
@@ -10877,12 +12705,25 @@
       "1985": 27
     },
     "caseTypeMix": {
-      "Unclassified": 343
+      "Criminal Appeal": 56,
+      "Civil Appeal": 214,
+      "Writ Petition Criminal": 11,
+      "Review Petition Criminal": 1,
+      "Writ Petition Civil": 51,
+      "Reference": 2,
+      "SLP Civil": 1,
+      "Appeal (Unspecified)": 1,
+      "SLP Criminal": 2,
+      "Criminal Miscellaneous Petition": 1,
+      "Civil Miscellaneous Petition": 1,
+      "Election Petition": 1,
+      "Contempt Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 343,
       "public judgment metadata": 343,
-      "no start-year signal": 343
+      "no start-year signal": 343,
+      "case type parsed from source case number": 343
     },
     "benchSizeProfile": {
       "1 judge bench": 324,
@@ -10916,12 +12757,17 @@
       "1994": 11
     },
     "caseTypeMix": {
-      "Unclassified": 29
+      "Civil Appeal": 25,
+      "Criminal Appeal": 1,
+      "SLP Civil": 1,
+      "SLP Criminal": 1,
+      "Writ Petition Civil": 1
     },
     "subjectMix": {
       "supreme court": 29,
       "public judgment metadata": 29,
-      "no start-year signal": 29
+      "no start-year signal": 29,
+      "case type parsed from source case number": 29
     },
     "benchSizeProfile": {
       "2 judge bench": 19,

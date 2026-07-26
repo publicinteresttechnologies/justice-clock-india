@@ -1,11 +1,11 @@
 [
   {
     "sourceName": "National Judicial Data Grid - Supreme Court of India dashboard",
-    "sourceUrl": "https://njdg.ecourts.gov.in/scnjdg/",
+    "sourceUrl": "https://scdg.sci.gov.in/scnjdg/?p=home",
     "proves": "Court snapshot fields for pendency, institution, disposal, old-case disposal, and bench-size distribution.",
     "doesNotProve": "Individual case timelines, legal outcomes, or responsibility for delay.",
-    "confidence": "medium",
-    "lastUpdated": "2026-06-18T00:00:00.000Z"
+    "confidence": "high",
+    "lastUpdated": "2026-07-24T01:02:21.000Z"
   },
   {
     "sourceName": "Indian Supreme Court Judgments public S3 metadata (37125 records)",

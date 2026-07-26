@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-10T05:06:25.443469+00:00",
+  "generatedAt": "2026-07-26T12:46:12.035956+00:00",
   "sourceName": "Indian Supreme Court Judgments public S3 metadata",
   "sourceUrl": "https://indian-supreme-court-judgments.s3.amazonaws.com/",
   "court": "Supreme Court of India",
@@ -84,8 +84,41 @@
     "2023": 856,
     "2024": 782
   },
+  "caseTypeClassification": {
+    "parserVersion": 2,
+    "classifiedRecords": 36910,
+    "unclassifiedRecords": 215,
+    "classificationRate": 0.994209,
+    "counts": {
+      "Civil Appeal": 24946,
+      "Criminal Appeal": 8105,
+      "Writ Petition Civil": 1938,
+      "SLP Civil": 662,
+      "Writ Petition Criminal": 395,
+      "SLP Criminal": 217,
+      "Unclassified": 215,
+      "Contempt Petition Civil": 124,
+      "Arbitration Petition": 84,
+      "Transfer Petition Civil": 75,
+      "Miscellaneous Application": 72,
+      "Review Petition Civil": 71,
+      "Criminal Miscellaneous Petition": 52,
+      "Transfer Petition Criminal": 37,
+      "Review Petition Criminal": 25,
+      "Contempt Petition Criminal": 23,
+      "Civil Miscellaneous Petition": 22,
+      "Original Suit": 19,
+      "Election Petition": 18,
+      "Reference": 15,
+      "Appeal (Unspecified)": 5,
+      "Curative Petition Civil": 3,
+      "Curative Petition Criminal": 2
+    },
+    "method": "Parsed from the source raw_html Case No field; explicit structured case-type fields are used when present."
+  },
   "notes": [
     "This is public judgment metadata, not a live court service.",
+    "The upstream parquet schema does not expose a dedicated case-type field across the corpus; case type is parsed from the source Case No text embedded in raw_html.",
     "PDFs and tar archives are not committed to the app repository.",
     "Full judgment text should be fetched later only for targeted research questions."
   ]

@@ -1,6 +1,8 @@
 name: Regenerate public data
 
 on:
+  schedule:
+    - cron: "17 3 1 * *"
   push:
     branches:
       - main
@@ -28,62 +30,37 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Restore IMLJD Supreme Court judgment import
+      - name: Refresh Supreme Court NJDG snapshot
         shell: bash
         run: |
-          node <<'NODE'
-          (async () => {
-            const fs = require('fs');
-            const path = require('path');
-            const https = require('https');
-            const sourceJsonUrl = 'https://justice-clock-india.vercel.app/data/judgments.json';
-            const outPath = path.join('data', 'imports', 'judgments.csv');
-            const headers = ['id','caseTitle','caseNumber','diaryNumber','diaryYear','caseType','caseYear','decisionDate','judgmentDate','uploadDate','disposalNature','judges','authoringJudge','benchSize','subjectTags','sourceName','sourceUrl','confidence','sample'];
-            function download(url) {
-              return new Promise((resolve, reject) => {
-                const request = https.get(url, { headers: { 'User-Agent': 'justice-clock-india-data-import' } }, (response) => {
-                  if ((response.statusCode || 0) >= 400) {
-                    response.resume();
-                    reject(new Error(`Download failed ${response.statusCode} for ${url}`));
-                    return;
-                  }
-                  const chunks = [];
-                  response.on('data', (chunk) => chunks.push(chunk));
-                  response.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
-                });
-                request.on('error', reject);
-                request.setTimeout(120000, () => request.destroy(new Error(`Timed out downloading ${url}`)));
-              });
-            }
-            function csvEscape(value) {
-              const text = value == null ? '' : String(value);
-              return /[",\r\n]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
-            }
-            const records = JSON.parse(await download(sourceJsonUrl));
-            if (!Array.isArray(records)) throw new Error('Expected judgments JSON array');
-            const normalized = records
-              .filter((record) => record && record.sourceName === 'IMLJD open dataset' && record.sample === false)
-              .map((record) => ({
-                ...record,
-                judges: Array.isArray(record.judges) ? record.judges.join('; ') : record.judges,
-                subjectTags: Array.isArray(record.subjectTags) ? record.subjectTags.join('; ') : record.subjectTags,
-                benchSize: Number(record.benchSize) > 0 ? record.benchSize : '',
-                sample: 'false',
-              }));
-            if (normalized.length < 1000) throw new Error(`Expected at least 1000 imported IMLJD records, got ${normalized.length}`);
-            fs.mkdirSync(path.dirname(outPath), { recursive: true });
-            const csv = [headers.join(','), ...normalized.map((record) => headers.map((header) => csvEscape(record[header])).join(','))].join('\n') + '\n';
-            fs.writeFileSync(outPath, csv);
-            console.log(`Wrote ${normalized.length} IMLJD Supreme Court records to ${outPath}`);
-          })().catch((error) => {
-            console.error(error);
-            process.exit(1);
-          });
-          NODE
+          cp data/imports/court-snapshot.json /tmp/court-snapshot-before-refresh.json
+          if npm run import:njdg -- --fetch-live; then
+            echo "Refreshed NJDG snapshot from the official public Supreme Court dashboard."
+          else
+            echo "WARN: live NJDG refresh failed; retaining the last committed snapshot."
+            cp /tmp/court-snapshot-before-refresh.json data/imports/court-snapshot.json
+            npm run import:njdg
+          fi
 
-      - name: Generate public data and build
+      - name: Refresh IMLJD rows from the independent upstream dataset
+        shell: bash
+        run: |
+          cp data/imports/judgments.csv /tmp/judgments-before-imljd.csv
+          if npm run import:imljd; then
+            npx tsx scripts/merge-imljd-import.ts \
+              --base=/tmp/judgments-before-imljd.csv \
+              --fresh=data/imports/judgments.csv \
+              --output=data/imports/judgments.csv
+          else
+            echo "WARN: upstream IMLJD refresh failed; retaining the committed import snapshot."
+            cp /tmp/judgments-before-imljd.csv data/imports/judgments.csv
+          fi
+
+      - name: Generate public data and verify production build
         run: |
           npm run data:build
+          npm test
+          npm run lint
           npm run build
 
       - name: Commit regenerated public data
@@ -91,10 +68,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add package.json data/imports/judgments.csv public/data/court-clock.json public/data/case-types.json public/data/judges.json public/data/judgments.json public/data/justice-clock-data.json
+          git add data/imports/court-snapshot.json data/imports/judgments.csv data/research/njdg-snapshots public/data/*.json
           if git diff --cached --quiet; then
             echo "No public data changes to commit."
           else
-            git commit -m "Regenerate public data from imported sources"
+            git commit -m "Regenerate public data from upstream sources"
             git push
           fi

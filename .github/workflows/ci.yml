@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: ["main"]
 
+permissions:
+  contents: read
+
 jobs:
   validate-build:
     runs-on: ubuntu-latest
@@ -22,11 +25,206 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Audit production dependencies
+        shell: bash
+        run: |
+          npm audit --omit=dev --json > /tmp/npm-audit-production.json || true
+          node <<'NODE'
+          const fs = require('fs');
+          const report = JSON.parse(fs.readFileSync('/tmp/npm-audit-production.json', 'utf8'));
+          const findings = Object.entries(report.vulnerabilities || {})
+            .filter(([, value]) => ['high', 'critical'].includes(value.severity))
+            .map(([name, value]) => ({
+              name,
+              severity: value.severity,
+              via: (value.via || []).map((item) => typeof item === 'string' ? item : item.title),
+              fixAvailable: value.fixAvailable,
+            }));
+          console.log('Production high/critical audit findings:');
+          console.log(JSON.stringify(findings, null, 2));
+          const actionable = findings.filter(({ fixAvailable }) =>
+            fixAvailable === true ||
+            (fixAvailable && typeof fixAvailable === 'object' && fixAvailable.isSemVerMajor === false)
+          );
+          if (actionable.length > 0) {
+            throw new Error(`Non-breaking audit fixes remain available for: ${actionable.map((item) => item.name).join(', ')}`);
+          }
+          NODE
+
+      - name: Report full dependency audit
+        shell: bash
+        run: |
+          npm audit --json > /tmp/npm-audit-full.json || true
+          node <<'NODE'
+          const fs = require('fs');
+          const report = JSON.parse(fs.readFileSync('/tmp/npm-audit-full.json', 'utf8'));
+          const findings = Object.entries(report.vulnerabilities || {})
+            .filter(([, value]) => ['high', 'critical'].includes(value.severity))
+            .map(([name, value]) => ({
+              name,
+              severity: value.severity,
+              fixAvailable: value.fixAvailable,
+            }));
+          console.log('Full-tree high/critical audit findings (including dev dependencies):');
+          console.log(JSON.stringify(findings, null, 2));
+          NODE
+
       - name: Validate data
-        run: npm run validate:data
+        run: npm run validate
 
       - name: Compute metrics
-        run: npm run compute:metrics
+        run: npm run compute
+
+      - name: Run tests
+        run: npm test
+
+      - name: Run lint
+        id: lint
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run lint 2>&1 | tee /tmp/lint.log
+
+      - name: Upload lint diagnostics
+        if: failure() && steps.lint.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-diagnostics
+          path: /tmp/lint.log
+          retention-days: 3
 
       - name: Build site
-        run: npm run build
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee /tmp/build.log
+
+      - name: Smoke test routes and data quality
+        shell: bash
+        run: |
+          npm run start > /tmp/justice-clock-start.log 2>&1 &
+          SERVER_PID=$!
+          cleanup() { kill "$SERVER_PID" || true; }
+          trap cleanup EXIT
+
+          for attempt in {1..30}; do
+            if curl -fsS http://127.0.0.1:3000/ > /dev/null; then
+              break
+            fi
+            sleep 1
+          done
+
+          JUDGE_SLUG=$(node -e "const data=require('./public/data/judges.json'); process.stdout.write(data[0].slug)")
+          CASE_TYPE_SLUG=$(node -e "const data=require('./public/data/case-types.json'); process.stdout.write(data[0].slug)")
+
+          for path in \
+            / \
+            /judges \
+            "/judges/$JUDGE_SLUG" \
+            /case-types \
+            "/case-types/$CASE_TYPE_SLUG" \
+            /methodology \
+            /sources \
+            /about \
+            /research; do
+            curl -fsS "http://127.0.0.1:3000$path" > /dev/null
+          done
+
+          curl -fsS http://127.0.0.1:3000/data -o /tmp/data-page.html
+          curl -fsS http://127.0.0.1:3000/launch-checklist -o /tmp/launch-checklist.html
+          if grep -q '>Missing<' /tmp/launch-checklist.html; then
+            echo "Launch checklist contains an incomplete real-data check."
+            exit 1
+          fi
+
+          curl -fsS "http://127.0.0.1:3000/api/judgments?page=1&pageSize=25" -o /tmp/judgments-page.json
+          node <<'NODE'
+          const fs = require('fs');
+          const body = fs.readFileSync('/tmp/judgments-page.json');
+          const json = JSON.parse(body.toString('utf8'));
+          if (!Array.isArray(json.items) || json.items.length > 25) {
+            throw new Error('Judgment endpoint did not return a paginated result.');
+          }
+          if (body.byteLength >= 500_000) {
+            throw new Error(`Initial judgment payload was ${body.byteLength} bytes; expected under 500KB.`);
+          }
+          const dataPageBytes = fs.statSync('/tmp/data-page.html').size;
+          if (dataPageBytes >= 500_000) {
+            throw new Error(`/data HTML was ${dataPageBytes} bytes; expected under 500KB.`);
+          }
+
+          const caseTypes = require('./public/data/case-types.json');
+          const corpusSummary = require('./public/data/sc-corpus-summary.json');
+          const totalCaseTypeRecords = caseTypes.reduce((sum, item) => sum + item.sampleSize, 0);
+          const unclassifiedRecords = caseTypes.find((item) => item.caseType === 'Unclassified')?.sampleSize || 0;
+          const unclassifiedShare = totalCaseTypeRecords === 0 ? 1 : unclassifiedRecords / totalCaseTypeRecords;
+          if (corpusSummary.caseTypeClassification?.parserVersion !== 2) {
+            throw new Error('Committed corpus was not generated by case-type parser version 2.');
+          }
+          if (caseTypes.length < 5 || unclassifiedShare >= 0.95) {
+            throw new Error(`Case-type classification remains unusable: ${caseTypes.length} types, ${(unclassifiedShare * 100).toFixed(2)}% unclassified.`);
+          }
+
+          const courtClock = require('./public/data/court-clock.json');
+          const requiredSnapshotFields = [
+            'civilPending',
+            'criminalPending',
+            'institutedThisMonth',
+            'disposedThisMonth',
+            'oldCasesDisposedThisMonth',
+          ];
+          const populatedSnapshotFields = requiredSnapshotFields.filter(
+            (field) => Number.isFinite(courtClock[field]),
+          );
+          if (populatedSnapshotFields.length !== requiredSnapshotFields.length) {
+            throw new Error(`NJDG snapshot is missing: ${requiredSnapshotFields.filter((field) => !populatedSnapshotFields.includes(field)).join(', ')}`);
+          }
+          if (!Array.isArray(courtClock.coramPending) || courtClock.coramPending.length < 4) {
+            throw new Error('NJDG snapshot does not contain the expected coram-wise distribution.');
+          }
+          if (courtClock.civilPending + courtClock.criminalPending !== courtClock.totalPending) {
+            throw new Error('NJDG civil and criminal pendency do not equal total pendency.');
+          }
+
+          const packageJson = require('./package.json');
+          const productionAudit = JSON.parse(fs.readFileSync('/tmp/npm-audit-production.json', 'utf8'));
+          const fullAudit = JSON.parse(fs.readFileSync('/tmp/npm-audit-full.json', 'utf8'));
+          const highCritical = (report) => Object.entries(report.vulnerabilities || {})
+            .filter(([, value]) => ['high', 'critical'].includes(value.severity))
+            .map(([name, value]) => ({ name, severity: value.severity, fixAvailable: value.fixAvailable }));
+          const summary = {
+            nextVersion: packageJson.dependencies.next,
+            reactVersion: packageJson.dependencies.react,
+            judgmentApiPayloadBytes: body.byteLength,
+            dataPageHtmlBytes: dataPageBytes,
+            judgmentItemsReturned: json.items.length,
+            judgmentTotal: json.total,
+            caseTypeParserVersion: corpusSummary.caseTypeClassification.parserVersion,
+            caseTypeCount: caseTypes.length,
+            classifiedCaseRecords: totalCaseTypeRecords - unclassifiedRecords,
+            unclassifiedCaseRecords: unclassifiedRecords,
+            caseTypeClassificationRate: 1 - unclassifiedShare,
+            njdgPopulatedHeadlineFields: populatedSnapshotFields.length,
+            njdgRequiredHeadlineFields: requiredSnapshotFields.length,
+            njdgCoramCategories: courtClock.coramPending.length,
+            launchChecklistComplete: true,
+            productionHighCriticalAuditFindings: highCritical(productionAudit),
+            fullTreeHighCriticalAuditFindings: highCritical(fullAudit),
+          };
+          fs.writeFileSync('/tmp/verification-summary.json', JSON.stringify(summary, null, 2));
+          console.log(JSON.stringify(summary, null, 2));
+          NODE
+
+      - name: Upload verification evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: verification-evidence
+          path: |
+            /tmp/verification-summary.json
+            /tmp/build.log
+            /tmp/npm-audit-production.json
+            /tmp/npm-audit-full.json
+            /tmp/data-page.html
+            /tmp/launch-checklist.html
+            /tmp/judgments-page.json
+          retention-days: 14

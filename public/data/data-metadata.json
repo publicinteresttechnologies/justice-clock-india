@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-07-26T12:46:16.768Z",
+  "files": {
+    "bundledDataset": "/data/justice-clock-data.json",
+    "courtClock": "/data/court-clock.json",
+    "caseTypes": "/data/case-types.json",
+    "judges": "/data/judges.json",
+    "judgments": "/data/judgments.json",
+    "njdgLatest": "/data/njdg-latest.json",
+    "judgmentCorpusSummary": "/data/judgment-corpus-summary.json",
+    "delaySummary": "/data/delay-summary.json",
+    "researchIndex": "/data/research-index.json"
+  },
+  "sources": {
+    "courtSnapshot": {
+      "mode": "import",
+      "path": "data/imports/court-snapshot.json"
+    },
+    "judgments": {
+      "mode": "import",
+      "path": "data/imports/judgments.csv"
+    }
+  },
+  "counts": {
+    "judgmentRecords": 37125,
+    "caseTypes": 23,
+    "judgeProfiles": 272
+  },
+  "sample": false,
+  "publicLaunchReady": true
+}
