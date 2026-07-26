@@ -30,6 +30,7 @@ SOURCE_URL = (
     "metadata/parquet/year={year}/metadata.parquet"
 )
 SOURCE_NAME = "Indian Supreme Court Judgments public S3 metadata"
+CASE_TYPE_PARSER_VERSION = 2
 
 CSV_HEADERS = [
     "id",
@@ -143,19 +144,19 @@ def split_judges(value: str) -> list[str]:
 
 def infer_case_type(*values: str) -> str:
     text = " ".join(value for value in values if value).upper()
-    text = re.sub(r"[._/-]+", " ", text)
+    text = re.sub(r"[._/()\[\]-]+", " ", text)
     text = re.sub(r"\s+", " ", text).strip()
 
-    if re.search(r"\bCRIMINAL APPEAL", text):
+    if re.search(r"\bCRIMINAL APPEAL\b|\bCRL A\b|\bCR A\b", text):
         return "Criminal Appeal"
-    if re.search(r"\bCIVIL APPEAL", text):
+    if re.search(r"\bCIVIL APPEAL\b|\bC A\b", text):
         return "Civil Appeal"
 
     if re.search(r"SPECIAL LEAVE (?:PETITION|TO APPEAL).*(?:CRIMINAL|CRL)", text) or re.search(
         r"\bSLP\s*(?:CRL|CRIMINAL)\b", text
     ):
         return "SLP Criminal"
-    if re.search(r"SPECIAL LEAVE (?:PETITION|TO APPEAL).*(?:CIVIL|\(C\))", text) or re.search(
+    if re.search(r"SPECIAL LEAVE (?:PETITION|TO APPEAL).*(?:CIVIL|\bC\b)", text) or re.search(
         r"\bSLP\s*(?:C|CIVIL)\b", text
     ):
         return "SLP Civil"
@@ -164,45 +165,47 @@ def infer_case_type(*values: str) -> str:
     ):
         return "SLP (Unspecified)"
 
-    if "WRIT PETITION" in text:
-        if re.search(r"WRIT PETITION.*(?:CRIMINAL|CRL)", text):
+    if "WRIT PETITION" in text or re.search(r"\bW P\b", text):
+        if re.search(r"(?:WRIT PETITION|\bW P\b).*(?:CRIMINAL|CRL)", text):
             return "Writ Petition Criminal"
-        if re.search(r"WRIT PETITION.*(?:CIVIL|\bC\b)", text):
+        if re.search(r"(?:WRIT PETITION|\bW P\b).*(?:CIVIL|\bC\b)", text):
             return "Writ Petition Civil"
         return "Writ Petition"
 
-    for phrase, label in [
-        ("REVIEW PETITION", "Review Petition"),
-        ("CONTEMPT PETITION", "Contempt Petition"),
-        ("TRANSFER PETITION", "Transfer Petition"),
-        ("CURATIVE PETITION", "Curative Petition"),
-    ]:
-        if phrase in text:
-            if re.search(rf"{phrase}.*(?:CRIMINAL|CRL)", text):
+    petition_patterns = [
+        ("REVIEW PETITION", r"\bR P\b", "Review Petition"),
+        ("CONTEMPT PETITION", r"\bCONT(?:EMPT)? P(?:ET)?\b|\bCONMT PET\b", "Contempt Petition"),
+        ("TRANSFER PETITION", r"\bT P\b", "Transfer Petition"),
+        ("CURATIVE PETITION", r"\bCURATIVE PET\b", "Curative Petition"),
+    ]
+    for phrase, abbreviation, label in petition_patterns:
+        if phrase in text or re.search(abbreviation, text):
+            marker = rf"(?:{re.escape(phrase)}|{abbreviation})"
+            if re.search(marker + r".*(?:CRIMINAL|CRL)", text):
                 return f"{label} Criminal"
-            if re.search(rf"{phrase}.*(?:CIVIL|\bC\b)", text):
+            if re.search(marker + r".*(?:CIVIL|\bC\b)", text):
                 return f"{label} Civil"
             return label
 
-    if "ARBITRATION PETITION" in text:
+    if "ARBITRATION PETITION" in text or re.search(r"\bARB(?:ITRATION)? P\b", text):
         return "Arbitration Petition"
-    if "MISCELLANEOUS APPLICATION" in text:
+    if "MISCELLANEOUS APPLICATION" in text or re.search(r"\bM A\b", text):
         return "Miscellaneous Application"
-    if "INTERLOCUTORY APPLICATION" in text:
+    if "INTERLOCUTORY APPLICATION" in text or re.search(r"\bI A\b", text):
         return "Interlocutory Application"
-    if "ORIGINAL SUIT" in text or "CIVIL ORIGINAL" in text:
+    if "ORIGINAL SUIT" in text or "CIVIL ORIGINAL" in text or re.search(r"\bO S\b", text):
         return "Original Suit"
     if "ELECTION PETITION" in text:
         return "Election Petition"
     if "SPECIAL REFERENCE" in text or "PRESIDENTIAL REFERENCE" in text:
         return "Reference"
-    if "CRIMINAL MISCELLANEOUS" in text:
+    if "CRIMINAL MISCELLANEOUS" in text or re.search(r"\bCRL M P\b", text):
         return "Criminal Miscellaneous Petition"
-    if "CIVIL MISCELLANEOUS" in text:
+    if "CIVIL MISCELLANEOUS" in text or re.search(r"\bC M P\b", text):
         return "Civil Miscellaneous Petition"
-    if re.search(r"\bCRIMINAL PETITION", text):
+    if re.search(r"\bCRIMINAL PETITION\b", text):
         return "Criminal Petition"
-    if re.search(r"\bCIVIL PETITION", text):
+    if re.search(r"\bCIVIL PETITION\b", text):
         return "Civil Petition"
     if re.search(r"\bAPPEAL\b", text):
         return "Appeal (Unspecified)"
@@ -390,6 +393,7 @@ def main() -> None:
         "appCsv": str(IMPORT_CSV.relative_to(ROOT)),
         "rawRowsByYear": raw_rows_by_year,
         "caseTypeClassification": {
+            "parserVersion": CASE_TYPE_PARSER_VERSION,
             "classifiedRecords": classified_records,
             "unclassifiedRecords": unclassified_records,
             "classificationRate": round(classified_records / len(records), 6),
