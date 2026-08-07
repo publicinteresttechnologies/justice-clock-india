@@ -8,21 +8,27 @@ import type { JudgmentRecord } from "@/lib/schemas";
 
 type SortMode = "recent" | "longest-gap" | "largest-bench" | "case-title";
 
-function uniqueSorted(values: string[]) {
-  return [...new Set(values.filter(Boolean))].sort((a, b) =>
-    a.localeCompare(b),
-  );
-}
+type Facets = {
+  caseTypes: string[];
+  judges: string[];
+  benchSizes: string[];
+  years: string[];
+};
+
+const emptyFacets: Facets = { caseTypes: [], judges: [], benchSizes: [], years: [] };
 
 function displayDate(record: JudgmentRecord) {
   return record.decisionDate ?? record.judgmentDate ?? "Date unavailable";
 }
 
 export function JudgmentExplorer() {
-  const [judgments, setJudgments] = useState<JudgmentRecord[]>([]);
+  const [results, setResults] = useState<JudgmentRecord[]>([]);
+  const [total, setTotal] = useState(0);
+  const [facets, setFacets] = useState<Facets>(emptyFacets);
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">(
     "loading",
   );
+  const [queryInput, setQueryInput] = useState("");
   const [query, setQuery] = useState("");
   const [caseType, setCaseType] = useState("all");
   const [judge, setJudge] = useState("all");
@@ -31,18 +37,44 @@ export function JudgmentExplorer() {
   const [sortMode, setSortMode] = useState<SortMode>("recent");
 
   useEffect(() => {
-    let active = true;
+    const timeout = setTimeout(() => setQuery(queryInput), 300);
+    return () => clearTimeout(timeout);
+  }, [queryInput]);
 
-    fetch("/data/judgments.json")
+  useEffect(() => {
+    let active = true;
+    queueMicrotask(() => {
+      if (active) {
+        setLoadState("loading");
+      }
+    });
+
+    const params = new URLSearchParams({
+      q: query,
+      caseType,
+      judge,
+      benchSize,
+      year,
+      sort: sortMode,
+      page: "1",
+    });
+
+    fetch(`/api/judgments?${params.toString()}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error(`Unable to load judgments.json: ${response.status}`);
+          throw new Error(`Unable to load judgments: ${response.status}`);
         }
-        return response.json() as Promise<JudgmentRecord[]>;
+        return response.json() as Promise<{
+          results: JudgmentRecord[];
+          total: number;
+          facets: Facets;
+        }>;
       })
-      .then((records) => {
+      .then((payload) => {
         if (active) {
-          setJudgments(records);
+          setResults(payload.results);
+          setTotal(payload.total);
+          setFacets(payload.facets);
           setLoadState("ready");
         }
       })
@@ -55,82 +87,19 @@ export function JudgmentExplorer() {
     return () => {
       active = false;
     };
-  }, []);
+  }, [benchSize, caseType, judge, query, sortMode, year]);
 
-  const caseTypes = useMemo(
-    () => uniqueSorted(judgments.map((record) => record.caseType)),
-    [judgments],
-  );
-  const judges = useMemo(
-    () => uniqueSorted(judgments.flatMap((record) => record.judges)),
-    [judgments],
-  );
-  const benchSizes = useMemo(
-    () =>
-      uniqueSorted(
-        judgments
-          .map((record) => String(record.benchSize))
-          .filter((value) => value !== "0"),
-      ).sort((a, b) => Number(a) - Number(b)),
-    [judgments],
-  );
-  const years = useMemo(
-    () =>
-      uniqueSorted(
-        judgments
-          .map((record) => displayDate(record).slice(0, 4))
-          .filter((value) => /^\d{4}$/.test(value)),
-      ).sort((a, b) => Number(b) - Number(a)),
-    [judgments],
-  );
-
-  const filtered = useMemo(() => {
-    const cleanQuery = query.toLowerCase().trim();
-
-    return judgments
-      .filter((record) => {
-        const searchable = [
-          record.caseTitle,
-          record.caseNumber ?? "",
-          record.caseType,
-          ...record.judges,
-        ]
-          .join(" ")
-          .toLowerCase();
-
-        return (
-          (!cleanQuery || searchable.includes(cleanQuery)) &&
-          (caseType === "all" || record.caseType === caseType) &&
-          (judge === "all" || record.judges.includes(judge)) &&
-          (benchSize === "all" ||
-            (record.benchSize > 0 && String(record.benchSize) === benchSize)) &&
-          (year === "all" || displayDate(record).startsWith(year))
-        );
-      })
-      .sort((a, b) => {
-        if (sortMode === "longest-gap") {
-          return (
-            (approximateCaseAgeYears(b) ?? -1) -
-            (approximateCaseAgeYears(a) ?? -1)
-          );
-        }
-        if (sortMode === "largest-bench") {
-          return b.benchSize - a.benchSize;
-        }
-        if (sortMode === "case-title") {
-          return a.caseTitle.localeCompare(b.caseTitle);
-        }
-
-        return displayDate(b).localeCompare(displayDate(a));
-      });
-  }, [benchSize, caseType, judge, judgments, query, sortMode, year]);
+  const caseTypes = useMemo(() => facets.caseTypes, [facets]);
+  const judges = useMemo(() => facets.judges, [facets]);
+  const benchSizes = useMemo(() => facets.benchSizes, [facets]);
+  const years = useMemo(() => facets.years, [facets]);
 
   return (
     <div className="space-y-4">
       {loadState === "loading" ? (
         <DataCard title="Loading judgment records">
           <p className="text-sm leading-6 text-slate-700">
-            Loading the public judgment metadata corpus from static JSON.
+            Searching the public judgment metadata corpus.
           </p>
         </DataCard>
       ) : null}
@@ -138,7 +107,7 @@ export function JudgmentExplorer() {
       {loadState === "error" ? (
         <DataCard title="Judgment records unavailable">
           <p className="text-sm leading-6 text-slate-700">
-            The public judgment metadata JSON could not be loaded in this
+            The public judgment metadata search could not be loaded in this
             browser session.
           </p>
         </DataCard>
@@ -148,10 +117,10 @@ export function JudgmentExplorer() {
         <span className="text-sm font-medium text-slate-700">Search</span>
         <input
           className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-950 outline-none focus:border-amber-700"
-          onChange={(event) => setQuery(event.target.value)}
+          onChange={(event) => setQueryInput(event.target.value)}
           placeholder="Case title, judge name, or case type"
           type="search"
-          value={query}
+          value={queryInput}
         />
       </label>
 
@@ -202,11 +171,11 @@ export function JudgmentExplorer() {
       </SelectField>
 
       <p className="text-sm font-medium text-slate-600">
-        Showing {filtered.length} of {judgments.length} judgment records
+        Showing {results.length} of {total} judgment records
       </p>
 
       <div className="space-y-3">
-        {filtered.slice(0, 25).map((record) => (
+        {results.map((record) => (
           <DataCard
             key={record.id}
             subtitle={`${record.caseType} - ${displayDate(record)}`}
