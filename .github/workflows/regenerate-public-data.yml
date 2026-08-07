@@ -1,11 +1,6 @@
 name: Regenerate public data
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/regenerate-public-data.yml
   workflow_dispatch:
 
 permissions:
@@ -28,8 +23,22 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Record current corpus size
+        id: before
+        run: echo "count=$(($(wc -l < data/imports/judgments.csv) - 1))" >> "$GITHUB_OUTPUT"
+
       - name: Restore IMLJD Supreme Court judgment import
         run: npm run import:imljd
+
+      - name: Refuse to shrink the committed judgment corpus
+        run: |
+          before=${{ steps.before.outputs.count }}
+          after=$(($(wc -l < data/imports/judgments.csv) - 1))
+          echo "Committed corpus: $before records. IMLJD import: $after records."
+          if [ "$after" -lt "$before" ]; then
+            echo "::error::IMLJD import ($after records) is smaller than the currently committed corpus ($before records). Refusing to overwrite data/imports/judgments.csv. If you intend to replace the corpus with a smaller, differently-scoped dataset, do it in a reviewed pull request instead of this workflow."
+            exit 1
+          fi
 
       - name: Generate public data and build
         run: |
