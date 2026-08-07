@@ -127,7 +127,7 @@ def infer_case_type(*values: str) -> str:
         return "SLP Criminal"
     if "SLP" in text:
         return "SLP Civil"
-    if "WRIT" in text:
+    if re.search(r"\bWRIT\b", text):
         return "Writ Petition"
     return "Unclassified"
 

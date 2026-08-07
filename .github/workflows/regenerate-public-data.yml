@@ -29,57 +29,7 @@ jobs:
         run: npm install
 
       - name: Restore IMLJD Supreme Court judgment import
-        shell: bash
-        run: |
-          node <<'NODE'
-          (async () => {
-            const fs = require('fs');
-            const path = require('path');
-            const https = require('https');
-            const sourceJsonUrl = 'https://justice-clock-india.vercel.app/data/judgments.json';
-            const outPath = path.join('data', 'imports', 'judgments.csv');
-            const headers = ['id','caseTitle','caseNumber','diaryNumber','diaryYear','caseType','caseYear','decisionDate','judgmentDate','uploadDate','disposalNature','judges','authoringJudge','benchSize','subjectTags','sourceName','sourceUrl','confidence','sample'];
-            function download(url) {
-              return new Promise((resolve, reject) => {
-                const request = https.get(url, { headers: { 'User-Agent': 'justice-clock-india-data-import' } }, (response) => {
-                  if ((response.statusCode || 0) >= 400) {
-                    response.resume();
-                    reject(new Error(`Download failed ${response.statusCode} for ${url}`));
-                    return;
-                  }
-                  const chunks = [];
-                  response.on('data', (chunk) => chunks.push(chunk));
-                  response.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
-                });
-                request.on('error', reject);
-                request.setTimeout(120000, () => request.destroy(new Error(`Timed out downloading ${url}`)));
-              });
-            }
-            function csvEscape(value) {
-              const text = value == null ? '' : String(value);
-              return /[",\r\n]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
-            }
-            const records = JSON.parse(await download(sourceJsonUrl));
-            if (!Array.isArray(records)) throw new Error('Expected judgments JSON array');
-            const normalized = records
-              .filter((record) => record && record.sourceName === 'IMLJD open dataset' && record.sample === false)
-              .map((record) => ({
-                ...record,
-                judges: Array.isArray(record.judges) ? record.judges.join('; ') : record.judges,
-                subjectTags: Array.isArray(record.subjectTags) ? record.subjectTags.join('; ') : record.subjectTags,
-                benchSize: Number(record.benchSize) > 0 ? record.benchSize : '',
-                sample: 'false',
-              }));
-            if (normalized.length < 1000) throw new Error(`Expected at least 1000 imported IMLJD records, got ${normalized.length}`);
-            fs.mkdirSync(path.dirname(outPath), { recursive: true });
-            const csv = [headers.join(','), ...normalized.map((record) => headers.map((header) => csvEscape(record[header])).join(','))].join('\n') + '\n';
-            fs.writeFileSync(outPath, csv);
-            console.log(`Wrote ${normalized.length} IMLJD Supreme Court records to ${outPath}`);
-          })().catch((error) => {
-            console.error(error);
-            process.exit(1);
-          });
-          NODE
+        run: npm run import:imljd
 
       - name: Generate public data and build
         run: |
