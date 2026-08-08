@@ -5,7 +5,7 @@
     "proves": "Court snapshot fields for pendency, institution, disposal, old-case disposal, and bench-size distribution.",
     "doesNotProve": "Individual case timelines, legal outcomes, or responsibility for delay.",
     "confidence": "medium-high",
-    "lastUpdated": "2026-08-07T23:49:21.000Z"
+    "lastUpdated": "2026-08-08T01:26:55.476Z"
   },
   {
     "sourceName": "Indian Supreme Court Judgments public S3 metadata (37125 records)",

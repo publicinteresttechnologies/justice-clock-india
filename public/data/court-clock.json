@@ -1,13 +1,13 @@
 {
   "sourceName": "National Judicial Data Grid - Supreme Court of India dashboard",
   "sourceUrl": "https://njdg.ecourts.gov.in/scnjdg/",
-  "capturedAt": "2026-08-07T23:49:21.000Z",
-  "reportingPeriod": "As captured from NJDG Supreme Court dashboard on 2026-08-07",
-  "totalPending": 95336,
-  "civilPending": 73827,
-  "criminalPending": 21509,
+  "capturedAt": "2026-08-08T01:26:55.476Z",
+  "reportingPeriod": "As captured from NJDG Supreme Court dashboard on 2026-08-08",
+  "totalPending": 95178,
+  "civilPending": 73713,
+  "criminalPending": 21465,
   "institutedThisMonth": 7440,
-  "disposedThisMonth": 6345,
+  "disposedThisMonth": 6356,
   "oldCasesDisposedThisMonth": null,
   "coramPending": [
     {
@@ -37,13 +37,12 @@
   ],
   "confidence": "medium-high",
   "notes": [
-    "Supreme Court of India pendency, monthly institution/disposal, and coram-wise pending figures captured directly from the National Judicial Data Grid Supreme Court dashboard 'At a Glance' view (njdg.ecourts.gov.in/scnjdg/, which redirects to scdg.sci.gov.in/scnjdg/).",
-    "civilPending + criminalPending = totalPending (73827 + 21509 = 95336), consistent with the source.",
-    "institutedThisMonth and disposedThisMonth are the source's 'last month' figures (civil + criminal combined: instituted 5038+2402=7440, disposed 4165+2180=6345); the source does not label which calendar month this covers.",
-    "coramPending covers only 3-judge-and-larger benches, which is what the source's 'Coram wise pending cases' widget publishes; it excludes connected/tagged matters (shown separately in parentheses on the source) and does not include single-judge or 2-judge (division bench) pending counts, which make up the large majority of the docket but are not broken out by the source in this view. Do not treat these figures as a complete bench-size distribution.",
-    "oldCasesDisposedThisMonth is not published by the source as a monthly figure and is not estimated. The source does publish an all-time disposal-time distribution (e.g. share of disposed cases resolved within 1 year vs. over 10-20+ years) that is not the same metric and was not captured here."
+    "Supreme Court of India pendency and monthly institution/disposal figures captured automatically from the National Judicial Data Grid Supreme Court dashboard 'At a Glance' view (https://njdg.ecourts.gov.in/scnjdg/, which redirects to scdg.sci.gov.in/scnjdg/) via a scheduled fetch. Civil/criminal split, institution, and disposal figures are read directly from labelled HTML elements on the source page and cross-checked (civil + criminal = total) before being accepted.",
+    "institutedThisMonth and disposedThisMonth are the source's 'last month' figures (civil + criminal combined: instituted 5038+2402=7440, disposed 4172+2184=6356); the source does not label which calendar month this covers.",
+    "coramPending (bench-size pending) is carried over from the last manual capture and is not refreshed by this automated fetch; it covers only 3-judge-and-larger benches and excludes connected/tagged matters and single/2-judge pending counts. Do not treat it as a complete bench-size distribution.",
+    "oldCasesDisposedThisMonth is not published by the source as a monthly figure and is not estimated."
   ],
   "isSampleData": false,
   "sample": false,
-  "clearanceRate": 85.28225806451613
+  "clearanceRate": 85.43010752688171
 }
