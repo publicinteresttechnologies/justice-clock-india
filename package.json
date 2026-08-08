@@ -13,6 +13,7 @@
     "import:imljd": "tsx scripts/import-imljd.ts",
     "import:sc-metadata": "python scripts/import-sc-metadata.py",
     "import:njdg": "tsx scripts/import-njdg-snapshot.ts",
+    "fetch:njdg": "tsx scripts/fetch-njdg-snapshot.ts",
     "import:supreme-court-sources": "tsx scripts/import-supreme-court-sources.ts",
     "import:sources": "tsx scripts/import-supreme-court-sources.ts",
     "research:delay": "tsx scripts/compute-delay-estimates.ts",

@@ -206,9 +206,17 @@ If an import file exists but is malformed, validation fails loudly. The app only
 
 ## Scheduled Refresh
 
-The repository includes a scheduled GitHub Actions workflow at `.github/workflows/data-refresh.yml`.
+The repository includes one scheduled GitHub Actions workflow, `.github/workflows/njdg-refresh.yml`. It runs daily (and can also be started manually from GitHub Actions), fetches the current National Judicial Data Grid Supreme Court "At a Glance" pendency figures directly from `njdg.ecourts.gov.in/scnjdg/`, validates them (parsed values must be non-negative integers and civil + criminal must equal the published total, or the run fails without committing), regenerates the public data pipeline, and commits the refreshed snapshot if it changed.
 
-It runs the validated data pipeline and production build on a cron schedule and can also be started manually from GitHub Actions. The workflow does not scrape or create source records by itself; it refreshes the generated public JSON files from committed/imported data sources.
+```bash
+npm run fetch:njdg
+```
+
+runs the same fetch locally, writing `data/imports/court-snapshot.json`.
+
+The bench-size (coram) breakdown in the court snapshot is not refreshed by this workflow; it stays at its last manually captured value, since the source publishes that figure behind a session-token-protected endpoint. `oldCasesDisposedThisMonth` is not published by the source as a monthly figure and is never estimated.
+
+Other workflows (`regenerate-public-data.yml`, `import-sc-judgments.yml`) are manual (`workflow_dispatch`) only; they do not run on a schedule and do not run automatically on push.
 
 ## Generated Files
 
